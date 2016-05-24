@@ -22,8 +22,8 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/common/css/main.css">
-<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/dist/css/bootstrap.min.css">
+ 
 </head>
 <body id="body_html" class="font-dotum">
 	<!-- top -->
