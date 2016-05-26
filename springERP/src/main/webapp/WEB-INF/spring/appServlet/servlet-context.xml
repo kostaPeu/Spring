@@ -9,8 +9,7 @@
 
 	<annotation-driven />
 
-	<context:component-scan base-package="springERP.notice.web" />
-	<context:component-scan base-package="springERP.notice.controller" />
+	<context:component-scan base-package="erp.gw.notice.controller" />
 	
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>

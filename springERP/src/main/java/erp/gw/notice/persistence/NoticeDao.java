@@ -1,5 +1,5 @@
 package erp.gw.notice.persistence;
 
-public class Dao {
+public class NoticeDao {
 
 }
