@@ -1,4 +1,4 @@
-package springERP.gw.controller;
+package erp.gw.controller;
 
 public class Controller {
 
