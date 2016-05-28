@@ -16,13 +16,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>POWER ERP</title>
 
-<script src="resources/common/js/main.js" type="text/javascript"></script>
+<!-- Script -->
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
 
+<!-- Custom Script -->
+<script src="resources/common/js/common.js" type="text/javascript"></script>
+
+<!-- Style -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="resources/common/css/main.css">
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/dist/css/bootstrap.min.css">
+
+<!-- Custom Style -->
+<link rel="stylesheet" href="resources/common/css/common.css">
  
 </head>
 <body id="body_html" class="font-dotum">
@@ -35,7 +41,7 @@
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam">
-				<a id = "a-in-spam" href="./main.jsp?left=./mypage/view/mypage.jsp"></a>님 환영합니다.
+				<a id ="a-in-spam" href="./main.jsp?left=./mypage/view/mypage.jsp"></a>님 환영합니다.
 				<a href="logoutAction.gw" class="btn btn-default">로그아웃</a>
 			</span>
 		</div>
