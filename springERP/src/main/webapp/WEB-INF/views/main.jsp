@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
+<%-- <%
 	String left = request.getParameter("left");
 	String contents = request.getParameter("contents");
 	if(left == null){
@@ -9,7 +9,7 @@
 	if(contents == null){
 		contents = "";
 	}
-%>
+%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -52,24 +52,26 @@
 	<!-- topMenuBar start-->
 	<div id="Top-Menu" class="erp-global-nav">
 		<ul>
-			<li class=""><a href="./main.jsp?left=./basic/view/basic.jsp">기초관리</a>
-			<li class=""><a	href="./main.jsp?left=./purchase/view/purchase.jsp">구매관리</a></li>
-			<li class=""><a	href="./main.jsp?left=./sale/view/sale.jsp">판매관리</a></li>
-			<li class=""><a	href="./main.jsp?left=./odm/view/odm.jsp">주문/배송관리</a></li>
-			<li class=""><a	href="./main.jsp?left=./stock/view/stock.jsp">재고관리</a></li>
-			<li class=""><a	href="./main.jsp?left=./accounting/view/Accounleft.jsp">회계관리</a></li>
-			<li class=""><a href="./main.jsp?left=./hr/view/hr_side.jsp">인사관리</a></li>
-			<li class=""><a href="./main.jsp?left=./groupware/view/groupware.jsp">그룹웨어</a></li>
-			<li class=""><a href="./main.jsp?left=./mypage/view/mypage.jsp">마이페이지</a></li>
+			<li class=""><a href="/?left=basic/basic.jsp">기초관리</a>
+			<li class=""><a	href="/?left=purchase/purchase.jsp">구매관리</a></li>
+			<li class=""><a	href="/?left=sale/sale.jsp">판매관리</a></li>
+			<li class=""><a	href="/?left=odm/odm.jsp">주문/배송관리</a></li>
+			<li class=""><a	href="/?left=stock/stock.jsp">재고관리</a></li>
+			<li class=""><a	href="/?left=accounting/Accounleft.jsp">회계관리</a></li>
+			<li class=""><a href="/?left=hr/hr_side.jsp">인사관리</a></li>
+			<li class=""><a href="/?left=groupware/groupware.jsp">그룹웨어</a></li>
+			<li class=""><a href="/?left=mypage/mypage.jsp">마이페이지</a></li>
 		</ul>
 	</div>
 	<!-- topMenuBar end -->
 	<div id="Left_Menu" class="show erp-local-nav">
-		<jsp:include page="<%=left%>"></jsp:include>
+		<%-- <jsp:include page="<%=left%>"></jsp:include> --%>
+		<jsp:include page="${left }"></jsp:include>
 	</div>
 
 	<div class="container" id="contents">
-		<jsp:include page="<%=contents%>"></jsp:include>
+		<%-- <jsp:include page="<%=contents%>"></jsp:include> --%>
+		<jsp:include page="${contents }"></jsp:include>
 	</div>
 </body>
 </html>
