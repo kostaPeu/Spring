@@ -10,6 +10,7 @@
 		contents = "";
 	}
 %>
+<%-- <%@include file="../include/header.jsp"%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -58,7 +59,7 @@
 			<li class=""><a	href="./main.jsp?left=./odm/view/odm.jsp">주문/배송관리</a></li>
 			<li class=""><a	href="./main.jsp?left=./stock/view/stock.jsp">재고관리</a></li>
 			<li class=""><a	href="./main.jsp?left=./accounting/view/Accounleft.jsp">회계관리</a></li>
-			<li class=""><a href="./main.jsp?left=./hr/view/hr_side.jsp">인사관리</a></li>
+			<li class=""><a href="./main.jsp?left=/hr/hr_side.jsp">인사관리</a></li>
 			<li class=""><a href="./main.jsp?left=./groupware/view/groupware.jsp">그룹웨어</a></li>
 			<li class=""><a href="./main.jsp?left=./mypage/view/mypage.jsp">마이페이지</a></li>
 		</ul>
