@@ -64,12 +64,12 @@
 		</ul>
 	</div>
 	<!-- topMenuBar end -->
-	<%-- <div id="Left_Menu" class="show erp-local-nav">
+	<div id="Left_Menu" class="show erp-local-nav">
 		<jsp:include page="<%=left%>"></jsp:include>
 	</div>
 
 	<div class="container" id="contents">
 		<jsp:include page="<%=contents%>"></jsp:include>
-	</div> --%>
+	</div>
 </body>
 </html>
