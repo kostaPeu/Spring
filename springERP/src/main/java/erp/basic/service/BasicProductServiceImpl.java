@@ -35,7 +35,7 @@ public class BasicProductServiceImpl implements BasicProductService{
 	/*품목 목록 + 페이징 - MJ*/
 	@Override
 	public ListModelProduct productList(int page) throws Exception {
-		int requestPage = 0;
+		int requestPage = page;
 
 		int totalCount = dao.totalCountProduct();
 		int totalPageCount = totalCount/PAGE_SIZE;

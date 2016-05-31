@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,15 +7,15 @@
 <title>POWER ERP</title>
 
 <!-- Script -->
-<script src="/resources/common/js/jquery.min.js"></script>
-<script src="/resources/common/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
 
 <!-- Custom Script -->
 <script src="/resources/common/js/common.js" type="text/javascript"></script>
 
 <!-- Style -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/resources/common/css/bootstrap.min.css">
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/dist/css/bootstrap.min.css">
 
 <!-- Custom Style -->
 <link rel="stylesheet" href="/resources/common/css/common.css">
@@ -27,7 +27,7 @@
 	<!-- logo start -->
 	<div class="erp-global-nav-qm">
 		<div class="qm-company-logo col-sm-2" >
-			<a href="main.jsp"></a>
+			<a href="/main"><span>hoho</span></a>
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam">
@@ -40,19 +40,7 @@
 	<!--logo end-->
 		
 	<!-- topMenuBar start-->
-	<!-- <div id="Top-Menu" class="erp-global-nav">
-		<ul>
-			<li class=""><a href="/?left=basic/basic.jsp">기초관리</a>
-			<li class=""><a	href="/?left=purchase/purchase.jsp">구매관리</a></li>
-			<li class=""><a	href="/?left=sale/sale.jsp">판매관리</a></li>
-			<li class=""><a	href="/?left=odm/odm.jsp">주문/배송관리</a></li>
-			<li class=""><a	href="/?left=stock/stock.jsp">재고관리</a></li>
-			<li class=""><a	href="/?left=accounting/Accounleft.jsp">회계관리</a></li>
-			<li class=""><a href="/?left=hr/hr_side.jsp">인사관리</a></li>
-			<li class=""><a href="/?left=groupware/groupware.jsp">그룹웨어</a></li>
-			<li class=""><a href="/?left=mypage/mypage.jsp">마이페이지</a></li>
-		</ul>
-	</div> -->
+	
 	<div id="Top-Menu" class="erp-global-nav">
 		<ul>
 			<li class=""><a href="/basic">기초관리</a>

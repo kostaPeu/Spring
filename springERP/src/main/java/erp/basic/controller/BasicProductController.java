@@ -13,7 +13,7 @@ import erp.basic.domain.Product;
 import erp.basic.service.BasicProductService;
 
 @Controller
-@RequestMapping("/basic/product/*")
+@RequestMapping("/basic/product")
 public class BasicProductController {
 	
 	@Inject
