@@ -1,9 +1,9 @@
-package erp.basic.domain;
+package erp.basic.controller;
 
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class AAAA {
+public class BasicProductController {
 	
 
 }
