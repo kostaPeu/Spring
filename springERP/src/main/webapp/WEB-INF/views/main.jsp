@@ -11,14 +11,14 @@
 <script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
 
 <!-- Custom Script -->
-<script src="resources/common/js/common.js" type="text/javascript"></script>
+<script src="../resources/common/js/common.js" type="text/javascript"></script>
 
 <!-- Style -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/dist/css/bootstrap.min.css">
 
 <!-- Custom Style -->
-<link rel="stylesheet" href="resources/common/css/common.css">
+<link rel="stylesheet" href="../resources/common/css/common.css">
  
 </head>
 <body id="body_html" class="font-dotum">
@@ -40,7 +40,7 @@
 	<!--logo end-->
 		
 	<!-- topMenuBar start-->
-	<div id="Top-Menu" class="erp-global-nav">
+	<!-- <div id="Top-Menu" class="erp-global-nav">
 		<ul>
 			<li class=""><a href="/?left=basic/basic.jsp">기초관리</a>
 			<li class=""><a	href="/?left=purchase/purchase.jsp">구매관리</a></li>
@@ -52,15 +52,26 @@
 			<li class=""><a href="/?left=groupware/groupware.jsp">그룹웨어</a></li>
 			<li class=""><a href="/?left=mypage/mypage.jsp">마이페이지</a></li>
 		</ul>
+	</div> -->
+	<div id="Top-Menu" class="erp-global-nav">
+		<ul>
+			<li class=""><a href="/basic">기초관리</a>
+			<li class=""><a	href="/purchase">구매관리</a></li>
+			<li class=""><a	href="/sale">판매관리</a></li>
+			<li class=""><a	href="/odm">주문/배송관리</a></li>
+			<li class=""><a	href="/stock">재고관리</a></li>
+			<li class=""><a	href="/accounting">회계관리</a></li>
+			<li class=""><a href="/hr">인사관리</a></li>
+			<li class=""><a href="/groupware">그룹웨어</a></li>
+			<li class=""><a href="/mypage">마이페이지</a></li>
+		</ul>
 	</div>
 	<!-- topMenuBar end -->
 	<div id="Left_Menu" class="show erp-local-nav">
-		<%-- <jsp:include page="<%=left%>"></jsp:include> --%>
 		<jsp:include page="${left }"></jsp:include>
 	</div>
 
-	<div class="container" id="contents">
-		<%-- <jsp:include page="<%=contents%>"></jsp:include> --%>
+	<div id="contents" class="container">
 		<jsp:include page="${contents }"></jsp:include>
 	</div>
 </body>
