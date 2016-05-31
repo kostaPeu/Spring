@@ -6,7 +6,7 @@
 <configuration>
 	
   <typeAliases>
-    <package name="springERP.notice.domain"/>    
+    <package name="erp.basic.domain"/>    
   </typeAliases>
   
 </configuration>
