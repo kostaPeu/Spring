@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Custom CSS -->
-<script src="./groupware/js/gw_js.js"></script>
+<script src="./resources/common/js/common.js"></script>
 </head>
 <body>
 		<div class="erp-local-nav-title">그룹웨어</div>
@@ -13,28 +13,28 @@
 			<ul class="local">
 				<li><a href="noticeListAction.gw">공지사항</a></li>
 				
-				<li><a data-toggle="collapse" href="./groupware/view/depboard/dep_board_list.jsp #dep_board">부서게시판</a>
-					<ul id="dep_board" class="collapse">
-						<li><a href="./groupware/view/depboard/dep_board_list.jsp">부서 게시판</a></li>
-						<li><a href="depFileListAction.gw">공유 폴더</a></li>
-						<li><a id="gw_cal" href="./groupware/view/depboard/dep_calendar.jsp">부서 일정</a></li> 
+				<li><a data-toggle="collapse" href="/groupware/dept_board/dept_board_list #dept_board">부서게시판</a>
+					<ul id="dept_board" class="collapse">
+						<li><a href="/groupware/dept_board/dept_board_list">부서 게시판</a></li>
+						<li><a href="deptFileListAction.gw">공유 폴더</a></li>
+						<li><a id="gw_cal" href="/groupware/dept_board/dept_calendar">부서 일정</a></li> 
 					</ul>
 				</li>
 				
-				<li><a data-toggle="collapse" href="./groupware/view/sign/sign_alldraft_list.jsp #dep_sign">전자결재</a>
-					<ul id="dep_sign" class="collapse">
-						<li><a href="./groupware/view/sign/sign_writedraft_write.jsp">기안서 작성</a></li>
-						<li><a href="./groupware/view/sign/sign_mydraft_list.jsp">내 결재 관리</a></li>
-						<li><a href="./groupware/view/sign/sign_alldraft_list.jsp">기안서 통합 관리</a></li>
-						<li><a href="./groupware/view/sign/sign_draftformat_list.jsp">공통 양식 관리</a></li>
+				<li><a data-toggle="collapse" href="/groupware/sign/all_draft_list #dept_sign">전자결재</a>
+					<ul id="dept_sign" class="collapse">
+						<li><a href="/groupware/sign/write_draft_write">기안서 작성</a></li>
+						<li><a href="/groupware/sign/my_draft_list">내 결재 관리</a></li>
+						<li><a href="/groupware/sign/all_draft_list">기안서 통합 관리</a></li>
+						<li><a href="/groupware/sign/draft_format_list">공통 양식 관리</a></li>
 					</ul>
 				</li>
 				
-				<li><a href="./main.jsp?left=./groupware/view/groupware.jsp&contents=./groupware/view/imageboard/imageboard_list.jsp">이미지게시판</a></li>
-				<li><a data-toggle="collapse" href="./groupware/view/projectboard/pb_allproject_list.jsp #dep_project">프로젝트게시판</a>
-	               <ul id="dep_project" class="collapse">
-	                  <li><a href="./groupware/view/projectboard/pb_allproject_list.jsp">전체 프로젝트</a></li>
-	                  <li><a href="./groupware/view/projectboard/pb_myproject_list.jsp">내 프로젝트</a></li>
+				<li><a href="/?left=/groupware/groupware.jsp&contents=/groupware/image_board/image_board_list.jsp">이미지게시판</a></li>
+				<li><a data-toggle="collapse" href="/groupware/project_board/all_project_list #dept_project">프로젝트게시판</a>
+	               <ul id="dept_project" class="collapse">
+	                  <li><a href="/groupware/project_board/all_project_list">전체 프로젝트</a></li>
+	                  <li><a href="/groupware/project_board/my_project_list">내 프로젝트</a></li>
 	               </ul>
           		</li>
 			</ul>

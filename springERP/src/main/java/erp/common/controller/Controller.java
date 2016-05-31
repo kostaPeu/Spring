@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
-
 	
 	@RequestMapping("/")
 	public String mainTest(@RequestParam(value="left", defaultValue="basic/basic.jsp") String left, @RequestParam(value="contents", defaultValue="") String contents, Model model){
