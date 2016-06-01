@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="springERP.purchase.mapper.purchaseMapper">
+ 	<insert id="insertPurchase" parameterType="PurchaseVO">
+		insert into buy(
+			buy_id,	customer_id, product_id, buy_date, warehouse_id, pay_type,
+			buy_price,	buy_amount, emp_id
+		)values(
+			#{buy_id},	#{customer_id}, #{product_id}, SYSDATE, #{warehouse_id},
+			#{pay_type}, #{buy_price}, #{buy_amount}, #{emp_id}
+		)
+	</insert>
+	<select id="purchaseList" resultType="PurchaseListView">
+		select p.buy_id, c.customer_name, pro.product_name, p.buy_date,
+			w.warehouse_name, p.pay_type, p.buy_price, p.buy_amount
+			from buy p, customer c, product pro, warehouse w
+			where p.customer_id = c.customer_id and
+				p.product_id = pro.product_id and
+				p.warehouse_id = w.warehouse_id	
+	</select>
+	<delete id="deletePurchase">
+		delete from buy where buy_id = #{buy_id}
+	</delete>
+	<select id="customerList" resultType="Customer" parameterType="String">
+		select * from customer 
+		<!-- <if test="value != null">
+			where customer_id LIKE #{value}
+		</if> -->
+	</select>
+	<!--
+	<select id="productList" resultType="GetProduct">
+		select * from product
+			order by product_id
+	</select>
+	<select id="warehouseList" resultType="GetWareHouse">
+		select * from warehouse
+			order by warehouse_id
+	</select>
+	<update id="updateStockAmount" parameterType="Purchase">
+		update stock set stock_amount = stock_amount + #{buy_amount}
+			where product_id = #{product_id}
+	</update>
+	<select id="searchPurchase" resultType="PurchaseSearch">
+		select b.buy_id, p.product_name, c.customer_name 
+			from buy b, product p, customer c
+			where b.product_id = p.product_id and
+				b.customer_id = c.customer_id
+	</select>
+	<select id="searchPurchaseList" parameterType="PurchaseSearchList" resultType="PurchaseListView">
+	
+		select p.buy_id, c.customer_name, pro.product_name, p.buy_date,
+			w.warehouse_name, p.pay_type, p.buy_price, p.buy_amount
+			from buy p, customer c, product pro, warehouse w
+			where p.customer_id = c.customer_id 
+				and p.product_id = pro.product_id
+				and p.warehouse_id = w.warehouse_id
+				<if test="start_date != ''">
+					and p.buy_date BETWEEN #{start_date} AND #{end_date}
+				</if>
+				<if test="customer_id != ''">
+					and p.customer_id = #{customer_id}
+				</if>
+				<if test="product_id != ''">
+					and p.product_id = #{product_id}
+				</if>
+				<if test="warehouse_id != ''">
+					and p.warehouse_id = #{warehouse_id}
+				</if>	
+	</select> -->
+</mapper>
