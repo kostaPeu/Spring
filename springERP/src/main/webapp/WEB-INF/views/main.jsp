@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -10,7 +11,28 @@
 		contents = "";
 	}
 %>
+=======
+<%@page import="erp.hr.domain.EmployeeVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!-- spring security -->
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder"%>
+<%@ page import="org.springframework.security.core.Authentication" %>
+<%@ page import="erp.hr.domain.EmployeeVO" %>
+
+<%
+Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+Object principal = auth.getPrincipal();
+String name="";
+if(principal != null && principal instanceof EmployeeVO){
+	name = ((EmployeeVO)principal).getE_name();
+}
+%>
+
+>>>>>>> branch 'master' of https://github.com/kostaPeu/Spring.git
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,7 +51,6 @@
 
 <!-- Custom Style -->
 <link rel="stylesheet" href="/resources/common/css/common.css">
- 
 </head>
 <body id="body_html" class="font-dotum">
 	<!-- top -->
@@ -41,7 +62,7 @@
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam">
-				<a id ="a-in-spam" href="./main.jsp?left=./mypage/view/mypage.jsp"></a>님 환영합니다.
+				<a id ="a-in-spam" href="./main.jsp?left=./mypage/view/mypage.jsp"></a><%= name %>님 환영합니다.
 				<a href="logoutAction.gw" class="btn btn-default">로그아웃</a>
 			</span>
 		</div>
