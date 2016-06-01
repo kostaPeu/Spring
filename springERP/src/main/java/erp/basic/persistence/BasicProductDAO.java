@@ -23,4 +23,6 @@ public interface BasicProductDAO {
 
 	public void productDelete(String product_id) throws Exception;
 
+	public List<Product> productCodeJson(String word) throws Exception;
+
 }

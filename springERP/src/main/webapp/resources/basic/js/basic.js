@@ -55,24 +55,30 @@ $(function(){
 	$('#idCheck').on('click',function() {
 		var productVal = $('#ptext').val();
 		$('#search_product').val(productVal);
-		var searchKey = $('#search_product').val();
+		
 		$('#search_id').on('click',function(){
+			var searchKey = $('#search_product').val();
+			
 	  		$.ajax({
-				url : "productCodeJson.ba?searchKey="+searchKey,
+				url : "/basic/product/codeJson?searchKey="+searchKey,
 				type : "post",
 				dataType : "json",
 				success : function(data) {
 					var html = "<tr><th>품목코드</th><th>품목명</th></tr>";
 					$('#searchTable').empty();
 					$.each(data, function(index, list) {
+						$('#useBtn').removeAttr('disabled');
+						if(list.product_id == searchKey){
+							$('#useBtn').attr('disabled','disabled');
+						}
 						html += "<tr><td>" + list.product_id + "</td><td>" + list.product_name + "</td></tr>";
 				});
 					if(html == "<tr><th>품목코드</th><th>품목명</th></tr>"){
 						html += "<tr><td colspan='2'> 해당코드는 사용가능합니다.</td></tr>";
+						$('#useBtn').removeAttr('disabled');
 						$('#useBtn').on('click',function(){
-							var searchKey = $('#search_product').val();
+							var searchKey = $('#search_product').val();	
 							$('#ptext').val(searchKey);
-							$('#search_product').val("");
 							$('#myModal').modal('hide');
 						});
 					}; 

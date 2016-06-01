@@ -1,6 +1,8 @@
 package erp.basic.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -38,7 +40,12 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 
 	@Override
 	public List<ProductList> productList(int startRow) throws Exception{
-		return session.selectList(namespace+".productList", new RowBounds(startRow,5));
+
+		Map<String, Integer> page = new HashMap<String, Integer>();
+		page.put("start", startRow+1);
+		page.put("end", startRow+2);
+
+		return session.selectList(namespace+".productList", page);
 	}
 
 	@Override
@@ -54,6 +61,11 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	@Override
 	public void productDelete(String product_id) throws Exception {
 		session.delete(namespace+".productDelete", product_id);
+	}
+
+	@Override
+	public List<Product> productCodeJson(String word) throws Exception {
+		return session.selectList(namespace+".productCodeJson",word);
 	}
 
 }
