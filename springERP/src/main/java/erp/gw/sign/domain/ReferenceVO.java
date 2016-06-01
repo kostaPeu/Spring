@@ -1,4 +1,4 @@
-package erp.gw.projectboard.domain;
+package erp.gw.sign.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProjectTeamVO {
-	@Getter @Setter private int proj_id;
+public class ReferenceVO {
+	@Getter @Setter private int draft_id;
 	@Getter @Setter private String emp_id;
-	@Getter @Setter private String dept_id;
-	@Getter @Setter private int proj_role;
 }
