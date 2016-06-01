@@ -1,5 +1,7 @@
 package erp.acc.basic.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,22 +17,32 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	
 	private static String namespace = "erp.basic.mapper.BasicAccountMapper";
 	
+	//계좌추가 - JH
 	@Override
 	public void accountInsert(Accounts accounts) throws Exception {
 		session.insert(namespace+".accountInsert", accounts);
 
 	}
 
+	//계좌내용 수정 -JH
 	@Override
 	public void accountUpdate(Accounts accounts) throws Exception {
 		session.update(namespace+".accountUpdate", accounts);
 
 	}
 
+	//계좌삭제 - JH
 	@Override
-	public void accountDelete(Accounts accounts) throws Exception {
-		session.delete(namespace+".accountDelete", accounts);
-		
+	public void accountDelete(String account_number) throws Exception {
+		session.delete(namespace+".accountDelete", account_number);
 	}
+
+	//계좌리스트 - JH
+	@Override
+	public List<Accounts> accountList() throws Exception {
+		return ;
+	}
+
+	
 
 }

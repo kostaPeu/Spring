@@ -22,10 +22,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="accountUpdate" parameterType="Accounts">
 		update Accounts set ACCOUNT_NUMBER = #{account_number}, ACCOUNT_NAME = #{account_name}, DIAGNOSIS_NUMBER = #{diagnosis_number},
 			ACCOUNT_DETAIL = #{account_detail}, REMARKS = #{remarks}, USE = #{use}
-				where product_id = #{product_id}
+				where ACCOUNT_NUMBER = #{account_number}
 	</update>
 	
 	<delete id="accountDelete" parameterType="String">
-		delete from product where product_id = #{product_id}
+		delete from Accounts where ACCOUNT_NUMBER = #{account_number}
 	</delete>
 </mapper>
