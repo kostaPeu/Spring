@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="springERP.sale.mapper.saleMapper">
+	<insert id="insertSale" parameterType="SaleVO">
+		insert into sell(
+			sell_id, customer_id, product_id, sell_date, warehouse_id, pay_type,sell_price, sell_amount
+		)		
+		values(
+			#{sell_id},#{customer_id},#{product_id},SYSDATE,#{warehouse_id},#{pay_type},#{sell_price},#{sell_amount}
+		)
+	</insert>
+	<select id="saleList" resultType="SaleListView">
+		select s.sell_id, c.customer_name, p.product_name, s.sell_date, 
+			w.warehouse_name, s.pay_type, s.sell_price, s.sell_amount from sell s, customer c, product p, warehouse w
+				where s.customer_id = c.customer_id and
+					s.product_id = p.product_id and
+					s.warehouse_id = w.warehouse_id
+	</select>
+	<delete id="deleteSale">
+		delete from sell
+			where sell_id = #{sell_id}
+	</delete>
+	<update id="updateSale">
+		update sell set pay_type = #{pay_type}, sell_price = #{sell_price}, sell_amount = #{sell_amount}
+			where sell_id = #{sell_id}
+	</update>
+	<!-- 
+	<select id="cBuyList" resultType="Company_buyList">
+		select s.cbuy_id, c.customer_name, p.product_name, s.cbuy_date, 
+			w.warehouse_name, s.pay_type, s.cbuy_priceout, s.cbuy_amount from company_buy s, customer c, product p, warehouse w
+				where s.customer_id = c.customer_id and
+					s.product_id = p.product_id and
+					s.warehouse_id = w.warehouse_id
+	</select>
+	<select id="searchSaleList" parameterType="SaleSearch" resultType="SaleListView">
+		select s.sell_id, c.customer_name, p.product_name, s.sell_date, 
+			w.warehouse_name, s.pay_type, s.sell_price, s.sell_amount from sell s, customer c, product p, warehouse w
+				where s.customer_id = c.customer_id and
+					s.product_id = p.product_id and
+					s.warehouse_id = w.warehouse_id
+				<if test="start_date != ''">
+					and s.sell_date BETWEEN #{start_date} AND #{end_date}
+				</if>
+				<if test="customer_id != ''">
+					and s.customer_id = #{customer_id}
+				</if>
+				<if test="product_id != ''">
+					and s.product_id = #{product_id}
+				</if>
+				<if test="warehouse_id != ''">
+					and s.warehouse_id = #{warehouse_id}
+				</if>
+	</select>
+	<insert id="insertCbuy" parameterType="Company_buy">
+		insert into company_buy	(
+			cbuy_id, customer_id, product_id, cbuy_date, warehouse_id, pay_type, cbuy_priceout, cbuy_amount
+		)		
+		values(
+			#{cbuy_id},#{customer_id},#{product_id},SYSDATE,#{warehouse_id},#{pay_type},#{cbuy_priceout},#{cbuy_amount}
+		)		
+	</insert> -->
+</mapper>
+
+
+
+
+
+
+
+
+
+

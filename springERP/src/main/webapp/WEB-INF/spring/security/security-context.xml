@@ -13,6 +13,7 @@
 		<intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/login" access="isAnonymous()" />
 <!-- 		<intercept-url pattern="/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+
  -->		<intercept-url pattern="/*" access="permitAll" />
 
 		<form-login login-page="/login" username-parameter="userId"
@@ -22,6 +23,8 @@
 			authentication-failure-url="/login?fail=true" />
 
 		<logout invalidate-session="true" logout-success-url="/login" />
+		
+		<csrf/>
 	</http>
 
 	<authentication-manager>

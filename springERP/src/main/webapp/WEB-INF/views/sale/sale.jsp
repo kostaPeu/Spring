@@ -10,8 +10,8 @@
 	<div class="erp-local-nav-title">판매관리</div>
 	<div class="erp-local-nav">
 		<ul class="local">
-			<li><a href="SaleList.sale">판매조회</a></li>
-			<li><a href="./sale/view/sale_add.jsp">판매입력</a></li>
+			<li><a href="/sale/sale_check">판매조회</a></li>
+			<li><a href="/sale/sale_add">판매입력</a></li>
 			<li><a href="./sale/view/sale_search.jsp">판매현황</a></li>
 			<li><a href="./sale/view/sale_accounts.jsp">판매처별 정산</a></li>	
 			<li><a class="" data-target="#five" data-toggle="collapse" href="javascript:;">사입관리</a>

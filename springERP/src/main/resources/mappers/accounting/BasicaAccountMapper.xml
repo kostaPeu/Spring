@@ -19,17 +19,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)		
 	</insert>
 	
-	<select id="accountList" resultType="Accounts">
+	<select id="accountList" resultType="accounts">
 		SELECT * FROM accounts
 	</select>
 
 	<update id="accountUpdate" parameterType="Accounts">
 		UPDATE Accounts SET ACCOUNT_NUMBER = #{account_number}, ACCOUNT_NAME = #{account_name}, DIAGNOSIS_NUMBER = #{diagnosis_number},
 			ACCOUNT_DETAIL = #{account_detail}, REMARKS = #{remarks}, USE = #{use}
-				where ACCOUNT_NUMBER = #{account_number}
+				WHERE ACCOUNT_NUMBER = #{account_number}
 	</update>
 	
 	<delete id="accountDelete" parameterType="String">
-		delete from Accounts where ACCOUNT_NUMBER = #{account_number}
+		DELETE FROM Accounts WHERE ACCOUNT_NUMBER = #{account_number}
 	</delete>
 </mapper>
