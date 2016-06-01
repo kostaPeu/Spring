@@ -1,5 +1,4 @@
 package erp.basic.persistence;
-
 import java.util.List;
 
 import erp.basic.domain.Product;
