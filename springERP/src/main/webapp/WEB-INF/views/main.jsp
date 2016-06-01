@@ -1,5 +1,6 @@
-<%@page import="erp.hr.domain.EmployeeVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!-- spring security -->
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="org.springframework.security.core.context.SecurityContextHolder"%>
@@ -7,13 +8,13 @@
 <%@ page import="erp.hr.domain.EmployeeVO" %>
 
 <%
-Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-Object principal = auth.getPrincipal();
-String name="";
-if(principal != null && principal instanceof EmployeeVO){
-	name = ((EmployeeVO)principal).getE_name();
-}
+	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	
+	Object principal = auth.getPrincipal();
+	String name="";
+	if(principal != null && principal instanceof EmployeeVO){
+		name = ((EmployeeVO)principal).getE_name();
+	}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -70,6 +71,7 @@ if(principal != null && principal instanceof EmployeeVO){
 			<li class=""><a href="/mypage">마이페이지</a></li>
 		</ul>
 	</div>
+	
 	<!-- topMenuBar end -->
 	<div id="Left_Menu" class="show erp-local-nav">
 		<jsp:include page="${left }"></jsp:include>

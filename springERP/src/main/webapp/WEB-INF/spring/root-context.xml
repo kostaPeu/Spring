@@ -1,52 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
-
-
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		id="dataSource">
-
-		<property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
-
-		<property value="jdbc:oracle:thin:@localhost:1521:XE" name="url" />
-
-		<property value="shopERP" name="username" />
-
-		<property value="1234" name="password" />
-
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="username" value="shopERP"></property>
+		<property name="password" value="1234"></property>
 	</bean>
 
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />		
 
-	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
-
-		<property name="dataSource" ref="dataSource" />
-
-		<property value="classpath:/mybatis-config.xml" name="configLocation" />
-
-		<property value="classpath:mappers/**/*Mapper.xml" name="mapperLocations" />
-
+		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"/>
 	</bean>
-
-
-	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession"
-		destroy-method="clearCache">
-
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
-
-	</bean>
-
-	<context:component-scan base-package="erp.gw.notice.persistence" />
-
-	<context:component-scan base-package="erp.gw.notice.service" />
-
-	<context:component-scan base-package="erp.pch.persistence" />
-
-	<context:component-scan base-package="erp.pch.service" />
-
-	<context:component-scan base-package="erp.basic.persistence" />
-
-	<context:component-scan base-package="erp.basic.service" />
-
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" 
+ 					  destroy-method="clearCache">
+  		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean> 
+	
 </beans>
