@@ -2,9 +2,9 @@ package erp.gw.projectboard.service;
 
 import java.util.List;
 
-import erp.gw.projectboard.domain.Criteria;
+import erp.common.domain.Criteria;
+import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
-import erp.gw.projectboard.domain.SearchCriteria;
 
 public interface ProjectBoardService {
 	   public List<ProjectsVO> listAll()throws Exception;

@@ -6,9 +6,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import erp.gw.projectboard.domain.Criteria;
+import erp.common.domain.Criteria;
+import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
-import erp.gw.projectboard.domain.SearchCriteria;
 import erp.gw.projectboard.persistence.ProjectBoardDao;
 
 @Service

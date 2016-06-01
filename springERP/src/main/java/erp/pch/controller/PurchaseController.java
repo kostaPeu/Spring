@@ -56,7 +56,6 @@ public class PurchaseController {
 	public List<Customer> customerIdSearch(@RequestParam("customer_id") String customer_id)throws Exception{
 		return service.customerList(customer_id);
 	}
-<<<<<<< HEAD
 	@RequestMapping("product_id_search")
 	@ResponseBody
 	public List<Product> productIdSearch(@RequestParam("product_id") String product_id)throws Exception{
@@ -83,7 +82,4 @@ public class PurchaseController {
 		return "/main";
 	}
 	
-	
-=======
->>>>>>> branch 'master' of https://github.com/kostaPeu/Spring.git
 }

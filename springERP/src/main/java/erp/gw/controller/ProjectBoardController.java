@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import erp.gw.projectboard.domain.PageMaker;
-import erp.gw.projectboard.domain.SearchCriteria;
+import erp.common.domain.PageMaker;
+import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.service.ProjectBoardService;
 
 @Controller

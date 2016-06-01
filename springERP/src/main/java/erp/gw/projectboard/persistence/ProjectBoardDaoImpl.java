@@ -8,9 +8,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import erp.gw.projectboard.domain.Criteria;
+import erp.common.domain.Criteria;
+import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
-import erp.gw.projectboard.domain.SearchCriteria;
 
 @Repository
 public class ProjectBoardDaoImpl implements ProjectBoardDao {
