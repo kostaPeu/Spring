@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	<http pattern="/**/*.js" security="none" />
+	<http pattern="/**/*.css" security="none" />
+	<http pattern="/images/*" security="none" />
+
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/login" access="isAnonymous()" />
+<!-- 		<intercept-url pattern="/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+ -->		<intercept-url pattern="/*" access="hasRole('ROLE_USER')" />
+
+		<form-login login-page="/login" username-parameter="userId"
+			password-parameter="userPwd" login-processing-url="/login_check"
+			default-target-url="/"
+			authentication-success-forward-url="/"
+			authentication-failure-url="/login?fail=true" />
+
+		<logout invalidate-session="true" logout-success-url="/login" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="customJdbcDaoImpl"></authentication-provider>
+	</authentication-manager>
+
+	<beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
+		<beans:property name="dataSource" ref="dataSource" />
+ 		<beans:property name="rolePrefix" value=""/>
+		<beans:property name="usersByUsernameQuery"
+			value="SELECT EMP_ID, E_PWD, E_NAME FROM EMP_TEST WHERE EMP_ID=?" />
+		<beans:property name="authoritiesByUsernameQuery"
+			value="SELECT EMP_ROLE FROM MEMBER_ROLE WHERE EMP_ID=?" />
+		<beans:property name="enableGroups" value="false" />
+	</beans:bean>
+
+
+</beans:beans>
