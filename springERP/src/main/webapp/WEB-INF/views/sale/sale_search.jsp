@@ -1,81 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<!-- 참조 -->
-	<link rel="stylesheet"
-		href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
-    <script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
-    <link rel="stylesheet" href="/resources/purchase/js/purchase.css">
-    <script type="text/javascript">
+<!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+ <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	
+<!-- Custom CSS -->
+   	
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/shopERP/purchase/css/jquery-ui.min.css">
+	<link href="/shopERP/sale/css/sale.css" rel="stylesheet">
     
-    
-    </script>
+    <script src="/shopERP/js/jquery.js" type="text/javascript"></script>
+    <script src="/shopERP/sale/js/sale.js" type="text/javascript"></script>	
+	<script src="/shopERP/sale/js/jquery.min.js"></script>
+	<script src="/shopERP/sale/js/jquery-ui.min.js"></script>
+
 </head>
 <body>
-<div class="container">
-	<form:form class="form-horizontal" method="post">
-		<table class="table table-bordered table-hover new">
-				<thead>
-				<tr>
-					<th><input type="checkbox"></th>
-					<th>구매번호</th>
-					<th>거래처명</th>
-					<th>품목명</th>
-					<th>구매금액</th>
-					<th>구매수량</th>
-					<th>입고창고</th>
-					<th>지급방법</th>
-				</tr>
-				</thead>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td><input type="text" name="buy_id" id="buy_id" size="8"></td>
-					<td>
-						<input type="text" name="customer_id" id="customer_id" size="8">
-						<input type="hidden" name="emp_id" value="2">
-						<button type="button" id="customer_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#customerSearch_modal"><span class="fa fa-search"></span></button>
-					</td>
-					<td>
-						<input type="text" name="product_id" id="product_id" size="8">
-						<button type="button" id="product_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
-					</td>
-					<td><input type="text" name="buy_price" id="buy_price" size="8"></td>
-					<td><input type="text" name="buy_amount" id="buy_amount" size="8"></td>
-					<td>
-						<input type="text" name="warehouse_id" id="warehouse_id" size="8">
-						<button type="button" id="warehouse_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#warehouseSearch_modal"><span class="fa fa-search"></span></button>
-					</td>
-					<td>
-						<select  name="pay_type" class="form-control">
-							<option value="cash">현금</option>
-							<option value="bill">어음</option>
-						</select>
-					</td>					
-				</tr>
-			</table>
-			<!-- <table class="table table-bordered table-hover new">
-				<tr>
-					<td>수량</td>
-					<td><input type="text" name="" id=""></td>
-					<td>합계금액</td>
-					<td><input type="text" name="" id=""></td>
-				</tr>
-			</table> -->
-		<div class="buttongroup">
-			<input type="submit" id="newBtn" class="btn btn-default" value="저장">
-		</div>
-	</form:form>
-</div>
-
-<!-- 모달 -->
-
-<!-- 거래처 검색 -->
+	<!-- 거래처 검색 -->
 <div id="customerSearch_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
       
@@ -167,6 +121,47 @@
     </div>
 
   </div>
-</div>
+</div><!-- 창고 끝 -->
+<form action="SaleSearch.sale" class="form-horizontal">
+	<table class="table table-bordered table-hover new">
+		<tr>
+			<td>기준일자</td>
+			<td><input type="text" class="purchase_date" name="start_date" id="start_date"> ~ <input type="text" class="purchase_date" name="end_date" id="end_date"></td>
+		</tr>
+		<tr>
+			<td>거래처코드</td>
+			<td>
+				<input type="text" name="customer_id" id="customer_id" size="13">
+				<button type="button" id="customer_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#customerSearch_modal"><span class="fa fa-search"></span></button>
+			</td>
+		</tr>
+		<tr>
+			<td>품목코드</td>			
+			<td>				
+				<input type="text" name="product_id" id="product_id" size="13">
+				<button type="button" id="product_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
+			</td>
+		</tr>
+		<tr>
+			<td>창고</td>
+			<td>
+				<input type="text" name="warehouse_id" id="warehouse_id" size="13">
+				<button type="button" id="warehouse_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#warehouseSearch_modal"><span class="fa fa-search"></span></button>
+			</td>
+		</tr>
+		<tr>
+			<td>결제 수단</td>
+			<td>
+				<select  name="pay_type" class="form-control">
+					<option value="cash">현금</option>
+					<option value="bill">어음</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<div class="buttongroup">
+		<input type="submit" id="searchBtn" class="btn btn-default" value="검색">
+	</div>
+</form>
 </body>
 </html>

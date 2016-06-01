@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,7 +24,7 @@
 				<span>&times;</span>
 			</button>
 		</div>
-		<form class="form-horizontal" action="/basic/product/insert" method="post">
+		<form:form class="form-horizontal" action="/basic/product/insert" method="post">
 			<div class="addform">
 				<div class="form-group has-feedback">
 					<label for="product_id" class="col-sm-2 control-label"><strong>품목코드</strong></label>
@@ -90,7 +90,7 @@
 				</div>
 				<button type="submit" class="btnn btn btn-default" id="saveBtn">등록</button>
 			</div>
-		</form>
+		</form:form>
 	</div>
 	<div class="update xclose">
 		<div class="title">
@@ -99,7 +99,7 @@
 				<span>&times;</span>
 			</button>
 		</div>
-				<form class="form-horizontal" action="/basic/product/update" method="post">
+				<form:form class="form-horizontal" action="/basic/product/update" method="post">
 			<div class="updateform">
 				<div class="form-group has-feedback">
 					<label for="product_id" class="col-sm-2 control-label"><strong>품목코드</strong>
@@ -163,7 +163,7 @@
 				</div>
 				<button type="submit" class="btnn btn btn-default" id="saveBtn">수정</button>
 			</div>
-		</form>
+		</form:form>
 </div>
 
 	<table class="table table-bordered table-hover">

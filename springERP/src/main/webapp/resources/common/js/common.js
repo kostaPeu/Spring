@@ -1,5 +1,5 @@
 $(function(){
-	$('.collapse li a').click(function(e) {
+   $('.collapse li a').click(function(e) {
       e.preventDefault();
       
       $('#contents').empty();

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="erp.stock.mapper.stockRPMapper">
+
+	<insert id="stockRPInsert" parameterType="StockRP">
+		
+			INSERT INTO stock_inoutlist(
+				inout_id,
+				inout_amount,
+				stock_indate,
+				stock_outdate,
+				product_id,
+				emp_id
+			) VALUES(
+				#{inout_id}, #{inout_amount},
+				<if test="type == 'in'">
+				sysdate,null,</if>
+				<if test="type == 'out'">
+				null,sysdate,
+				</if>
+				#{product_id},
+				#{emp_id}
+			)
+			
+	</insert>
+	<select id="productList" resultType="Product">
+		SELECT * FROM product
+	</select>
+	<select id="inoutMax" resultType="int">
+		SELECT count(*) FROM stock_inoutlist
+	</select>
+</mapper>
