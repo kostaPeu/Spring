@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import erp.basic.domain.Product;
 import erp.pch.domain.Customer;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseVO;
-import erp.pch.domain.GetWareHouse;
 import erp.pch.service.PurchaseService;
 
 @Controller
@@ -57,15 +55,4 @@ public class PurchaseController {
 	public List<Customer> customerIdSearch(@RequestParam("customer_id") String customer_id)throws Exception{
 		return service.customerList(customer_id);
 	}
-	@RequestMapping("product_id_search")
-	@ResponseBody
-	public List<Product> productIdSearch(@RequestParam("product_id") String product_id)throws Exception{
-		return service.productList(product_id);
-	}
-	@RequestMapping("warehouse_id_search")
-	@ResponseBody
-	public List<GetWareHouse> warehouseIdSearch(@RequestParam("warehouse_id") String warehouse_id)throws Exception{
-		return service.warehouseList(warehouse_id);
-	}
-	
 }

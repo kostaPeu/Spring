@@ -10,6 +10,8 @@ import erp.gw.notice.domain.NoticeVO;
 @RequestMapping("/groupware/notice")
 public class NoticeController {
 	
+	public NoticeVO noticeVo = new NoticeVO();
+	
 	@RequestMapping(value="/notice_list", method = RequestMethod.GET)
 	public void listPage() throws Exception{
 	}
