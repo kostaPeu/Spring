@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CommonController {
 	
 	@RequestMapping("/main")
-	public void mainTest(@RequestParam(value="left", defaultValue="mypage/mypage.jsp") String left, @RequestParam(value="contents", defaultValue="mypage/my_info/my_info.jsp") String contents, Model model){
+	public void mainTest(@RequestParam(value="left", defaultValue="") String left, @RequestParam(value="contents", defaultValue="") String contents, Model model){
 		model.addAttribute("left",left);
 		model.addAttribute("contents",contents);
 	}
@@ -67,5 +67,11 @@ public class CommonController {
 		System.out.println("hoho");
 		model.addAttribute("left","mypage/mypage.jsp");
 		return "/main";
+	}
+	
+	@RequestMapping("/login")
+	public String login(){
+		
+		return "/login";
 	}
 }

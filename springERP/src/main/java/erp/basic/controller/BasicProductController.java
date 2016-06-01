@@ -1,6 +1,6 @@
 package erp.basic.controller;
 
-import java.security.Provider.Service;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -8,12 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import erp.basic.domain.Product;
 import erp.basic.service.BasicProductService;
 
 @Controller
-@RequestMapping("/basic/product")
+@RequestMapping("/basic/product/*")
 public class BasicProductController {
 	
 	@Inject
@@ -58,5 +57,15 @@ public class BasicProductController {
 		
 		return "redirect:/basic/product/list";
 	}
+	
+//	@RequestMapping("/codeJson")
+//	public List<Product> productCodeJson(@RequestParam("searchKey") String searchKey) throws Exception{
+//		
+//		String word = "%"+searchKey+"%";
+//		
+//		List<Product> list = service.productCodeJson(word);
+//		
+//		return list;
+//	}
 
 }
