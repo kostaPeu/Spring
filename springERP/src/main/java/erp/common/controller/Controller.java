@@ -13,4 +13,10 @@ public class Controller {
 		model.addAttribute("contents",contents);
 		return "/main";
 	}
+	
+	@RequestMapping("/login")
+	public String login(){
+		
+		return "/login";
+	}
 }

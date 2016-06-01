@@ -11,7 +11,7 @@
 		<div class="erp-local-nav-title">그룹웨어</div>
 		<div class="erp-local-nav">
 			<ul class="local">
-				<li><a href="noticeListAction.gw">공지사항</a></li>
+				<li><a href="/groupware/notice/notice_list">공지사항</a></li>
 				
 				<li><a data-toggle="collapse" href="/groupware/dept_board/dept_board_list #dept_board">부서게시판</a>
 					<ul id="dept_board" class="collapse">
