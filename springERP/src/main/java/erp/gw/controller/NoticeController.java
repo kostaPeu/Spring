@@ -14,7 +14,6 @@ public class NoticeController {
 	
 	@RequestMapping(value="/notice_list", method = RequestMethod.GET)
 	public void listPage() throws Exception{
-		System.out.println("ddd");
 	}
 	
 
