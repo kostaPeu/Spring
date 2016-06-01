@@ -1,27 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="/shopERP/accounting/js/jquery.js"></script>
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
+<!-- CSS -->
+<link href="/resources/accounting/css/account.css" rel="stylesheet">
 
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href="/shopERP/accounting/css/bootstrap.min.css" rel="stylesheet">
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
+<!-- JS -->
+<script src="/resources/accounting/js/ac.js" type="text/javascript"></script>
+<script type="text/javascript">
 
+</script>
 </head>
 <body id="body_html" class="font-dotum">
-	<!-- 상단 컨텐츠 이름 -->
-	<div class="mainContents">
-		<div class="contentsName">
-			<a id="title">통장계좌리스트</a>
-		</div>
-		<br>
+		<h2 class="page_title">통장계좌 리스트</h2>
 
 		<!-- 통장계좌리스트 -->
 		<div class="container-fluid">
@@ -30,6 +26,7 @@
 					id="Card">
 					<thead id="cardList">
 						<tr class="mainTable">
+							<th><input type="checkbox" disabled="disabled"></th>
 							<th>계좌번호</th>
 							<th>계좌명</th>
 							<th>계정번호</th>
@@ -39,116 +36,137 @@
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<c:forEach var="a" items="${list}">
+						<c:forEach var="accounts" items="${listModel}">
 							<tr class="mainTable">
-								<td>${a.account_number }</td>
-								<td>${a.account_name}</td>
-								<td>${a.code }</td>
-								<td>${a.account_detail }</td>
-								<td>${a.use }</td>
-								<td>${a.remarks }</td>
+								<td><input type="checkbox" class="upSelect check_id" name="number_box" value="${accounts.account_number}"></td>
+								<td>${accounts.account_number }</td>
+								<td>${accounts.account_name}</td>
+								<td>${accounts.diagnosis_number }</td>
+								<td>${accounts.account_detail }</td>
+								<td>${accounts.use }</td>
+								<td>${accounts.remarks }</td>
 							</tr>
 						</c:forEach>
 					</tbody>
-
 				</table>
 			</div>
-			<div class="buttongroup" align="right">
-				<input type="button" id="newAdd" class="btn btn-default"
-					value="신규등록">
+			<div class="buttongroup">
+				<button type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal" data-whatever="@mdo">신규등록</button>
+				<button type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal" data-whatever="@fat">수정</button>
+				<input type="button" id="newBtn" class="btn btn-default" value="삭제">
 			</div>
 		</div>
-	</div>
-
-
-	<!-- 통장계좌 신규추가 -->
-	<div class="newAddCard miniTitle-panel">
-		<div class="miniMenuTitle" aria-labelledby="ui-id-1">
-			<!-- 상단툴바  -->
-			<span class="title-name" id="ui-id-1"><i
-				class=" glyphicon glyphicon-edit"></i>통장계좌등록</span>
-			<button id="closeBtn" class="close" type="button">
-				<span>X</span>
-			</button>
-		</div>
-		<!--/상단툴바  -->
-		<form action="insertAccount.ac" method="post">
-			<!-- 통장계좌 신규추가 본문 START-->
-			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
-				<table
-					class="table table-bordered table-hover table-left table-striped">
-					<colgroup>
-						<col style="width: 149px;">
-						<col style="width: 600px;">
-					</colgroup>
-					<tbody>
-						<tr id="row-BankBookNumber">
-							<th>계좌번호</th>
-							<td><input class="form-control" type="text"
-								name="account_number" placeholder="계좌번호"></td>
-						</tr>
-						<tr id="row-BackBookName">
-							<th>계좌명</th>
-							<td><input class="form-control" type="text" value=""
-								name="account_name" placeholder="계좌명"></td>
-						</tr>
-						<tr id="row-BackBookCode">
-							<th>계정코드</th>
-							<td><input class="form-control" type="text" value=""
-								name="code" placeholder="계정코드"></td>
-						</tr>
-						<tr id="row-BackBookSelect">
-							<th>검색창내용</th>
-							<td><input class="form-control" type="text" value=""
-								name="account_detail" placeholder="검색창내용"></td>
-						</tr>
-						<tr id="row-BackBookUseCheck">
-							<th>사용여부 <span class="card-Info" data-html="true"
-								data-toggle="popover" data-trigger="focus hover"
-								data-placement="right" data-original-title="" title=""></span>
-							</th>
-							<td>
-								<div class="radio-inline">
-									<label> <input id="optionsRadios-1" type="radio"
-										checked="" value="사용" name="use">사용
-									</label>
-								</div>
-								<div class="radio-inline">
-									<label> <input id="optionsRadios2" type="radio"
-										value="정지" name="use">정지
-									</label>
-								</div>
-							</td>
-						</tr>
-						<tr id="row-note">
-							<th>비고</th>
-							<td><input class="form-control" type="text" value=""
-								name="remarks" placeholder="비고"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<!-- /통장계좌신규추가본문 END -->
-
-			<!-- 통장계좌신규 footer START -->
-			<div class="footer footer-fixed" id="footer-Group"
-				style="display: block;">
-				<div class="wrapper-toolbar">
-					<div class="pull-reft"></div>
-					<div class="pull-right" id="button-Group">
-						<button id="btn-footer-Save" class="btn btn-xs btn-default"
-							type="Submit">저장</button>
-						<button id="btn-footer-Reset" class="btn btn-xs btn-default"
-							type="button" value="reset">다시작성</button>
-						<button id="btn-footer-Close" class="btn btn-xs btn-default"
-							type="button">닫기</button>
+		
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="exampleModalLabel">
+							<strong>통장계좌 신규등록</strong>
+						</h4>
 					</div>
+
+					<form:form action="/accounting/account/insert" method="post">
+						<div class="modal-body">
+							<div class="form-group">
+								<div class="form-group">
+									<label for="message-text" class="control-label">계좌번호</label>
+									<input class="form-control" type="text" placeholder="계좌번호"	name="account_number">
+								</div>
+								<div class="form-group">
+									<label for="message-text" class="control-label">계좌명</label>
+									<input class="form-control" type="text" placeholder="계좌명"	name="account_name">
+								</div>								
+								<div class="form-group">
+									<label for="message-text" class="control-label">계정코드</label>
+									<a data-toggle="modal" href="#myModal2">
+									<button type="button" class="btn btn-default btn-sm" id="diagnosis_number">
+									<span class="fa fa-search"></span></button></a>
+									<input class="form-control" type="text" placeholder="계정코드" name="code" id="diagnosis_number">
+								</div>
+								
+								<div class="form-group">
+									<label for="message-text" class="control-label">검색창내용</label>
+									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail">
+								</div>
+								
+								<div class="form-group">
+									<label for="recipient-name" class="control-label">사용여부</label>
+									<div class="radio-inline">
+										<label> <input id="optionsRadios-1" type="radio" checked="" value="yes" name="use">사용
+										</label>
+									</div>
+									<div class="radio-inline">
+										<label> <input id="optionsRadios2" type="radio"	value="no" name="use">정지
+										</label>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="message-text" class="control-label">비고</label>
+									<input class="form-control" type="text" placeholder="비고"name="remarks">
+								</div>
+								
+								<div class="modal-footer">
+									<input type="submit" class="btn btn-default" value="저장">
+									<input type="reset" class="btn btn-default" value="다시작성">
+									<input type="button" class="btn btn-default" data-dismiss="modal" value="취소">
+								</div>
+							</div>
+						</div>
+					</form:form>
 				</div>
 			</div>
-			<!-- 통장계좌신규 footer END -->
-		</form>
+		</div>
+
+<!-- 계좌번호 검색 -->
+<div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>목록 검색</strong></h4>	
+		</div>
+			<div class="modal-body">
+				<div class="col-sm-2">
+					<select >
+						<option id="">계좌번호</option>	
+						<option id="">사원번호</option>	
+						<option id="">카드번호</option>	
+						<option id="">ㅁㄴㅇㅁ</option>	
+					</select>
+				</div>	
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="account_number" id="search_account_number">
+				</div>
+						
+				<div class="col-sm-2">
+						<button type="button" class="btn btn-info btn-sm" id="warehouseID"><span class="fa fa-search"></span></button>
+				</div>
+				<br><br><br>
+				<table id="m_searchTable" class="table table-bordered table-hover">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
 	</div>
-	<!-- 통장계좌신규END -->
+</div>
+	
+	
+	
+	
+	
 
 </body>
 </html>

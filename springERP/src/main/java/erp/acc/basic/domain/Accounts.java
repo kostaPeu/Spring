@@ -9,17 +9,18 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Accounts {
+	
 	@Getter @Setter
 	private String account_number;
 	@Getter @Setter
 	private String account_name;
 	@Getter @Setter
-	private int code;
+	private int diagnosis_number;
 	@Getter @Setter
 	private String account_detail;
 	@Getter @Setter
-	private String use;
+	private String remarks;	
 	@Getter @Setter
-	private String remarks;
-
+	private String use;	
+	
 }

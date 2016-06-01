@@ -40,7 +40,7 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	//계좌리스트 - JH
 	@Override
 	public List<Accounts> accountList() throws Exception {
-		return ;
+		return session.selectList(namespace+".accountList");
 	}
 
 	
