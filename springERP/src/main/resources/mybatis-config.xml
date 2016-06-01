@@ -9,6 +9,7 @@
     <package name="erp.pch.domain"/>  
     <package name="erp.basic.domain"/>    
     <package name="erp.hr.domain"/>    
+    <package name="erp.gw.projectboard.domain"/>    
   </typeAliases>
   
 </configuration>
