@@ -15,7 +15,7 @@
 					<ul id="one" class="collapse">
 						<li><a href="./accounting/view/basic/moneyCheck.jsp">기초잔액등록</a></li>
 						<li><a href="cardList.ac">신용카드등록</a></li>
-						<li><a href="accountList.ac">통장계좌등록</a></li>
+						<li><a href="/basic/">통장계좌등록</a></li>
 						<li><a href="./accounting/view/basic/Project.jsp">프로젝트등록</a></li>
 					</ul>
 				</li>
