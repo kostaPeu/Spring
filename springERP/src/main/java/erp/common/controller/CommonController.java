@@ -68,4 +68,10 @@ public class CommonController {
 		model.addAttribute("left","mypage/mypage.jsp");
 		return "/main";
 	}
+	
+	@RequestMapping("/login")
+	public String login(){
+		
+		return "/login";
+	}
 }

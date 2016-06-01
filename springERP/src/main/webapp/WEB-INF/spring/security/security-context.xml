@@ -13,7 +13,7 @@
 		<intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/login" access="isAnonymous()" />
 <!-- 		<intercept-url pattern="/*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
- -->		<intercept-url pattern="/*" access="hasRole('ROLE_USER')" />
+ -->		<intercept-url pattern="/*" access="permitAll" />
 
 		<form-login login-page="/login" username-parameter="userId"
 			password-parameter="userPwd" login-processing-url="/login_check"
