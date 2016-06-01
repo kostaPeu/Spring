@@ -5,10 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="/shopERP/js/jquery.js"></script>
+<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/resources/hr/css/emp.css">
-<link href="/shopERP/css/bootstrap.min.css" rel="stylesheet">
-<script src="/shopERP/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -82,26 +81,19 @@
 			var basic_type = $("#insert_type").val();
 			$.ajax({
 				type : "POST",
-				url : "/shopERP/json/hr_check.jsp",
-				data : {
-					"basic_id" : basic_id,
-					"basic_type" : basic_type
-				},
+				url : "/hr/hr_basic/basic_check",
+				headers: { 
+				      "Content-Type": "application/json",
+				      "X-HTTP-Method-Override": "POST" },
+				dataType:'text',
+				data: JSON.stringify({basic_id:basic_id, basic_type:basic_type}),
 				success : function(data){
-					if (jQuery.trim(data) == 0) {
+					if (result=='ok') {
 						alert("사용가능");
 					} else {
 						alert("사용불가");
 					}
 				}
-				/* complete : function(data) {
-					if (jQuery.trim(data) == "no") {
-						alert("사용가능");
-					} else {
-						alert("사용불가");
-					} 
-					alert((data));
-				} */
 			})
 		});
 
@@ -217,6 +209,5 @@
 			</table>
 		</div>
 	</div>
-	<script src="/shopERP/js/bootstrap.min.js"></script>
 </body>
 </html>
