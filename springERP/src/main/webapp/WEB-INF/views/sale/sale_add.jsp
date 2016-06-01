@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,21 +8,13 @@
 <title>Insert title here</title>
 	<link rel="stylesheet"
 		href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
- 	<link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-    <link href="/shopERP/sale/css/sale.css" rel="stylesheet">
-    <link rel="stylesheet" href="/shopERP/sale/css/jquery-ui.min.css">
-    <script src="/shopERP/js/jquery.js" type="text/javascript"></script>
-	<script src="/shopERP/sale/js/jquery.min.js"></script>
-	<script src="/shopERP/sale/js/jquery-ui.min.js"></script>   
-    <script src="/shopERP/js/bootstrap.min.js"></script>
-    <script src="/shopERP/sale/js/sale.js" type="text/javascript"></script>
-   
+  	<script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
+    <script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
 </head>
 
 <body>
 <div class="container">
-	<form class="form-horizontal" method="post">
+	<form:form class="form-horizontal" method="post">
 		<table class="table table-bordered table-hover new" id="saleList">
 				<thead>
 					<tr>
@@ -69,7 +62,7 @@
 		<div class="buttongroup">
 			<input type="submit" id="save" class="btn btn-default" value="저장">			
 		</div>
-	</form>
+	</form:form>
 </div>
 <!-- 모달 -->
 

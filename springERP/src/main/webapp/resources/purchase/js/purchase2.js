@@ -75,7 +75,7 @@ $(function(){
 	//품목 검색
 	$('#productID').click(function(){
 		var product_id = $('#search_productID').val();
-		var url = "GetProductValue.pc?product_id="+product_id;
+		var url = "/purchase/product_id_search?product_id="+product_id;
 		$('#p_searchTable').empty();
 		$.ajax({
 			url : url,
@@ -111,7 +111,7 @@ $(function(){
 	//창고 검색
 	$('#warehouseID').click(function(){
 		var warehouse_id = $('#search_warehouseID').val();
-		var url = "GetWarehouseValue.pc?warehouse_id="+warehouse_id;
+		var url = "/purchase/warehouse_id_search?warehouse_id="+warehouse_id;
 		$('#w_searchTable').empty();
 		$.ajax({
 			url : url,

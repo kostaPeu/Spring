@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleVO;
@@ -38,5 +39,17 @@ public class SaleController {
 		model.addAttribute("contents", "sale/sale_check.jsp");
 		model.addAttribute("list", list);
 		return "/main";
+	}
+	@RequestMapping("sale_delete")
+	public String saleDelete(@RequestParam("array") String[] array) throws Exception{
+		for(int i=0;i<array.length;i++){
+			service.deleteSale(array[i]);
+		}
+		return "redirect:sale_check";
+	}
+	@RequestMapping("sale_update")
+	public String saleUpdate(SaleVO vo, Model model)throws Exception{
+		service.updateSale(vo);
+		return "redirect:sale_check";
 	}
 }

@@ -28,15 +28,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customer
 			where customer_id LIKE #{value}
 	</select>
-	<!--
-	<select id="productList" resultType="GetProduct">
+	
+	<select id="productList" resultType="Product">
 		select * from product
-			order by product_id
+			where product_id LIKE #{value}
 	</select>
 	<select id="warehouseList" resultType="GetWareHouse">
 		select * from warehouse
-			order by warehouse_id
+			where warehouse_id LIKE #{value}
 	</select>
+	<!--
 	<update id="updateStockAmount" parameterType="Purchase">
 		update stock set stock_amount = stock_amount + #{buy_amount}
 			where product_id = #{product_id}
