@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.pch.domain.Customer;
 import erp.pch.domain.PurchaseListView;
+import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.service.PurchaseService;
 
@@ -55,4 +56,34 @@ public class PurchaseController {
 	public List<Customer> customerIdSearch(@RequestParam("customer_id") String customer_id)throws Exception{
 		return service.customerList(customer_id);
 	}
+<<<<<<< HEAD
+	@RequestMapping("product_id_search")
+	@ResponseBody
+	public List<Product> productIdSearch(@RequestParam("product_id") String product_id)throws Exception{
+		return service.productList(product_id);
+	}
+	@RequestMapping("warehouse_id_search")
+	@ResponseBody
+	public List<GetWareHouse> warehouseIdSearch(@RequestParam("warehouse_id") String warehouse_id)throws Exception{
+		return service.warehouseList(warehouse_id);
+	}
+	
+	@RequestMapping(value="purchase_search", method = RequestMethod.POST)
+	public String purchase_searchPOST(PurchaseSearch ps ,Model model)throws Exception{
+		List<PurchaseListView> list = service.purchaseSearch(ps);
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/purchase_searchList.jsp");
+		model.addAttribute("list", list);
+		return "/main";
+	}
+	@RequestMapping(value="purchase_search", method = RequestMethod.GET)
+	public String purchase_searchGET(PurchaseSearch ps, Model model)throws Exception{
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/purchase_search.jsp");
+		return "/main";
+	}
+	
+	
+=======
+>>>>>>> branch 'master' of https://github.com/kostaPeu/Spring.git
 }

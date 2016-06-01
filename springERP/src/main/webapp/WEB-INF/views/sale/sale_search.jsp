@@ -15,17 +15,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	
 <!-- Custom CSS -->
-   	
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/shopERP/purchase/css/jquery-ui.min.css">
-	<link href="/shopERP/sale/css/sale.css" rel="stylesheet">
-    
-    <script src="/shopERP/js/jquery.js" type="text/javascript"></script>
-    <script src="/shopERP/sale/js/sale.js" type="text/javascript"></script>	
-	<script src="/shopERP/sale/js/jquery.min.js"></script>
-	<script src="/shopERP/sale/js/jquery-ui.min.js"></script>
 
 </head>
 <body>
