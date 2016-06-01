@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import erp.basic.domain.Product;
 import erp.pch.domain.Customer;
 import erp.pch.domain.PurchaseListView;
+import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.domain.GetWareHouse;
 import erp.pch.service.PurchaseService;
@@ -67,5 +68,21 @@ public class PurchaseController {
 	public List<GetWareHouse> warehouseIdSearch(@RequestParam("warehouse_id") String warehouse_id)throws Exception{
 		return service.warehouseList(warehouse_id);
 	}
+	
+	@RequestMapping(value="purchase_search", method = RequestMethod.POST)
+	public String purchase_searchPOST(PurchaseSearch ps ,Model model)throws Exception{
+		List<PurchaseListView> list = service.purchaseSearch(ps);
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/purchase_searchList.jsp");
+		model.addAttribute("list", list);
+		return "/main";
+	}
+	@RequestMapping(value="purchase_search", method = RequestMethod.GET)
+	public String purchase_searchGET(PurchaseSearch ps, Model model)throws Exception{
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/purchase_search.jsp");
+		return "/main";
+	}
+	
 	
 }

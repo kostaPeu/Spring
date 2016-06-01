@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import erp.basic.domain.Product;
 import erp.pch.domain.Customer;
 import erp.pch.domain.PurchaseListView;
+import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.domain.GetWareHouse;
 
@@ -22,6 +23,7 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	@Override
 	public void addPch(PurchaseVO vo) throws Exception {
 		session.insert(namespace+".insertPurchase", vo);
+		session.update(namespace+".stockUpdate", vo);
 	}
 	@Override
 	public List<PurchaseListView> readPch() throws Exception {
@@ -42,5 +44,9 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	@Override
 	public List<GetWareHouse> warehouseList(String warehouse_id) throws Exception {
 		return session.selectList(namespace+".warehouseList", "%"+warehouse_id+"%");
+	}
+	@Override
+	public List<PurchaseListView> purchaseSearch(PurchaseSearch ps) throws Exception {
+		return session.selectList(namespace+".searchPurchaseList", ps);
 	}
 }

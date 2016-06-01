@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import erp.basic.domain.Product;
 import erp.pch.domain.Customer;
 import erp.pch.domain.PurchaseListView;
+import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.domain.GetWareHouse;
 import erp.pch.persistence.PurchaseDAO;
@@ -47,5 +48,10 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Override
 	public List<GetWareHouse> warehouseList(String warehouse_id) throws Exception {
 		return dao.warehouseList(warehouse_id);
+	}
+
+	@Override
+	public List<PurchaseListView> purchaseSearch(PurchaseSearch ps) throws Exception {
+		return dao.purchaseSearch(ps);
 	}
 }

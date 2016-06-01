@@ -37,18 +37,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from warehouse
 			where warehouse_id LIKE #{value}
 	</select>
-	<!--
-	<update id="updateStockAmount" parameterType="Purchase">
-		update stock set stock_amount = stock_amount + #{buy_amount}
+	<update id="stockUpdate">
+		update stock set stock_amount = stock_amount + #{buy_amount}, warehouse_id = #{warehouse_id}
 			where product_id = #{product_id}
 	</update>
-	<select id="searchPurchase" resultType="PurchaseSearch">
+	<!-- <select id="searchPurchase" resultType="PurchaseVO">
 		select b.buy_id, p.product_name, c.customer_name 
 			from buy b, product p, customer c
 			where b.product_id = p.product_id and
 				b.customer_id = c.customer_id
-	</select>
-	<select id="searchPurchaseList" parameterType="PurchaseSearchList" resultType="PurchaseListView">
+	</select> -->
+	<select id="searchPurchaseList" parameterType="PurchaseSearch" resultType="PurchaseListView">
 	
 		select p.buy_id, c.customer_name, pro.product_name, p.buy_date,
 			w.warehouse_name, p.pay_type, p.buy_price, p.buy_amount
@@ -68,5 +67,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<if test="warehouse_id != ''">
 					and p.warehouse_id = #{warehouse_id}
 				</if>	
-	</select> -->
+	</select>
+	<!--
+	<update id="updateStockAmount" parameterType="Purchase">
+		update stock set stock_amount = stock_amount + #{buy_amount}
+			where product_id = #{product_id}
+	</update>
+	 -->
 </mapper>
