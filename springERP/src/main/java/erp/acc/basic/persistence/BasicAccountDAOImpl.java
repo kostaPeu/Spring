@@ -15,7 +15,7 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace = "erp.basic.mapper.BasicAccountMapper";
+	private static String namespace = "erp.acc.mapper.BasicAccountMapper";
 	
 	//계좌추가 - JH
 	@Override

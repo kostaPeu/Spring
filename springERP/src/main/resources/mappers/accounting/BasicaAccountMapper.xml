@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="erp.basic.mapper.BasicAccountMapper">
+<mapper namespace="erp.acc.mapper.BasicAccountMapper">
 
 	<insert id="accountInsert" parameterType="Accounts">
 		insert into Accounts (
@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)		
 	</insert>
 	
-	<select id="accountList" resultType="accounts">
+	<select id="accountList" resultType="Accounts">
 		SELECT * FROM accounts
 	</select>
 

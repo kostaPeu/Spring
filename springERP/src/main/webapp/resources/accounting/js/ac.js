@@ -1,3 +1,16 @@
+/*통장계좌 수정, 삭제 */
+
+$(function() {
+	$("#deleteBtn").on('click', function() {
+		$("input[name=number_box]:checked").each(function() {
+			var checks = $(this).val();
+		})
+	})
+})
+
+
+
+
 // 작은 검색창 인풋창 초기화
 $(function() {
 	$('#account_numbers').click(function() {

@@ -7,11 +7,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
 <!-- CSS -->
 <link href="/resources/accounting/css/account.css" rel="stylesheet">
 
 <!-- JS -->
 <script src="/resources/accounting/js/ac.js" type="text/javascript"></script>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 </script>
@@ -52,11 +56,12 @@
 			</div>
 			<div class="buttongroup">
 				<button type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal" data-whatever="@mdo">신규등록</button>
-				<button type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal" data-whatever="@fat">수정</button>
-				<input type="button" id="newBtn" class="btn btn-default" value="삭제">
+				<button id="updateBtn" type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal3" data-whatever="@fat" >수정</button>
+				<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 			</div>
 		</div>
 		
+		<!-- 신규 통장계좌 등록 -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -87,7 +92,7 @@
 									<a data-toggle="modal" href="#myModal2">
 									<button type="button" class="btn btn-default btn-sm" id="diagnosis_number">
 									<span class="fa fa-search"></span></button></a>
-									<input class="form-control" type="text" placeholder="계정코드" name="code" id="diagnosis_number">
+									<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
 								</div>
 								
 								<div class="form-group">
@@ -122,7 +127,77 @@
 					</form:form>
 				</div>
 			</div>
-		</div>
+		</div><!-- 신규 통장계좌 등록 END-->
+		
+		<!--  통장계좌 수정 -->
+		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="exampleModalLabel">
+							<strong>통장계좌 수정</strong>
+						</h4>
+					</div>
+
+					<form:form action="/accounting/account/update" method="post" >
+						<div class="modal-body">
+							<div class="form-group">
+								<div class="form-group">
+									<label for="message-text" class="control-label">계좌번호</label>
+									<input class="form-control" type="text" placeholder="계좌번호"	name="account_number" disabled="disabled">
+								</div>
+								<div class="form-group">
+									<label for="message-text" class="control-label">계좌명</label>
+									<input class="form-control" type="text" placeholder="계좌명"	name="account_name">
+								</div>								
+								<div class="form-group">
+									<label for="message-text" class="control-label">계정코드</label>
+									<a data-toggle="modal" href="#myModal2">
+									<button type="button" class="btn btn-default btn-sm" id="diagnosis_number">
+									<span class="fa fa-search"></span></button></a>
+									<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								</div>
+								
+								<div class="form-group">
+									<label for="message-text" class="control-label">검색창내용</label>
+									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail">
+								</div>
+								
+								<div class="form-group">
+									<label for="recipient-name" class="control-label">사용여부</label>
+									<div class="radio-inline">
+										<label> <input id="optionsRadios-1" type="radio" checked="" value="yes" name="use">사용
+										</label>
+									</div>
+									<div class="radio-inline">
+										<label> <input id="optionsRadios2" type="radio"	value="no" name="use">정지
+										</label>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="message-text" class="control-label">비고</label>
+									<input class="form-control" type="text" placeholder="비고"name="remarks">
+								</div>
+								
+								<div class="modal-footer">
+									<input type="submit" class="btn btn-default" value="저장">
+									<input type="reset" class="btn btn-default" value="다시작성">
+									<input type="button" class="btn btn-default" data-dismiss="modal" value="취소">
+								</div>
+							</div>
+						</div>
+					</form:form>
+				</div>
+			</div>
+		</div><!-- 신규 통장계좌 등록 END-->
+		
+		
 
 <!-- 계좌번호 검색 -->
 <div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">

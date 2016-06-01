@@ -22,14 +22,5 @@ public class ListModelProduct {
 	@Getter @Setter
 	private int endPage;
 	
-	public ListModelProduct(List<ProductList> list, int requestPage, int totalPageCount, int startPage, int endPage) {
-		super();
-		this.list = list;
-		this.requestPage = requestPage;
-		this.totalPageCount = totalPageCount;
-		this.startPage = startPage;
-		this.endPage = endPage;
-	}
-	
 	
 }
