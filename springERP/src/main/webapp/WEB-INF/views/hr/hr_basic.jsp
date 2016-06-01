@@ -78,19 +78,21 @@
 		});
 
 		$("#check_id").click(function() {
-			var b_id = $("#basic_id_input").val();
-			var b_type = $("#insert_type").val();
+			var basic_id = $("#basic_id_input").val();
+			var basic_type = $("#insert_type").val();
 			$.ajax({
 				type : "POST",
 				url : "/shopERP/json/hr_check.jsp",
 				data : {
-					"b_id" : b_id,
-					"b_type" : b_type
+					"basic_id" : basic_id,
+					"basic_type" : basic_type
 				},
-				dataType : "json",
-				
 				success : function(data){
-					alert("aaa");
+					if (jQuery.trim(data) == 0) {
+						alert("사용가능");
+					} else {
+						alert("사용불가");
+					}
 				}
 				/* complete : function(data) {
 					if (jQuery.trim(data) == "no") {
@@ -164,6 +166,8 @@
 				</div>
 			</div>
 		</form>
+		
+		
 		<form class="form-horizontal" id="b_update" action="basic_update.hr"
 			method="post">
 			<div class="form-group">
