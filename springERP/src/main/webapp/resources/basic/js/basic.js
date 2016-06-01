@@ -1,3 +1,4 @@
+
 /*품목등록, 품목수정 회색창*/
 $(function() {
 	$('#newBtn').on('click', function() {
@@ -58,11 +59,13 @@ $(function(){
 		
 		$('#search_id').on('click',function(){
 			var searchKey = $('#search_product').val();
-			
 	  		$.ajax({
 				url : "/basic/product/codeJson?searchKey="+searchKey,
 				type : "post",
 				dataType : "json",
+		        beforeSend: function (xhr) {
+		             xhr.setRequestHeader("X-Ajax-call", "true");
+		         },
 				success : function(data) {
 					var html = "<tr><th>품목코드</th><th>품목명</th></tr>";
 					$('#searchTable').empty();
@@ -92,7 +95,6 @@ $(function(){
 	});
  	
 });
-
 /*바코드 새창띄우기*/
 $(function(){
 	$('#barcodeBtn').on('click',function(){

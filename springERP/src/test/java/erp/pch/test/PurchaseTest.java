@@ -22,7 +22,7 @@ public class PurchaseTest {
 	@Inject
 	private PurchaseService service;
 	
-	@Test
+	/*@Test
 	public void insertTest() throws Exception {
 		PurchaseVO vo = new PurchaseVO();
 		vo.setBuy_amount(1);

@@ -28,9 +28,6 @@
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
 
-<!-- Custom Script -->
-<script src="/resources/common/js/common.js" type="text/javascript"></script>
-
 <!-- Style -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/dist/css/bootstrap.min.css">
