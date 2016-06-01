@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -43,7 +45,7 @@
 		</tbody>
 	</table>
 	
-		<div class="box-footer">
+	<div class="box-footer">
 
 					<div class="text-center">
 						<ul class="pagination">
@@ -70,6 +72,7 @@
 					</div>
 
 				</div>
+				
 
 	<div class="row">
 		<a href="./main.jsp?left=./groupware/view/groupware.jsp&contents=./groupware/view/notice/notice_write.jsp"	class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
@@ -89,6 +92,18 @@
 		</div>
 		<button type="submit" class="btn btn-default">검색</button>
 	</form>
+	
+	<script type="text/javascript">
+	
+	$(function(){
+		   $('.pagination li a').click(function(e) {
+		      e.preventDefault();
+		      
+		      $('#contents').empty();
+		      $('#contents').load('/groupware/project_board/'+$(this).attr('href'));
+		   });
+		})
+	</script>
 	
 </body>
 </html>

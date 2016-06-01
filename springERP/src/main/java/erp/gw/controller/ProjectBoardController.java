@@ -21,12 +21,12 @@ public class ProjectBoardController {
 	
 	@RequestMapping(value="/pb_myproject_list", method=RequestMethod.GET)
 	public void myProjectList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
-
 		model.addAttribute("list", service.listSearchCriteria(cri));
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
+		
 	}
 }
