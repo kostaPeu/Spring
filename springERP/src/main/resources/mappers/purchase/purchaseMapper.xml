@@ -25,10 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from buy where buy_id = #{buy_id}
 	</delete>
 	<select id="customerList" resultType="Customer" parameterType="String">
-		select * from customer 
-		<!-- <if test="value != null">
+		select * from customer
 			where customer_id LIKE #{value}
-		</if> -->
 	</select>
 	<!--
 	<select id="productList" resultType="GetProduct">

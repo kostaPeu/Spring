@@ -31,6 +31,6 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	}
 	@Override
 	public List<Customer> customerList(String customer_id) throws Exception {
-		return session.selectList(namespace+".customerList", customer_id);
+		return session.selectList(namespace+".customerList", "%"+customer_id+"%");
 	}
 }

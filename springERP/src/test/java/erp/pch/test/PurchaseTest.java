@@ -21,7 +21,7 @@ public class PurchaseTest {
 	@Inject
 	private PurchaseDAO dao;
 	
-	/*@Test
+	@Test
 	public void insertTest() throws Exception {
 		PurchaseVO vo = new PurchaseVO();
 		vo.setBuy_amount(1);
@@ -33,7 +33,7 @@ public class PurchaseTest {
 		vo.setProduct_id("product_id_1");
 		vo.setWarehouse_id("warehouse_id_01");
 		dao.addPch(vo);
-	}*/
+	}
 	/*@Test
 	public void detailTest()throws Exception{
 		List<PurchaseListView> list = dao.readPch();

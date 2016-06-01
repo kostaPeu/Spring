@@ -6,8 +6,9 @@
 <configuration>
 	
   <typeAliases>
-    <package name="erp.pch.domain"/>  
-    <package name="erp.basic.domain"/>    
+    <package name="erp.pch.domain"/>
+    <package name="erp.basic.domain"/> 
+    <package name="erp.sale.domain"/>   
   </typeAliases>
   
 </configuration>
