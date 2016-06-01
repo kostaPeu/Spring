@@ -54,60 +54,56 @@
 		<h4>개인정보</h4>
 			<form role="form">
 			<table class="table table-bordered">
-				<thead>
-				</thead>
-				<tbody>
-					<tr>
-						<td>hoho사원번호</td>
-						<td><span>${employee.emp_id }</span></td>
-						<td>이름</td>
-						<td><span>${employee.e_name }</span></td>
-						<td>입사일</td>
-						<td><span>${employee.e_hiredate }</span></td>
-						<td>부서</td>
-						<td><span>${employee.dept_id }</span></td>
-					</tr>
-					<tr>
-						<td>직무</td>
-						<td><span>${employee.job_id }</span></td>
-						<td>직급</td>
-						<td><span>${employee.position_id }</span></td>
-						<td>직책</td>
-						<td><span>${employee.duty_id }</span></td>
-						<td>연봉</td>
-						<td><span>${employee.e_sal }</span></td>
-					</tr>
-					<tr>
-						<td colspan="2">나이</td>
-						<td colspan="6">
-							<input class="form-control" type="text" value="${employee.e_age }">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">전화번호</td>
-						<td colspan="6">
-							<input class="form-control" type="text" value="${employee.phone_number }">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">이메일</td>
-						<td colspan="6">
-							<input class="form-control" type="text" value="${employee.e_email }">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">주소</td>
-						<td colspan="6">
-							<input class="form-control" type="text" value="${employee.e_address }">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">비밀번호</td>
-						<td colspan="6">
-							<input class="form-control" type="text" value="${employee.e_pwd }">
-						</td>
-					</tr>
-				</tbody>
+				<tr>
+					<td>hoho사원번호</td>
+					<td><span>${employee.emp_id }</span></td>
+					<td>이름</td>
+					<td><span>${employee.e_name }</span></td>
+					<td>입사일</td>
+					<td><span>${employee.e_hiredate }</span></td>
+					<td>부서</td>
+					<td><span>${employee.dept_id }</span></td>
+				</tr>
+				<tr>
+					<td>직무</td>
+					<td><span>${employee.job_id }</span></td>
+					<td>직급</td>
+					<td><span>${employee.position_id }</span></td>
+					<td>직책</td>
+					<td><span>${employee.duty_id }</span></td>
+					<td>연봉</td>
+					<td><span>${employee.e_sal }</span></td>
+				</tr>
+				<tr>
+					<td colspan="2">나이</td>
+					<td colspan="6">
+						<input class="form-control" type="text" value="${employee.e_age }">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">전화번호</td>
+					<td colspan="6">
+						<input class="form-control" type="text" value="${employee.phone_number }">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">이메일</td>
+					<td colspan="6">
+						<input class="form-control" type="text" value="${employee.e_email }">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">주소</td>
+					<td colspan="6">
+						<input class="form-control" type="text" value="${employee.e_address }">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">비밀번호</td>
+					<td colspan="6">
+						<input class="form-control" type="text" value="${employee.e_pwd }">
+					</td>
+				</tr>
 			</table>
 		    	<button type="button" class="btn btn-default center-block">수정</button>
 		    	
