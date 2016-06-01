@@ -1,5 +1,4 @@
 package erp.basic.persistence;
-
 import java.util.List;
 
 import erp.basic.domain.Product;
@@ -22,5 +21,7 @@ public interface BasicProductDAO {
 	public void productUpdate(Product product) throws Exception;
 
 	public void productDelete(String product_id) throws Exception;
+
+	public List<Product> productCodeJson(String word) throws Exception;
 
 }

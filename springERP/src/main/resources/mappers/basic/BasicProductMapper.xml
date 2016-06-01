@@ -17,9 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from product
 	</select>
 	
-	<select id="productList" resultType="ProductList">
-		select p.product_id, p.product_name, g.pgroup_name, p.barcode, p.price_in, p.price_out, s.standard_name, p.made_in from product p, product_group g, standards s 
-			where p.pgroup_id = g.pgroup_id and s.standard_id = p.standard_id
+	<select id="productList" parameterType="java.util.Map" resultType="ProductList">
+	
+		select * from (select rownum as num, p.product_id, p.product_name, g.pgroup_name, p.barcode, p.price_in, p.price_out, s.standard_name, p.made_in 
+			from product p, product_group g, standards s
+			where p.pgroup_id = g.pgroup_id and s.standard_id = p.standard_id)
+			where num between #{start} and #{end}
 	</select>
 	
 	<insert id="productInsert" parameterType="Product">
@@ -53,4 +56,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="productDelete" parameterType="String">
 		delete from product where product_id = #{product_id}
 	</delete>
+	
+	<select id="productCodeJson" parameterType="String" resultType="Product">
+		select product_id, product_name from product
+			where product_id LIKE #{word}
+	</select>
 </mapper>

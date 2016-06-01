@@ -21,4 +21,6 @@ public interface BasicProductService {
 
 	public void productDelete(String product_id) throws Exception;
 
+	public List<Product> productCodeJson(String word) throws Exception;
+
 }
