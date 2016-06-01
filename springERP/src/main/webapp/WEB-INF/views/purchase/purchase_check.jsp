@@ -17,9 +17,6 @@
 
 <!-- Custom CSS -->
    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">    
-    <link href="css/bootstrap.min.css" rel="stylesheet">    
     <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
     <script type="text/javascript">
     $(function(){
@@ -29,6 +26,17 @@
     			$('.view_id').attr('value',upSelect);
     		});
     	}) */
+    	$('#checkAll').click(function(){
+    		if(this.checked){
+    			$('input[name=id_box]').each(function(){
+    				$(this).prop('checked',true);
+    			});
+    		}else{
+    			$('input[name=id_box]').each(function(){
+    				$(this).prop('checked',false);
+    			});
+    		}        	
+    	});
     	$('#deleteBtn').on('click', function(){
 			var array = [];
 			$("input[name=id_box]:checked").each(function() {
@@ -41,6 +49,9 @@
 				$(location).attr('href',url);
 			}		
 		})
+		$('#newBtn').click(function(){
+			$(location).attr('href', "/purchase/purchase_add");
+		});
     });
     </script>
 </head>
@@ -48,7 +59,7 @@
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
-				<th><input type="checkbox"></th>
+				<th><input type="checkbox" id="checkAll"></th>
 				<th>구매번호</th>
 				<th>거래처명</th>
 				<th>품목명</th>
@@ -74,8 +85,8 @@
 		</c:forEach>
 	</table>
 	<div class="buttongroup">
-		<input type="button" id="newBtn" class="btn btn-default" value="등록" onclick="fn_add()">
-		<input type="button" id="newBtn" class="btn btn-default" value="수정">
+		<input type="button" id="newBtn" class="btn btn-default" value="등록">
+		<input type="button" id="updateBtn" class="btn btn-default" value="수정">
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 	</div>
 </body>

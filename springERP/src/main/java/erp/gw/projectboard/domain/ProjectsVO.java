@@ -15,7 +15,7 @@ public class ProjectsVO {
 	@Getter @Setter private int proj_id;
 	@Getter @Setter private String proj_name;
 	@Getter @Setter private String proj_content;
-	@Getter @Setter private int proj_period;
+	@Getter @Setter private Date proj_period;
 	@Getter @Setter private Date proj_start_date;
 	@Getter @Setter private Date proj_end_date;
 	@Getter @Setter private String emp_id;

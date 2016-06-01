@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import erp.pch.domain.Customer;
 import erp.pch.domain.PurchaseListView;
+import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.persistence.PurchaseDAO;
 
@@ -35,5 +36,10 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Override
 	public List<Customer> customerList(String customer_id) throws Exception {
 		return dao.customerList(customer_id);
+	}
+
+	@Override
+	public List<PurchaseListView> purchaseSearch(PurchaseSearch ps) throws Exception {
+		return dao.purchaseSearch(ps);
 	}
 }

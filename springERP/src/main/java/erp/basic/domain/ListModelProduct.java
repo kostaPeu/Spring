@@ -1,5 +1,6 @@
 package erp.basic.domain;
 
+import java.security.Provider.Service;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -21,4 +22,7 @@ public class ListModelProduct {
 	private int startPage;
 	@Getter @Setter
 	private int endPage;
+
+	
+	
 }

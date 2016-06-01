@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="erp.acc.mapper.BasicAccountMapper">
+
+	<insert id="accountInsert" parameterType="Accounts">
+		insert into Accounts (
+			ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+			ACCOUNT_DETAIL, REMARKS, USE
+		) values(
+			#{account_number},
+			#{account_name},
+			#{diagnosis_number},
+			#{account_detail},
+			#{remarks},
+			#{use}	
+		)		
+	</insert>
+	
+	<select id="accountList" resultType="Accounts">
+		SELECT * FROM accounts
+	</select>
+
+	<update id="accountUpdate" parameterType="Accounts">
+		UPDATE Accounts SET ACCOUNT_NUMBER = #{account_number}, ACCOUNT_NAME = #{account_name}, DIAGNOSIS_NUMBER = #{diagnosis_number},
+			ACCOUNT_DETAIL = #{account_detail}, REMARKS = #{remarks}, USE = #{use}
+				WHERE ACCOUNT_NUMBER = #{account_number}
+	</update>
+	
+	<delete id="accountDelete" parameterType="String">
+		DELETE FROM Accounts WHERE ACCOUNT_NUMBER = #{account_number}
+	</delete>
+</mapper>

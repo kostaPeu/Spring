@@ -25,7 +25,15 @@ public class EmployeeVO implements UserDetails{
 	
 	private static final long serialVersionUID = -4086869747130410600L;
 
-	@Getter @Setter private String emp_id;
+	public String getEmp_id() {
+		return emp_id;
+	}
+
+	public void setEmp_id(String emp_id) {
+		this.emp_id = emp_id;
+	}
+
+	private String emp_id;
 	@Getter @Setter private String e_name;
 	@Getter @Setter private int e_age;
 	@Getter @Setter private Date e_hiredate;

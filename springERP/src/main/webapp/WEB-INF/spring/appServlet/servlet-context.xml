@@ -12,16 +12,16 @@
 	<context:component-scan base-package="erp.*.controller" />
 	<context:component-scan base-package="erp.*.service" />
 	<context:component-scan base-package="erp.*.persistence" />
+	
 	<context:component-scan base-package="erp.*.*.controller" />
     <context:component-scan base-package="erp.*.*.service" />
     <context:component-scan base-package="erp.*.*.persistence" />
-   
-	
+
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
 	<view-controller path="/" view-name="main"/>
-	
+
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp"/>

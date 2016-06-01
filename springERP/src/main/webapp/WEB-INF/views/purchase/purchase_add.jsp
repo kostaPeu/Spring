@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-	<form class="form-horizontal" method="post">
+	<form:form class="form-horizontal" method="post">
 		<table class="table table-bordered table-hover new">
 				<thead>
 				<tr>
@@ -70,7 +71,7 @@
 		<div class="buttongroup">
 			<input type="submit" id="newBtn" class="btn btn-default" value="저장">
 		</div>
-	</form>
+	</form:form>
 </div>
 
 <!-- 모달 -->
