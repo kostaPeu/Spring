@@ -26,13 +26,4 @@
   		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean> 
 	
-	<context:component-scan base-package="erp.gw.notice.persistence"/>
-	<context:component-scan base-package="erp.gw.notice.service"/>
-	
-	<context:component-scan base-package="erp.pch.persistence"/>
-	<context:component-scan base-package="erp.pch.service"/>
-
-	<context:component-scan base-package="erp.basic.persistence"/>
-	<context:component-scan base-package="erp.basic.service"/>
-
 </beans>
