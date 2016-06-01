@@ -27,7 +27,7 @@
 	<authentication-manager>
 		<authentication-provider user-service-ref="customJdbcDaoImpl"></authentication-provider>
 	</authentication-manager>
-
+    
 	<beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
 		<beans:property name="dataSource" ref="dataSource" />
  		<beans:property name="rolePrefix" value=""/>
@@ -38,5 +38,5 @@
 		<beans:property name="enableGroups" value="false" />
 	</beans:bean>
 
-
 </beans:beans>
+

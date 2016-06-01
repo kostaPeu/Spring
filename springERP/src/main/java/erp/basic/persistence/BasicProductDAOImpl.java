@@ -21,7 +21,7 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	@Inject
 	private SqlSession session;
 
-	private static String namespace = "erp.basic.mapper.BasicProductMapper";
+	private static String namespace = "erp.basic.mapper.basicProductMapper";
 
 	@Override
 	public List<ProductGroup> pgroupList() throws Exception {
