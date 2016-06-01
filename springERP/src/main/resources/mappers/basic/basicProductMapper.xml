@@ -61,4 +61,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select product_id, product_name from product
 			where product_id LIKE #{word}
 	</select>
+	
+	<insert id="stockInsert" parameterType="Stock">
+		INSERT INTO stock(
+			product_id,
+			stock_amount,
+			warehouse_id,
+			stock_loc
+		) VALUES (
+			#{product_id},
+			#{stock_amount},
+			#{warehouse_id},
+			#{stock_loc}
+		)
+	</insert>
 </mapper>

@@ -35,7 +35,7 @@ public class BasicProductController {
 	public String productInsert(Product product) throws Exception {
 		
 		service.productInsert(product);
-		
+
 		return "redirect:/basic/product/list";
 	}
 	

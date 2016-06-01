@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +13,7 @@ import erp.basic.domain.Product;
 import erp.basic.domain.ProductGroup;
 import erp.basic.domain.ProductList;
 import erp.basic.domain.Standards;
+import erp.basic.domain.Stock;
 
 @Repository
 public class BasicProductDAOImpl implements BasicProductDAO{
@@ -66,6 +66,11 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	@Override
 	public List<Product> productCodeJson(String word) throws Exception {
 		return session.selectList(namespace+".productCodeJson",word);
+	}
+
+	@Override
+	public void stockInsert(Stock stock) throws Exception {
+		session.insert(namespace+".stockInsert",stock);
 	}
 
 }

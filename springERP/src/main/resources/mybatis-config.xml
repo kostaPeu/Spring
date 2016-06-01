@@ -8,7 +8,8 @@
   <typeAliases>
     <package name="erp.pch.domain"/>  
     <package name="erp.basic.domain"/>    
-    <package name="erp.hr.domain"/>    
+    <package name="erp.hr.domain"/>   
+    <package name="erp.stock.domain"/> 
   </typeAliases>
   
 </configuration>
