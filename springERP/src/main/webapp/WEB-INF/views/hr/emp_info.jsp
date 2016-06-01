@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="/shopERP/css/emp.css">
+    <link rel="stylesheet" href="/resources/hr/css/emp.css">
 <script type="text/javascript">
 	
 	function fn_update_emp(){
