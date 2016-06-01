@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/dist/css/bootstrap.min.css">
 
 <!-- Custom Style -->
-<link rel="stylesheet" href="resources/common/css/common.css">
+<link rel="stylesheet" href="/resources/common/css/common.css">
  
 </head>
 <body id="body_html" class="font-dotum">
