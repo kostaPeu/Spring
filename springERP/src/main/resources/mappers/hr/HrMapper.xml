@@ -5,7 +5,7 @@
 
 <mapper namespace="erp.hr.mapper.HrMapper">
 	<cache />
-
+<!-- 기초등록  -->
 	<select id="deptChecker" parameterType="String" resultType="Int">
 		select count(*) from department where dept_id = #{b_id}
 	</select>
@@ -21,76 +21,79 @@
 		select count(*) from duty where duty_id = #{b_id}
 	</select>
 	
-	<!-- 
-	<insert id="deptInsert" parameterType="hr_basic">
+	
+	<insert id="deptInsert" parameterType="HrBasicVo">
 		insert into department
 		(dept_id, dept_name)
 		values(#{basic_id}, #{basic_name})
 	</insert>
-	<insert id="positonInsert" parameterType="hr_basic">
+	<insert id="positionInsert" parameterType="HrBasicVo">
 		insert into positions
 		(position_id, position_name)
 		values(#{basic_id}, #{basic_name})
 	</insert>
-	<insert id="jobInsert" parameterType="hr_basic">
+	<insert id="jobInsert" parameterType="HrBasicVo">
 		insert into jobs (job_id,
 		job_name)
 		values(#{basic_id}, #{basic_name})
 	</insert>
-	<insert id="dutyInsert" parameterType="hr_basic">
+	<insert id="dutyInsert" parameterType="HrBasicVo">
 		insert into duty (duty_id,
 		duty_name)
 		values(#{basic_id}, #{basic_name})
 	</insert>
-
-	<select id="deptList" resultType="deptList">
-		select * from department
+	
+	
+	<update id="updateDept" parameterType="HrBasicVo">
+		update department set
+		dept_name=#{basic_name} where dept_id=#{basic_id}
+	</update>
+	<update id="updatePosition" parameterType="HrBasicVo">
+		update positions set
+		position_name=#{basic_name} where position_id=#{basic_id}
+	</update>
+	<update id="updateJob" parameterType="HrBasicVo">
+		update jobs set
+		job_name=#{basic_name} where job_id=#{basic_id}
+	</update>
+	<update id="updateDuty" parameterType="HrBasicVo">
+		update duty set
+		duty_name=#{basic_name} where duty_id=#{basic_id}
+	</update>
+	
+	<select id="deptList" resultType="HrDeptVO">
+		select * from department order by dept_id
 	</select>
-
-	<select id="positionList" resultType="positionList">
-		select * from positions
+	
+	<select id="positionList" resultType="HrPositionVO">
+		select * from positions order by position_id
 	</select>
-	<select id="jobList" resultType="jobList">
-		select * from jobs
+	
+	<select id="jobList" resultType="HrJobVO">
+		select * from jobs order by job_id
 	</select>
-	<select id="dutyList" resultType="dutyList">
-		select * from duty
+	
+	<select id="dutyList" resultType="HrDutyVO">
+		select * from duty order by duty_id
 	</select>
-
+	
 	<delete id="delDept" parameterType="String">
 		delete from department where
-		dept_id=#{dept_id}
+		dept_id=#{b_id}
 	</delete>
 	<delete id="delPosition" parameterType="String">
 		delete from positions
-		where position_id=#{position_id}
+		where position_id=#{b_id}
 	</delete>
 	<delete id="delJob" parameterType="String">
 		delete from jobs where
-		job_id=#{job_id}
+		job_id=#{b_id}
 	</delete>
 	<delete id="delDuty" parameterType="String">
 		delete from duty where
-		duty_id=#{duty_id}
+		duty_id=#{b_id}
 	</delete>
-
-	<update id="updateDept" parameterType="hr_basic">
-		update department set
-		dept_name=#{basic_name} where where dept_id=#{basic_id}
-	</update>
-	<update id="updatePosition" parameterType="hr_basic">
-		update positions set
-		position_name=#{basic_name} where where position_id=#{basic_id}
-	</update>
-	<update id="updateJob" parameterType="hr_basic">
-		update jobs set
-		job_name=#{basic_name} where where job_id=#{basic_id}
-	</update>
-	<update id="updateDuty" parameterType="hr_basic">
-		update duty set
-		duty_name=#{basic_name} where where duty_id=#{basic_id}
-	</update>
-
+<!-- 
 	<insert id="insertEmp" parameterType="employee">
 		insert into employee (
 		emp_id, e_name, e_age, e_sal, e_address, e_email, phone_number,
