@@ -8,8 +8,10 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import erp.acc.basic.domain.AccountCriteria;
 import erp.acc.basic.domain.Accounts;
+import erp.common.domain.Criteria;
+import erp.common.domain.SearchCriteria;
+
 
 @Repository
 public class BasicAccountDAOImpl implements BasicAccountDAO {
@@ -47,23 +49,29 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 
 	// 페이징 list
 	@Override
-	public List<Accounts> listPage(int page) throws Exception {
-		if (page <= 0) {
-			page = 1;
-		}
-		page = (page - 1) * 5; // 여기서 페이지당 글의 개수는 5개로 한정함
-		return session.selectList(namespace + ".listPage", null, new RowBounds(page, 5));
+	public List<Accounts> listAll() throws Exception {
+		return session.selectList(namespace + ".listAll");
 	}
 
 	@Override
-	public List<Accounts> accountListCriteria(AccountCriteria cri) throws Exception {
-
-		return session.selectList(namespace + ".accountListCriteria", cri);
+	public List<Accounts> listCriteria(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".listCriteria", null,
+				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
 	@Override
-	public int countPaging(AccountCriteria cri) throws Exception {
+	public int countPaging(Criteria cri) throws Exception {
 		return session.selectOne(namespace + ".countPaging", cri);
+	}
+
+	@Override
+	public List<Accounts> listSearch(SearchCriteria cri) throws Exception {
+		return session.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+	
+	@Override
+	public int listSerachCount(SearchCriteria cri) throws Exception {
+		return session.selectOne(namespace + ".listSearchCount", cri);
 	}
 
 }

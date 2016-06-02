@@ -6,9 +6,11 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import erp.acc.basic.domain.AccountCriteria;
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.persistence.BasicAccountDAO;
+import erp.common.domain.Criteria;
+import erp.common.domain.SearchCriteria;
+
 
 @Service
 public class BasicAccountServiceImpl implements BasicAccountService {
@@ -33,8 +35,29 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	public List<Accounts> accountList() throws Exception {
 		return dao.accountList();
 	}
+	
 	@Override
-	public List<Accounts> accountListCriteria(AccountCriteria cri) throws Exception {
-	return dao.accountListCriteria(cri);
+	public List<Accounts> listAll() throws Exception {
+		return dao.listAll();
 	}
+	
+	@Override
+	public List<Accounts> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
+	}
+	@Override
+	public List<Accounts> listSearchCriteria(SearchCriteria cri) throws Exception {
+		return dao.listSearch(cri);
+	}
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		return dao.listSerachCount(cri);
+	}
+	
+	
 }
