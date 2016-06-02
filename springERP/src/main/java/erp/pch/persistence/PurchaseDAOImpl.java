@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import erp.basic.domain.Product;
 import erp.pch.domain.Customer;
+import erp.pch.domain.GetWareHouse;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
@@ -33,10 +35,18 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	}
 	@Override
 	public List<Customer> customerList(String customer_id) throws Exception {
-		return session.selectList(namespace+".customerList", customer_id);
+		return session.selectList(namespace+".customerList", "%"+customer_id+"%");
 	}
 	@Override
 	public List<PurchaseListView> purchaseSearch(PurchaseSearch ps) throws Exception {
 		return session.selectList(namespace+".searchPurchaseList", ps);
+	}
+	@Override
+	public List<Product> productList(String product_id) throws Exception {
+		return session.selectList(namespace+".productList", "%"+product_id+"%");
+	}
+	@Override
+	public List<GetWareHouse> warehouseList(String warehouse_id) throws Exception {
+		return session.selectList(namespace+".warehouseList", "%"+warehouse_id+"%");
 	}
 }
