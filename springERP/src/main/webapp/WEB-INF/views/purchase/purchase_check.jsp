@@ -89,5 +89,32 @@
 		<input type="button" id="updateBtn" class="btn btn-default" value="수정">
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 	</div>
+	<div class="box-footer">
+
+		<div class="text-center">
+			<ul class="pagination">
+
+				<c:if test="${pageMaker.prev}">
+					<li><a
+						href="purchase_check${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+				</c:if>
+
+				<c:forEach begin="${pageMaker.startPage }"
+					end="${pageMaker.endPage }" var="idx">
+					<li
+						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+						<a href="purchase_check${pageMaker.makeSearch(idx)}">${idx}</a>
+					</li>
+				</c:forEach>
+
+				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<li><a
+						href="purchase_check${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+				</c:if>
+
+			</ul>
+		</div>
+
+	</div>
 </body>
 </html>
