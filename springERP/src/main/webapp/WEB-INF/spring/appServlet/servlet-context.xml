@@ -10,12 +10,7 @@
 	<annotation-driven />
 
 	<context:component-scan base-package="erp.*.controller" />
-	<context:component-scan base-package="erp.*.service" />
-	<context:component-scan base-package="erp.*.persistence" />
-	
 	<context:component-scan base-package="erp.*.*.controller" />
-    <context:component-scan base-package="erp.*.*.service" />
-    <context:component-scan base-package="erp.*.*.persistence" />
 
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
