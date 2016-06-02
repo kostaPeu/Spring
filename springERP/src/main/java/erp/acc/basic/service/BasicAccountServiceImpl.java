@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import erp.acc.basic.domain.AccountCriteria;
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.persistence.BasicAccountDAO;
 
@@ -31,5 +32,9 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	@Override
 	public List<Accounts> accountList() throws Exception {
 		return dao.accountList();
+	}
+	@Override
+	public List<Accounts> accountListCriteria(AccountCriteria cri) throws Exception {
+	return dao.accountListCriteria(cri);
 	}
 }
