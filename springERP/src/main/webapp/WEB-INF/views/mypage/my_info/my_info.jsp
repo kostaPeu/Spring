@@ -15,7 +15,9 @@
 <body>
 
 	<h2 class="page_title">개인정보 및 휴무신청</h2>
-	
+		
+		<!-- 근태현황 조회 -->
+		
 		<div id="indolence" class="content-group">
 		<h4>근태현황</h4>
 		<table class="table table-bordered table-hover">
@@ -50,7 +52,8 @@
 		</table>
 		</div>
 			
-			
+		
+		<!-- 개인정보 수정 -->
 			
 		<div id="myinfo" class="content-group">
 		<h4>개인정보</h4>
@@ -121,6 +124,7 @@
 		
 		
 		
+		<!-- 휴가신청 -->
 		
 		<div id="holiday" class="content-group">
 		<h4>휴가신청</h4>
