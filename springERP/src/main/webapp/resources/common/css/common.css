@@ -122,3 +122,10 @@ ul {list-style: none;}
 .page_title{
 	margin:0 0 30px 0;	
 }
+
+.content-group {
+	width:100%;
+	margin:10px 0;
+	padding: 10px 0;
+	float: left;
+}
