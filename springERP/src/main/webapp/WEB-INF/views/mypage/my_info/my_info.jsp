@@ -28,25 +28,15 @@
 					<th class="col-sm-2">휴가</th>
 					<th class="col-sm-2">연차</th>
 					<th class="col-sm-2">결근</th>
-					<th class="col-sm-2">기간</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="row">
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-				</tr>
-				<tr class="row">
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
-					<td class="col-sm-2">6</td>
+					<td class="col-sm-2">${indolenceInfo.lateness }</td>
+					<td class="col-sm-2">${indolenceInfo.half_annual }</td>
+					<td class="col-sm-2">${indolenceInfo.vacation }</td>
+					<td class="col-sm-2">${indolenceInfo.annual }</td>
+					<td class="col-sm-2">${indolenceInfo.absence }</td>
 				</tr>
 			</tbody>
 		</table>
