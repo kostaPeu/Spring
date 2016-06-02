@@ -1,17 +1,11 @@
-function fn_add(){
-	location.href = "./main.jsp?left=./purchase/view/purchase.jsp&contents=./purchase/view/purchase_add.jsp";
-}
-
-// 데이트피커 함수인식 못해서 주석처리
-//$(function(){
-//	$('.purchase_date').datepicker({
-//		showButtonPanel : true,
-//		dateFormat : "yy-mm-dd",
-//		changeYear : true,
-//		changeMonth : true
-//	});
-//})
-
+$(function(){
+	$('.purchase_date').datepicker({
+		showButtonPanel : true,
+		dateFormat : "yy-mm-dd",
+		changeYear : true,
+		changeMonth : true
+	});
+})
 
 
 

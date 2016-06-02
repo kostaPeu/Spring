@@ -4,10 +4,15 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import erp.common.domain.Criteria;
+import erp.common.domain.SearchCriteria;
 import erp.sale.domain.SaleListView;
+import erp.sale.domain.SaleSearch;
+import erp.sale.domain.SaleSearchTimeSet;
 import erp.sale.domain.SaleVO;
 
 @Repository
@@ -32,5 +37,28 @@ public class SaleDAOImpl implements SaleDAO {
 	public void updateSale(SaleVO vo) throws Exception {
 		sqlSession.update(namespace+".updateSale", vo);
 	}
-
+	@Override
+	public List<SaleListView> searchSale(SaleSearchTimeSet sst) throws Exception {
+		return sqlSession.selectList(namespace+".saleList", sst);
+	}
+	@Override
+	public List<SaleListView> listAll() throws Exception {
+		return sqlSession.selectList(namespace+".listAll");
+	}
+	@Override
+	public List<SaleListView> listCriteria(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace+".listCriteria",  null, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return sqlSession.selectOne(namespace+".countPaging",cri);
+	}
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		return sqlSession.selectOne(namespace+".listSearchCount", cri);
+	}
+	@Override
+	public List<SaleListView> listSearch(SearchCriteria cri) throws Exception {
+		return sqlSession.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
 }

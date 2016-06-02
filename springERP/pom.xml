@@ -239,7 +239,12 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		
+		<!-- http://mvnrepository.com/artifact/org.wicketstuff/jwicket-ui-datepicker -->
+		<dependency>
+			<groupId>org.wicketstuff</groupId>
+			<artifactId>jwicket-ui-datepicker</artifactId>
+			<version>1.4.21</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

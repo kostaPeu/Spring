@@ -26,6 +26,7 @@
     <script src="purchase/js/purchase.js" type="text/javascript"></script> -->
 </head>
 <body>
+	<h2>구매 현황</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>

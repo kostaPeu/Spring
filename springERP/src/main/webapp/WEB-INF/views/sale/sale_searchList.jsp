@@ -17,13 +17,6 @@
 
 <!-- Custom CSS -->
    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="sale/css/sale.css" rel="stylesheet">
-    
-    <script src="js/jquery.js" type="text/javascript"></script><!-- 
-    <script src="purchase/js/purchase.js" type="text/javascript"></script> -->
 </head>
 <body>
 	<table class="table table-bordered table-hover new">

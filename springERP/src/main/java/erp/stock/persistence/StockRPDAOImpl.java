@@ -33,4 +33,5 @@ public class StockRPDAOImpl implements StockRPDAO {
 		return session.selectOne(namespace+".inoutMax");
 	}
 
+	
 }
