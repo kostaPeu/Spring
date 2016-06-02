@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/js/ajax.js"></script>
 </head>
 <body>
 		<div class="erp-local-nav-title">회계관리</div>
@@ -15,7 +14,7 @@
 					<ul id="one" class="collapse">
 						<li><a href="./accounting/view/basic/moneyCheck.jsp">기초잔액등록</a></li>
 						<li><a href="cardList.ac">신용카드등록</a></li>
-						<li><a href="accountList.ac">통장계좌등록</a></li>
+						<li><a href="/accounting/account/list">통장계좌등록</a></li>
 						<li><a href="./accounting/view/basic/Project.jsp">프로젝트등록</a></li>
 					</ul>
 				</li>

@@ -1,16 +1,12 @@
 package erp.pch.test;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
-
 import javax.inject.Inject;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.persistence.PurchaseDAO;
 import erp.pch.service.PurchaseService;

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/shopERP/css/emp.css">
-<script type="text/javascript">
-	
-	function fn_update_indol(){
-		location.href="./main.jsp?left=./hr/view/hr_side.jsp?&contents=./hr/view/update_indol.jsp";
-	}
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
+<!-- 커스텀 -->
+<link rel="stylesheet" href="/resources/hr/css/emp.css">
+<script src="/resources/hr/js/hr.js" type="text/javascript"></script>
 
-</script>
 </head>
 <body>
 

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import erp.gw.projectboard.domain.PageMaker;
-import erp.gw.projectboard.domain.SearchCriteria;
+import erp.common.domain.PageMaker;
+import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.service.ProjectBoardService;
 
 @Controller
@@ -21,12 +21,12 @@ public class ProjectBoardController {
 	
 	@RequestMapping(value="/pb_myproject_list", method=RequestMethod.GET)
 	public void myProjectList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
-
 		model.addAttribute("list", service.listSearchCriteria(cri));
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
+		
 	}
 }

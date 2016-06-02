@@ -22,4 +22,7 @@ public class ListModelProduct {
 	private int startPage;
 	@Getter @Setter
 	private int endPage;
+
+	
+	
 }
