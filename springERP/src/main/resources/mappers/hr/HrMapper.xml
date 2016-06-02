@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="erp.hr.mapper.HrMapper">
+	<cache />
+<!-- 기초등록  -->
+	<select id="deptChecker" parameterType="String" resultType="Int">
+		select count(*) from department where dept_id = #{b_id}
+	</select>
+	
+	
+	<select id="positionChecker" parameterType="String" resultType="Int">
+		select count(*) from positions where position_id = #{b_id}
+	</select>
+	<select id="jobChecker" parameterType="String" resultType="Int">
+		select count(*) from jobs where job_id = #{b_id}
+	</select>
+	<select id="dutyChecker" parameterType="String" resultType="Int">
+		select count(*) from duty where duty_id = #{b_id}
+	</select>
+	
+	
+	<insert id="deptInsert" parameterType="HrBasicVo">
+		insert into department
+		(dept_id, dept_name)
+		values(#{basic_id}, #{basic_name})
+	</insert>
+	<insert id="positionInsert" parameterType="HrBasicVo">
+		insert into positions
+		(position_id, position_name)
+		values(#{basic_id}, #{basic_name})
+	</insert>
+	<insert id="jobInsert" parameterType="HrBasicVo">
+		insert into jobs (job_id,
+		job_name)
+		values(#{basic_id}, #{basic_name})
+	</insert>
+	<insert id="dutyInsert" parameterType="HrBasicVo">
+		insert into duty (duty_id,
+		duty_name)
+		values(#{basic_id}, #{basic_name})
+	</insert>
+	
+	
+	<update id="updateDept" parameterType="HrBasicVo">
+		update department set
+		dept_name=#{basic_name} where dept_id=#{basic_id}
+	</update>
+	<update id="updatePosition" parameterType="HrBasicVo">
+		update positions set
+		position_name=#{basic_name} where position_id=#{basic_id}
+	</update>
+	<update id="updateJob" parameterType="HrBasicVo">
+		update jobs set
+		job_name=#{basic_name} where job_id=#{basic_id}
+	</update>
+	<update id="updateDuty" parameterType="HrBasicVo">
+		update duty set
+		duty_name=#{basic_name} where duty_id=#{basic_id}
+	</update>
+	
+	<select id="deptList" resultType="HrDeptVO">
+		select * from department order by dept_id
+	</select>
+	
+	<select id="positionList" resultType="HrPositionVO">
+		select * from positions order by position_id
+	</select>
+	
+	<select id="jobList" resultType="HrJobVO">
+		select * from jobs order by job_id
+	</select>
+	
+	<select id="dutyList" resultType="HrDutyVO">
+		select * from duty order by duty_id
+	</select>
+	
+	<delete id="delDept" parameterType="String">
+		delete from department where
+		dept_id=#{b_id}
+	</delete>
+	<delete id="delPosition" parameterType="String">
+		delete from positions
+		where position_id=#{b_id}
+	</delete>
+	<delete id="delJob" parameterType="String">
+		delete from jobs where
+		job_id=#{b_id}
+	</delete>
+	<delete id="delDuty" parameterType="String">
+		delete from duty where
+		duty_id=#{b_id}
+	</delete>
+<!-- 
+	<insert id="insertEmp" parameterType="employee">
+		insert into employee (
+		emp_id, e_name, e_age, e_sal, e_address, e_email, phone_number,
+		dept_id,
+		position_id, job_id, duty_id, e_pwd)
+		values(
+		#{emp_id}, #{e_name}, #{e_age}, #{e_sal}, #{e_address}, #{e_email},
+		#{phone_number},
+		#{dept_id}, #{position_id}, #{job_id}, #{duty_id}, #{e_pwd})
+	</insert>
+
+	<select id="getEmp" parameterType="String" resultType="employee">
+		select *
+		from employee where emp_id = #{emp_id}
+	</select>
+
+	<update id="updateEmp" parameterType="employee">
+		update employee set
+		e_name=#{e_name}, e_age=#{e_age}, e_sal=#{e_sal},
+		e_address=#{e_address}, e_email=#{e_email},
+		phone_number=#{phone_number},
+		dept_id=#{dept_id}, position_id=#{position_id}, job_id=#{job_id},
+		duty_id=#{duty_id}, e_pwd=#{e_pwd} where emp_id=#{emp_id}
+	</update>
+
+	<delete id="delEmp" parameterType="String">
+		delete from employee where
+		emp_id=#{emp_id}
+	</delete>
+
+	<select id="getEmpList" resultType="employee" parameterType="empSearch">
+		select * from emp_view
+		<if test="area!=null">검색어가 있을때
+			<where>
+				<foreach collection="area" item="item" separator="or" open="("
+					close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<select id="getEmpPic" resultType="String" parameterType="String">
+		select e_prople_pic from employee where emp_id=#{emp_id}
+	</select>
+	
+	<insert id="insertIndol" parameterType="String">
+		insert into indolence_info (
+			emp_id, lateness, vacation, half_annual, absence, annual)
+			values(
+				#{emp_id}, 0, 0, 0, 0, 0})
+	</insert>
+	
+	<update id="updateIndol" parameterType="indol">
+		update indolence_info set
+		lateness=#{lateness}, vacation=#{vacation}, half_annual=#{half_annual},
+		absence=#{absence}, annual=#{annual}
+		where emp_id=#{emp_id}
+	</update>
+	
+	<delete id="delIndol" parameterType="String">
+		delete from indolence_info where
+		emp_id=#{emp_id}
+	</delete>
+	
+	<select id="getIndolList" resultType="indol" parameterType="indolSearch">
+		select * from indol_view
+		<if test="area!=null">검색어가 있을때
+			<where>
+				<foreach collection="area" item="item" separator="or" open="("
+					close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
+	
+	<update id="updateIndolRequest" parameterType="String">
+		update indol_request set approve = #{approve}
+	</update>
+	
+		<select id="getIndolRequestList" resultType="indol_request" parameterType="indolRequestSearch">
+			select * from indol_request_view
+		<if test="area!=null">검색어가 있을때
+			<where>
+				<foreach collection="area" item="item" separator="or" open="("
+					close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select> -->
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+

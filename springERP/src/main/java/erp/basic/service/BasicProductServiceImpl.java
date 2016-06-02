@@ -62,15 +62,20 @@ public class BasicProductServiceImpl implements BasicProductService{
 	@Override
 	public void productInsert(Product product) throws Exception {
 		Stock stock = new Stock();
-		//stock.setProduct_id(product.getProduct_id());
-		stock.setProduct_id("22222");
+		stock.setProduct_id(product.getProduct_id());
+		//stock.setProduct_id("22222");
 		stock.setStock_amount(0);
 		stock.setStock_loc("");
 		stock.setWarehouse_id("warehouse_id_03");
 		
-		dao.productInsert(product);
-		dao.stockInsert(stock);
-		
+		try {
+			dao.productInsert(product);
+			dao.stockInsert(stock);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
 	}
 
 	/*품목 수정 - MJ*/

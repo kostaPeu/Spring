@@ -7,12 +7,15 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.basic.domain.Product;
+import erp.common.domain.PageMaker;
+import erp.common.domain.SearchCriteria;
 import erp.pch.domain.Customer;
 import erp.pch.domain.GetWareHouse;
 import erp.pch.domain.PurchaseListView;
@@ -38,12 +41,15 @@ public class PurchaseController {
 		service.insertPch(vo);
 		return "redirect:purchase_check";
 	}
-	@RequestMapping("purchase_check")
-	public String purchase_check(Model model)throws Exception{
-		List<PurchaseListView> list = service.detailPch();
+	@RequestMapping(value="/purchase_check", method=RequestMethod.GET)
+	public String purchaseCheckPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCountCriteria(cri));
+		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("left", "purchase/purchase.jsp");
 		model.addAttribute("contents", "purchase/purchase_check.jsp");
-		model.addAttribute("list", list);
 		return "/main";
 	}
 	@RequestMapping("purchase_delete")

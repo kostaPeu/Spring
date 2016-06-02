@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +16,13 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	
 <!-- Custom CSS -->
-
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- Script -->	
+	<script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>	
+  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="/resources/purchase/js/purchase.js"></script>
+	<script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
 </head>
 <body>
 	<!-- 거래처 검색 -->
@@ -111,7 +118,7 @@
 
   </div>
 </div><!-- 창고 끝 -->
-<form action="SaleSearch.sale" class="form-horizontal">
+<form:form class="form-horizontal" method="post">
 	<table class="table table-bordered table-hover new">
 		<tr>
 			<td>기준일자</td>
@@ -151,6 +158,6 @@
 	<div class="buttongroup">
 		<input type="submit" id="searchBtn" class="btn btn-default" value="검색">
 	</div>
-</form>
+</form:form>
 </body>
 </html>

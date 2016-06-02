@@ -13,4 +13,6 @@ public interface StockRPDAO {
 
 	public int inoutMax() throws Exception;
 
+	public void stockUpdate(StockRP stock) throws Exception;
+
 }

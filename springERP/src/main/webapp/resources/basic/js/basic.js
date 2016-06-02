@@ -56,21 +56,17 @@ $(function(){
 	$('#idCheck').on('click',function() {
 		var productVal = $('#ptext').val();
 		$('#search_product').val(productVal);
-		
 		$('#search_id').on('click',function(){
 			var searchKey = $('#search_product').val();
 	  		$.ajax({
 				url : "/basic/product/codeJson?searchKey="+searchKey,
 				type : "post",
 				dataType : "json",
-		        beforeSend: function (xhr) {
-		             xhr.setRequestHeader("X-Ajax-call", "true");
-		         },
 				success : function(data) {
 					var html = "<tr><th>품목코드</th><th>품목명</th></tr>";
 					$('#searchTable').empty();
+					$('#useBtn').removeAttr('disabled');
 					$.each(data, function(index, list) {
-						$('#useBtn').removeAttr('disabled');
 						if(list.product_id == searchKey){
 							$('#useBtn').attr('disabled','disabled');
 						}

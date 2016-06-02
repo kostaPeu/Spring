@@ -24,7 +24,6 @@
 		<table class="table table-bordered table-hover new">
 				<thead>
 				<tr>
-					<th><input type="checkbox"></th>
 					<th>구매번호</th>
 					<th>거래처명</th>
 					<th>품목명</th>
@@ -35,7 +34,6 @@
 				</tr>
 				</thead>
 				<tr>
-					<td><input type="checkbox"></td>
 					<td><input type="text" name="buy_id" id="buy_id" size="8"></td>
 					<td>
 						<input type="text" name="customer_id" id="customer_id" size="8">
