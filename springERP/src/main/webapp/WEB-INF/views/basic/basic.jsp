@@ -10,7 +10,7 @@
 	<div class="erp-local-nav">
 		<ul class="local">
 			<li><a href="/basic/product/list">품목관리</a></li>
-			<li><a href="CustomerList.ba">거래처관리</a></li>
+			<li><a href="/basic/customer/list">거래처관리</a></li>
 		</ul>
 	</div>
 </body>
