@@ -6,6 +6,7 @@ import erp.basic.domain.ProductGroup;
 import erp.basic.domain.ProductList;
 import erp.basic.domain.Standards;
 import erp.basic.domain.Stock;
+import erp.pch.domain.GetCustomer;
 
 public interface BasicProductDAO {
 
@@ -26,5 +27,10 @@ public interface BasicProductDAO {
 	public List<Product> productCodeJson(String word) throws Exception;
 
 	public void stockInsert(Stock stock) throws Exception;
+	
+	public void customerInsert(GetCustomer customer)throws Exception;
+	public void customerUpdate(GetCustomer customer)throws Exception;
+	public void customerDelete(String customer_id)throws Exception;
+	
 
 }

@@ -7,28 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+
 </head>
 <body>
 
 	<h2 class="page_title">공지사항</h2>
 	
-	<c:if test="${coin != '' || coin ne null}">
-	
-		<c:if test="${coin eq '0'}">
-			<script type="text/javascript">
-				alert("삭제 권한이 없습니다.");
-			</script>
-		</c:if>
-		
-		<c:if test="${coin eq '1'}">
-			<script type="text/javascript">
-				alert("삭제 완료.");
-			</script>
-		</c:if>
-		
-	</c:if>
-	
-	<table class="table table-hover">
+	<table class="table table-hover" class="boardList">
 		<thead>
 			<tr class="row">
 				<th class="col-sm-1">글번호</th>
@@ -43,31 +29,49 @@
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
 						<td class="col-sm-1">${list.get(i).getNotice_id()}</td>
-					 	<td class="col-sm-6"><a href="noticeViewAction.gw?notice_id=${list.get(i).getNotice_id()}">${list.get(i).getNotice_title() }</a></td>
-						<td class="col-sm-2">${e_name_list.get(i)}</td>
-						<td class="col-sm-2"><fmt:formatDate value="${list.get(i).getNotice_date() }"
+					 	<td class="col-sm-6"><a class="eggFri" href="notice_view?notice_id=${list.get(i).getNotice_id()}">${list.get(i).getNotice_title() }</a></td>
+						<td class="col-sm-2">${e_name_list.get(i) }</td>
+								<td class="col-sm-2"><fmt:formatDate value="${list.get(i).getNotice_date() }"
 								pattern="yyyy-MM-dd" /></td>
-						<td class="col-sm-1">${list.get(i).getNotice_hit()}</td>
+						<td class="col-sm-1">${list.get(i).getNotice_hit() }</td>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</tbody>
 	</table>
-<%-- 
-	<jsp:include page="../../paging.jsp" flush="true">
-	    <jsp:param name="firstPageNo" value="${paging.firstPageNo}" />	
-	    <jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
-	   	<jsp:param name="startPageNo" value="${paging.startPageNo}" />
-	    <jsp:param name="pageNo" value="${paging.pageNo}" />
-	    <jsp:param name="endPageNo" value="${paging.endPageNo}" />
-	    <jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
-		    <jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-	</jsp:include>
- --%>
-	<div class="row">
-		<a href="./main.jsp?left=./groupware/view/groupware.jsp&contents=./groupware/view/notice/notice_write.jsp"	class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
-	</div>
+	
+	<div class="box-footer">
 
+					<div class="text-center">
+						<ul class="pagination">
+
+							<c:if test="${pageMaker.prev}">
+								<li><a
+									href="notice_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="notice_list${pageMaker.makeSearch(idx)}">${idx}</a>
+								</li>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="notice_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+							</c:if>
+
+						</ul>
+					</div>
+
+				</div>
+				
+
+	<div class="row">
+		<a id="write" href="notice_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+	</div>
 
 	<form action="noticeSearchAction.gw" method="post">
 		<div class="col-xs-2">
@@ -83,6 +87,25 @@
 		</div>
 		<button type="submit" class="btn btn-default">검색</button>
 	</form>
+	
+	<script type="text/javascript">
+	
+	$(function(){
+		   $('.eggFri').on('click', function(e) {
+		      e.preventDefault();
+		      $('#contents').empty();	
+		      $('#contents').load('/groupware/notice/'+$(this).attr('href'));
+		   });
+
+		   $('#write').click(function(e) {
+		      e.preventDefault();
+		      
+		      $('#contents').empty();
+		      $('#contents').load('/groupware/notice/'+$(this).attr('href'));
+		   });
+		   
+		})
+	</script>
 	
 </body>
 </html>
