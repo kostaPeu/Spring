@@ -14,6 +14,7 @@ import erp.basic.domain.ProductGroup;
 import erp.basic.domain.ProductList;
 import erp.basic.domain.Standards;
 import erp.basic.domain.Stock;
+import erp.pch.domain.GetCustomer;
 
 @Repository
 public class BasicProductDAOImpl implements BasicProductDAO{
@@ -71,6 +72,24 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	@Override
 	public void stockInsert(Stock stock) throws Exception {
 		session.insert(namespace+".stockInsert",stock);
+	}
+
+	@Override
+	public void customerInsert(GetCustomer customer) throws Exception {
+		session.insert(namespace+".insertCustomer", customer);
+		
+	}
+
+	@Override
+	public void customerUpdate(GetCustomer customer) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void customerDelete(String customer_id) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
