@@ -13,7 +13,7 @@
 	Object principal = auth.getPrincipal();
 	String name="";
 	if(principal != null && principal instanceof EmployeeVO){
-		name = ((EmployeeVO)principal).getUsername();
+		name = ((EmployeeVO)principal).getE_name();
 	}
 %>
 
