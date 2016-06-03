@@ -36,4 +36,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customer
 			where customer_id = #{customer_id}
 	</select>
+	<select id="listAll" resultType="Customer">
+    <![CDATA[
+    select 
+     customer_id, customer_name, repre_name, phone_number, customer_address, copy_bankbook,
+			bankbook_check, customer_email, customer_fax, checkman
+    from 
+      customer
+    order by customer_id desc
+    ]]>
+   </select>
+   
+   <select id="listPage" resultType="Customer">
+    <![CDATA[
+    select 
+     customer_id, customer_name, repre_name, phone_number, customer_address, copy_bankbook,
+			bankbook_check, customer_email, customer_fax, checkman
+    from 
+      customer
+    order by customer_id desc
+    ]]>
+   </select>
+
+   <select id="listCriteria" resultType="Customer">
+    <![CDATA[
+     select 
+     customer_id, customer_name, repre_name, phone_number, customer_address, copy_bankbook,
+			bankbook_check, customer_email, customer_fax, checkman
+    from 
+      customer
+    order by customer_id desc
+    ]]>
+   </select>
+
+   <select id="countPaging" resultType="int">
+    <![CDATA[
+    select 
+      count(customer_id) 
+    from 
+      customer
+    ]]>
+    </select>
 </mapper>

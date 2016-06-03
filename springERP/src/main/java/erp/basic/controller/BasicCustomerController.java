@@ -6,12 +6,16 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.basic.domain.Customer;
 import erp.basic.service.BasicCustomerService;
+import erp.common.domain.PageMaker;
+import erp.common.domain.SearchCriteria;
 
 @Controller
 @RequestMapping("/basic/customer/*")
@@ -21,11 +25,14 @@ public class BasicCustomerController {
 	private BasicCustomerService service;
 	
 	@RequestMapping("list")
-	public String customerList(Model model)throws Exception{
-		
+	public String customerList(@ModelAttribute("cri") SearchCriteria cri, Model model)throws Exception{
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCountCriteria(cri));
+		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("left","basic/basic.jsp");
 		model.addAttribute("contents","basic/basic_customerList.jsp");
-		model.addAttribute("list", service.customerList());
 		return "/main";
 	}
 	@RequestMapping("getCustomer")

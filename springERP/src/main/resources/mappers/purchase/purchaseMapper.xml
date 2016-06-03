@@ -121,7 +121,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
     ]]>
     </select>
-    <select id="listSearch" resultType="PurchaseListView" parameterType="SearchCriteria" >
+    <!-- <select id="listSearch" resultType="PurchaseListView" parameterType="SearchCriteria" >
    
 	   <![CDATA[  
 	     select * 
@@ -169,5 +169,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      where buy_id > 0 
    ]]>
      <include refid="search"></include>
-   </select> 
+   </select>  -->
 </mapper>

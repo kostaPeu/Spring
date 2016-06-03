@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.basic.domain.Customer;
+import erp.common.domain.Criteria;
+import erp.pch.domain.PurchaseListView;
 
 @Repository
 public class BasicCustomerDAOImpl implements BasicCustomerDAO {
@@ -37,6 +40,21 @@ public class BasicCustomerDAOImpl implements BasicCustomerDAO {
 	@Override
 	public List<Customer> getCustomer(String customer_id) throws Exception {
 		return session.selectList(namespace+".getCustomer", customer_id);
+	}
+
+	@Override
+	public List<Customer> listAll() throws Exception {
+		return session.selectList(namespace+".listAll");
+	}
+
+	@Override
+	public List<Customer> listCriteria(Criteria cri) throws Exception {
+		return session.selectList(namespace+".listCriteria",  null, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return session.selectOne(namespace+".countPaging",cri);
 	}
 
 }

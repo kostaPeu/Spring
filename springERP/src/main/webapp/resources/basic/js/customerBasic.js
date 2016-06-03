@@ -4,7 +4,16 @@ $(function() {
 		$('.add').css("display", "block");
 	})
 	$('#updateBtn').on('click', function() {
-		$('.update').css("display", "block");
+		var val = '';
+		$("input[name=id_box]:checked").each(function() {
+			val = $(this).val();
+		});
+		if(val == ""){
+			alert("수정할 것을 체크하시오.");
+			return false;
+		}else{
+			$('.update').css("display", "block");
+		}				
 	})
 	$('.closeBtn').click(function() {
 		$('.xclose').css("display", "none");
