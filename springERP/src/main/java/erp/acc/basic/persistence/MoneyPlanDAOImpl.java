@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.MoneyPlan;
+import erp.acc.basic.domain.MoneyPlanTimeSet;
 
 @Repository
 public class MoneyPlanDAOImpl implements MoneyPlanDAO {
@@ -18,7 +19,7 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 	private static String namespace = "erp.acc.mapper.MoneyPlanMapper";
 
 	@Override
-	public void moneyPlanInsert(MoneyPlan plan) throws Exception {
+	public void moneyPlanInsert(MoneyPlanTimeSet plan) throws Exception {
 		session.insert(namespace + ".moneyPlanInsert", plan);
 		
 	}

@@ -29,7 +29,7 @@ public class MoneyPlanController {
 
 	// 자금계획등록 화면
 	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.GET)
-	public String MoneyPlan_Add(Model model)throws Exception{
+	public String MoneyPlan_AddGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");
 		return "/main";
@@ -38,10 +38,11 @@ public class MoneyPlanController {
 	
 	// 자금계획등록 -JH
 	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.POST)
-	public String moneyPlanInsert(MoneyPlan plan, Model model) throws Exception {
+	public String MoneyPlan_AddPOST(MoneyPlan plan, Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");
+		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");		
 		service.moneyPlanInsert(plan);
+		System.out.println("등록되었습니다.");
 	
 		return "redirect:/accounting/moneyPlan/insertList";
 	}

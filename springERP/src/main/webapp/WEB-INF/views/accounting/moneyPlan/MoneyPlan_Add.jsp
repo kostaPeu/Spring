@@ -15,7 +15,7 @@
 	<h2 class="page_title">자금계획등록</h2>
 
 	<div class="mainContents">
-		<form action="/accounting/moneyPlan/insert" method="post">
+		<form:form action="/accounting/moneyPlan/MoneyPlan_Add" method="post">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
 				<table
@@ -30,8 +30,7 @@
 							<td><input type="text" name="funds_id"></td>
 						</tr>
 						<tr id="row-TYPES">
-							<th>입출금 구분 <span class="card-Info" data-html="true"
-								data-toggle="popover" data-trigger="focus hover"
+							<th>입출금 구분 <span class="card-Info" data-html="true" data-toggle="popover" data-trigger="focus hover"
 								data-placement="right" data-original-title="" title=""></span>
 							</th>
 							<td>
@@ -96,17 +95,14 @@
 						<tr id="row-project">
 							<th>프로젝트번호</th>
 							<td><input id="project_number" name="proj_id" type="text">
-								<button id="project_number_search"
-									class="btn btn-default btn-sm">
+								<button id="project_number_search"	class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
 								</button>
 						</tr>
 						<tr id="row-accountNum">
 							<th>계좌번호</th>
-							<td><input id="account_number" type="text"
-								name="account_number">
-								<button id="account_number_search"
-									class="btn btn-default btn-sm">
+							<td><input id="account_number" type="text" name="account_number">
+								<button id="account_number_search" class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
 								</button>
 						</tr>
@@ -144,17 +140,15 @@
 				<div class="wrapper-toolbar">
 					<div class="pull-reft"></div>
 					<div class="pull-right" id="button-Group">
-						<button id="btn-footer-Save" class="btn btn-xs btn-default"
-							type="Submit">저장</button>
-						<button id="btn-footer-Reset" class="btn btn-xs btn-default"
-							type="button" value="reset">리셋</button>
-						<button id="btn-footer-Close" class="btn btn-xs btn-default"
-							type="button">닫기</button>
+						<input id="btn-footer-Save" class="btn btn-xs btn-default"
+							type="submit" value="저장">
+						<input id="btn-footer-Reset" class="btn btn-xs btn-default"
+							type="reset" value="다시작성">						
 					</div>
 				</div>
 			</div>
 			<!-- 메뉴 footar END -->
-		</form>
+		</form:form>
 	</div>
 	<!-- 신규등록 END -->
 
