@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="erp.acc.mapper.MoneyPlanMapper">
 
 	<!-- MoneyPlan CRUD START -->
-	<insert id="moneyPlanInsert" parameterType="funds_plan">
+	<insert id="moneyPlanInsert" parameterType="MoneyPlan">
 		insert into funds_plan (
 		typelist, funds_id, repeat_unit, start_date, period, dept_id, proj_id,
 		account_number, diagnosis_number, customer_id, sums, remarks
@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 
-	<select id="moneyPlanList" resultType="funds_plan">
+	<select id="moneyPlanList" resultType="MoneyPlan">
 		SELECT * FROM funds_plan
 	</select>
 
