@@ -102,7 +102,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <select id="enameGet" resultType="String" parameterType="String">
     <![CDATA[  
-   	select e_name from emp_test where emp_id=#{emp_id}
+   	select e_name from employee where emp_id=#{emp_id}
    	   ]]>
    </select>
    
