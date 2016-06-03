@@ -22,4 +22,5 @@ public interface PurchaseService {
 	public List<PurchaseListView> listAll()throws Exception;
 	public List<PurchaseListView> listCriteria(Criteria cri)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
+	public void updatePurchase(PurchaseVO vo)throws Exception;
 }

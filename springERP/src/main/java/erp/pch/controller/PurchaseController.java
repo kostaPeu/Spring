@@ -89,4 +89,9 @@ public class PurchaseController {
 		model.addAttribute("contents", "purchase/purchase_search.jsp");
 		return "/main";
 	}
+	@RequestMapping("purchase_update")
+	public String puchaseUpdate(PurchaseVO vo)throws Exception{
+		service.updatePurchase(vo);
+		return "redirect:purchase_check";
+	}
 }

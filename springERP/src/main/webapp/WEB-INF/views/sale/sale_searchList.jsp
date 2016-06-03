@@ -19,6 +19,7 @@
    
 </head>
 <body>
+<h2>판매 현황 목록</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
