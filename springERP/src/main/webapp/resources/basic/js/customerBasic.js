@@ -5,13 +5,6 @@ $(function() {
 	})
 	$('#updateBtn').on('click', function() {
 		$('.update').css("display", "block");
-		/*$("input[name=id_box]:checked").each(function() {
-			var upSelect = $(this).val();
-			console.log(upSelect);
-			var url = "upSelect.ba?upSelect=" + upSelect;
-			$(location).attr('href', url);
-		});*/
-		$('.update').css("display", "block")
 	})
 	$('.closeBtn').click(function() {
 		$('.xclose').css("display", "none");
@@ -76,16 +69,15 @@ $(function() {
 		//$('#searchTable').empty();
 		$("input[name=productRow]:checked").each(function() {
 			var checks = $(this).val();
-			$(".product_id2").attr("value", checks);
+			$(".customer_id2").attr("value", checks);
 		});
 	});
 	$("#deleteBtn").on('click', function() {
 		$("input[name=productRow]:checked").each(function() {
 			var checks = $(this).val();
-			$(location).attr("href", "/basic/product/delete?checks=" + checks);
+			$(location).attr("href", "/basic/customer/delete?checks=" + checks);
 		});
 	});
-
 });
 /*품목코드 중복검색*/
 $(function(){

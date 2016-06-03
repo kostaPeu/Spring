@@ -33,5 +33,9 @@ public class BasicCustomerServiceImpl implements BasicCustomerService {
 	public List<Customer> customerList() throws Exception {
 		return dao.customerList();
 	}
+	@Override
+	public List<Customer> getCustomer(String customer_id) throws Exception {
+		return dao.getCustomer(customer_id);
+	}
 
 }

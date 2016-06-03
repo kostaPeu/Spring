@@ -32,4 +32,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from customer 
 			where customer_id = #{customer_id}
 	</delete>
+	<select id="getCustomer" resultType="Customer">
+		select * from customer
+			where customer_id = #{customer_id}
+	</select>
 </mapper>

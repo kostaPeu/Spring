@@ -34,5 +34,9 @@ public class BasicCustomerDAOImpl implements BasicCustomerDAO {
 	public List<Customer> customerList() throws Exception {
 		return session.selectList(namespace+".customerList");
 	}
+	@Override
+	public List<Customer> getCustomer(String customer_id) throws Exception {
+		return session.selectList(namespace+".getCustomer", customer_id);
+	}
 
 }

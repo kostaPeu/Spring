@@ -9,4 +9,5 @@ public interface BasicCustomerService {
 	public void customerUpdate(Customer customer)throws Exception;
 	public void customerDelete(String customer_id)throws Exception;
 	public List<Customer> customerList()throws Exception;
+	public List<Customer> getCustomer(String customer_id)throws Exception;
 }
