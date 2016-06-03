@@ -6,6 +6,7 @@ import erp.basic.domain.ListModelProduct;
 import erp.basic.domain.Product;
 import erp.basic.domain.ProductGroup;
 import erp.basic.domain.Standards;
+import erp.pch.domain.GetCustomer;
 
 public interface BasicProductService {
 
@@ -22,5 +23,5 @@ public interface BasicProductService {
 	public void productDelete(String product_id) throws Exception;
 
 	public List<Product> productCodeJson(String word) throws Exception;
-
+	
 }

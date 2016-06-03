@@ -5,7 +5,7 @@ import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Customer implements Serializable{
+public class GetCustomer implements Serializable{
 	@Getter @Setter
 	private String customer_id;
 	@Getter @Setter

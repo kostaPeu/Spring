@@ -17,7 +17,7 @@ $(function(){
 		html += '</c:forEach>';
 		html += '</select>';
 		html += '</td>';
-		html += '<td><input type="text"></td>';
+		html += '<td><input type="text" class="form-control"></td>';
 		html += '<td><select class="form-control" id="type" name="type">';
 		html += '<option value="in">입고</option>';
 		html += '<option value="out">출고</option>';
@@ -32,7 +32,8 @@ $(function(){
 			var stock_amount = $(product_id).parent().next().children();
 			var type = $(stock_amount).parent().next().children($('select option:selected')).val();
 
-			$(location).attr('href',  '/stock/rp/insert?product_id='+$(product_id).val()+'&stock_amount='+$(stock_amount).val()+'&type='+type);
+			$(location).attr('href',  '/stock/rp/insert?product_id='+$(product_id).val()+'&inout_amount='+$(stock_amount).val()+'&type='+type);
+	
 		});
 	});
 	
@@ -40,17 +41,19 @@ $(function(){
 </script>
 </head>
 <body>
-<button id="plusBtn">+</button>
-<table id="myTable">
-	<tr>
-		<th><input type="checkbox"></th>
-		<th>품목</th>
-		<th>갯수</th>
-		<th>구분</th>
-	</tr>
-</table>
 
+	<button id="plusBtn" class="btn btn-default">+</button>
 
-<button id="addBtn">입력</button>
+	<table id="myTable" class="table table-bordered table-hover">
+		<tr>
+			<th><input type="checkbox"></th>
+			<th>품목</th>
+			<th>갯수</th>
+			<th>구분</th>
+		</tr>
+	</table>
+
+	<button id="addBtn" class="btn btn-default">입력</button>
+	
 </body>
 </html>

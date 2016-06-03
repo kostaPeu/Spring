@@ -39,7 +39,7 @@
 					</thead>
 					
 					<tbody id="cardInfos">
-					<c:forEach var="m" items="${list }">
+					<c:forEach var="m" items="${listModel }">
 						<tr class="mainTable">
 							
 							<td></td>

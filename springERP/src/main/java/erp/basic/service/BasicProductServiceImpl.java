@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import erp.basic.domain.ListModelProduct;
 import erp.basic.domain.Product;
@@ -14,6 +15,7 @@ import erp.basic.domain.ProductList;
 import erp.basic.domain.Standards;
 import erp.basic.domain.Stock;
 import erp.basic.persistence.BasicProductDAO;
+import erp.pch.domain.GetCustomer;
 
 @Service
 public class BasicProductServiceImpl implements BasicProductService{
@@ -63,7 +65,6 @@ public class BasicProductServiceImpl implements BasicProductService{
 	public void productInsert(Product product) throws Exception {
 		Stock stock = new Stock();
 		stock.setProduct_id(product.getProduct_id());
-		//stock.setProduct_id("22222");
 		stock.setStock_amount(0);
 		stock.setStock_loc("");
 		stock.setWarehouse_id("warehouse_id_03");
@@ -73,7 +74,7 @@ public class BasicProductServiceImpl implements BasicProductService{
 			dao.stockInsert(stock);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 		}
 
 	}
@@ -91,7 +92,8 @@ public class BasicProductServiceImpl implements BasicProductService{
 	}
 
 	@Override
-	public List<Product> productCodeJson(String word) throws Exception {
+	public List<Product> productCodeJson(String searchKey) throws Exception {
+		String word = "%"+searchKey+"%";
 		return dao.productCodeJson(word);
 	}
 

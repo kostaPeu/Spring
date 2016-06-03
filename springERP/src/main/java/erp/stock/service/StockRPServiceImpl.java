@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import erp.basic.domain.Product;
 import erp.stock.domain.StockRP;
@@ -21,16 +22,17 @@ public class StockRPServiceImpl implements StockRPService {
 	@Override
 	public void stockRPInsert(StockRP stock) throws Exception {
 		int max = dao.inoutMax();
+		
+		stock.setEmp_id("aa");
 		stock.setInout_id("rp_"+(max+1));
 
-		System.out.println(stock.getEmp_id());
-		System.out.println(stock.getInout_amount());
-		System.out.println(stock.getInout_id());
-		System.out.println(stock.getType());
-		System.out.println(stock.getProduct_id());
-		
-		dao.stockRPInsert(stock);
-		dao.stockUpdate(stock);
+		try {
+			dao.stockRPInsert(stock);
+			dao.stockUpdate(stock);
+		} catch (Exception e) {
+			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+		}	
 		
 	}
 
@@ -38,5 +40,4 @@ public class StockRPServiceImpl implements StockRPService {
 	public List<Product> productList() throws Exception {
 		return dao.productList();
 	}
-
 }

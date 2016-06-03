@@ -12,7 +12,7 @@ import erp.stock.service.StockRPService;
 
 @Controller
 @RequestMapping("/stock/rp/*")
-public class StockController {
+public class StockRPController {
 	
 	@Inject
 	private StockRPService service;
@@ -28,15 +28,7 @@ public class StockController {
 	}
 	
 	@RequestMapping("/insert")
-	public String stockRpInsert(Model model, @RequestParam("product_id") String product_id, @RequestParam("stock_amount") int stock_amount,
-			@RequestParam("type") String type) throws Exception{
-
-		StockRP stock = new StockRP();
-		
-		stock.setProduct_id(product_id);
-		stock.setInout_amount(stock_amount);
-		stock.setEmp_id("aa");
-		stock.setType(type);
+	public String stockRpInsert(StockRP stock) throws Exception{
 
 		service.stockRPInsert(stock);
 		

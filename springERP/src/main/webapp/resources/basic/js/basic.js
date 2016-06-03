@@ -75,12 +75,12 @@ $(function(){
 					if(html == "<tr><th>품목코드</th><th>품목명</th></tr>"){
 						html += "<tr><td colspan='2'> 해당코드는 사용가능합니다.</td></tr>";
 						$('#useBtn').removeAttr('disabled');
-						$('#useBtn').on('click',function(){
-							var searchKey = $('#search_product').val();	
+					};
+					$('#useBtn').on('click',function(){
+						var searchKey = $('#search_product').val();	
 							$('#ptext').val(searchKey);
 							$('#myModal').modal('hide');
 						});
-					}; 
 					$('#searchTable').append(html);
 					},
 				error : function(){
