@@ -27,11 +27,23 @@ public class MoneyPlanController {
 		return "/main";
 	}
 
+	// 자금계획등록 화면
+	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.GET)
+	public String MoneyPlan_Add(Model model)throws Exception{
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");
+		return "/main";
+	}
+	
+	
 	// 자금계획등록 -JH
-	@RequestMapping("/insert")
-	public String moneyPlanInsert(MoneyPlan plan) throws Exception {
+	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.POST)
+	public String moneyPlanInsert(MoneyPlan plan, Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");
 		service.moneyPlanInsert(plan);
-		return "redirect:/accounting/moneyPlan/list";
+	
+		return "redirect:/accounting/moneyPlan/insertList";
 	}
 
 	// 자금계획수정 - JH
