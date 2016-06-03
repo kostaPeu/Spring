@@ -14,7 +14,7 @@
 
 	<h2 class="page_title">내 프로젝트</h2>
 	
-	<table class="table table-hover">
+	<table class="table table-hover" class="boardList">
 		<thead>
 			<tr class="row">
 				<th class="col-sm-1">글번호</th>
@@ -30,11 +30,9 @@
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
 						<td class="col-sm-1">${list.get(i).getProj_id()}</td>
-					 	<td class="col-sm-3"><a href="#">${list.get(i).getProj_name() }</a></td>
-						<td class="col-sm-2">테스트</td>
-<%-- 						<td class="col-sm-2">${e_name_list.get(i)}</td>
- --%>						<td class="col-sm-2"><fmt:formatDate value="${list.get(i).getProj_period() }"
-								pattern="yyyy-MM-dd" /></td>
+					 	<td class="col-sm-3"><a class="eggFri" href="pb_myproject_view?proj_id=${list.get(i).getProj_id()}">${list.get(i).getProj_name() }</a></td>
+						<td class="col-sm-2">${e_name_list.get(i) }</td>
+						<td class="col-sm-2">${list.get(i).getProj_period() }</td>
 								<td class="col-sm-2"><fmt:formatDate value="${list.get(i).getProj_start_date() }"
 								pattern="yyyy-MM-dd" /></td>
 								<td class="col-sm-2"><fmt:formatDate value="${list.get(i).getProj_end_date() }"
@@ -75,7 +73,7 @@
 				
 
 	<div class="row">
-		<a href="./main.jsp?left=./groupware/view/groupware.jsp&contents=./groupware/view/notice/notice_write.jsp"	class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+		<a id="write" href="pb_myproject_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
 	</div>
 
 	<form action="noticeSearchAction.gw" method="post">
@@ -96,12 +94,19 @@
 	<script type="text/javascript">
 	
 	$(function(){
-		   $('.pagination li a').click(function(e) {
+		   $('.eggFri').on('click', function(e) {
+		      e.preventDefault();
+		      $('#contents').empty();	
+		      $('#contents').load('/groupware/project_board/'+$(this).attr('href'));
+		   });
+
+		   $('#write').click(function(e) {
 		      e.preventDefault();
 		      
 		      $('#contents').empty();
 		      $('#contents').load('/groupware/project_board/'+$(this).attr('href'));
 		   });
+		   
 		})
 	</script>
 	
