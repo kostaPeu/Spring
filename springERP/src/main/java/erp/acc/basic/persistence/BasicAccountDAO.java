@@ -3,6 +3,7 @@ package erp.acc.basic.persistence;
 import java.util.List;
 
 import erp.acc.basic.domain.Accounts;
+import erp.acc.basic.domain.Card;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 
@@ -29,5 +30,15 @@ public interface BasicAccountDAO {
 	public int listSerachCount(SearchCriteria cri) throws Exception;
 
 	public List<Accounts> listSearch(SearchCriteria cri) throws Exception;
+	
+	// CARD CRUD
+	
+	public void cardInsert(Card card) throws Exception;
+
+	public void cardUpdate(Card card) throws Exception;
+
+	public void cardDelete(String card_number) throws Exception;
+
+	public List<Card> cardList() throws Exception;
 
 }
