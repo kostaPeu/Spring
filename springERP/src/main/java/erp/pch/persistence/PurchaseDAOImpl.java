@@ -73,4 +73,8 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	public List<PurchaseListView> listSearch(SearchCriteria cri) throws Exception {
 		return session.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
+	@Override
+	public void updatePurchase(PurchaseVO vo) throws Exception {
+		session.update(namespace+".updatePurchase", vo);
+	}
 }

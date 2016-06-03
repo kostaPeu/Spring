@@ -64,6 +64,7 @@
    
 </head>
 <body>
+<h2>판매 조회</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
@@ -135,8 +136,8 @@
 
   </div>
 </div>
+	<!-- 페이징 -->
 	<div class="box-footer">
-
 		<div class="text-center">
 			<ul class="pagination">
 
