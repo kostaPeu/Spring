@@ -18,7 +18,7 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace = "erp.basic.mapper.pBoardMapper";
+	private static String namespace = "erp.gw.mapper.pBoardMapper";
 	
 	@Override
 	public List<ProjectsVO> listAll() throws Exception {
