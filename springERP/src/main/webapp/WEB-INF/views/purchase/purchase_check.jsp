@@ -20,12 +20,6 @@
     <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
     <script type="text/javascript">
     $(function(){
-    	/* $('.check_id').on('click', function(){
-    		$("input[name=id_box]:checked").each(function() {
-    			var upSelect = $(this).val();
-    			$('.view_id').attr('value',upSelect);
-    		});
-    	}) */
     	$('#checkAll').click(function(){
     		if(this.checked){
     			$('input[name=id_box]').each(function(){
@@ -52,6 +46,18 @@
 		$('#newBtn').click(function(){
 			$(location).attr('href', "/purchase/purchase_add");
 		});
+    	$('#updateBtn').click(function(){
+    		var val = '';
+    		$("input[name=id_box]:checked").each(function() {
+				val = $(this).val();
+			});
+    		if(val == ""){
+    			alert("수정할 것을 체크하시오.");
+    			return false;
+    		}else{
+    			$('#sell_id_update').val(val);
+    		}
+    	});
     });
     </script>
 </head>
@@ -86,7 +92,7 @@
 	</table>
 	<div class="buttongroup">
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
-		<input type="button" id="updateBtn" class="btn btn-default" value="수정">
+		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 	</div>
 	<div class="box-footer">
@@ -116,5 +122,43 @@
 		</div>
 
 	</div>
+<!-- 수정 -->
+<div id="update_modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">구매 내역 수정</h4>
+      </div>
+      <div class="modal-body">
+     	<form:form class="form-horizontal" method="post" action="/sale/sale_update">
+			<div class="col-sm-12">
+				수량   <input type="text" class="form-control" name="sell_amount">
+			</div>
+			<div class="col-sm-12">
+				가격   <input type="text" class="form-control" name="sell_price">
+			</div>
+			<div class="col-sm-12">
+				지급방법   <select  name="pay_type" class="form-control">
+							<option value="cash">현금</option>
+							<option value="bill">어음</option>
+						</select>
+			</div>
+			<div class="col-sm-12">
+				<input type="hidden" id="sell_id_update" name="sell_id">
+			</div>
+			<br><br><br>
+			<div id="useBtnArea">
+				<input type="submit" class="btn btn-default center" value="수정">
+			</div>
+		</form:form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

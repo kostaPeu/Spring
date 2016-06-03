@@ -92,11 +92,11 @@
 
    <select id="listCriteria" resultType="SaleListView">
     <![CDATA[
-     select 
-      sell_id, customer_id, product_id, sell_date, warehouse_id, pay_type,sell_price, sell_amount
-    from 
-      sell
-    order by sell_id desc
+     select s.sell_id, c.customer_name, p.product_name, s.sell_date, 
+			w.warehouse_name, s.pay_type, s.sell_price, s.sell_amount from sell s, customer c, product p, warehouse w
+				where s.customer_id = c.customer_id and
+					s.product_id = p.product_id and
+					s.warehouse_id = w.warehouse_id
     ]]>
    </select>
 

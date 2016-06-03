@@ -17,20 +17,12 @@
 
 <!-- Custom CSS -->
    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="purchase/css/purchase.css" rel="stylesheet">
-    
-    <script src="js/jquery.js" type="text/javascript"></script><!-- 
-    <script src="purchase/js/purchase.js" type="text/javascript"></script> -->
 </head>
 <body>
 	<h2>구매 현황</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
-				<th><input type="checkbox"></th>
 				<th>구매번호</th>
 				<th>거래처명</th>
 				<th>품목명</th>
@@ -43,7 +35,6 @@
 		</thead>
 		<c:forEach var="list" items="${list }">
 			<tr>
-				<td><input type="checkbox" class="upSelect check_id" name="id_box"></td>
 				<td>${list.buy_id}</td>
 				<td>${list.customer_name }</td>
 				<td>${list.product_name }</td>

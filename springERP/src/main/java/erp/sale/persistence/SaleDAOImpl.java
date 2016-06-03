@@ -39,7 +39,7 @@ public class SaleDAOImpl implements SaleDAO {
 	}
 	@Override
 	public List<SaleListView> searchSale(SaleSearchTimeSet sst) throws Exception {
-		return sqlSession.selectList(namespace+".saleList", sst);
+		return sqlSession.selectList(namespace+".searchSaleList", sst);
 	}
 	@Override
 	public List<SaleListView> listAll() throws Exception {
