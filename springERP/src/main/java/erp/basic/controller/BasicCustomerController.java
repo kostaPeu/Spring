@@ -44,8 +44,10 @@ public class BasicCustomerController {
 		return "redirect:/basic/customer/list";
 	}
 	@RequestMapping("delete")
-	public String customerDelete(@RequestParam("checks") String customer_id)throws Exception{
-		service.customerDelete(customer_id);
+	public String customerDelete(@RequestParam("array") String[] array)throws Exception{
+		for(int i=0;i<array.length;i++){
+			service.customerDelete(array[i]);
+		}
 		return "redirect:/basic/customer/list";
 	}
 }
