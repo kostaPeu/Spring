@@ -22,20 +22,18 @@
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
-				<th><input type="checkbox"></th>
 				<th>판매번호</th>
 				<th>거래처명</th>
 				<th>품목명</th>
 				<th>판매금액</th>
-				<th>판매수량</th>
-				<th>수금방법</th>
+				<th>판매수량</th>				
 				<th>판매일자</th>
+				<th>수금방법</th>
 				<th>출고창고</th>
 			</tr>
 		</thead>
 		<c:forEach var="list" items="${list }">
 			<tr>
-				<td><input type="checkbox" class="upSelect check_id" name="id_box"></td>
 				<td>${list.sell_id}</td>
 				<td>${list.customer_name }</td>
 				<td>${list.product_name }</td>

@@ -5,10 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="erp.basic.mapper.pBoardMapper">
 
-
-<!-- insert into projects(proj_id, proj_name, proj_content, proj_period, proj_start_date, proj_end_date, emp_id)
-values(projB_seq.NEXTVAL, #{proj_name}, #{ proj_content}, sysdate, sysdate, sysdate #{emp_id})
- -->
   <select id="listAll" resultType="ProjectsVO">
     <![CDATA[
     select 
@@ -103,10 +99,36 @@ values(projB_seq.NEXTVAL, #{proj_name}, #{ proj_content}, sysdate, sysdate, sysd
      where proj_id > 0 
    ]]>
      <include refid="search"></include>
-   </select> 
+   </select>
+   
+   <select id="enameGet" resultType="String" parameterType="String">
+    <![CDATA[  
+   	select e_name from emp_test where emp_id=#{emp_id}
+   	   ]]>
+   </select>
+   
+   <select id="read" resultType="ProjectsVO">
+      select
+	  *
+      from
+      projects
+      where proj_id = #{proj_id}
+   </select>
+   
+   <insert id="writeProj">
+    insert into projects(proj_id, proj_name, proj_content, proj_period, proj_start_date, proj_end_date, emp_id)
+	values(projB_seq.NEXTVAL, #{proj_name}, #{ proj_content}, #{ proj_period}, #{ proj_start_date}, #{proj_end_date }, #{emp_id})
+   </insert>
 
+   <update id="updateProj">
+   		update projects set proj_name=#{proj_name}, proj_content=#{proj_content} where proj_id=#{proj_id}
+   </update>
+   
+   <delete id="deleteProj">
+   		delete from projects where proj_id=#{proj_id}
+   </delete>
+   
 </mapper>
-
 
 
 

@@ -21,12 +21,6 @@
  <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
     <script type="text/javascript">
     $(function(){
-    	/* $('.check_id').on('click', function(){
-    		$("input[name=id_box]:checked").each(function() {
-    			var upSelect = $(this).val();
-    			$('.view_id').attr('value',upSelect);
-    		});
-    	}) */
     	$('#checkAll').click(function(){
     		if(this.checked){
     			$('input[name=id_box]').each(function(){

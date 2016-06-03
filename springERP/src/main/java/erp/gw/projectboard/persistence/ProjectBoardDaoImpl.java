@@ -45,4 +45,29 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 		return session.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
+	@Override
+	public String enameGet(String emp_id) throws Exception {
+		return session.selectOne(namespace+".enameGet", emp_id);
+	}
+
+	@Override
+	public ProjectsVO read(int proj_id) throws Exception {
+		return session.selectOne(namespace + ".read", proj_id);
+	}
+
+	@Override
+	public void write(ProjectsVO project) throws Exception {
+		session.insert(namespace + ".writeProj", project);
+	}
+
+	@Override
+	public void updateProj(ProjectsVO project) throws Exception {
+		session.update(namespace + ".updateProj", project);
+	}
+
+	@Override
+	public void deleteProj(int proj_id) throws Exception {
+		session.delete(namespace + ".deleteProj", proj_id);
+	}
+
 }
