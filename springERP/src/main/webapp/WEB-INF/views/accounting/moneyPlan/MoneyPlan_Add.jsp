@@ -1,28 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
-<script src="./js/bootstrap-datepicker.js"></script>
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<script type="text/javascript">
-$(function() {
-	$('.datepicker').datepicker({
-	    dateFormat: "yyyy-mm-dd",
-	    startDate: '-3d'
-	});
-});
-
-</script>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 </head>
 <body>
 
 	<h2 class="page_title">자금계획등록</h2>
 
 	<div class="mainContents">
-		<form action="insertMoneyPlan.ac" method="post">
+		<form action="/accounting/moneyPlan/insert" method="post">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
 				<table
@@ -74,8 +67,8 @@ $(function() {
 						<tr>
 							<th>최초 발생날짜</th>
 							<td>
-								<div class="col-sm-6 input-group date datepicker">
-									<input type="text" class="form-control" name="start_date">
+								<div class="col-sm-6 input-group">
+									<input type="date" class="form-control" name="start_date">
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>
@@ -85,8 +78,8 @@ $(function() {
 
 						<tr>
 							<th>발생기간</th>
-							<td><div class="col-sm-6 input-group date datepicker">
-									<input type="text" class="form-control" name="period">
+							<td><div class="col-sm-6 input-group date">
+									<input type="date" class="form-control" name="period">
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>
