@@ -23,7 +23,5 @@ public interface BasicProductService {
 	public void productDelete(String product_id) throws Exception;
 
 	public List<Product> productCodeJson(String word) throws Exception;
-	public void customerInsert(GetCustomer customer)throws Exception;
-	public void customerUpdate(GetCustomer customer)throws Exception;
-	public void customerDelete(String customer_id)throws Exception;
+	
 }

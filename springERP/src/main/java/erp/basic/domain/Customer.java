@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
+@ToString
 public class Customer implements Serializable{
 	@Getter @Setter private String customer_id;
 	@Getter @Setter private String customer_name;

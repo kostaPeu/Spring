@@ -28,9 +28,5 @@ public interface BasicProductDAO {
 
 	public void stockInsert(Stock stock) throws Exception;
 	
-	public void customerInsert(GetCustomer customer)throws Exception;
-	public void customerUpdate(GetCustomer customer)throws Exception;
-	public void customerDelete(String customer_id)throws Exception;
-	
 
 }

@@ -97,22 +97,4 @@ public class BasicProductServiceImpl implements BasicProductService{
 		return dao.productCodeJson(word);
 	}
 
-	@Override
-	public void customerInsert(GetCustomer customer) throws Exception {
-		dao.customerInsert(customer);
-		
-	}
-
-	@Override
-	public void customerUpdate(GetCustomer customer) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void customerDelete(String customer_id) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
