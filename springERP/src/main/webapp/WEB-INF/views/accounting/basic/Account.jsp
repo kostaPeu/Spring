@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,9 +16,6 @@
 <!-- JS -->
 <script src="/resources/accounting/js/ac.js" type="text/javascript"></script>
 <script src="/resources/common/js/csrf.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-</script>
 </head>
 <body id="body_html" class="font-dotum">
 		<h2 class="page_title">통장계좌 리스트</h2>
@@ -30,7 +27,7 @@
 					id="Card">
 					<thead id="cardList">
 						<tr class="mainTable">
-							<th><input type="checkbox" disabled="disabled"></th>
+							<th><input type="checkbox" id="checkAll"></th>
 							<th>계좌번호</th>
 							<th>계좌명</th>
 							<th>계정번호</th>
@@ -54,6 +51,28 @@
 					</tbody>
 				</table>
 			</div>
+			
+			<!-- 페이징 처리 부분 -->
+		<div class="box-footer">
+			<div class="text-center">
+				<ul class="pagination">
+					<c:if test="${pageMaker.prev}">
+						<li><a href="pb_myproject_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage }"
+						end="${pageMaker.endPage }" var="idx">
+						<li	<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+							<a href="pb_myproject_list${pageMaker.makeSearch(idx)}">${idx}</a>
+						</li>
+					</c:forEach>
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<li><a href="pb_myproject_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+					</c:if>
+				</ul>
+			</div>
+		</div><!-- 페이징 처리 부분   END-->
+				
+			
 			<div class="buttongroup">
 				<button type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal" data-whatever="@mdo">신규등록</button>
 				<button id="updateBtn" type="button" class="btn btn-default" data-toggle="modal"	data-target="#exampleModal3" data-whatever="@fat" >수정</button>
@@ -76,7 +95,7 @@
 						</h4>
 					</div>
 
-					<form:form action="/accounting/account/insert" method="post">
+					<form:form action="/accounting/account/update" method="post">
 						<div class="modal-body">
 							<div class="form-group">
 								<div class="form-group">
@@ -149,7 +168,7 @@
 							<div class="form-group">
 								<div class="form-group">
 									<label for="message-text" class="control-label">계좌번호</label>
-									<input class="form-control" type="text" placeholder="계좌번호"	name="account_number" disabled="disabled">
+									<input class="form-control" id="account_number_update" type="text" placeholder="계좌번호"	name="account_number">
 								</div>
 								<div class="form-group">
 									<label for="message-text" class="control-label">계좌명</label>
@@ -195,7 +214,7 @@
 					</form:form>
 				</div>
 			</div>
-		</div><!-- 신규 통장계좌 등록 END-->
+		</div><!-- 신규 통장계좌 수정 END-->
 		
 		
 

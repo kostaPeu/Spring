@@ -22,6 +22,7 @@ public interface PurchaseDAO {
 	public List<Product> productList(String product_id)throws Exception;
 	public List<GetWareHouse> warehouseList(String warehouse_id)throws Exception;
 	public List<PurchaseListView> purchaseSearch(PurchaseSearchTimeSet ps)throws Exception;
+	public void updatePurchase(PurchaseVO vo)throws Exception;
 	public List<PurchaseListView> listAll() throws Exception;
 	public List<PurchaseListView> listCriteria(Criteria cri) throws Exception;
 	public int countPaging(Criteria cri) throws Exception;

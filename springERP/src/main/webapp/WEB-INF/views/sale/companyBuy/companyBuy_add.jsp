@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<h2>사입 등록</h2>
 <div class="container">
 	<form:form class="form-horizontal" method="post">
 		<table class="table table-bordered table-hover new" id="saleList">

@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deletePurchase">
 		delete from buy where buy_id = #{buy_id}
 	</delete>
-	<update id="updateSale">
+	<update id="updatePurchase">
 		update buy set pay_type = #{pay_type}, buy_price = #{buy_price}, buy_amount = #{buy_amount}
 			where buy_id = #{buy_id}
 	</update>

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import erp.acc.basic.domain.Accounts;
+import erp.acc.basic.domain.Card;
 import erp.acc.basic.persistence.BasicAccountDAO;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
@@ -18,6 +19,8 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	@Inject
 	private BasicAccountDAO dao;
 	
+	
+	//통장계좌
 	@Override
 	public void accountInsert(Accounts accounts) throws Exception {
 		dao.accountInsert(accounts);
@@ -36,6 +39,7 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 		return dao.accountList();
 	}
 	
+	//페이징처리
 	@Override
 	public List<Accounts> listAll() throws Exception {
 		return dao.listAll();
@@ -57,6 +61,27 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return dao.listSerachCount(cri);
+	}
+	
+	//신용카드추가
+	@Override
+	public void cardInsert(Card card) throws Exception {
+		dao.cardInsert(card);
+	}
+	//신용카드수정
+	@Override
+	public void cardUpdate(Card card) throws Exception {
+		dao.cardUpdate(card);
+	}
+	//신용카드삭제
+	@Override
+	public void cardDelete(String card_number) throws Exception {
+		dao.cardDelete(card_number);
+	}
+	//신용카드 리스트
+	@Override
+	public List<Card> cardList() throws Exception {
+		return dao.cardList();
 	}
 	
 	
