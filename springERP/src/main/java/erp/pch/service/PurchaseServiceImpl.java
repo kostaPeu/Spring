@@ -78,4 +78,9 @@ public class PurchaseServiceImpl implements PurchaseService{
 	public int listCountCriteria(Criteria cri) throws Exception {
 		return dao.countPaging(cri);
 	}
+
+	@Override
+	public void updatePurchase(PurchaseVO vo) throws Exception {
+		dao.updatePurchase(vo);
+	}
 }

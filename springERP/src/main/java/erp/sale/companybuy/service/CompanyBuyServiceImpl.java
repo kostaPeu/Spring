@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import erp.common.domain.Criteria;
 import erp.sale.companybuy.domain.CompanyBuy;
 import erp.sale.companybuy.domain.CompanyBuyList;
 import erp.sale.companybuy.persistence.CompanyBuyDAO;
@@ -34,6 +35,21 @@ public class CompanyBuyServiceImpl implements CompanyBuyService {
 	@Override
 	public void updateCBuy(CompanyBuy cb) throws Exception {
 		dao.updateCompanyBuy(cb);
+	}
+
+	@Override
+	public List<CompanyBuyList> listAll() throws Exception {
+		return dao.listAll();
+	}
+
+	@Override
+	public List<CompanyBuyList> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
 	}
 
 }

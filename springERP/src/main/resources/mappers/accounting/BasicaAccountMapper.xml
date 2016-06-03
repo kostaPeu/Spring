@@ -5,31 +5,177 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="erp.acc.mapper.BasicAccountMapper">
 
+	<!-- 계좌 CRUD START -->
 	<insert id="accountInsert" parameterType="Accounts">
 		insert into Accounts (
-			ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
-			ACCOUNT_DETAIL, REMARKS, USE
+		ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+		ACCOUNT_DETAIL,
+		REMARKS, USE
 		) values(
-			#{account_number},
-			#{account_name},
-			#{diagnosis_number},
-			#{account_detail},
-			#{remarks},
-			#{use}	
-		)		
+		#{account_number},
+		#{account_name},
+		#{diagnosis_number},
+		#{account_detail},
+		#{remarks},
+		#{use}
+		)
 	</insert>
-	
+
 	<select id="accountList" resultType="Accounts">
 		SELECT * FROM accounts
 	</select>
 
-	<update id="accountUpdate" parameterType="Accounts">
-		UPDATE Accounts SET ACCOUNT_NUMBER = #{account_number}, ACCOUNT_NAME = #{account_name}, DIAGNOSIS_NUMBER = #{diagnosis_number},
-			ACCOUNT_DETAIL = #{account_detail}, REMARKS = #{remarks}, USE = #{use}
-				WHERE ACCOUNT_NUMBER = #{account_number}
+	<update id="accountUpdate">
+		UPDATE accounts SET account_number =
+		#{account_number}, account_name =
+		#{account_name},
+		diagnosis_number =
+		#{diagnosis_number}, account_detail = #{account_detail}, REMARKS =
+		#{remarks}, USE = #{use}
+		WHERE account_number = #{account_number}
 	</update>
-	
-	<delete id="accountDelete" parameterType="String">
-		DELETE FROM Accounts WHERE ACCOUNT_NUMBER = #{account_number}
+
+
+	<delete id="accountDelete">
+		DELETE FROM Accounts
+		WHERE account_number =
+		#{account_number}
 	</delete>
+	<!-- 계좌 CRUD END -->
+
+	<!-- 계좌 페이징 START -->
+	<select id="listAll" resultType="Accounts">
+    <![CDATA[
+    SELECT 
+     ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+		ACCOUNT_DETAIL,	REMARKS, USE
+    from 
+      accounts 
+    where account_number
+    ]]>
+	</select>
+
+	<select id="listPage" resultType="Accounts">
+    <![CDATA[
+    SELECT 
+       ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+		ACCOUNT_DETAIL,	REMARKS, USE
+    from 
+      accounts 
+    where account_number
+    ]]>
+	</select>
+
+	<select id="listCriteria" resultType="Accounts">
+    <![CDATA[
+     SELECT 
+      ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+		ACCOUNT_DETAIL,	REMARKS, USE
+    from 
+      accounts 
+    where account_number
+    ]]>
+	</select>
+
+	<select id="countPaging" resultType="int">
+    <![CDATA[
+    SELECT 
+      count(account_number) 
+    from 
+      accounts 
+    where 
+      account_number 
+    ]]>
+	</select>
+
+	<select id="listSearch" resultType="ProjectsVO" parameterType="SearchCriteria">
+      <![CDATA[  
+	     SELECT * 
+	     from accounts 
+	     where account_number   
+	   ]]>
+
+		<include refid="search"></include>
+	     
+	   <![CDATA[    
+	     order by account_number desc     
+	  ]]>
+	</select>
+
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like '%'|| #{keyword}||'%' OR content like
+				'%'||
+				#{keyword}||'%')
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like '%'|| #{keyword}||'%' OR writer like
+				'%'||
+				#{keyword}||'%')
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like '%'|| #{keyword}||'%'
+				OR
+				content like
+				'%'|| #{keyword}||'%'
+				OR
+				writer like '%'|| #{keyword}||'%')
+			</if>
+		</if>
+	</sql>
+
+	<select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
+   <![CDATA[  
+     SELECT count(account_number) 
+     from accounts 
+     where account_number 
+   ]]>
+		<include refid="search"></include>
+	</select>
+	<!-- 계좌 페이징 END -->
+
+
+
+
+	<!-- 신용카드 CRUD START -->
+	<insert id="cardInsert" parameterType="Card">
+		insert into cards (
+		card_number, card_name, account_number, type, emp_id, use_detail, use,
+		remarks
+		) values(
+		#{card_number}, #{card_name}, #{account_number},
+		#{type}, #{emp_id}, #{use_detail}, #{use}, #{remarks}
+		)
+	</insert>
+
+	<select id="cardList" resultType="Card">
+		SELECT * FROM cards
+	</select>
+
+	<update id="cardUpdate">
+		UPDATE cards SET card_number = #{card_number},
+		card_name = #{card_name}, account_number = #{account_number},
+		type = #{type}, emp_id = #{emp_id}, use_detail = #{use_detail}, use = #{use},
+		remarks = #{remarks}
+		WHERE card_number = #{card_number}
+	</update>
+
+	<delete id="cardDelete">
+		DELETE FROM cards
+		WHERE card_number = #{card_number}
+	</delete>
+	<!-- 신용카드 CRUD END -->
+
+
+
 </mapper>

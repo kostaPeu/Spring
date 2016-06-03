@@ -20,12 +20,6 @@
    <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
     <script type="text/javascript">
     $(function(){
-    	/* $('.check_id').on('click', function(){
-    		$("input[name=id_box]:checked").each(function() {
-    			var upSelect = $(this).val();
-    			$('.view_id').attr('value',upSelect);
-    		});
-    	}) */
     	$('#checkAll').click(function(){
     		if(this.checked){
     			$('input[name=id_box]').each(function(){
@@ -50,7 +44,7 @@
 			}		
 		})
 		$('#newBtn').click(function(){
-			$(location).attr('href', "/sale/companyBuy/comapanyBuy_add");
+			$(location).attr('href', "/sale/companyBuy/companyBuy_add");
 		});
     	$('#updateBtn').click(function(){
     		var val = '';
@@ -68,6 +62,7 @@
     </script>
 </head>
 <body>
+<h2>사입 조회</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
@@ -136,8 +131,29 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
+<!-- 페이징 -->
+  <div class="box-footer">
+		<div class="text-center">
+			<ul class="pagination">
+				<c:if test="${pageMaker.prev}">
+					<li><a
+						href="companyBuy_check${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+				</c:if>
+				<c:forEach begin="${pageMaker.startPage }"
+					end="${pageMaker.endPage }" var="idx">
+					<li
+						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+						<a href="companyBuy_check${pageMaker.makeSearch(idx)}">${idx}</a>
+					</li>
+				</c:forEach>
+				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<li><a
+						href="companyBuy_check${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+				</c:if>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>

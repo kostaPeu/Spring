@@ -119,7 +119,7 @@
 	     <include refid="search"></include>
 	     
 	   <![CDATA[    
-	     order by buy_id desc     
+	     order by sell_id desc     
 	   ]]>  
 	   
    </select>
@@ -153,11 +153,10 @@
    <select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
    <![CDATA[  
      select count(sell_id) 
-     from sell 
-     where sell_id > 0 
+     from sell
    ]]>
      <include refid="search"></include>
-   </select> 
+   </select>
 </mapper>
 
 
