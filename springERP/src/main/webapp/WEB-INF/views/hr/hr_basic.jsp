@@ -123,8 +123,7 @@
 				</tr>
 				<tr>
 					<td><button type="button" class="btn btn-default" id="dept">등록</button></td>
-					<td><button type="button" class="btn btn-default"
-							id="position">등록</button></td>
+					<td><button type="button" class="btn btn-default" id="position">등록</button></td>
 					<td><button type="button" class="btn btn-default" id="job">등록</button></td>
 					<td><button type="button" class="btn btn-default" id="duty">등록</button></td>
 				</tr>
