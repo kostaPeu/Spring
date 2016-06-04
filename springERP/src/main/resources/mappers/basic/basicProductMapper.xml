@@ -86,9 +86,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{customer_fax}, #{checkman}
 		)
 	</insert>
-	<!-- <select id="customerList" resultType="Customer">
+	<select id="customerList" resultType="Customer">
 		select * from customer
 			order by customer_name
-	</select> -->
-	
+	</select>
+	<update id="customerUdapte">
+		update customer set 
+	</update>
 </mapper>

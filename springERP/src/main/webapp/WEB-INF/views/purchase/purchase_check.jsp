@@ -123,7 +123,6 @@
 
 			</ul>
 		</div>
-
 	</div>
 <!-- 수정 -->
 <div id="update_modal" class="modal fade" role="dialog">
