@@ -1,7 +1,7 @@
 package erp.acc.basic.domain;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,8 +17,8 @@ public class MoneyPlanTimeSet implements Serializable {
 	@Getter @Setter private String typelist;
 	@Getter @Setter private String funds_id;
 	@Getter @Setter private String repeat_unit;
-	@Getter @Setter private Timestamp start_date;
-	@Getter @Setter private Timestamp period;
+	@Getter @Setter private Date start_date;
+	@Getter @Setter private Date periods;
 	@Getter @Setter private String dept_id;
 	@Getter @Setter private int proj_id;
 	@Getter @Setter private String account_number;

@@ -6,13 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="erp.acc.mapper.MoneyPlanMapper">
 
 	<!-- MoneyPlan CRUD START -->
-	<insert id="moneyPlanInsert" parameterType="MoneyPlan">
+	<insert id="moneyPlanInsert" parameterType="MoneyPlanTimeSet">
 		insert into funds_plan (
-		typelist, funds_id, repeat_unit, start_date, period, dept_id, proj_id,
+		typelist, funds_id, repeat_unit, start_date, periods, dept_id, proj_id,
 		account_number, diagnosis_number, customer_id, sums, remarks
 		) values(
 		#{typelist}, #{funds_id}, #{repeat_unit},
-		#{start_date}, #{period}, #{dept_id}, #{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id}, #{sums}, #{remarks}
+		#{start_date}, #{periods}, #{dept_id}, #{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id}, #{sums}, #{remarks}
 		)
 	</insert>
 
@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="moneyPlanUpdate">
 		UPDATE funds_plan SET typelist = #{typelist},
 		funds_id = #{funds_id}, repeat_unit = #{repeat_unit},
-		start_date =#{start_date}, period = #{period}, account_number = #{account_number}, diagnosis_number = #{diagnosis_number},
+		start_date =#{start_date}, periods = #{periods}, account_number = #{account_number}, diagnosis_number = #{diagnosis_number},
 		customer_id = #{customer_id}, sums = #{sums}, remarks = #{remarks}
 		WHERE funds_id = #{funds_id}
 	</update>

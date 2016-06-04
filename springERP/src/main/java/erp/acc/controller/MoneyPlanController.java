@@ -44,7 +44,7 @@ public class MoneyPlanController {
 		service.moneyPlanInsert(plan);
 		System.out.println("등록되었습니다.");
 	
-		return "redirect:/accounting/moneyPlan/insertList";
+		return "/main";
 	}
 
 	// 자금계획수정 - JH

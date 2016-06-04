@@ -36,12 +36,12 @@
 							<td>
 								<div class="radio-inline">
 									<label> <input id="optionsRadios1" type="radio"
-										checked="" name="typelist">출금
+										checked="" name="typelist" value="출금">출금
 									</label>
 								</div>
 								<div class="radio-inline">
 									<label> <input id="optionsRadios2" type="radio"
-										name="typelist">입금
+										name="typelist" value="입금">입금
 									</label>
 								</div>
 							</td>
@@ -78,7 +78,7 @@
 						<tr>
 							<th>발생기간</th>
 							<td><div class="col-sm-6 input-group date">
-									<input type="date" class="form-control" name="period">
+									<input type="date" class="form-control" name="periods">
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>

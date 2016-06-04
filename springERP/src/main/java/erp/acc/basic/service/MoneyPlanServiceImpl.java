@@ -1,5 +1,6 @@
 package erp.acc.basic.service;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 		set.setTypelist(plan.getTypelist());
 		set.setFunds_id(plan.getFunds_id());
 		set.setRepeat_unit(plan.getRepeat_unit());
-		set.setStart_date(Timestamp.valueOf(plan.getStart_date() + "00:00:00"));
-		set.setPeriod(Timestamp.valueOf(plan.getPeriod() + "23:59:59"));
+		set.setStart_date(plan.getStart_date());
+		set.setPeriods(plan.getPeriods());
 		set.setDept_id(plan.getDept_id());
 		set.setProj_id(plan.getProj_id());
 		set.setAccount_number(plan.getAccount_number());
