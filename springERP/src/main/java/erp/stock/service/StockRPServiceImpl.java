@@ -1,4 +1,4 @@
-package erp.stock.service;
+ package erp.stock.service;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import erp.basic.domain.Product;
+import erp.stock.domain.StockCalendar;
 import erp.stock.domain.StockRP;
 import erp.stock.persistence.StockRPDAO;
 
@@ -40,4 +41,18 @@ public class StockRPServiceImpl implements StockRPService {
 	public List<Product> productList() throws Exception {
 		return dao.productList();
 	}
+
+	@Override
+	public List<StockCalendar> stockCalendarJson() throws Exception {
+		return dao.stockCalendarJson();
+	}
+
+	@Override
+	public void stockRPUpdate(StockRP stock) throws Exception {
+		System.out.println(stock.getInout_id());
+		System.out.println(stock.getInout_date());
+		dao.stockRPUpdate(stock);
+	}
+
+	
 }
