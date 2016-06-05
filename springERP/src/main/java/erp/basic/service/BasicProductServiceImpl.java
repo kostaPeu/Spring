@@ -15,6 +15,7 @@ import erp.basic.domain.ProductList;
 import erp.basic.domain.Standards;
 import erp.basic.domain.Stock;
 import erp.basic.persistence.BasicProductDAO;
+import erp.pch.domain.GetCustomer;
 
 @Service
 public class BasicProductServiceImpl implements BasicProductService{
@@ -91,7 +92,8 @@ public class BasicProductServiceImpl implements BasicProductService{
 	}
 
 	@Override
-	public List<Product> productCodeJson(String word) throws Exception {
+	public List<Product> productCodeJson(String searchKey) throws Exception {
+		String word = "%"+searchKey+"%";
 		return dao.productCodeJson(word);
 	}
 

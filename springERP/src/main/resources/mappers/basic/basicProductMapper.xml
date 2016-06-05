@@ -75,4 +75,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{stock_loc}
 		)
 	</insert>
+	<insert id="insertCustomer">
+		insert into customer(
+			customer_id, customer_name, repre_name, phone_number, customer_address, copy_bankbook,
+			bankbook_check, customer_email, customer_fax, checkman
+		)
+		values(
+			#{customer_id}, #{customer_name}, #{repre_name}, #{phone_number},
+			#{customer_address}, #{copy_bankbook}, #{bankbook_check}, #{customer_email},
+			#{customer_fax}, #{checkman}
+		)
+	</insert>
+	<select id="customerList" resultType="Customer">
+		select * from customer
+			order by customer_name
+	</select>
+	<update id="customerUdapte">
+		update customer set 
+	</update>
 </mapper>

@@ -4,14 +4,16 @@ $(function() {
 		$('.add').css("display", "block");
 	})
 	$('#updateBtn').on('click', function() {
-		$('.update').css("display", "block");
-		/*$("input[name=id_box]:checked").each(function() {
-			var upSelect = $(this).val();
-			console.log(upSelect);
-			var url = "upSelect.ba?upSelect=" + upSelect;
-			$(location).attr('href', url);
-		});*/
-		$('.update').css("display", "block")
+		var val = '';
+		$("input[name=id_box]:checked").each(function() {
+			val = $(this).val();
+		});
+		if(val == ""){
+			alert("수정할 것을 체크하시오.");
+			return false;
+		}else{
+			$('.update').css("display", "block");
+		}				
 	})
 	$('.closeBtn').click(function() {
 		$('.xclose').css("display", "none");
@@ -70,23 +72,21 @@ $(function() {
 		}
 	})
 })
-/*선택품목 삭제*/
-$(function() {
-	$(".productChecked").click(function() {
-		//$('#searchTable').empty();
-		$("input[name=productRow]:checked").each(function() {
-			var checks = $(this).val();
-			$(".product_id2").attr("value", checks);
+$(function(){
+	/*선택품목 삭제*/
+	$('#deleteBtn').on('click', function(){
+		var array = [];
+		$("input[name=id_box]:checked").each(function() {
+			array.push($(this).val());	
 		});
-	});
-	$("#deleteBtn").on('click', function() {
-		$("input[name=productRow]:checked").each(function() {
-			var checks = $(this).val();
-			$(location).attr("href", "/basic/product/delete?checks=" + checks);
-		});
-	});
-
-});
+		var url = "/basic/customer/delete?array="+array;
+		if(array == ""){
+			alert("삭제할 목록을 체크하시오.");
+		}else{
+			$(location).attr('href',url);
+		}		
+	})
+})
 /*품목코드 중복검색*/
 $(function(){
 	$('#idCheck').on('click',function() {

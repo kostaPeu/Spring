@@ -45,7 +45,7 @@
 	</filter-mapping>
 
 <!-- Encoding -->
-<filter>
+	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 	<init-param>

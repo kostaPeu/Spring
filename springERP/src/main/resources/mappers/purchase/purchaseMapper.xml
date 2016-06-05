@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update buy set pay_type = #{pay_type}, buy_price = #{buy_price}, buy_amount = #{buy_amount}
 			where buy_id = #{buy_id}
 	</update>
-	<select id="customerList" resultType="Customer" parameterType="String">
+	<select id="customerList" resultType="GetCustomer" parameterType="String">
 		select * from customer
 			where customer_id LIKE #{value}
 	</select>
@@ -121,7 +121,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
     ]]>
     </select>
-    <select id="listSearch" resultType="PurchaseListView" parameterType="SearchCriteria" >
+    <!-- <select id="listSearch" resultType="PurchaseListView" parameterType="SearchCriteria" >
    
 	   <![CDATA[  
 	     select * 
@@ -169,5 +169,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      where buy_id > 0 
    ]]>
      <include refid="search"></include>
-   </select> 
+   </select>  -->
 </mapper>
