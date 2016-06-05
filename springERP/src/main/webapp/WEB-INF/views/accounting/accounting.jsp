@@ -21,7 +21,7 @@
 				<li><a data-toggle="collapse" href="./accounting/view/MoneyManagement/inoutMoney.jsp #two">현금거래관리</a>
 					<ul id="two" class="collapse">
 						<li><a href="./accounting/view/MoneyManagement/inoutMoney.jsp">입출금보고서</a></li>
-						<li><a href="accounting/moneymanagement/inoutCompanyMoney">거래처로부터</a></li>
+						<li><a href="/accounting/moneymanagement/inoutCompanyMoney">거래처로부터</a></li>
 					</ul>
 				</li>
 				<li><a data-toggle="collapse" href="./accounting/view/Promissory/promissory_note.jsp #three">어음원장관리</a>
