@@ -38,5 +38,10 @@ public interface BasicAccountService {
 	public void cardDelete(String card_number) throws Exception;
 
 	public List<Card> cardList() throws Exception;
+
 	
+	//프로젝트
+
 }
+
+

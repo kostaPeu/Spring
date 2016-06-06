@@ -16,34 +16,41 @@ public class MoneyManagementController {
 
 	@Inject
 	private MoneyManagementService service;
-	
+
 	// 현금관리 리스트
-		@RequestMapping("/list")
-		public String moneyPlanList(Model model) throws Exception {
-			model.addAttribute("left", "accounting/accounting.jsp");
-			model.addAttribute("listModel", service.moneyManageMentList());
-			model.addAttribute("contents", "accounting/moneymanagement/inoutMoney.jsp");
-			return "/main";
-		}
-		
-		// 거래처현금관리 등록  - JH
-		@RequestMapping(value="/inoutCompanyMoney", method=RequestMethod.GET)
-		public String inoutCompanyMoneyGET(Model model)throws Exception{
-			model.addAttribute("left", "accounting/accounting.jsp");
-			model.addAttribute("contents", "accounting/moneymanagement/inoutCompanyMoney.jsp");
-			return "/main";
-		}
-		
-		
-		// 거래처현금관리 등록  -JH
-		@RequestMapping(value="/inoutCompanyMoney", method=RequestMethod.POST)
-		public String inoutCompanyMoneyPOST(MoneyManagement mg, Model model) throws Exception {
-			model.addAttribute("left", "accounting/accounting.jsp");
-			model.addAttribute("contents", "accounting/moneymanagement/inoutCompanyMoney.jsp");		
-			service.moneyManageMentInsert(mg);
-			System.out.println("등록되었습니다.");
-		
-			return "/main";
-		}	
-	
+	@RequestMapping("/list")
+	public String moneyPlanList(Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("listModel", service.moneyManageMentList());
+		model.addAttribute("contents", "accounting/moneymanagement/inoutMoney.jsp");
+		return "/main";
+	}
+
+	// 거래처현금관리 등록 - JH
+	@RequestMapping(value = "/inoutCompanyMoney", method = RequestMethod.GET)
+	public String inoutCompanyMoneyGET(Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/moneymanagement/inoutCompanyMoney.jsp");
+		return "/main";
+	}
+
+	// 거래처현금관리 등록 -JH
+	@RequestMapping(value = "/inoutCompanyMoney", method = RequestMethod.POST)
+	public String inoutCompanyMoneyPOST(MoneyManagement mg, Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/moneymanagement/inoutCompanyMoney.jsp");
+		service.moneyManageMentInsert(mg);
+		System.out.println("등록되었습니다.");
+
+		return "/main";
+	}
+
+	// 거래처현금관리 등록 - JH
+	@RequestMapping(value = "/inoutMoney", method = RequestMethod.GET)
+	public String inoutMoneyGET(Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/moneymanagement/inoutMoney.jsp");
+		return "/main";
+	}
+
 }

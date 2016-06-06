@@ -5,23 +5,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="erp.acc.mapper.MoneyManageMentMapper">
 
-  <!-- MoneyManageMent CRUD START -->
+	<!-- MoneyManageMent CRUD START -->
 	<insert id="moneyManageMentInsert" parameterType="MoneyManagement">
-		insert into cash_trade (
-		type, statement_id, dept_id, deal_name, proj_id, account_number, sums,
-		charge, remarks, customer_id
+		insert into
+		cash_trade (
+		typelist, statement_id, dept_id, proj_id, account_number,
+		sums, charge, remarks, customer_id
 		) values(
-		#{type}, #{statement_id}, #{dept_id},
-		#{deal_name}, #{proj_id}, #{account_number}, #{sums}, #{charge}, #{remarks}, #{customer_id}
+		#{typelist}, #{statement_id},
+		#{dept_id},
+		#{proj_id}, #{account_number}, #{sums}, #{charge},
+		#{remarks}, #{customer_id}
 		)
 	</insert>
 
 	<select id="moneyManageMentList" resultType="MoneyManagement">
-		SELECT * FROM cash_trade
+		SELECT * FROM
+		cash_trade
 	</select>
-	
+
 	<!-- MoneyManageMent CRUD END -->
-  
+
 </mapper>
 
 
