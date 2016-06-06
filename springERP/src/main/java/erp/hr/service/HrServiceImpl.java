@@ -223,5 +223,5 @@ public class HrServiceImpl implements HrService {
 			}
 		}
 		dao.indolApprove(string);
-	}	
+	}
 }
