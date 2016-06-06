@@ -16,7 +16,7 @@ public class DeptBoardVO {
 	@Getter @Setter private String emp_id;
 	@Getter @Setter private String dept_board_title;
 	@Getter @Setter private String dept_board_content;
-	@Getter @Setter private Date dept_board_dqte;
+	@Getter @Setter private Date dept_board_date;
 	@Getter @Setter private int dept_board_hit;
 	@Getter @Setter private String dept_board_file;
 	@Getter @Setter private String dept_id;

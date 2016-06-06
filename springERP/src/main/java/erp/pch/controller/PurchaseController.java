@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import erp.basic.domain.Product;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
-import erp.pch.domain.Customer;
+import erp.pch.domain.GetCustomer;
 import erp.pch.domain.GetWareHouse;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
@@ -61,7 +61,7 @@ public class PurchaseController {
 	}
 	@RequestMapping("customer_id_search")
 	@ResponseBody
-	public List<Customer> customerIdSearch(@RequestParam("customer_id") String customer_id)throws Exception{
+	public List<GetCustomer> customerIdSearch(@RequestParam("customer_id") String customer_id)throws Exception{
 		return service.customerList(customer_id);
 	}
 	@RequestMapping("product_id_search")
@@ -88,5 +88,10 @@ public class PurchaseController {
 		model.addAttribute("left", "purchase/purchase.jsp");
 		model.addAttribute("contents", "purchase/purchase_search.jsp");
 		return "/main";
+	}
+	@RequestMapping("purchase_update")
+	public String puchaseUpdate(PurchaseVO vo)throws Exception{
+		service.updatePurchase(vo);
+		return "redirect:purchase_check";
 	}
 }

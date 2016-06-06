@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.Accounts;
+import erp.acc.basic.domain.Card;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 
@@ -72,6 +73,33 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	@Override
 	public int listSerachCount(SearchCriteria cri) throws Exception {
 		return session.selectOne(namespace + ".listSearchCount", cri);
+	}
+
+	//신용카드 추가
+	@Override
+	public void cardInsert(Card card) throws Exception {
+		session.insert(namespace + ".cardInsert", card);
+		
+	}
+
+	//신용카드 수정
+	@Override
+	public void cardUpdate(Card card) throws Exception {
+		session.update(namespace + ".cardUpdate", card);
+		
+	}
+
+	//신용카드 삭제
+	@Override
+	public void cardDelete(String card_number) throws Exception {
+		session.delete(namespace + ".cardDelete", card_number);
+		
+	}
+
+	//신용카드 리스트
+	@Override
+	public List<Card> cardList() throws Exception {
+		return session.selectList(namespace + ".cardList");
 	}
 
 }

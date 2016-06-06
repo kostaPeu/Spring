@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="erp.gw.mapper.deptBoardMapper">
+
+  <select id="listAll" resultType="DeptBoardVO">
+    <![CDATA[
+    select
+		dept_board_id, emp_id, dept_board_title, dept_board_content, dept_board_date, dept_board_hit, dept_board_file, dept_id    from 
+      dept_board 
+    where dept_board_id > 0 
+    order by dept_board_id desc
+    ]]>
+   </select>
+   
+  
+   <select id="listPage" resultType="DeptBoardVO">
+    <![CDATA[
+    select 
+     dept_board_id, emp_id, dept_board_title, dept_board_content, dept_board_date, dept_board_hit, dept_board_file, dept_id
+    from 
+      dept_board 
+    where dept_board_id > 0 
+    order by dept_board_id desc
+    ]]>
+   </select>
+
+   <select id="listCriteria" resultType="DeptBoardVO">
+    <![CDATA[
+     select 
+      dept_board_id, emp_id, dept_board_title, dept_board_content, dept_board_date, dept_board_hit, dept_board_file, dept_id
+    from 
+      dept_board 
+    where dept_board_id > 0 
+    order by dept_board_id desc
+    ]]>
+   </select>
+
+   <select id="countPaging" resultType="int">
+    <![CDATA[
+    select 
+      count(dept_board_id) 
+    from 
+      dept_board 
+    where 
+      dept_board_id > 0 
+    ]]>
+    </select>
+
+   <select id="listSearch" resultType="DeptBoardVO" parameterType="SearchCriteria" >
+   
+	   <![CDATA[  
+	     select * 
+	     from dept_board 
+	     where dept_board_id > 0   
+	   ]]>  
+	   
+	     <include refid="search"></include>
+	     
+	   <![CDATA[    
+	     order by dept_board_id desc     
+	   ]]>  
+	   
+   </select>
+     <sql id="search">
+    <if test="searchType != null" >
+      <if test="searchType == 't'.toString()">
+        and title like '%'|| #{keyword}||'%'
+      </if>
+      <if test="searchType == 'c'.toString()">
+        and content like '%'|| #{keyword}||'%'
+      </if>
+      <if test="searchType == 'w'.toString()">
+        and writer like '%'|| #{keyword}||'%'
+      </if>    
+      <if test="searchType == 'tc'.toString()">
+        and ( title like '%'|| #{keyword}||'%' OR content like '%'|| #{keyword}||'%')
+      </if>       
+      <if test="searchType == 'cw'.toString()">
+        and ( content like '%'|| #{keyword}||'%' OR writer like '%'|| #{keyword}||'%')
+      </if>       
+      <if test="searchType == 'tcw'.toString()">
+        and (   title like '%'|| #{keyword}||'%'
+              OR
+                content like '%'|| #{keyword}||'%'
+              OR
+                writer like '%'|| #{keyword}||'%')
+      </if>             
+    </if> 
+   </sql>
+   
+   <select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
+   <![CDATA[  
+     select count(dept_board_id) 
+     from dept_board 
+     where dept_board_id > 0 
+   ]]>
+     <include refid="search"></include>
+   </select>
+   
+   <select id="enameGet" resultType="String" parameterType="String">
+    <![CDATA[  
+   	select e_name from employee where emp_id=#{emp_id}
+   	   ]]>
+   </select>
+   
+   <select id="read" resultType="DeptBoardVO">
+      select
+	  *
+      from
+      dept_board
+      where dept_board_id = #{dept_board_id}
+   </select>
+   
+   <insert id="writeDept">
+    insert into dept_board(dept_board_id, emp_id, dept_board_title, dept_board_content, dept_board_date, dept_board_hit, dept_board_file, dept_id)
+	values(dept_board_seq.NEXTVAL, #{emp_id}, #{ dept_board_title}, #{ dept_board_content}, SYSDATE, 0, 0, #{dept_id })
+   </insert>
+
+   <update id="updateDept">
+   		update dept_board set dept_board_title=#{dept_board_title}, dept_board_content=#{dept_board_content} where dept_board_id=#{dept_board_id}
+   </update>
+   
+   <delete id="deleteDept">
+   		delete from dept_board where dept_board_id=#{dept_board_id}
+   </delete>
+   
+   <select id="getEmployee" resultType="EmployeeVO" parameterType="String">
+   	select * from employee where emp_id=#{emp_id}
+   </select>
+   
+</mapper>
+
+

@@ -16,13 +16,11 @@ public class StockRP {
 	@Getter @Setter
 	private int inout_amount;
 	@Getter @Setter
-	private Date stock_indate;
-	@Getter @Setter
-	private Date stock_outdate;
-	@Getter @Setter
 	private String product_id;
 	@Getter @Setter
 	private String emp_id;
 	@Getter @Setter
-	private String type;
+	private String inout_type;
+	@Getter @Setter
+	private Date inout_date;
 }

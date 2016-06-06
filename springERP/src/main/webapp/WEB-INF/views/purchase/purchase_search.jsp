@@ -25,7 +25,8 @@
  	
 </head>
 <body>
-	<!-- 거래처 검색 -->
+<h2>구매 현황</h2>
+<!-- 거래처 검색 -->
 <div id="customerSearch_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
       

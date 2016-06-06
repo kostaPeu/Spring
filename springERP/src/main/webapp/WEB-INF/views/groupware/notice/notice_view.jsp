@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -16,23 +17,31 @@
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<h4 class="panel-title">${notice.notice_title }</h4>
-				<small> 글번호 : ${notice.notice_id } 작성자 : ${e_name}
-				작성일 : <fmt:formatDate value="${notice.notice_date }" pattern="yyyy-MM-dd" /> 조회수 : ${notice.notice_hit }</small>
+				<small> 글번호 : ${notice.notice_id } / 작성자 : ${e_name}
+				/ 작성일 : <fmt:formatDate value="${notice.notice_date }" pattern="yyyy-MM-dd" /> 
+				/ 조회수 : ${notice.notice_hit } 
+				</small>
 			</div>
 		</div>
 	</div>
 	<div id="write_content">
 		<p>${notice.notice_content }</p>
 		<hr>
-	</div>
-	<div class="row">
-		<a type="button" href="noticeUpdateFormAction.gw?notice_id=${notice.notice_id }" class="btn btn-default">수정</a>
-		<a type="button" href="noticeDeleteAction.gw?notice_id=${notice.notice_id }" class="btn btn-default">삭제</a>
-		<a type="button" href="noticeListAction.gw" class="btn btn-default">목록</a>
-	</div>
-		<br/>
+
+		<form role="form" method="post">
+			<input type='hidden' name='notice_id' value="${notice.notice_id}">
+		</form>
+
+		<div class="row">
+			<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+   			<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
+   			<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
+		</div>
 		
-	<form action="noticeReplyInsertAction.gw?notice_id=${notice.notice_id }" method="post">
+	</div>
+	<br/>
+		
+	<form action="noticeReplyInsertAction.gw?notice_id=${project.notice_id }" method="post">
 		<div id="view_comment">
 			<ul class="list-unstyled">
 				<c:if test="${list.size()-1 >=0}">
@@ -55,6 +64,58 @@
 			<button type="submit" class="btn btn-default">댓글달기</button>	
 		</div>	
 	</form>
+	
+	<script>
+$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
+       
+	$("#modifyBtn").on("click", function(){
+		formObj.attr("method", "get");
+		formObj.attr("action", "/groupware/notice/notice_edit");
+		formObj.submit();
+	});
+	
+ 	$("#removeBtn").on("click", function(){
+ 		formObj.attr("method", "get");
+		formObj.attr("action", "/groupware/notice/notice_delete");
+		formObj.submit();
+	});
+
+	/* $("#removeBtn").on("click", function(){
+		
+		var replyCnt =  $("#replycntSmall").html();
+		
+		if(replyCnt > 0 ){
+			alert("댓글이 달린 게시물을 삭제할 수 없습니다.");
+			return;
+		}	
+		
+		var arr = [];
+		$(".uploadedList li").each(function(index){
+			 arr.push($(this).attr("data-src"));
+		});
+		
+		if(arr.length > 0){
+			$.post("/deleteAllFiles",{files:arr}, function(){
+				
+			});
+		}
+		
+		formObj.attr("action", "/sboard/removePage");
+		formObj.submit();
+	});	 */
+	
+	$("#goListBtn").click(function(){
+		formObj.attr("method", "get");
+		formObj.attr("action", "/groupware/notice/notice_list");
+		formObj.submit();
+	});
+	
+});
+</script>
+
 </body>
 </html>
-

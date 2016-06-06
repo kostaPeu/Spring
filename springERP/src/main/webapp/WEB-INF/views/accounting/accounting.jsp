@@ -13,7 +13,7 @@
 				<li><a data-toggle="collapse" href="./accounting/view/basic/moneyCheck.jsp #one">회계기초등록</a>
 					<ul id="one" class="collapse">
 						<li><a href="./accounting/view/basic/moneyCheck.jsp">기초잔액등록</a></li>
-						<li><a href="cardList.ac">신용카드등록</a></li>
+						<li><a href="/accounting/card/list">신용카드등록</a></li>
 						<li><a href="/accounting/account/list">통장계좌등록</a></li>
 						<li><a href="./accounting/view/basic/Project.jsp">프로젝트등록</a></li>
 					</ul>
@@ -38,8 +38,8 @@
 					</ul></li>
 				<li><a data-toggle="collapse" href="./accounting/view/MoneyPlan/MoneyPlan_Add.jsp #five">자금계획관리</a>
 					<ul id="five" class="collapse">
-						<li><a href="./accounting/view/MoneyPlan/MoneyPlan_Add.jsp">자금계획등록</a></li>
-						<li><a href="listMoneyPlan.ac">자금계획현금조회</a></li>
+						<li><a href="/accounting/moneyPlan/MoneyPlan_Add">자금계획등록</a></li>
+						<li><a href="/accounting/moneyPlan/list">자금계획현금조회</a></li>
 						<li><a href="./accounting/view/MoneyPlan_promissory_view.jsp">자금계획전표조회</a></li>
 						<li><a href="./accounting/view/MoneyPlan_calendar.jsp">자금증감계획일정표</a></li>
 					</ul>

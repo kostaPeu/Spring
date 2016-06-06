@@ -14,6 +14,7 @@ import erp.basic.domain.ProductGroup;
 import erp.basic.domain.ProductList;
 import erp.basic.domain.Standards;
 import erp.basic.domain.Stock;
+import erp.pch.domain.GetCustomer;
 
 @Repository
 public class BasicProductDAOImpl implements BasicProductDAO{
@@ -72,5 +73,4 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	public void stockInsert(Stock stock) throws Exception {
 		session.insert(namespace+".stockInsert",stock);
 	}
-
 }

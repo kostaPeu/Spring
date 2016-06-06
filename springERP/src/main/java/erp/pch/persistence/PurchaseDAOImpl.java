@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import erp.basic.domain.Product;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
-import erp.pch.domain.Customer;
+import erp.pch.domain.GetCustomer;
 import erp.pch.domain.GetWareHouse;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
@@ -38,7 +38,7 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 		session.delete(namespace+".deletePurchase", buy_id);
 	}
 	@Override
-	public List<Customer> customerList(String customer_id) throws Exception {
+	public List<GetCustomer> customerList(String customer_id) throws Exception {
 		return session.selectList(namespace+".customerList", "%"+customer_id+"%");
 	}
 	@Override
@@ -72,5 +72,9 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	@Override
 	public List<PurchaseListView> listSearch(SearchCriteria cri) throws Exception {
 		return session.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+	@Override
+	public void updatePurchase(PurchaseVO vo) throws Exception {
+		session.update(namespace+".updatePurchase", vo);
 	}
 }

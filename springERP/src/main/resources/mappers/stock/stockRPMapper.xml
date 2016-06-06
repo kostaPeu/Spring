@@ -9,19 +9,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			INSERT INTO stock_inoutlist(
 				inout_id,
 				inout_amount,
-				stock_indate,
-				stock_outdate,
+				inout_date,
 				product_id,
-				emp_id
+				emp_id,
+				inout_type
 			) VALUES(
-				#{inout_id}, #{inout_amount},
-				<if test="type == 'in'">
-				sysdate,null,</if>
-				<if test="type == 'out'">
-				null,sysdate,
-				</if>
+				#{inout_id}, 
+				#{inout_amount},
+				#{inout_date},
 				#{product_id},
-				#{emp_id}
+				#{emp_id},
+				#{inout_type}
 			)
 	</insert>
 	
@@ -34,8 +32,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="stockUpdate" parameterType="StockRP">
-		UPDATE stock SET stock_amount = <if test="type == 'in'">stock_amount + #{inout_amount}</if>
-															<if test="type == 'out'">stock_amount - #{inout_amount}</if>
+		UPDATE stock SET stock_amount = <if test="inout_type == 'in'">stock_amount + #{inout_amount}</if>
+															<if test="inout_type == 'out'">stock_amount - #{inout_amount}</if>
 							WHERE product_id = #{product_id}
 	</update>
+	<select id="stockCalendarJson" resultType="StockCalendar">
+	    SELECT rp.inout_id, p.product_id, p.product_name, s.stock_amount, w.warehouse_id, w.warehouse_name, rp.inout_amount, 
+	    			rp.inout_date, rp.inout_type, e.e_name
+ 		FROM product p, stock s, warehouse w, stock_inoutlist rp, employee e
+ 		WHERE rp.product_id = p.product_id AND
+					p.product_id = s.product_id AND
+					s.warehouse_id = w.warehouse_id AND
+					rp.emp_id = e.emp_id
+	</select>
+	
+	<update id="stockRPUpdate" parameterType="StockRP">
+		UPDATE stock_inoutlist SET inout_date = #{inout_date}
+			WHERE inout_id = #{inout_id} 
+	</update>
+
 </mapper>

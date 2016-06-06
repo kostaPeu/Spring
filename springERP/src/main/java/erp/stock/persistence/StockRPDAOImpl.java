@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.basic.domain.Product;
+import erp.stock.domain.StockCalendar;
 import erp.stock.domain.StockRP;
 
 @Repository
@@ -29,7 +30,7 @@ public class StockRPDAOImpl implements StockRPDAO {
 	}
 
 	@Override
-	public int inoutMax() throws Exception {
+	public int inoutMax() throws Exception{
 		return session.selectOne(namespace+".inoutMax");
 	}
 
@@ -37,5 +38,20 @@ public class StockRPDAOImpl implements StockRPDAO {
 	public void stockUpdate(StockRP stock) throws Exception {
 		session.update(namespace+".stockUpdate",stock);
 	}
+
+	@Override
+	public List<StockCalendar> stockCalendarJson() throws Exception {
+		return session.selectList(namespace+".stockCalendarJson");
+	}
+
+	@Override
+	public void stockRPUpdate(StockRP stock) throws Exception{
+		System.out.println(stock.getInout_id());
+		System.out.println(stock.getInout_date());
+		session.update(namespace+".stockRPUpdate",stock);
+	}
+
+	
+	
 
 }

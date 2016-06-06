@@ -1,4 +1,3 @@
-
 /*품목등록, 품목수정 회색창*/
 $(function() {
 	$('#newBtn').on('click', function() {
@@ -6,18 +5,55 @@ $(function() {
 	})
 	$('#updateBtn').on('click', function() {
 		$('.update').css("display", "block");
-		$("input[name=id_box]:checked").each(function() {
+		/*$("input[name=id_box]:checked").each(function() {
 			var upSelect = $(this).val();
 			console.log(upSelect);
 			var url = "upSelect.ba?upSelect=" + upSelect;
 			$(location).attr('href', url);
-		});
-		console.log("aaaa");
+		});*/
 		$('.update').css("display", "block")
 	})
 	$('.closeBtn').click(function() {
 		$('.xclose').css("display", "none");
 	})
+	
+})
+/*체크박스 클릭시 객체 가져오기*/
+$(function(){
+	$('.getCheckBox').on('click',function(){
+		console.log('aaaa');
+		var customer_id = $(this).val();
+		var url = "/basic/customer/getCustomer?customer_id="+customer_id;
+		$.ajax({
+			url : url,
+			type : 'post',
+			dataType : 'json',
+			success : function(data){
+				$.each(data, function(index, list){
+					$('#customer_id2').val(list.customer_id);
+					$('#customer_name2').val(list.customer_name);
+					$('#repre_name2').val(list.repre_name);
+					$('#phone_number2').val(list.phone_number);
+					$('#customer_address2').val(list.customer_address);
+					$('#copy_bankbook2').val(list.copy_bankbook);
+					$('#customer_email2').val(list.customer_email);
+					$('#customer_fax2').val(list.customer_fax);
+					$('#checkman2').val(list.checkman);
+				})				
+			}
+		})
+	})
+	$('#checkAll').click(function(){
+		if(this.checked){
+			$('input[name=id_box]').each(function(){
+				$(this).prop('checked',true);
+			});
+		}else{
+			$('input[name=id_box]').each(function(){
+				$(this).prop('checked',false);
+			});
+		}        	
+	});
 })
 /*등록 입력할 때 v표시*/
 $(function() {
@@ -75,12 +111,12 @@ $(function(){
 					if(html == "<tr><th>품목코드</th><th>품목명</th></tr>"){
 						html += "<tr><td colspan='2'> 해당코드는 사용가능합니다.</td></tr>";
 						$('#useBtn').removeAttr('disabled');
-						$('#useBtn').on('click',function(){
-							var searchKey = $('#search_product').val();	
+					};
+					$('#useBtn').on('click',function(){
+						var searchKey = $('#search_product').val();	
 							$('#ptext').val(searchKey);
 							$('#myModal').modal('hide');
 						});
-					}; 
 					$('#searchTable').append(html);
 					},
 				error : function(){

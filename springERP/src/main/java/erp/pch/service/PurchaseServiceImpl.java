@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import erp.basic.domain.Product;
 import erp.common.domain.Criteria;
-import erp.pch.domain.Customer;
+import erp.pch.domain.GetCustomer;
 import erp.pch.domain.GetWareHouse;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
@@ -39,7 +39,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 	}
 
 	@Override
-	public List<Customer> customerList(String customer_id) throws Exception {
+	public List<GetCustomer> customerList(String customer_id) throws Exception {
 		return dao.customerList(customer_id);
 	}
 
@@ -77,5 +77,10 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Override
 	public int listCountCriteria(Criteria cri) throws Exception {
 		return dao.countPaging(cri);
+	}
+
+	@Override
+	public void updatePurchase(PurchaseVO vo) throws Exception {
+		dao.updatePurchase(vo);
 	}
 }

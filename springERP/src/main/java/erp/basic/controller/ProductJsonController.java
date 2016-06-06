@@ -20,10 +20,7 @@ public class ProductJsonController {
 	
 	/*품목 중복 체크 JSON - MJ*/
 	@RequestMapping("/codeJson")
-	public List<Product> productCodeJson(@RequestParam("searchKey") String searchKey) throws Exception{
-		
-		String word = "%"+searchKey+"%";
-				
-		return service.productCodeJson(word);
+	public List<Product> productCodeJson(@RequestParam("searchKey") String searchKey) throws Exception{		
+		return service.productCodeJson(searchKey);
 	}
 }

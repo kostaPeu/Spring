@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,13 +56,14 @@
     			alert("수정할 것을 체크하시오.");
     			return false;
     		}else{
-    			$('#sell_id_update').val(val);
+    			$('#buy_id_update').val(val);
     		}
     	});
     });
     </script>
 </head>
 <body>
+<h2>구매 조회</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>
@@ -95,6 +97,7 @@
 		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 	</div>
+	<!-- 페이징 -->
 	<div class="box-footer">
 
 		<div class="text-center">
@@ -120,7 +123,6 @@
 
 			</ul>
 		</div>
-
 	</div>
 <!-- 수정 -->
 <div id="update_modal" class="modal fade" role="dialog">
@@ -131,12 +133,12 @@
         <h4 class="modal-title">구매 내역 수정</h4>
       </div>
       <div class="modal-body">
-     	<form:form class="form-horizontal" method="post" action="/sale/sale_update">
+     	<form:form class="form-horizontal" method="post" action="/purchase/purchase_update">
 			<div class="col-sm-12">
-				수량   <input type="text" class="form-control" name="sell_amount">
+				수량   <input type="text" class="form-control" name="buy_amount">
 			</div>
 			<div class="col-sm-12">
-				가격   <input type="text" class="form-control" name="sell_price">
+				가격   <input type="text" class="form-control" name="buy_price">
 			</div>
 			<div class="col-sm-12">
 				지급방법   <select  name="pay_type" class="form-control">
@@ -145,7 +147,7 @@
 						</select>
 			</div>
 			<div class="col-sm-12">
-				<input type="hidden" id="sell_id_update" name="sell_id">
+				<input type="hidden" id="buy_id_update" name="buy_id">
 			</div>
 			<br><br><br>
 			<div id="useBtnArea">
@@ -157,7 +159,6 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
 </body>
