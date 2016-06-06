@@ -340,7 +340,7 @@ public class HrController {
 	//직원 삭제
 	@RequestMapping("/indol_request/request_approve")
 	public String indol_request_approve(@ModelAttribute("cri") SearchCriteriaHR cri, @RequestParam("array") String[] array, RedirectAttributes rtts) throws Exception{
-		 ResponseEntity<String> entity = null;
+		// ResponseEntity<String> entity = null;
 		for(int i=0;i<array.length;i++){
 			try {
 				service.indolApprove(array[i]);
