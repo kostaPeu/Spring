@@ -93,22 +93,152 @@
 		delete from duty where
 		duty_id=#{b_id}
 	</delete>
-<!-- 
-	<insert id="insertEmp" parameterType="employee">
+	
+	<select id="empChecker" parameterType="String" resultType="Int">
+		select count(*) from employee where emp_id = #{b_id}
+	</select>
+	
+	<insert id="insertEmp" parameterType="EmployeeVO">
 		insert into employee (
-		emp_id, e_name, e_age, e_sal, e_address, e_email, phone_number,
+		emp_id, e_name, e_age, e_hiredate, e_profile_pic, e_sal, e_address, e_email, phone_number,
 		dept_id,
 		position_id, job_id, duty_id, e_pwd)
 		values(
-		#{emp_id}, #{e_name}, #{e_age}, #{e_sal}, #{e_address}, #{e_email},
+		#{emp_id}, #{e_name}, #{e_age}, #{e_hiredate}, #{e_profile_pic}, #{e_sal}, #{e_address}, #{e_email},
 		#{phone_number},
 		#{dept_id}, #{position_id}, #{job_id}, #{duty_id}, #{e_pwd})
 	</insert>
 
-	<select id="getEmp" parameterType="String" resultType="employee">
+ 	<sql id="search">
+	 <if test="searchType != null" >
+	     where e_name like '%'|| #{keyword}||'%'
+	 </if> 
+	</sql>
+
+	<select id="empListSearch" resultType="EmployeeViewVO" parameterType="SearchCriteriaHR">
+	<![CDATA[ 
+		select *
+		from emp_view
+	]]>
+	<include refid="search"></include>
+	<![CDATA[    
+	  order by emp_id	  
+	]]>
+	</select>
+
+<select id="empListSearchCount" resultType="int" parameterType="SearchCriteriaHR">
+<![CDATA[  
+	  select count(*) 
+	  from emp_view  
+	]]>
+	<include refid="search"></include>
+</select>
+
+	<select id="getIndolInfoLIst" resultType="IndolInfoViewVO" parameterType="SearchCriteriaHR">
+		<![CDATA[ 
+			select * from indol_view
+		]]>
+		<include refid="search"></include>
+		<![CDATA[    
+	 		 order by emp_id	  
+		]]>
+	</select>
+
+<select id="indolInfoCount" resultType="int" parameterType="SearchCriteriaHR">
+<![CDATA[  
+	  select count(*) 
+	  from indol_view  
+	]]>
+	<include refid="search"></include>
+</select>
+
+	<delete id="empDelete" parameterType="String">
+		delete from employee where
+		emp_id=#{string}
+	</delete>
+	<!-- e_profile_pic=#{e_profile_pic} -->
+	<update id="updateEmp" parameterType="EmployeeVO">
+		update employee set
+		e_name=#{e_name}, e_age=#{e_age}, e_sal=#{e_sal},
+		e_address=#{e_address}, e_email=#{e_email},
+		phone_number=#{phone_number}, e_hiredate=#{e_hiredate},
+		dept_id=#{dept_id}, position_id=#{position_id}, job_id=#{job_id},
+		duty_id=#{duty_id}, e_pwd=#{e_pwd} where emp_id=#{emp_id}
+	</update>
+	
+	<select id="getEmp" parameterType="String" resultType="EmployeeVO">
 		select *
 		from employee where emp_id = #{emp_id}
 	</select>
+	
+	<delete id="indol_info_del" parameterType="String">
+		delete from indolence_info where
+		emp_id=#{string}
+	</delete>
+	
+	<delete id="indol_date_del" parameterType="String">
+		delete from indolence_date where
+		emp_id=#{string}
+	</delete>
+	
+	<select id="getIndolInfo" parameterType="String" resultType="IndolenceInfoVO">
+		select *
+		from indolence_info where emp_id = #{emp_id}
+	</select>
+	
+	<update id="indolUpdate" parameterType="IndolenceInfoVO">
+		update indolence_info set
+		lateness=#{lateness}, vacation=#{vacation}, half_annual=#{half_annual},
+		absence=#{absence}, annual=#{annual}
+		where emp_id=#{emp_id}
+	</update>
+	
+	<select id="getIndolRequestList" resultType="IndolRequestViewVO" parameterType="SearchCriteriaHR">
+		<![CDATA[ 
+			select * from indol_request_view
+		]]>
+		<include refid="search"></include>
+		<![CDATA[    
+	 		 order by indol_request_id	  
+		]]>
+	</select>
+
+<select id="getIndolRequestCount" resultType="int" parameterType="SearchCriteriaHR">
+<![CDATA[  
+	  select count(*) 
+	  from indol_request_view 
+	]]>
+	<include refid="search"></include>
+</select>	
+
+<select id="getIndolRequest" resultType="IndolRequestVO" parameterType="String">
+	select * from indol_request where indol_request_id = #{string}
+</select>
+
+<update id="indolApprove" parameterType="String">
+		update indol_request set approve='Y' where indol_request_id=#{string}
+</update>
+
+<update id="updateHaVacation" parameterType="String">
+		update indolence_info set vacation=vacation-0.5, half_annual=half_annual+1 where emp_id=#{emp_id}
+</update>
+
+<update id="updateAVacation" parameterType="String">
+		update indolence_info set vacation=vacation-1, annual=annual+1 where emp_id=#{emp_id}
+</update>
+
+<select id="CalVacation" resultType="String">
+	select to_char(end_nowork_date, 'YYYYMMDD')-to_char(start_nowork_date, 'YYYYMMDD') from indol_request where indol_request_id = #{string}
+</select>
+
+<update id="updateVVacation">
+		update indolence_info set vacation=vacation-#{vacation} where emp_id=#{emp_id}
+</update>
+
+<select id="getVacation" resultType="int" parameterType="String">
+	select vacation from indolence_info where emp_id=#{emp_id}
+</select>
+<!-- 
 
 	<update id="updateEmp" parameterType="employee">
 		update employee set
@@ -140,24 +270,12 @@
 		select e_prople_pic from employee where emp_id=#{emp_id}
 	</select>
 	
-	<insert id="insertIndol" parameterType="String">
-		insert into indolence_info (
-			emp_id, lateness, vacation, half_annual, absence, annual)
-			values(
-				#{emp_id}, 0, 0, 0, 0, 0})
-	</insert>
-	
 	<update id="updateIndol" parameterType="indol">
 		update indolence_info set
 		lateness=#{lateness}, vacation=#{vacation}, half_annual=#{half_annual},
 		absence=#{absence}, annual=#{annual}
 		where emp_id=#{emp_id}
 	</update>
-	
-	<delete id="delIndol" parameterType="String">
-		delete from indolence_info where
-		emp_id=#{emp_id}
-	</delete>
 	
 	<select id="getIndolList" resultType="indol" parameterType="indolSearch">
 		select * from indol_view

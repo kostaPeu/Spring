@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.NoArgsConstructor;
 import lombok.Getter;
@@ -47,6 +48,8 @@ public class EmployeeVO implements UserDetails{
 	@Getter @Setter private String job_id;
 	@Getter @Setter private String duty_id;
 	@Getter @Setter private String e_pwd;
+	@Getter @Setter private MultipartFile uploadFile;
+	
 	private Set<GrantedAuthority> authorities;
 	
 	public EmployeeVO(String emp_id, String e_name, int e_age, Date e_hiredate, String dept_id, String e_profile_pic,
