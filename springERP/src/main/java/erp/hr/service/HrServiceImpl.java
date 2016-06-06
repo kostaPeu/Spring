@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import erp.hr.domain.EmployeeVO;
 import erp.hr.domain.EmployeeViewVO;
@@ -139,8 +140,9 @@ public class HrServiceImpl implements HrService {
 		return dao.emlListCount(cri);
 	}
 
+	@Transactional
 	@Override
-	public void empDelete(String string) {
+	public void empDelete(String string) throws Exception{
 		dao.indol_info_del(string);
 		dao.indol_date_del(string);
 		dao.empDelete(string);
@@ -185,22 +187,40 @@ public class HrServiceImpl implements HrService {
 	public int indolRequestSearchCount(SearchCriteriaHR cri) {
 		return dao.getIndolRequestCount(cri);
 	}
-
+	
+	@Transactional
 	@Override
-	public void indolApprove(String string) {
+	public void indolApprove(String string) throws Exception{
 		IndolRequestVO vo = dao.getIndolRequest(string);
 		int vacation = dao.getVacation(vo.getEmp_id());
-		if(vo.getRequest_type().equals("ha") && vacation>=0.5){
-			dao.updateHaVacation(vo.getEmp_id());
+		if(vo.getRequest_type().equals("ha")){
+			if(vacation>=0.5){
+				dao.updateHaVacation(vo.getEmp_id());
+			}
+			else{
+				throw new Exception();
+			}
 		}
 		else if(vo.getRequest_type().equals("a")){
-			dao.updateAVacation(vo.getEmp_id());
+			if(vacation>=1){
+				dao.updateAVacation(vo.getEmp_id());
+			}
+			else {
+				throw new Exception();
+			}
+			
 		}
 		else{
 			Map<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("vacation", Integer.parseInt(dao.CalVacation(string)));
 			paramMap.put("emp_id", vo.getEmp_id());
-			dao.updateVVacation(paramMap);
+			int check = (int)(paramMap.get("vacation")) ;
+			if(vacation>=check){
+				dao.updateVVacation(paramMap);
+			}
+			else {
+				throw new Exception();
+			}
 		}
 		dao.indolApprove(string);
 	}	

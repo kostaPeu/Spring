@@ -312,7 +312,11 @@ public class HrController {
 	@RequestMapping("/emp/emp_delete")
 	public String emp_delete(@ModelAttribute("cri") SearchCriteriaHR cri, @RequestParam("array") String[] array, RedirectAttributes rtts) throws Exception{
 		for(int i=0;i<array.length;i++){
-			service.empDelete(array[i]);
+			try {
+				service.empDelete(array[i]);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		rtts.addAttribute("page", cri.getPage());
 		rtts.addAttribute("perPageNum", cri.getPerPageNum());
@@ -336,8 +340,14 @@ public class HrController {
 	//직원 삭제
 	@RequestMapping("/indol_request/request_approve")
 	public String indol_request_approve(@ModelAttribute("cri") SearchCriteriaHR cri, @RequestParam("array") String[] array, RedirectAttributes rtts) throws Exception{
+		 ResponseEntity<String> entity = null;
 		for(int i=0;i<array.length;i++){
-			service.indolApprove(array[i]);
+			try {
+				service.indolApprove(array[i]);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 		rtts.addAttribute("page", cri.getPage());
 		rtts.addAttribute("perPageNum", cri.getPerPageNum());

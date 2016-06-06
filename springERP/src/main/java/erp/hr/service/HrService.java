@@ -30,7 +30,7 @@ public interface HrService {
 	public void empInsert(EmployeeVO vo);
 	public List<EmployeeViewVO> empLIst(SearchCriteriaHR cri);
 	public int empListSearchCount(SearchCriteriaHR cri);
-	public void empDelete(String string);
+	public void empDelete(String string) throws Exception;
 	public void empUpdate(EmployeeVO vo);
 	public EmployeeVO getEmp(String emp_id);
 	public List<IndolInfoViewVO> indolInfoLIst(SearchCriteriaHR cri);
@@ -39,5 +39,5 @@ public interface HrService {
 	public void indolUpdate(IndolenceInfoVO vo);
 	public List<IndolRequestViewVO> indolRequestLIst(SearchCriteriaHR cri);
 	public int indolRequestSearchCount(SearchCriteriaHR cri);
-	public void indolApprove(String string);
+	public void indolApprove(String string) throws Exception;
 }
