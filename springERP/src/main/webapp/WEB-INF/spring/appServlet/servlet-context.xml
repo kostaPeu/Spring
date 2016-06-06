@@ -14,7 +14,8 @@
 
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
-
+	<resources mapping="/favicon.ico" location="/favicon.ico"/>
+	
 	<view-controller path="/" view-name="main"/>
 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
