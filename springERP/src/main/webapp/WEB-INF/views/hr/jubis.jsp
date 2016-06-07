@@ -1,41 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="_csrf" content="${_csrf.token}"/>
-<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <!-- 커스텀 -->
 <link rel="stylesheet" href="/resources/hr/css/emp.css">
 <script src="/resources/hr/js/hr.js" type="text/javascript"></script>
+<script type="text/javascript">
+</script>
 </head>
 <body>
 
 	<h2 class="page_title">쥬비스 관리</h2>
-	
-		<div class="col-md-12" id="jubis_table">
-			<table class="table table-condensed table table-bordered">
-				<thead>
-					<tr class="jubis_th">
-						<th width="50">번호</th>
-						<th width="200">응답키워드</th>
-						<th width="650">SQL</th>
-						<th width="50">삭제</th>
-					</tr>
-				</thead>
-				<tr class="jubis_td">
-					<td>aa</td>
-					<td>aa</td>
-					<td>aa</td>
-					<td><button type="button" class="btn btn-default btn-xs">삭제</button></td>
-				</tr>
-			</table>
-		</div>
 
-	<form class="form-horizontal" id="j_insert">
+	<div class="col-md-12" id="jubis_table">
+		<table class="table table-condensed table table-bordered">
+			<thead>
+				<tr class="jubis_th">
+					<th width="50">번호</th>
+					<th width="200">응답키워드</th>
+					<th width="650">SQL</th>
+					<th width="50">삭제</th>
+				</tr>
+			</thead>
+			<tr class="jubis_td">
+				<td>aa</td>
+				<td>aa</td>
+				<td>aa</td>
+				<td><button type="button" class="btn btn-default btn-xs">삭제</button></td>
+			</tr>
+		</table>
+	</div>
+
+	<form:form class="form-horizontal" id="j_insert">
 		<div class="form-group">
 			<div class="container-fluid">
 				<div class="row">
@@ -66,10 +68,10 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form:form>
 
 
-	<form class="form-horizontal" id="j_update">
+	<form:form class="form-horizontal" id="j_update">
 		<div class="form-group">
 			<div class="container-fluid">
 				<div class="row">
@@ -98,7 +100,7 @@
 				</div>
 			</div>
 		</div>
-	</form>
-	<script src="/shopERP/js/bootstrap.min.js"></script>
+	</form:form>
+
 </body>
 </html>
