@@ -26,7 +26,7 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 	}
 
 	@Override
-	public void moneyPlanUpdate(MoneyPlan plan) throws Exception {
+	public void moneyPlanUpdate(MoneyPlanTimeSet plan) throws Exception {
 		session.update(namespace + ".moneyPlanUpdate", plan);
 		
 	}
@@ -38,12 +38,12 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 	}
 
 	@Override
-	public List<MoneyPlan> moneyPlanList() throws Exception {
+	public List<MoneyPlanTimeSet> moneyPlanList() throws Exception {
 		return session.selectList(namespace + ".moneyPlanList");
 	}
 
 	@Override
-	public List<MoneyPlan> moneyPlnapromissoryList() throws Exception {
+	public List<MoneyPlanTimeSet> moneyPlnapromissoryList() throws Exception {
 		return session.selectList(namespace+".moneyPlnapromissoryList");
 	}
 

@@ -12,6 +12,7 @@ import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.projectboard.domain.ProjectsVO;
 
 
 @Repository
@@ -100,6 +101,17 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	@Override
 	public List<Card> cardList() throws Exception {
 		return session.selectList(namespace + ".cardList");
+	}
+
+	@Override
+	public void projectUpdate(ProjectsVO vo) throws Exception {
+		session.update(namespace+".projectUpdate" ,vo);
+		
+	}
+
+	@Override
+	public List<ProjectsVO> projectList() throws Exception {
+		return session.selectList(namespace+".projectList");
 	}
 
 }

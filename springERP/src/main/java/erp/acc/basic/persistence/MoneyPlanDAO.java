@@ -10,11 +10,11 @@ public interface MoneyPlanDAO {
 
 	public void moneyPlanInsert(MoneyPlanTimeSet set) throws Exception;
 
-	public void moneyPlanUpdate(MoneyPlan plan) throws Exception;
+	public void moneyPlanUpdate(MoneyPlanTimeSet plan) throws Exception;
 
 	public void moneyPlanDelete(String funds_id) throws Exception;
 
-	public List<MoneyPlan> moneyPlanList() throws Exception;
+	public List<MoneyPlanTimeSet> moneyPlanList() throws Exception;
 
-	public List<MoneyPlan> moneyPlnapromissoryList()throws Exception;
+	public List<MoneyPlanTimeSet> moneyPlnapromissoryList()throws Exception;
 }
