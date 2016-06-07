@@ -1,8 +1,11 @@
 package erp.pch.controller;
 
+import java.io.OutputStream;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -93,5 +96,10 @@ public class PurchaseController {
 	public String puchaseUpdate(PurchaseVO vo)throws Exception{
 		service.updatePurchase(vo);
 		return "redirect:purchase_check";
+	}
+	@RequestMapping("purchase_excel")
+	public String purchase_Excel(OutputStream out ,HttpServletResponse res,Model model)throws Exception{
+		service.downloadExcel(out, res);
+		return "/purchase/purchase_check";
 	}
 }
