@@ -18,12 +18,10 @@ $(function() {
 	$('.closeBtn').click(function() {
 		$('.xclose').css("display", "none");
 	})
-	
 })
 /*체크박스 클릭시 객체 가져오기*/
 $(function(){
 	$('.getCheckBox').on('click',function(){
-		console.log('aaaa');
 		var customer_id = $(this).val();
 		var url = "/basic/customer/getCustomer?customer_id="+customer_id;
 		$.ajax({
