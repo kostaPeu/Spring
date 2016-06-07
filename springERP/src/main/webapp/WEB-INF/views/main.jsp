@@ -57,6 +57,7 @@
 				<a id="a-in-spam" href="./main.jsp?left=./mypage/view/mypage.jsp">
 					<%=name%></a>님 환영합니다. 
 				<form:form id="logoutForm" role="form">
+					<input name="leaveRe" type="checkbox" value="leave"> 퇴근
 					<button id="logoutBtn" class="btn btn-default">로그아웃</button>
 				</form:form>
 			</span>

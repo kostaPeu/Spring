@@ -33,7 +33,7 @@
                     <input type="checkbox" value="remember-me"> 기억하기
                 </label>
                 <label>
-                    <input type="checkbox" value="arrival"> 출근
+                    <input name="arriveRe" type="checkbox" value="arrival"> 출근
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" id="loginBtn">로그인</button>
