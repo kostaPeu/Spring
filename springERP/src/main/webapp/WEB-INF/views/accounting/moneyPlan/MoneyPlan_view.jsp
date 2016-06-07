@@ -28,11 +28,14 @@
 					id="Card">
 					<thead id="cardList">
 						<tr class="mainTable">
+							
+							<th><input type="checkbox"></th>
 							<th>구분</th>
-							<th>자금계획번호</th>
+							<th>발생일자</th>						
 							<th>발생기간</th>
+							<th>자금계획번호</th>
 							<th>금액</th>
-							<th>계좌명</th>
+							<th>계좌번호</th>
 							<th>거래처</th>
 							<th>비고</th>
 						</tr>
@@ -41,15 +44,15 @@
 					<tbody id="cardInfos">
 					<c:forEach var="m" items="${listModel }">
 						<tr class="mainTable">
-							
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							
+							<td><input type="checkbox"></td>													
+							<td>{m.typelist}</td>
+							<td>{m.start_date}</td>
+							<td>{m.periods}</td>
+							<td>{m.funds_id}</td>							
+							<td>{m.sums}</td>
+							<td>{m.account_number}</td>
+							<td>{m.customer_id}</td>
+							<td>{m.remarks}</td>							
 						</tr>
 					</c:forEach>
 					</tbody>

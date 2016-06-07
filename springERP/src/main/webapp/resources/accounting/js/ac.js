@@ -1,15 +1,48 @@
-/*통장계좌 수정, 삭제 */
-
+//체크박스 삭제
 $(function() {
 	$("#deleteBtn").on('click', function() {
+		var count = [];
 		$("input[name=number_box]:checked").each(function() {
-			var checks = $(this).val();
-		})
+			count.push($(this).val());
+		});
+		var url = "/accounting/account/delete?count="+ count;
+		if (count == "") {
+			alert("삭제할 목록을 체크해주세요.");
+		} else {
+			$(location).attr('href', url);
+		}
 	})
+	
+//내용 수정 체크
+	$('#updateBtn').click(function() {
+		var val = '';
+		$("input[name=number_box]:checked").each(function() {
+			val = $(this).val();
+		});
+		if (val == "") {
+			alert("수정할 내용을 체크해주세요.");
+			return false;
+		} else {
+			$('#account_number_update').val(val);
+		}
+	});
+});
+
+// 체크박스 선택,해제
+$(function() {
+	$('#checkAll').click(function() {
+		if (this.checked) {
+			$('input[name=number_box]').each(function() {
+				$(this).prop('checked', true);
+			});
+		} else {
+			$('input[name=number_box').each(function() {
+				$(this).prop('checked', false);
+			});
+		}
+	});
+
 })
-
-
-
 
 // 작은 검색창 인풋창 초기화
 $(function() {
@@ -39,7 +72,6 @@ $(function() {
 			success : handler
 		});
 	});
-
 	function handler(data) {
 		var html = '<tr><th>계좌번호</th><th>계좌명</th><th>계정정보</th></tr>';
 		$.each(data, function(index, list) {

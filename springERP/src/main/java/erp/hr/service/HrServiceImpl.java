@@ -215,6 +215,7 @@ public class HrServiceImpl implements HrService {
 			paramMap.put("vacation", Integer.parseInt(dao.CalVacation(string)));
 			paramMap.put("emp_id", vo.getEmp_id());
 			int check = (Integer)(paramMap.get("vacation"));
+
 			if(vacation>=check){
 				dao.updateVVacation(paramMap);
 			}

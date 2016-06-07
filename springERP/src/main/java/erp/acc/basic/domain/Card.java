@@ -1,5 +1,7 @@
 package erp.acc.basic.domain;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Card {
+public class Card implements Serializable {
 	
 	@Getter @Setter private String card_number;
 	@Getter @Setter private	String card_name;
