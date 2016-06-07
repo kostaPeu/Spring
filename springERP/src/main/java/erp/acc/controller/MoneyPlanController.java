@@ -63,7 +63,7 @@ public class MoneyPlanController {
 	
 	// 자금계획수정 - JH
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String moneyPlanUpdate(MoneyPlan plan, Model model) throws Exception {
+	public String moneyPlanUpdate(MoneyPlanTimeSet plan, Model model) throws Exception {
 		service.moneyPlanUpdate(plan);
 		return "redirect:/accounting/moneyPlan/list";
 	}

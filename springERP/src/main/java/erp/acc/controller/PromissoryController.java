@@ -16,29 +16,28 @@ public class PromissoryController {
 
 	@Inject
 	private PromissoryService service;
-	
+
 	@RequestMapping("/list")
-	public String promissoryList(Model model)throws Exception{
+	public String promissoryList(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("listModel", service.promissoryList());
 		model.addAttribute("contents", "/accounting/promissory/promissory_noteAll.jsp");
-	return "/main";
+		return "/main";
 	}
-	
-	@RequestMapping(value="/promissory_note", method=RequestMethod.GET)
-	public String promissoryInsertGET(Model model)throws Exception{
+
+	@RequestMapping(value = "/promissory_note", method = RequestMethod.GET)
+	public String promissoryInsertGET(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "/accounting/promissory/promissory_note.jsp");
 		return "/main";
 	}
-	
-	@RequestMapping(value="/promissory_note", method=RequestMethod.POST)
-	public String promissoryInsertPOST(Model model, Promissory promissory)throws Exception{
+
+	@RequestMapping(value = "/promissory_note", method = RequestMethod.POST)
+	public String promissoryInsertPOST(Model model, Promissory promissory) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "/accounting/promissory/promissory_note.jsp");
 		service.promissoryInsert(promissory);
 		return "/main";
 	}
-	
-	
+
 }

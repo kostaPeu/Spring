@@ -37,7 +37,7 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 	}
 
 	@Override
-	public void moneyPlanUpdate(MoneyPlan plan) throws Exception {
+	public void moneyPlanUpdate(MoneyPlanTimeSet plan) throws Exception {
 		dao.moneyPlanUpdate(plan);
 
 	}
@@ -49,12 +49,12 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 	}
 
 	@Override
-	public List<MoneyPlan> moneyPlanList() throws Exception {
+	public List<MoneyPlanTimeSet> moneyPlanList() throws Exception {
 		return dao.moneyPlanList();
 	}
 
 	@Override
-	public List<MoneyPlan> moneyPlnapromissoryList() throws Exception {
+	public List<MoneyPlanTimeSet> moneyPlnapromissoryList() throws Exception {
 		return	dao.moneyPlnapromissoryList();
 	}
 
