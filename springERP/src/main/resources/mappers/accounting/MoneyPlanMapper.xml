@@ -16,12 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 
-	<select id="moneyPlanList" resultType="MoneyPlan">
-		SELECT * FROM funds_plan where moneytype = "현금"
+	<select id="moneyPlanList" resultType="MoneyPlanTimeSet">
+		SELECT * FROM funds_plan where moneytype = 'Cash'
 	</select>
 	
-	<select id="moneyPlnapromissoryList" resultType="MoneyPlan">
-		SELECT * FROM funds_plan where moneytype = "어음"
+	<select id="moneyPlnapromissoryList" resultType="MoneyPlanTimeSet">
+		SELECT * FROM funds_plan where moneytype = 'Promissory'
 	</select>
 
 	<update id="moneyPlanUpdate">

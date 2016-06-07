@@ -37,12 +37,12 @@
 							<td>
 								<div class="radio-inline">
 									<label> <input id="optionsRadios1" type="radio"
-										checked="" name="moneytype" value="현금">현금
+										checked="" name="moneytype" value="Cash">Cash
 									</label>
 								</div>
 								<div class="radio-inline">
 									<label> <input id="optionsRadios2" type="radio"
-										name="moneytype" value="어음" >어음
+										name="moneytype" value="Promissory" >Promissory
 									</label>
 								</div>
 							</td>

@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<h2 class="page_title">자금계획조회</h2>
+	<h2 class="page_title">자금계획현금조회</h2>
 
 	<div class="mainContents">
 		<!-- 카드리스트 -->
@@ -27,8 +27,7 @@
 				<table class="table table-bordered table-hover table-striped"
 					id="Card">
 					<thead id="cardList">
-						<tr class="mainTable">
-							
+						<tr class="mainTable">							
 							<th><input type="checkbox"></th>
 							<th>구분</th>
 							<th>발생일자</th>						
@@ -42,17 +41,17 @@
 					</thead>
 					
 					<tbody id="cardInfos">
-					<c:forEach var="m" items="${listModel }">
+					<c:forEach var="cash" items="${listModel}">
 						<tr class="mainTable">
 							<td><input type="checkbox"></td>													
-							<td>{m.typelist}</td>
-							<td>{m.start_date}</td>
-							<td>{m.periods}</td>
-							<td>{m.funds_id}</td>							
-							<td>{m.sums}</td>
-							<td>{m.account_number}</td>
-							<td>{m.customer_id}</td>
-							<td>{m.remarks}</td>							
+							<td>${cash.typelist}</td>
+							<td>${cash.start_date}</td>
+							<td>${cash.periods}</td>
+							<td>${cash.funds_id}</td>							
+							<td>${cash.sums}</td>
+							<td>${cash.account_number}</td>
+							<td>${cash.customer_id}</td>
+							<td>${cash.remarks}</td>							
 						</tr>
 					</c:forEach>
 					</tbody>
