@@ -175,13 +175,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE card_number = #{card_number}
 	</delete>
 	<!-- 신용카드 CRUD END -->
+
+
+	<select id="projectList" resultType="ProjectsVO">
+	select *from projects
 	
+	</select>	
 	
 	<!-- 프로젝트 RU START-->
 	<update id="projectUpdate">
-	UPDATE projects SET 
-	
-	
+	UPDATE projects SET 	
 	WHERE proj_id = #{proj_id}
 	
 	
