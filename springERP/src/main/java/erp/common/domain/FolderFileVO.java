@@ -1,4 +1,4 @@
-package erp.gw.deptboard.domain;
+package erp.common.domain;
 
 import lombok.Setter;
 
