@@ -17,7 +17,7 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 	private MoneyPlanDAO dao;
 
 	@Override
-	public void moneyPlanInsert(MoneyPlan plan) throws Exception {
+	public void moneyPlanInsert(MoneyPlanTimeSet plan) throws Exception {
 		MoneyPlanTimeSet set = new MoneyPlanTimeSet();
 		set.setMoneytype(plan.getMoneytype());
 		set.setTypelist(plan.getTypelist());

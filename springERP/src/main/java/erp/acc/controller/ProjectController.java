@@ -5,8 +5,10 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import erp.acc.basic.service.BasicAccountService;
+import erp.gw.projectboard.domain.ProjectsVO;
 
 @Controller
 @RequestMapping("/accounting/project")
@@ -15,11 +17,19 @@ public class ProjectController {
 	@Inject
 	private BasicAccountService service;
 	
-	//카드 리스트
+	//프로젝트 리스트
 	@RequestMapping("/list")
-	public String cardList(Model model)throws Exception{
+	public String ProjectList(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("listModel", service.projectList());
 		model.addAttribute("contents", "accounting/basic/Project.jsp");
 		return "/main";
 	}
+	
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String projectUpdate(ProjectsVO vo, Model model)throws Exception{
+		service.projectUpdate(vo);
+		return "";
+	}
+	
 }

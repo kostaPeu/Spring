@@ -4,8 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
+
+<!-- CSS -->
+<link href="/resources/accounting/css/account.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="/resources/accounting/js/ac.js" type="text/javascript"></script>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -21,6 +26,7 @@
 						<th>프로젝트명</th>
 						<th>사용여부</th>
 						<th>비고</th>
+						<th>금액입력</th>
 					</tr>
 				</thead>
 				<tbody id="cardInfos">
@@ -28,6 +34,7 @@
 						<td>100</td>
 						<td>여름방학 시즌판매</td>
 						<td>사용</td>
+						<td></td>
 						<td></td>
 					</tr>
 				</tbody>

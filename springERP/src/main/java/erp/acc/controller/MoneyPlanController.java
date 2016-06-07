@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import erp.acc.basic.domain.MoneyPlan;
+import erp.acc.basic.domain.MoneyPlanTimeSet;
 import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.service.MoneyPlanService;
 
@@ -48,7 +49,7 @@ public class MoneyPlanController {
 	
 	// 자금계획등록 -JH
 	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.POST)
-	public String MoneyPlan_AddPOST(MoneyPlan plan, Model model) throws Exception {
+	public String MoneyPlan_AddPOST(MoneyPlanTimeSet plan, Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");		
 		service.moneyPlanInsert(plan);
