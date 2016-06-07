@@ -40,7 +40,7 @@
 					<ul id="five" class="collapse">
 						<li><a href="/accounting/moneyPlan/MoneyPlan_Add">자금계획등록</a></li>
 						<li><a href="/accounting/moneyPlan/list">자금계획현금조회</a></li>
-						<li><a href="./accounting/view/MoneyPlan_promissory_view.jsp">자금계획전표조회</a></li>
+						<li><a href="/accounting/moneyPlan/promissorylist">자금계획전표조회</a></li>
 						<li><a href="./accounting/view/MoneyPlan_calendar.jsp">자금증감계획일정표</a></li>
 					</ul>
 				</li>

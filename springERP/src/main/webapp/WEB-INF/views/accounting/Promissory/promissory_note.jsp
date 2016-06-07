@@ -10,9 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
-
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,12 +17,10 @@
 
 	<!-- 상단 메뉴이름 -->
 	<div class="mainContents">
-		<form:form action="/accounting/promissory/promissory_note"
-			method="post">
+		<form:form action="/accounting/promissory/promissory_note" method="post">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
-				<table
-					class="table table-bordered table-hover table-left table-striped">
+				<table class="table table-bordered table-hover table-left table-striped">
 					<colgroup>
 						<col style="width: 149px;">
 						<col style="width: 600px;">
@@ -142,7 +137,7 @@
 						<tr id="row-money">
 							<th>금액</th>
 							<td><input class="form-control" type="text" value=""
-								placeholder="금액"></td>
+								></td>
 						</tr>
 						<tr id="row-Employee">
 							<th>비고</th>

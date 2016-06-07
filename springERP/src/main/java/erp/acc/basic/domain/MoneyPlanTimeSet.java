@@ -14,6 +14,7 @@ import lombok.ToString;
 @ToString
 public class MoneyPlanTimeSet implements Serializable {
 
+	@Getter	@Setter	private String moneytype;
 	@Getter @Setter private String typelist;
 	@Getter @Setter private String funds_id;
 	@Getter @Setter private String repeat_unit;

@@ -9,13 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/accounting/js/MoneyPlan.js" type="text/javascript"></script>
 </head>
 <body>
 
 	<h2 class="page_title">자금계획등록</h2>
 
 	<div class="mainContents">
-		<form:form action="/accounting/moneyPlan/MoneyPlan_Add" method="post">
+		<form:form action="/accounting/moneyPlan/MoneyPlan_Add" method="post" name="moneyplan">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
 				<table
@@ -29,6 +30,23 @@
 							<th>계획번호</th>
 							<td><input type="text" name="funds_id"></td>
 						</tr>
+						<tr id="row-TYPES">
+							<th>현금 어음구분 <span class="card-Info" data-html="true" data-toggle="popover" data-trigger="focus hover"
+								data-placement="right" data-original-title="" title=""></span>
+							</th>
+							<td>
+								<div class="radio-inline">
+									<label> <input id="optionsRadios1" type="radio"
+										checked="" name="moneytype" value="현금">현금
+									</label>
+								</div>
+								<div class="radio-inline">
+									<label> <input id="optionsRadios2" type="radio"
+										name="moneytype" value="어음" >어음
+									</label>
+								</div>
+							</td>
+						</tr>						
 						<tr id="row-TYPES">
 							<th>입출금 구분 <span class="card-Info" data-html="true" data-toggle="popover" data-trigger="focus hover"
 								data-placement="right" data-original-title="" title=""></span>
@@ -124,7 +142,9 @@
 						<tr id="row-money">
 							<th>금액</th>
 							<td><input class="form-control" type="text" value=""
-								placeholder="금액" name="sums"></td>
+								placeholder="금액" name="sums">
+								
+								</td>
 						</tr>
 						<tr id="row-Employee">
 							<th>비고</th>

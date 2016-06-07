@@ -4,8 +4,6 @@ import java.util.List;
 
 import erp.acc.basic.domain.Promissory;
 
-
-
 public interface PromissoryDAO {
 
 	// BASIC ACCOUNT CRUD

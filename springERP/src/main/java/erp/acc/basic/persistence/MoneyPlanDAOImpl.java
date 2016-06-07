@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.MoneyPlan;
 import erp.acc.basic.domain.MoneyPlanTimeSet;
+import erp.acc.basic.domain.Promissory;
 
 @Repository
 public class MoneyPlanDAOImpl implements MoneyPlanDAO {
@@ -41,6 +42,12 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 		return session.selectList(namespace + ".moneyPlanList");
 	}
 
+	@Override
+	public List<MoneyPlan> moneyPlnapromissoryList() throws Exception {
+		return session.selectList(namespace+".moneyPlnapromissoryList");
+	}
+
+	
 
 
 }

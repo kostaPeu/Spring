@@ -4,6 +4,7 @@ import java.util.List;
 
 import erp.acc.basic.domain.MoneyPlan;
 import erp.acc.basic.domain.MoneyPlanTimeSet;
+import erp.acc.basic.domain.Promissory;
 
 public interface MoneyPlanDAO {
 
@@ -15,5 +16,5 @@ public interface MoneyPlanDAO {
 
 	public List<MoneyPlan> moneyPlanList() throws Exception;
 
-
+	public List<MoneyPlan> moneyPlnapromissoryList()throws Exception;
 }

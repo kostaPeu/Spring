@@ -8,20 +8,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- MoneyPlan CRUD START -->
 	<insert id="moneyPlanInsert" parameterType="MoneyPlanTimeSet">
 		insert into funds_plan (
-		typelist, funds_id, repeat_unit, start_date, periods, dept_id, proj_id,
+		moneytype, typelist, funds_id, repeat_unit, start_date, periods, dept_id, proj_id,
 		account_number, diagnosis_number, customer_id, sums, remarks
 		) values(
-		#{typelist}, #{funds_id}, #{repeat_unit},
+		#{moneytype}, #{typelist}, #{funds_id}, #{repeat_unit},
 		#{start_date}, #{periods}, #{dept_id}, #{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id}, #{sums}, #{remarks}
 		)
 	</insert>
 
 	<select id="moneyPlanList" resultType="MoneyPlan">
-		SELECT * FROM funds_plan
+		SELECT * FROM funds_plan where moneytype = "현금"
+	</select>
+	
+	<select id="moneyPlnapromissoryList" resultType="MoneyPlan">
+		SELECT * FROM funds_plan where moneytype = "어음"
 	</select>
 
 	<update id="moneyPlanUpdate">
-		UPDATE funds_plan SET typelist = #{typelist},
+		UPDATE funds_plan SET moneytype = #{moneytype}, typelist = #{typelist},
 		funds_id = #{funds_id}, repeat_unit = #{repeat_unit},
 		start_date =#{start_date}, periods = #{periods}, account_number = #{account_number}, diagnosis_number = #{diagnosis_number},
 		customer_id = #{customer_id}, sums = #{sums}, remarks = #{remarks}
@@ -33,5 +37,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE funds_id = #{funds_id}
 	</delete>
 	<!-- MoneyPlan CRUD END -->
-
+	
 </mapper>

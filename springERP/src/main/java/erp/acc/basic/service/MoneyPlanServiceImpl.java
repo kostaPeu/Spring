@@ -1,7 +1,5 @@
 package erp.acc.basic.service;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,6 +19,7 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 	@Override
 	public void moneyPlanInsert(MoneyPlan plan) throws Exception {
 		MoneyPlanTimeSet set = new MoneyPlanTimeSet();
+		set.setMoneytype(plan.getMoneytype());
 		set.setTypelist(plan.getTypelist());
 		set.setFunds_id(plan.getFunds_id());
 		set.setRepeat_unit(plan.getRepeat_unit());
@@ -53,5 +52,12 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 	public List<MoneyPlan> moneyPlanList() throws Exception {
 		return dao.moneyPlanList();
 	}
+
+	@Override
+	public List<MoneyPlan> moneyPlnapromissoryList() throws Exception {
+		return	dao.moneyPlnapromissoryList();
+	}
+
+	
 
 }
