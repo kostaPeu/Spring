@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import erp.acc.basic.domain.MoneyPlan;
+import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.service.MoneyPlanService;
 
 @Controller
@@ -18,7 +19,7 @@ public class MoneyPlanController {
 	@Inject
 	private MoneyPlanService service;
 
-	// 자금계획 리스트
+	// 자금계획현금 리스트
 	@RequestMapping("/list")
 	public String moneyPlanList(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
@@ -26,10 +27,19 @@ public class MoneyPlanController {
 		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_view.jsp");
 		return "/main";
 	}
+	//자금계획전표 리스트
+	@RequestMapping("/promissorylist")
+	public String moneyPlnapromissoryList(Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("listModel", service.moneyPlnapromissoryList());
+		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_promissory_view.jsp");
+		return "/main";
+	}
+	
 
 	// 자금계획등록 화면
 	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.GET)
-	public String MoneyPlan_Add(Model model)throws Exception{
+	public String MoneyPlan_AddGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");
 		return "/main";
@@ -38,14 +48,18 @@ public class MoneyPlanController {
 	
 	// 자금계획등록 -JH
 	@RequestMapping(value="/MoneyPlan_Add", method=RequestMethod.POST)
-	public String moneyPlanInsert(MoneyPlan plan, Model model) throws Exception {
+	public String MoneyPlan_AddPOST(MoneyPlan plan, Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");
+		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_Add.jsp");		
 		service.moneyPlanInsert(plan);
+		System.out.println("등록되었습니다.");
 	
-		return "redirect:/accounting/moneyPlan/insertList";
+		return "/main";
 	}
-
+	
+	
+	
+	
 	// 자금계획수정 - JH
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String moneyPlanUpdate(MoneyPlan plan, Model model) throws Exception {

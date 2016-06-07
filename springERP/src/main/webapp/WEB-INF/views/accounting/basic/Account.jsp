@@ -95,7 +95,7 @@
 						</h4>
 					</div>
 
-					<form:form action="/accounting/account/update" method="post">
+					<form:form action="/accounting/account/insert" method="post">
 						<div class="modal-body">
 							<div class="form-group">
 								<div class="form-group">

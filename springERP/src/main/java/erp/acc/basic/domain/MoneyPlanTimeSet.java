@@ -2,7 +2,6 @@ package erp.acc.basic.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MoneyPlan implements Serializable{
+public class MoneyPlanTimeSet implements Serializable {
 
 	@Getter	@Setter	private String moneytype;
 	@Getter @Setter private String typelist;
@@ -28,5 +27,4 @@ public class MoneyPlan implements Serializable{
 	@Getter @Setter private String customer_id;
 	@Getter @Setter private int sums;
 	@Getter @Setter private String remarks;	
-
 }

@@ -1,12 +1,12 @@
 //체크박스 삭제
 $(function() {
 	$("#deleteBtn").on('click', function() {
-		var count = [];
+		var cmt = [];
 		$("input[name=number_box]:checked").each(function() {
-			count.push($(this).val());
+			cmt.push($(this).val());
 		});
-		var url = "/accounting/account/delete?count="+ count;
-		if (count == "") {
+		var url = "/accounting/card/delete?cmt="+ cmt;
+		if (cmt == "") {
 			alert("삭제할 목록을 체크해주세요.");
 		} else {
 			$(location).attr('href', url);
@@ -23,7 +23,7 @@ $(function() {
 			alert("수정할 내용을 체크해주세요.");
 			return false;
 		} else {
-			$('#account_number_update').val(val);
+			$('#card_number_update').val(val);
 		}
 	});
 });
@@ -42,9 +42,8 @@ $(function() {
 		}
 	});
 
-})
-
-// 작은 검색창 인풋창 초기화
+})	
+ //작은 검색창 인풋창 초기화
 $(function() {
 	$('#account_numbers').click(function() {
 		$('#m_searchTable').empty();
