@@ -214,7 +214,7 @@ public class HrServiceImpl implements HrService {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("vacation", Integer.parseInt(dao.CalVacation(string)));
 			paramMap.put("emp_id", vo.getEmp_id());
-			int check = (int)(paramMap.get("vacation")) ;
+			int check = (Integer)(paramMap.get("vacation"));
 			if(vacation>=check){
 				dao.updateVVacation(paramMap);
 			}

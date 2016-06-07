@@ -15,6 +15,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 	<resources mapping="/favicon.ico" location="/favicon.ico"/>
+	<resources location="/favicon.ico" mapping="/favicon.ico"></resources>
 	
 	<view-controller path="/" view-name="main"/>
 
