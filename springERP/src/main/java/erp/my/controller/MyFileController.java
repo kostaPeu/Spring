@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
@@ -36,14 +37,14 @@ public class MyFileController {
 	@Inject
 	private MyFileService service;
 	
-//	@Resource(name="uploadPath")
-	private String uploadPath = "/Users/pado/git/Spring/springERP/src/main/webapp/resources/mypage/upload";
-/*	private String uploadPath = "/Users/boramkim/git/Spring_please/springERP/src/main/webapp/resources/mypage/upload";
-*///	private String uploadPath = "/resources/mypage/upload";
+	private static String uploadPath;
 	
 	@RequestMapping("")
-	public String myfileMain(Model model) throws Exception{
+	public String myfileMain(HttpServletRequest request, Model model) throws Exception{
 		
+		uploadPath = request.getSession().getServletContext().getRealPath("/")+"src/main/webapp/resources/mypage/upload";
+	
+		System.out.println(uploadPath);
 		List<FolderFileVO> list = service.listFile();
 		
 		model.addAttribute("list",list);
