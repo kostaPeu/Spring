@@ -12,12 +12,22 @@
 			#{sell_id},#{customer_id},#{product_id},SYSDATE,#{warehouse_id},#{pay_type},#{sell_price},#{sell_amount}
 		)
 	</insert>
+	<insert id="insertSaleExcel" parameterType="SaleVO">
+		insert into sell(
+			sell_id, customer_id, product_id, sell_date, warehouse_id, pay_type,sell_price, sell_amount
+		)		
+		values(
+			#{sell_id},#{customer_id},#{product_id},#{sell_date},#{warehouse_id},#{pay_type},#{sell_price},#{sell_amount}
+		)
+	</insert>
+	
 	<select id="saleList" resultType="SaleListView">
 		select s.sell_id, c.customer_name, p.product_name, s.sell_date, 
 			w.warehouse_name, s.pay_type, s.sell_price, s.sell_amount from sell s, customer c, product p, warehouse w
 				where s.customer_id = c.customer_id and
 					s.product_id = p.product_id and
 					s.warehouse_id = w.warehouse_id
+					order by s.sell_id
 	</select>
 	<delete id="deleteSale">
 		delete from sell
@@ -109,7 +119,7 @@
  
     ]]>
     </select>
-    <select id="listSearch" resultType="SaleListView" parameterType="SearchCriteria" >
+    <!-- <select id="listSearch" resultType="SaleListView" parameterType="SearchCriteria" >
    
 	   <![CDATA[  
 	     select * 
@@ -156,7 +166,7 @@
      from sell
    ]]>
      <include refid="search"></include>
-   </select>
+   </select> -->
 </mapper>
 
 

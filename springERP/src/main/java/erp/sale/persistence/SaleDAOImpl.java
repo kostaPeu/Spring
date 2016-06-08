@@ -61,4 +61,8 @@ public class SaleDAOImpl implements SaleDAO {
 	public List<SaleListView> listSearch(SearchCriteria cri) throws Exception {
 		return sqlSession.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
+	@Override
+	public void insertSaleExcel(SaleVO vo) throws Exception {
+		sqlSession.insert(namespace+".insertSaleExcel", vo);
+	}
 }
