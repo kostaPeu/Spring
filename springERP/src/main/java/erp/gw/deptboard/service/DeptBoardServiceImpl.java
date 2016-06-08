@@ -1,6 +1,7 @@
 package erp.gw.deptboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -34,15 +35,19 @@ public class DeptBoardServiceImpl implements DeptBoardService {
 	}
 
 	@Override
-	public List<DeptBoardVO> listSearchCriteria(SearchCriteria cri) throws Exception {
-		return dao.listSearch(cri);
+	public List<DeptBoardVO> listSearchCriteria(Map<String, Object> map) throws Exception {
+		return dao.listSearch(map);
 	}
 
 	@Override
+	public int listSearchCount(String dept_id) throws Exception {
+		return dao.listSearchCount(dept_id);
+	}
+/*	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return dao.listSearchCount(cri);
 	}
-
+*/
 	@Override
 	public String enameGet(String emp_id) throws Exception {
 		return dao.enameGet(emp_id);
