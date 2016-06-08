@@ -1,6 +1,7 @@
 package erp.gw.deptboard.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -37,15 +38,14 @@ public class DeptBoardDaoImpl implements DeptBoardDao {
 	}
 
 	@Override
+	public int listSearchCount(String dept_id) throws Exception {
+		return session.selectOne(namespace+".listSearchCount", dept_id);
+	}
+/*	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return session.selectOne(namespace+".listSearchCount", cri);
 	}
-
-	@Override
-	public List<DeptBoardVO> listSearch(SearchCriteria cri) throws Exception {
-		return session.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
-	}
-
+*/
 	@Override
 	public String enameGet(String emp_id) throws Exception {
 		return session.selectOne(namespace+".enameGet", emp_id);
@@ -75,5 +75,13 @@ public class DeptBoardDaoImpl implements DeptBoardDao {
 	public EmployeeVO getEmployee(String emp_id) throws Exception {
 		return session.selectOne(namespace + ".getEmployee", emp_id);
 	}
+
+	@Override
+	public List<DeptBoardVO> listSearch(Map<String, Object> map) throws Exception {
+		SearchCriteria cri = (SearchCriteria)map.get("cri");
+		return  session.selectList(namespace+".listSearch", map, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+
 
 }

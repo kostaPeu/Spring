@@ -1,7 +1,9 @@
 package erp.gw.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -31,7 +33,13 @@ public class DeptBoardController {
 	
 	@RequestMapping(value="/dept_board_list", method=RequestMethod.GET)
 	public String DeptBoardList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
-		List<DeptBoardVO> dList = service.listSearchCriteria(cri);
+		Map<String, Object> map = new HashMap<String, Object>();
+		String dept_id=common.getDeptId();
+		
+		map.put("cri", (SearchCriteria)cri);
+		map.put("dept_id", (String)dept_id);
+		
+		List<DeptBoardVO> dList = service.listSearchCriteria(map);
 		model.addAttribute("list", dList);
 		DeptBoardVO dept = new DeptBoardVO();
 		
@@ -47,7 +55,7 @@ public class DeptBoardController {
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listSearchCount(cri));
+		pageMaker.setTotalCount(service.listSearchCount(dept_id));
 		model.addAttribute("pageMaker", pageMaker);
 
 		model.addAttribute("left", "groupware/groupware.jsp");

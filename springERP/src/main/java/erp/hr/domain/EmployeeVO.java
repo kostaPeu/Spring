@@ -71,11 +71,12 @@ public class EmployeeVO implements UserDetails{
 		this.e_pwd = e_pwd;
 		this.authorities = Collections.unmodifiableSortedSet(sortAuthorities(authorities));
 	}
-	
-	public EmployeeVO(String emp_id, String e_pwd, String e_name, Collection<? extends GrantedAuthority> authorities){
+
+	public EmployeeVO(String emp_id, String e_pwd, String e_name, String dept_id, Collection<? extends GrantedAuthority> authorities){
 		this.emp_id = emp_id;
 		this.e_pwd = e_pwd;
 		this.e_name = e_name;
+		this.dept_id = dept_id;
 		this.authorities = Collections.unmodifiableSortedSet(sortAuthorities(authorities));
 	}
 	
