@@ -1,3 +1,4 @@
+var lists = [];
 $(function(){
 		/* initialize the external events
 		-----------------------------------------------------------------*/
@@ -25,7 +26,7 @@ $(function(){
 
 		/* initialize the calendar
 		-----------------------------------------------------------------*/
-		var lists = [];
+	alert("ajax알림");
 			$.ajax({
 				url : "/stock/rp/calendar",
 				type : "post",
@@ -61,7 +62,12 @@ $(function(){
 							lists.push(json);
 						}
 					});
-					$('#calendar').fullCalendar({
+				}
+			});
+});
+$(function(){
+	alert("캘린더alert");
+	$('#calendar').fullCalendar({
 					header: {
 						left: 'today',
 						center: 'prev title next',
@@ -88,12 +94,32 @@ $(function(){
 					select: function(start, end) {
 						$('#addModal').modal('show');
 						$("#addBtn").on('click',function(){
-							var product_id = $('#product_id').val();
-							var inout_amount = $('#inout_amount').val();
-							var type = $('#type').val();
+								var product_id = $('#product_id').val();
+								var inout_amount = $('#inout_amount').val();
+								var type = $('#type').val();
+								var date = start.format("YYYY-MM-DD");
+								
+								$.ajax({
+									url : '/stock/rp/insert' ,
+									type : 'post',
+									dataType : 'json',
+									data : {
+										product_id : product_id,
+										inout_amount : inout_amount ,
+										inout_type : type,
+										inout_date : date
+									},
+									success : function (data){
+										alert("a");
+											if(data == 0){
+												alert("d");
+											//	$('#calendar').fullCalendar( 'rerenderEvents' );
+												$('#calendar').fullCalendar( 'refetchEvents' )
 
-						var date =start.format("YYYY-MM-DD");
-
+											}
+											
+									}
+								})
 //						$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 						
 						$(location).attr('href','/stock/rp/insert?product_id='+product_id+'&inout_amount='+inout_amount+'&inout_type='+type+'&inout_date='+date);
@@ -128,6 +154,5 @@ $(function(){
 			            $('#showModal').modal('show');
 					}
 					});
-				}
-			});
+
 });

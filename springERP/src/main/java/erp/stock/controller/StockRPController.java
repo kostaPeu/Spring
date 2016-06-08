@@ -29,19 +29,19 @@ public class StockRPController {
 		return "/main";
 	}
 	
-	@RequestMapping("/insert")
-	public String stockRpInsert(StockRP stock, Model model) throws Exception{
-
-		System.out.println("controller : "+stock.getInout_type());
-		System.out.println("controller : "+stock.getInout_date());
-		service.stockRPInsert(stock);
-		
-		model.addAttribute("list", service.productList());
-		model.addAttribute("left", "stock/stock.jsp");
-		model.addAttribute("contents", "stock/stock_search_calendar.jsp");
-		
-		return "/main";
-	}
+//	@RequestMapping("/insert")
+//	public String stockRpInsert(StockRP stock, Model model) throws Exception{
+//
+//		System.out.println("controller : "+stock.getInout_type());
+//		System.out.println("controller : "+stock.getInout_date());
+//		service.stockRPInsert(stock);
+//		
+//		model.addAttribute("list", service.productList());
+//		model.addAttribute("left", "stock/stock.jsp");
+//		model.addAttribute("contents", "stock/stock_search_calendar.jsp");
+//		
+//		return "/main";
+//	}
 	
 	@RequestMapping("/update")
 	public String stockRPupdate(StockRP stock, Model model) throws Exception{

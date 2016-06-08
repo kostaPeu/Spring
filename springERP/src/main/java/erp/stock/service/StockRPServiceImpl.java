@@ -21,19 +21,20 @@ public class StockRPServiceImpl implements StockRPService {
 	
 	@Transactional
 	@Override
-	public void stockRPInsert(StockRP stock) throws Exception {
+	public int stockRPInsert(StockRP stock) throws Exception {
 		int max = dao.inoutMax();
-		
+		int re = 0;
 		stock.setEmp_id("aa");
 		stock.setInout_id("rp_"+(max+1));
 
 		try {
-			dao.stockRPInsert(stock);
+			re = dao.stockRPInsert(stock);
 			dao.stockUpdate(stock);
 		} catch (Exception e) {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-		}	
+		}
+		return re;	
 		
 	}
 
