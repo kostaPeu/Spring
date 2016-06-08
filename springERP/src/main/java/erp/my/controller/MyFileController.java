@@ -37,8 +37,9 @@ public class MyFileController {
 	private MyFileService service;
 	
 //	@Resource(name="uploadPath")
-	private String uploadPath = "/Users/boramkim/git/Spring_please/springERP/src/main/webapp/resources/mypage/upload";
-//	private String uploadPath = "/resources/mypage/upload";
+	private String uploadPath = "/Users/pado/git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+/*	private String uploadPath = "/Users/boramkim/git/Spring_please/springERP/src/main/webapp/resources/mypage/upload";
+*///	private String uploadPath = "/resources/mypage/upload";
 	
 	@RequestMapping("")
 	public String myfileMain(Model model) throws Exception{

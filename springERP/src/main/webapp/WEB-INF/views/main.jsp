@@ -33,6 +33,7 @@
 
 
 <!-- Custom Script -->
+<script src="/resources/common/js/csrf.js"></script>
 <!-- <script src="/resources/common/js/common.js" type="text/javascript"></script> -->
 
 <!-- Style -->
