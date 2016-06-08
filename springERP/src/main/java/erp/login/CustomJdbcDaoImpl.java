@@ -63,8 +63,9 @@ public class CustomJdbcDaoImpl extends JdbcDaoImpl {
 				String username = rs.getString(1);
 				String password = rs.getString(2);
 				String name = rs.getString(3);
+				String dept_id = rs.getString(4);
 				
-				return new EmployeeVO(username, password, name, AuthorityUtils.NO_AUTHORITIES);
+				return new EmployeeVO(username, password, name, dept_id, AuthorityUtils.NO_AUTHORITIES);
 			}
 		});
 	}

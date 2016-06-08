@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%
+	out.clear();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,6 +22,7 @@
 <!-- Custom CSS -->
    
     <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
+    <script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
     <script type="text/javascript">
     $(function(){
     	$('#checkAll').click(function(){
@@ -96,6 +100,12 @@
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
 		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
+		<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
+		<form:form action="/purchase/excelUp?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
+			<input type="file" id="excelFile" name="excelFile" class="btn btn-default">
+			<%-- <input type="hidden" value="${_csrf.token }" name="${_csrf.parameterName}"> --%>
+			<input type="submit" value="Excel업로드" class="btn btn-default">
+		</form:form>
 	</div>
 	<!-- 페이징 -->
 	<div class="box-footer">

@@ -9,13 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/accounting/js/MoneyPlan.js" type="text/javascript"></script>
 </head>
 <body>
 
 	<h2 class="page_title">자금계획등록</h2>
 
 	<div class="mainContents">
-		<form action="/accounting/moneyPlan/insert" method="post">
+		<form:form action="/accounting/moneyPlan/MoneyPlan_Add" method="post" name="moneyplan">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
 				<table
@@ -30,19 +31,35 @@
 							<td><input type="text" name="funds_id"></td>
 						</tr>
 						<tr id="row-TYPES">
-							<th>입출금 구분 <span class="card-Info" data-html="true"
-								data-toggle="popover" data-trigger="focus hover"
+							<th>현금 어음구분 <span class="card-Info" data-html="true" data-toggle="popover" data-trigger="focus hover"
 								data-placement="right" data-original-title="" title=""></span>
 							</th>
 							<td>
 								<div class="radio-inline">
 									<label> <input id="optionsRadios1" type="radio"
-										checked="" name="typelist">출금
+										checked="" name="moneytype" value="Cash">Cash
 									</label>
 								</div>
 								<div class="radio-inline">
 									<label> <input id="optionsRadios2" type="radio"
-										name="typelist">입금
+										name="moneytype" value="Promissory" >Promissory
+									</label>
+								</div>
+							</td>
+						</tr>						
+						<tr id="row-TYPES">
+							<th>입출금 구분 <span class="card-Info" data-html="true" data-toggle="popover" data-trigger="focus hover"
+								data-placement="right" data-original-title="" title=""></span>
+							</th>
+							<td>
+								<div class="radio-inline">
+									<label> <input id="optionsRadios1" type="radio"
+										checked="" name="typelist" value="출금">출금
+									</label>
+								</div>
+								<div class="radio-inline">
+									<label> <input id="optionsRadios2" type="radio"
+										name="typelist" value="입금">입금
 									</label>
 								</div>
 							</td>
@@ -79,7 +96,7 @@
 						<tr>
 							<th>발생기간</th>
 							<td><div class="col-sm-6 input-group date">
-									<input type="date" class="form-control" name="period">
+									<input type="date" class="form-control" name="periods">
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>
@@ -96,17 +113,14 @@
 						<tr id="row-project">
 							<th>프로젝트번호</th>
 							<td><input id="project_number" name="proj_id" type="text">
-								<button id="project_number_search"
-									class="btn btn-default btn-sm">
+								<button id="project_number_search"	class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
 								</button>
 						</tr>
 						<tr id="row-accountNum">
 							<th>계좌번호</th>
-							<td><input id="account_number" type="text"
-								name="account_number">
-								<button id="account_number_search"
-									class="btn btn-default btn-sm">
+							<td><input id="account_number" type="text" name="account_number">
+								<button id="account_number_search" class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
 								</button>
 						</tr>
@@ -128,7 +142,9 @@
 						<tr id="row-money">
 							<th>금액</th>
 							<td><input class="form-control" type="text" value=""
-								placeholder="금액" name="sums"></td>
+								placeholder="금액" name="sums">
+								
+								</td>
 						</tr>
 						<tr id="row-Employee">
 							<th>비고</th>
@@ -144,17 +160,15 @@
 				<div class="wrapper-toolbar">
 					<div class="pull-reft"></div>
 					<div class="pull-right" id="button-Group">
-						<button id="btn-footer-Save" class="btn btn-xs btn-default"
-							type="Submit">저장</button>
-						<button id="btn-footer-Reset" class="btn btn-xs btn-default"
-							type="button" value="reset">리셋</button>
-						<button id="btn-footer-Close" class="btn btn-xs btn-default"
-							type="button">닫기</button>
+						<input id="btn-footer-Save" class="btn btn-xs btn-default"
+							type="submit" value="저장">
+						<input id="btn-footer-Reset" class="btn btn-xs btn-default"
+							type="reset" value="다시작성">						
 					</div>
 				</div>
 			</div>
 			<!-- 메뉴 footar END -->
-		</form>
+		</form:form>
 	</div>
 	<!-- 신규등록 END -->
 

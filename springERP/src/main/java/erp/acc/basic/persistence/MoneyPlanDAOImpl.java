@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.MoneyPlan;
+import erp.acc.basic.domain.MoneyPlanTimeSet;
+import erp.acc.basic.domain.Promissory;
 
 @Repository
 public class MoneyPlanDAOImpl implements MoneyPlanDAO {
@@ -18,13 +20,13 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 	private static String namespace = "erp.acc.mapper.MoneyPlanMapper";
 
 	@Override
-	public void moneyPlanInsert(MoneyPlan plan) throws Exception {
+	public void moneyPlanInsert(MoneyPlanTimeSet plan) throws Exception {
 		session.insert(namespace + ".moneyPlanInsert", plan);
 		
 	}
 
 	@Override
-	public void moneyPlanUpdate(MoneyPlan plan) throws Exception {
+	public void moneyPlanUpdate(MoneyPlanTimeSet plan) throws Exception {
 		session.update(namespace + ".moneyPlanUpdate", plan);
 		
 	}
@@ -36,10 +38,16 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 	}
 
 	@Override
-	public List<MoneyPlan> moneyPlanList() throws Exception {
+	public List<MoneyPlanTimeSet> moneyPlanList() throws Exception {
 		return session.selectList(namespace + ".moneyPlanList");
 	}
 
+	@Override
+	public List<MoneyPlanTimeSet> moneyPlnapromissoryList() throws Exception {
+		return session.selectList(namespace+".moneyPlnapromissoryList");
+	}
+
+	
 
 
 }

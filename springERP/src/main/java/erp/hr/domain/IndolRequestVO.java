@@ -1,5 +1,6 @@
 package erp.hr.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import lombok.AllArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class IndolRequestVO {
+public class IndolRequestVO implements Serializable{
 	@Getter @Setter private int indol_request_id;
 	@Getter @Setter private String emp_id;
 	@Getter @Setter private Date start_nowork_date;

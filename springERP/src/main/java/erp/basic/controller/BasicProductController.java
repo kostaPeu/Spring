@@ -1,6 +1,7 @@
 package erp.basic.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,6 +56,13 @@ public class BasicProductController {
 		service.productDelete(product_id);
 		
 		return "redirect:/basic/product/list";
+	}
+	/*바코드 이미지화 -MJ*/
+	@RequestMapping("/barcode")
+	public String producBarcode(@RequestParam("product_id") String product_id, HttpServletResponse res)throws Exception{
+		
+		service.productBarcode(res, product_id);		
+		return "redirect:/list";
 	}
 
 }

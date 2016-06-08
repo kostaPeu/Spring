@@ -93,4 +93,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="customerUdapte">
 		update customer set 
 	</update>
+	<select id="getProduct" resultType="Product">
+		select * from product where product_id = #{value}
+	</select>
 </mapper>

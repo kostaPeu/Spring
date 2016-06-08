@@ -6,6 +6,7 @@ import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.projectboard.domain.ProjectsVO;
 
 
 
@@ -40,5 +41,13 @@ public interface BasicAccountDAO {
 	public void cardDelete(String card_number) throws Exception;
 
 	public List<Card> cardList() throws Exception;
+
+	
+	//PROJECT
+	
+	public void projectUpdate(ProjectsVO vo)throws Exception;
+	
+	public List<ProjectsVO> projectList()throws Exception;
+	
 
 }

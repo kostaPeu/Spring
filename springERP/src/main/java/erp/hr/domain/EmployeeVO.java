@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.NoArgsConstructor;
 import lombok.Getter;
@@ -47,6 +48,8 @@ public class EmployeeVO implements UserDetails{
 	@Getter @Setter private String job_id;
 	@Getter @Setter private String duty_id;
 	@Getter @Setter private String e_pwd;
+	@Getter @Setter private MultipartFile uploadFile;
+	
 	private Set<GrantedAuthority> authorities;
 	
 	public EmployeeVO(String emp_id, String e_name, int e_age, Date e_hiredate, String dept_id, String e_profile_pic,
@@ -68,11 +71,12 @@ public class EmployeeVO implements UserDetails{
 		this.e_pwd = e_pwd;
 		this.authorities = Collections.unmodifiableSortedSet(sortAuthorities(authorities));
 	}
-	
-	public EmployeeVO(String emp_id, String e_pwd, String e_name, Collection<? extends GrantedAuthority> authorities){
+
+	public EmployeeVO(String emp_id, String e_pwd, String e_name, String dept_id, Collection<? extends GrantedAuthority> authorities){
 		this.emp_id = emp_id;
 		this.e_pwd = e_pwd;
 		this.e_name = e_name;
+		this.dept_id = dept_id;
 		this.authorities = Collections.unmodifiableSortedSet(sortAuthorities(authorities));
 	}
 	

@@ -6,6 +6,7 @@ import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.projectboard.domain.ProjectsVO;
 
 
 public interface BasicAccountService {
@@ -38,5 +39,15 @@ public interface BasicAccountService {
 	public void cardDelete(String card_number) throws Exception;
 
 	public List<Card> cardList() throws Exception;
+
 	
+	//프로젝트
+	
+	public void projectUpdate(ProjectsVO vo)throws Exception;
+	
+	public List<ProjectsVO> projectList()throws Exception;
+	
+
 }
+
+

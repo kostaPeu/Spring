@@ -19,4 +19,14 @@ public class CommonService {
 		}
 		return emp_id;
 	}
+
+	public static String getDeptId(){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Object principal = auth.getPrincipal();
+		String dept_id = "";
+		if(principal != null && principal instanceof EmployeeVO){
+			dept_id = ((EmployeeVO)principal).getDept_id();
+		}
+		return dept_id;
+	}
 }
