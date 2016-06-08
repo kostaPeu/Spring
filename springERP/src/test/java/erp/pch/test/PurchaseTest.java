@@ -22,9 +22,16 @@ public class PurchaseTest {
 	
 	@Inject
 	private PurchaseService service;
-	
+	@Inject
+	private PurchaseDAO dao;
 	
 	@Test
+	public void getCustomerId()throws Exception{
+		String str = dao.getCustomerId("옥션");
+		System.out.println(str);
+	}
+	
+	/*@Test
 	public void purchaseSearch()throws Exception{
 		PurchaseSearch ps = new PurchaseSearch();
 		ps.setStart_date("2016-05-05");
@@ -34,7 +41,7 @@ public class PurchaseTest {
 	//	ps.setWarehouse_id("warehouse_id_05");
 		List<PurchaseListView> list = service.purchaseSearch(ps);
 		System.out.println(list);
-	}
+	}*/
 	/*@Test
 	public void insertTest() throws Exception {
 		PurchaseVO vo = new PurchaseVO();

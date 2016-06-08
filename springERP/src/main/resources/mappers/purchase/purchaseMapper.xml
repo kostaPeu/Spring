@@ -13,6 +13,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{pay_type}, #{buy_price}, #{buy_amount}, #{emp_id}
 		)
 	</insert>
+	<insert id="insertExcel">
+		insert into buy(
+			buy_id,	customer_id, product_id, buy_date, warehouse_id, pay_type,
+			buy_price,	buy_amount, emp_id
+		)values(
+			#{buy_id},	#{customer_id}, #{product_id}, #{buy_date}, #{warehouse_id},
+			#{pay_type}, #{buy_price}, #{buy_amount}, #{emp_id}
+		)
+	</insert>
 	<select id="purchaseList" resultType="PurchaseListView">
 		select p.buy_id, c.customer_name, pro.product_name, p.buy_date,
 			w.warehouse_name, p.pay_type, p.buy_price, p.buy_amount
@@ -120,6 +129,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       buy 
  
     ]]>
+    </select>
+    <select id="getCustomerId" resultType="String">
+    	select customer_id from customer where customer_name=#{value}
+    </select>
+    <select id="getProductId" resultType="String">
+    	select product_id from product where product_name=#{value}
+    </select>
+    <select id="getWarehouseId" resultType="String">
+    	select warehouse_id from warehouse where warehouse_name=#{value}
     </select>
     <!-- <select id="listSearch" resultType="PurchaseListView" parameterType="SearchCriteria" >
    

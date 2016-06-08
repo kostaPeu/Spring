@@ -29,5 +29,5 @@ public interface PurchaseService {
 	public int listCountCriteria(Criteria cri)throws Exception;
 	public void updatePurchase(PurchaseVO vo)throws Exception;
 	public void downloadExcel(OutputStream out,HttpServletResponse res)throws Exception;
-	public void uploadExcel(InputStream in,HttpServletResponse res)throws Exception;
+	public void uploadExcel(String path)throws Exception;
 }

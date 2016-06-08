@@ -37,14 +37,20 @@ public class MyFileController {
 	@Inject
 	private MyFileService service;
 	
-	private static String uploadPath;
+	private static String uploadPath ="";
 	
 	@RequestMapping("")
 	public String myfileMain(HttpServletRequest request, Model model) throws Exception{
 		
-		uploadPath = request.getSession().getServletContext().getRealPath("/")+"src/main/webapp/resources/mypage/upload";
-	
+		String[] arr = request.getSession().getServletContext().getRealPath("/").split("/");
+		for (int i=0; i<3; i++){
+			uploadPath += arr[i] + "/"; 
+		}
+		
+		uploadPath += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+		
 		System.out.println(uploadPath);
+		
 		List<FolderFileVO> list = service.listFile();
 		
 		model.addAttribute("list",list);
