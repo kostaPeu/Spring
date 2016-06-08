@@ -102,9 +102,9 @@
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 		<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
 		<form:form action="/purchase/excelUp?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
-			<input type="file" id="excelUpBtn" name="excelFile" class="btn btn-default">
+			<input type="file" id="excelFile" name="excelFile" class="btn btn-default">
 			<%-- <input type="hidden" value="${_csrf.token }" name="${_csrf.parameterName}"> --%>
-			<input type="submit" value="엑셀업">
+			<input type="submit" value="Excel업로드" class="btn btn-default">
 		</form:form>
 	</div>
 	<!-- 페이징 -->

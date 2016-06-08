@@ -2,6 +2,7 @@ package erp.pch.persistence;
 
 
 import java.util.List;
+import java.util.Map;
 
 import erp.basic.domain.Product;
 import erp.common.domain.Criteria;
@@ -28,4 +29,8 @@ public interface PurchaseDAO {
 	public int countPaging(Criteria cri) throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
 	public List<PurchaseListView> listSearch(SearchCriteria cri)throws Exception;
+	public String getCustomerId(String customer_name)throws Exception;
+	public String getProductId(String product_name)throws Exception;
+	public String getWarehouseId(String warehouse_name)throws Exception;
+	public void insertExcel(PurchaseVO vo)throws Exception;
 }

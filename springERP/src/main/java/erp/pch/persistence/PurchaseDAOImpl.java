@@ -1,6 +1,7 @@
 package erp.pch.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -76,5 +77,21 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	@Override
 	public void updatePurchase(PurchaseVO vo) throws Exception {
 		session.update(namespace+".updatePurchase", vo);
+	}
+	@Override
+	public String getCustomerId(String customer_name) throws Exception {
+		return session.selectOne(namespace+".getCustomerId", customer_name);
+	}
+	@Override
+	public String getProductId(String product_name) throws Exception {
+		return session.selectOne(namespace+".getProductId", product_name);
+	}
+	@Override
+	public String getWarehouseId(String warehouse_name) throws Exception {
+		return session.selectOne(namespace+".getWarehouseId", warehouse_name);
+	}
+	@Override
+	public void insertExcel(PurchaseVO vo) throws Exception {
+		session.insert(namespace+".insertExcel", vo);
 	}
 }
