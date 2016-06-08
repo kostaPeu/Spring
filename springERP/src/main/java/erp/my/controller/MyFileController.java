@@ -37,19 +37,22 @@ public class MyFileController {
 	@Inject
 	private MyFileService service;
 	
-	private static String uploadPath ="";
+	private static String uploadPath = "";
 	
 	@RequestMapping("")
 	public String myfileMain(HttpServletRequest request, Model model) throws Exception{
 		
 		String[] arr = request.getSession().getServletContext().getRealPath("/").split("/");
+		String path ="";
 		for (int i=0; i<3; i++){
-			uploadPath += arr[i] + "/"; 
+			path += arr[i] + "/"; 
 		}
 		
-		uploadPath += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+		path += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+		uploadPath = path;
 		
 		System.out.println(uploadPath);
+		System.out.println();
 		
 		List<FolderFileVO> list = service.listFile();
 		
@@ -174,8 +177,8 @@ public class MyFileController {
 		for(int i=0; i<strarr.length; i++){
 			System.out.println(strarr[i]);
 			
-			int share_folder_id = Integer.parseInt(strarr[i]);
-			FolderFileVO folderFile = service.selectFile(share_folder_id);
+			int file_id = Integer.parseInt(strarr[i]);
+			FolderFileVO folderFile = service.selectFile(file_id);
 			
 			// 파일 업로드된 경로
 			String savePath = uploadPath + folderFile.getUpload_file().split("s")[0];
@@ -183,7 +186,7 @@ public class MyFileController {
 			System.out.println("저장된경로!! : "+savePath);
 			
 			// 서버에 실제 저장된 파일명
-			String filename = folderFile.getUpload_file().split("/")[4].substring(2) ;
+			String filename = folderFile.getUpload_file().split("/")[4].substring(2);
 			System.out.println("filename 내용은 : "+filename);
 			// 실제 내보낼 파일명
 			String orgfilename = folderFile.getUpload_file().split("_")[2] ;
@@ -249,25 +252,39 @@ public class MyFileController {
 		}
 	}
 	
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping(value="/deleteFile", method=RequestMethod.POST)
-	public ResponseEntity<String> deleteFile(String fileName){
+	public String deleteFile(MultipartHttpServletRequest request) throws Exception{
 		
-		System.out.println("del file name : " + fileName);
+		String[] strarr = request.getParameterValues("fileCheck");
 		
-		String formatName = fileName.substring(fileName.lastIndexOf(".") +1);
-		MediaType mType = MediaUtils.geteMediaType(formatName);
-		
-		if(mType != null){
-			String front = fileName.substring(0, 12);
-			String end = fileName.substring(14);
-			System.out.println("front :" + front);
-			System.out.println("end :" + end);
-			new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
+		for(int i=0; i<strarr.length; i++){
+			System.out.println(strarr[i]);
+			
+			int file_id = Integer.parseInt(strarr[i]);
+			FolderFileVO folderFile = service.selectFile(file_id);
+			
+			String[] arr = folderFile.getUpload_file().split("/");
+			String fileName = folderFile.getUpload_file().split("/")[4].substring(2);
+			String folderName = "";
+			
+			for(int j=0; j<4; j++){
+				folderName += arr[j] + "/";
+			}
+					
+			String filePath = folderName + fileName;
+			
+			System.out.println("del filePath : " + filePath);
+			System.out.println("folderName : " + folderName);
+			
+			//원본 삭제
+			new File(uploadPath + filePath).delete();
+			
+			//썸네일 삭제
+			new File(uploadPath + folderFile.getUpload_file()).delete();
+			service.deleteFile(file_id);
 		}
-		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
-		
-		return new ResponseEntity<String>("deleted", HttpStatus.OK);
+		return "/main";
 	}
 	
 }

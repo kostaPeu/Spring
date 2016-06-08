@@ -30,4 +30,8 @@ public class MyFileServiceImpl implements MyFileService {
 		return dao.selectFile(share_folder_id);
 	}
 
+	@Override
+	public void deleteFile(int share_folder_id) throws Exception {
+		dao.deleteFile(share_folder_id);
+	}
 }

@@ -27,6 +27,12 @@ $(function(){
 		document.form1.action = "my_file/download?${_csrf.parameterName}=${_csrf.token }";
 		document.form1.submit();
 	})
+	
+	$("#deleteBtn").click(function(){
+		alert("del!!");
+		document.form1.action = "my_file/deleteFile?${_csrf.parameterName}=${_csrf.token }";
+		document.form1.submit();
+	})
 })
 </script>
 </head>
@@ -43,7 +49,7 @@ $(function(){
 		<button class="btn btn-sm btn-default form-control" type="button" id="downloadBtn">
 			<span>내려받기</span>
 		</button>
-		<button class="btn btn-sm btn-default form-control" type="button">
+		<button class="btn btn-sm btn-default form-control" type="button" id="deleteBtn">
 			<span>삭제</span>
 		</button>
 		<input id="search_txt" class="form-control"
@@ -56,7 +62,7 @@ $(function(){
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<div class="item_box">
 					  <label>
-						  	<input id="input_check" name="fileCheck" type="checkbox" autocomplete="off" value="${list.get(i).getShare_folder_id() }">
+						  	<input id="input_check" name="fileCheck" type="checkbox" autocomplete="off" value="${list.get(i).getFile_id() }">
 							<input type="hidden" id="filename${i }" value="${list.get(i).getUpload_file() }">
 							
 							<c:choose>
@@ -97,50 +103,6 @@ $(function(){
 				</c:forEach>
 				</c:if>
 			</div>
-		<%-- <div class="item_list">
-			<c:if test="${list.size()-1 >=0}">
-			<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
-				<div class="item_box">
-				  <label>
-					  	<input id="input_check" name="fileCheck" type="checkbox" autocomplete="off" value="${list.get(i).getShare_folder_id() }">
-						<c:choose>
-							<c:when test="${list.get(i).getFile_type().substring(0,5).equals('image')}">
-								<div class="imagefile item"></div>
-							</c:when>
-							<c:otherwise>
-								<div class="item">
-									<c:choose>
-										<c:when test="${list.get(i).getFile_type() =='application/zip' }">
-											<img src="./groupware/images/zipfile.jpg" alt="zip file image" />
-											<span class="file_type_text">ZIP</span>
-										</c:when>
-										<c:when test="${list.get(i).getFile_type().substring(0,5).equals('audio') }">
-											<img src="./groupware/images/musicfile.jpg" alt="music file image" />
-											<span class="file_type_text">Audio</span>
-										</c:when>
-										<c:when test="${list.get(i).getFile_type().substring(0,4).equals('text') }">
-											<img src="./groupware/images/textfile.jpg" alt="text file image" />
-											<span class="file_type_text">Text</span>
-										</c:when>
-										<c:otherwise>
-											<img src="./groupware/images/otherfile.jpg" alt="other file image" />
-											<span class="file_type_text">File</span>
-										</c:otherwise>
-									</c:choose>
-								</div>
-							</c:otherwise>
-						</c:choose>
-
-						<div class="item_text">
-							<span class="item_title" value="${list.get(i).getFile_name() }">${f_name_list.get(i) }</span>
-							<span class="item_size">${list.get(i).getFile_size() }</span>
-							<span class="item_writer">${e_name_list.get(i)}</span>
-						</div>
-				  </label>
-				</div>
-			</c:forEach>
-			</c:if>
-		</div> --%>
 		</div>
 	</form:form>
 	
