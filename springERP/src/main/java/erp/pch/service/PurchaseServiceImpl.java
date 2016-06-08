@@ -115,7 +115,6 @@ public class PurchaseServiceImpl implements PurchaseService{
 	@Override
 	public void downloadExcel(OutputStream out,HttpServletResponse res) throws Exception {
 		Map<String,Object> map=null;
-		int re = 0;
 		ArrayList<Map<String,Object>> excelList=new ArrayList<Map<String,Object>>();
 		ArrayList<String> columnList=new ArrayList<String>();
 		List<PurchaseListView> list = null;

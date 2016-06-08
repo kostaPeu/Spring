@@ -73,4 +73,9 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	public void stockInsert(Stock stock) throws Exception {
 		session.insert(namespace+".stockInsert",stock);
 	}
+
+	@Override
+	public Product getProduct(String product_id) throws Exception {
+		return session.selectOne(namespace+".getProduct", product_id);
+	}
 }

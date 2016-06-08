@@ -1,3 +1,12 @@
+/*바코드*/
+$(function(){
+	$('.barcodeBtn').on('click', function(){
+		var product_id = $(this).val();
+		var url = "/basic/product/barcode?product_id="+product_id;
+		$(location).attr('href',url);
+	});
+})
+
 /*품목등록, 품목수정 회색창*/
 $(function() {
 	$('#newBtn').on('click', function() {

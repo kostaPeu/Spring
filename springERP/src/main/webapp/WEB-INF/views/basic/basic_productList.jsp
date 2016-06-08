@@ -186,7 +186,7 @@
 				<td>${product.product_id }</td>
 				<td>${product.product_name }</td>
 				<td>${product.pgroup_name }</td>
-				<td>${product.barcode }</td>
+				<td><button name="barcode" class="barcodeBtn btn btn-default" value="${product.product_id }">BARCODE</button></td>
 				<td>${product.price_in }</td>
 				<td>${product.price_out }</td>
 				<td>${product.made_in }</td>
