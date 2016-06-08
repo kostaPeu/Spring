@@ -1,7 +1,10 @@
 package erp.pch.controller;
 
+import java.io.File;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import erp.basic.domain.Product;
 import erp.common.domain.PageMaker;
@@ -100,6 +106,20 @@ public class PurchaseController {
 	@RequestMapping("purchase_excel")
 	public String purchase_Excel(OutputStream out ,HttpServletResponse res,Model model)throws Exception{
 		service.downloadExcel(out, res);
+		return "/purchase/purchase_check";
+	}
+	@RequestMapping("excelUp")
+	public String purchase_ExcelUp(MultipartHttpServletRequest request, Model model)throws Exception{
+		
+		Map<String, MultipartFile> files = request.getFileMap();
+		CommonsMultipartFile cmf = (CommonsMultipartFile) files.get("uploadFile");
+		
+		String path ="c:/upload/"+cmf.getOriginalFilename();
+		
+		File file = new File(path);
+		
+		cmf.transferTo(file);
+		
 		return "/purchase/purchase_check";
 	}
 }

@@ -101,6 +101,11 @@
 		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
 		<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
+		<form:form action="/purchase/excelUp" method="post" enctype="multipart/form-data">
+			<input type="file" id="excelUpBtn" name="excelFile" class="btn btn-default">
+			<%-- <input type="hidden" value="${_csrf.token }" name="${_csrf.parameterName}"> --%>
+			<input type="submit" value="엑셀업">
+		</form:form>
 	</div>
 	<!-- 페이징 -->
 	<div class="box-footer">

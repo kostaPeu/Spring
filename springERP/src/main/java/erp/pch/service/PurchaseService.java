@@ -1,5 +1,6 @@
 package erp.pch.service;
 
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
@@ -28,4 +29,5 @@ public interface PurchaseService {
 	public int listCountCriteria(Criteria cri)throws Exception;
 	public void updatePurchase(PurchaseVO vo)throws Exception;
 	public void downloadExcel(OutputStream out,HttpServletResponse res)throws Exception;
+	public void uploadExcel(InputStream in,HttpServletResponse res)throws Exception;
 }

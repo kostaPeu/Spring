@@ -20,6 +20,9 @@ $(function(){
 	$('#excelBtn').click(function(){
 		$(location).attr('href','/purchase/purchase_excel');
 	})
+	$('#excelBtn2').click(function(){
+		$(location).attr('href','/purchase/purchase_excelUp');
+	})
 })
 $(function(){
 	//거래처 인풋창 초기화
