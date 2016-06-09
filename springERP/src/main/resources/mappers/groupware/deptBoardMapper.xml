@@ -65,6 +65,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   ]]>  
 	   
    </select>
+
+   <select id="calSearch" resultType="DeptScheduleVO" parameterType="SearchCriteria" >
+   
+	   <![CDATA[  
+	     select * 
+	     from dept_schedule 
+	     where dept_schedule_id > 0
+	     and dept_id = #{dept_id}
+	   ]]>  
+	   
+	     <include refid="search"></include>
+	     
+	   <![CDATA[    
+	     order by dept_schedule_id desc     
+	   ]]>  
+	   
+   </select>
+   
      <sql id="search">
     <if test="searchType != null" >
       <if test="searchType == 't'.toString()">
@@ -96,6 +114,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      select count(dept_board_id) 
      from dept_board 
      where dept_board_id > 0
+     and dept_id=#{dept_id}
+   </select>
+
+   <select id="calSearchCount" resultType="int" parameterType="String">
+     select count(dept_schedule_id) 
+     from dept_schedule 
+     where dept_schedule_id > 0
      and dept_id=#{dept_id}
    </select>
 <!--    <select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
@@ -136,6 +161,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <select id="getEmployee" resultType="EmployeeVO" parameterType="String">
    	select * from employee where emp_id=#{emp_id}
+   </select>
+   
+   <select id="getList" resultType="DeptScheduleVO">
+   	  	select * 
+	     from dept_schedule
+	     where dept_schedule_id > 0
+	     and dept_id = #{dept_id}
    </select>
    
 </mapper>

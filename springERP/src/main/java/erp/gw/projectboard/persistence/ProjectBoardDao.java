@@ -5,6 +5,7 @@ import java.util.Map;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.projectboard.domain.ProjectsVO;
 
 public interface ProjectBoardDao {
@@ -18,6 +19,7 @@ public interface ProjectBoardDao {
 	  public String enameGet(String emp_id) throws Exception;
 	  public ProjectsVO read(int proj_id) throws Exception;
 	  public void write(ProjectsVO project)throws Exception;
+	  public void dsvoWrite(DeptScheduleVO dsvo)throws Exception;
 	  public void updateProj(ProjectsVO project)throws Exception;
 	  public void deleteProj(int proj_id)throws Exception;
 }
