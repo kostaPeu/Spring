@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.projectboard.domain.ProjectsVO;
 
 @Repository
@@ -70,6 +71,11 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 	@Override
 	public void write(ProjectsVO project) throws Exception {
 		session.insert(namespace + ".writeProj", project);
+	}
+
+	@Override
+	public void dsvoWrite(DeptScheduleVO dsvo) throws Exception {
+		session.insert(namespace + ".dsvoWrite", dsvo);
 	}
 	
 	@Override

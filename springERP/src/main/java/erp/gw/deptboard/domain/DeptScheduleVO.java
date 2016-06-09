@@ -19,4 +19,5 @@ public class DeptScheduleVO {
 	@Getter @Setter private Date end_schedule_date;
 	@Getter @Setter private String schedule_content;
 	@Getter @Setter private int proj_id;
+	@Getter @Setter private String dept_id;
 }

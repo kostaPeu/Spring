@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.common.service.CommonService;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.projectboard.domain.ProjectsVO;
 import erp.gw.projectboard.service.ProjectBoardService;
 
@@ -110,9 +112,14 @@ public class ProjectBoardController {
 	public void writeGET(ProjectsVO project)throws Exception{
 	}
 	
+	@Transactional
 	@RequestMapping(value="/pb_myproject_write", method=RequestMethod.POST)
 	public String writePOST(ProjectsVO project, Model model)throws Exception{
+		DeptScheduleVO dsvo = new DeptScheduleVO();
+		
 		String emp_id=common.getEmployeeId();
+		String dept_id=common.getDeptId();
+		
 		Date start = project.getProj_start_date();
 		Date end = project.getProj_end_date();
 		
@@ -122,6 +129,15 @@ public class ProjectBoardController {
 		project.setEmp_id(emp_id);
 		project.setProj_period(minus);
 		service.write(project);
+		
+		dsvo.setEmp_id(emp_id);
+		dsvo.setEnd_schedule_date(end);
+		dsvo.setStart_schedule_date(start);
+		dsvo.setSchedule_content(project.getProj_content());
+		dsvo.setSchedule_name(project.getProj_name());
+		dsvo.setDept_id(dept_id);
+		
+		service.dsvoWrite(dsvo);
 		
 		return "redirect:/groupware/project_board/pb_myproject_list";
 	}

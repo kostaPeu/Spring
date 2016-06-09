@@ -18,6 +18,7 @@ import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.common.service.CommonService;
 import erp.gw.deptboard.domain.DeptBoardVO;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.deptboard.service.DeptBoardService;
 import erp.hr.domain.EmployeeVO;
 
@@ -60,6 +61,39 @@ public class DeptBoardController {
 
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/dept_board/dept_board_list.jsp");
+		
+		return "/main";
+	}
+
+	@RequestMapping(value="/dept_calendar", method=RequestMethod.GET)
+	public String DeptCal(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
+		Map<String, Object> map = new HashMap<String, Object>();
+		String dept_id=common.getDeptId();
+		
+		map.put("cri", (SearchCriteria)cri);
+		map.put("dept_id", (String)dept_id);
+		
+		List<DeptScheduleVO> dList = service.calSearchCriteria(map);
+		model.addAttribute("list", dList);
+		DeptScheduleVO dept = new DeptScheduleVO();
+		
+		List<String> eNameList = new ArrayList<String>();
+		
+		for(int i=0; i<dList.size(); i++){
+			dept=dList.get(i);
+			String name = service.enameGet(dept.getEmp_id());
+			eNameList.add(name);
+		}
+		
+		model.addAttribute("e_name_list", eNameList);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.calSearchCount(dept_id));
+		model.addAttribute("pageMaker", pageMaker);
+		
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/dept_board/dept_calendar.jsp");
 		
 		return "/main";
 	}
