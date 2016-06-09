@@ -55,7 +55,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   <![CDATA[  
 	     select * 
 	     from projects 
-	     where proj_id > 0   
+	     where proj_id > 0
+	     and emp_id = #{emp_id}
 	   ]]>  
 	   
 	     <include refid="search"></include>
@@ -65,6 +66,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   ]]>  
 	   
    </select>
+   
+   <select id="allSearchCriteria" resultType="ProjectsVO" parameterType="SearchCriteria" >
+   
+	   <![CDATA[  
+	     select * 
+	     from projects 
+	     where proj_id > 0
+	   ]]>  
+	   
+	     <include refid="search"></include>
+	     
+	   <![CDATA[    
+	     order by proj_id desc     
+	   ]]>  
+	   
+   </select>
+   
      <sql id="search">
     <if test="searchType != null" >
       <if test="searchType == 't'.toString()">
@@ -92,7 +110,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </if> 
    </sql>
    
-   <select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
+   <select id="listSearchCount" resultType="int" parameterType="String">
+     select count(proj_id) 
+     from projects 
+     where proj_id > 0
+     and emp_id=#{emp_id}
+   </select>
+
+  <select id="allSearchCount" resultType="int" parameterType="SearchCriteria">
    <![CDATA[  
      select count(proj_id) 
      from projects 
@@ -119,7 +144,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     insert into projects(proj_id, proj_name, proj_content, proj_period, proj_start_date, proj_end_date, emp_id)
 	values(projB_seq.NEXTVAL, #{proj_name}, #{ proj_content}, #{ proj_period}, #{ proj_start_date}, #{proj_end_date }, #{emp_id})
    </insert>
-
+   
    <update id="updateProj">
    		update projects set proj_name=#{proj_name}, proj_content=#{proj_content} where proj_id=#{proj_id}
    </update>
