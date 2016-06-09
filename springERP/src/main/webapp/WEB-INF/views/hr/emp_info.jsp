@@ -66,6 +66,18 @@
     			$(location).attr('href',url);
     		}
     	});
+    	
+    	
+    	
+    	$('#print_emp_btn').click(function(){
+    		var newWindow = window.open("about:blank")
+    		var url = "/hr/emp/emp_print";
+    		newWindow.location.href=url;
+    	});
+    	
+    	
+    	
+    	
     });
 </script>
 <style type="text/css">
@@ -155,6 +167,9 @@ ul {
 			onclick="fn_insert_emp()">신규등록</button>
 		<button type="button" class="btn btn-default" id="update_emp_btn">수정</button>
 		<button type="button" class="btn btn-default" id="delete_emp_btn">삭제</button>
+		
+		<button type="button" class="btn btn-default" id="print_emp_btn">인쇄</button>
+		
 	</div>
 </body>
 </html>

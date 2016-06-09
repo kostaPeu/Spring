@@ -356,6 +356,16 @@ public class HrController {
 		
 		return "redirect:/hr/indol_request";
 	}
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/emp/emp_print", method = RequestMethod.GET)
+	public String emp_print(Model model) throws Exception{
+		model.addAttribute("list", service.FullempLIst());
+		return "hr/emp_print";
+	}
 }
 
 

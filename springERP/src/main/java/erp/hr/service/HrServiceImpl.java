@@ -225,4 +225,9 @@ public class HrServiceImpl implements HrService {
 		}
 		dao.indolApprove(string);
 	}
+
+	@Override
+	public List<EmployeeViewVO> FullempLIst() {
+		return dao.empFull();
+	}
 }
