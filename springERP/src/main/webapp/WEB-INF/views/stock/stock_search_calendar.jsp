@@ -19,6 +19,11 @@
 <!-- custom js,css경로 -->
 <link href='/resources/stock/css/stock_search.css' rel='stylesheet'>
 <script src='/resources/stock/js/stock_search_calendar.js'></script>
+<style type="text/css">
+.fc-unthemed .fc-today {
+	background: #F5F5F5 none repeat scroll 0 0;
+}
+</style>
 </head>
 <body>
 
@@ -49,7 +54,7 @@
   		</div>
  		<div class="form-group">
    			<label for="inout_amount">amount</label>
-    			<input type="email" class="form-control" id="inout_amount">
+    			<input type="number" class="form-control" id="inout_amount">
   		</div>
   		<div class="form-group">
   			<label for="type">type</label>
@@ -83,12 +88,6 @@
 		<p id="product_name"></p>
     </div>
   </div>
-    <div class="form-group">
-    <label for="inout_amount" class="col-sm-5 control-label">In/Out Amount : </label>
-    <div class="col-sm-7">
-		<p id="inout_amount"></p>
-    </div>
-  </div>
   <div class="form-group">
     <label for="warehouse_name" class="col-sm-5 control-label">Warehouse Name : </label>
     <div class="col-sm-7">
@@ -101,6 +100,12 @@
 		<p id="stock_amount"></p>
     </div>
   </div>
+     <div class="form-group">
+    <label for="amount" class="col-sm-5 control-label">In/Out Amount : </label>
+    <div class="col-sm-7">
+		<p id="amount"></p>
+    </div>
+    </div>
   <div class="form-group">
     <label for="e_name" class="col-sm-5 control-label">Employee Name : </label>
     <div class="col-sm-7">
