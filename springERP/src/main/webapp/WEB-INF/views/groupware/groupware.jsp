@@ -16,7 +16,7 @@
 				<li><a data-toggle="collapse" href="/groupware/dept_board/dept_board_list #dept_board">부서게시판</a>
 					<ul id="dept_board" class="collapse">
 						<li><a href="/groupware/dept_board/dept_board_list">부서 게시판</a></li>
-						<li><a href="deptFileListAction.gw">공유 폴더</a></li>
+						<li><a href="/groupware/dept_board/share_folder">공유 폴더</a></li>
 						<li><a id="gw_cal" href="/groupware/dept_board/dept_calendar">부서 일정</a></li> 
 					</ul>
 				</li>
