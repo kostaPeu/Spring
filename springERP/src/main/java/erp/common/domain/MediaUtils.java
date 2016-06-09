@@ -1,4 +1,4 @@
-package erp.my.myfile.domain;
+package erp.common.domain;
 
 import java.util.HashMap;
 import java.util.Map;

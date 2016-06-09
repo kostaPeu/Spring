@@ -11,26 +11,26 @@
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
-<link href="/resources/mypage/css/my_file.css" rel="stylesheet">
-<script type="text/javascript" src="/resources/mypage/js/my_file.js"></script>
+<link href="/resources/groupware/css/share_folder.css" rel="stylesheet">
+<script type="text/javascript" src="/resources/groupware/js/share_folder.js"></script>
 <script type="text/javascript">
 
 $(function(){
 	$("#uploadBtn").click(function(){
 		alert("upup");
-		document.form1.action = "my_file/uploadForm?${_csrf.parameterName}=${_csrf.token }";
+		document.form1.action = "share_folder/uploadForm?${_csrf.parameterName}=${_csrf.token }";
 		document.form1.submit();
 	})
 	
 	$("#downloadBtn").click(function(){
 		alert("dada");
-		document.form1.action = "my_file/download?${_csrf.parameterName}=${_csrf.token }";
+		document.form1.action = "share_folder/download?${_csrf.parameterName}=${_csrf.token }";
 		document.form1.submit();
 	})
 	
 	$("#deleteBtn").click(function(){
 		alert("del!!");
-		document.form1.action = "my_file/deleteFile?${_csrf.parameterName}=${_csrf.token }";
+		document.form1.action = "share_folder/deleteFile?${_csrf.parameterName}=${_csrf.token }";
 		document.form1.submit();
 	})
 })
@@ -38,7 +38,7 @@ $(function(){
 </head>
 <body>
 
-	<h2 class="page_title">개인파일함</h2>
+	<h2 class="page_title">공유폴더</h2>
 	
 	
 	<form:form class="form-inline pull-left folderFileForm" name="form1" method="post" enctype="multipart/form-data">

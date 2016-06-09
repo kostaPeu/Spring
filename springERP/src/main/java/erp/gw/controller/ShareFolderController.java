@@ -1,4 +1,4 @@
-package erp.my.controller;
+package erp.gw.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,19 +28,19 @@ import erp.common.domain.FolderFileVO;
 import erp.common.domain.MediaUtils;
 import erp.common.domain.UploadFileUtils;
 import erp.common.service.CommonService;
-import erp.my.myfile.service.MyFileService;
+import erp.gw.deptboard.service.ShareFolderService;
 
 @Controller
-@RequestMapping("/mypage/my_file")
-public class MyFileController {
+@RequestMapping("/groupware/dept_board/share_folder")
+public class ShareFolderController {
 	
 	@Inject
-	private MyFileService service;
+	private ShareFolderService service;
 	
 	private static String uploadPath = "";
 	
 	@RequestMapping("")
-	public String myfileMain(HttpServletRequest request, Model model) throws Exception{
+	public String sharefolderMain(HttpServletRequest request, Model model) throws Exception{
 		
 		String[] arr = request.getSession().getServletContext().getRealPath("/").split("/");
 		String path ="";
@@ -48,7 +48,7 @@ public class MyFileController {
 			path += arr[i] + "/"; 
 		}
 		
-		path += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+		path += "git/Spring/springERP/src/main/webapp/resources/groupware/upload";
 		uploadPath = path;
 		
 		System.out.println(uploadPath);
@@ -57,15 +57,15 @@ public class MyFileController {
 		List<FolderFileVO> list = service.listFile();
 		
 		model.addAttribute("list",list);
-		model.addAttribute("left", "mypage/mypage.jsp");
-		model.addAttribute("contents", "mypage/my_file/my_file.jsp");
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/dept_board/share_folder.jsp");
 		return "/main";
 	}
 	
 	@RequestMapping(value="/uploadAjax", method=RequestMethod.GET)
 	public String uploadAjax(Model model){
-		model.addAttribute("left", "mypage/mypage.jsp");
-		model.addAttribute("contents", "mypage/my_file/my_file.jsp");
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/dept_board/share_folder.jsp");
 		return "/main";
 	}
 
@@ -122,10 +122,10 @@ public class MyFileController {
 			service.insertFile(folderFile);
 		}
 
-		model.addAttribute("left", "mypage/mypage.jsp");
-		model.addAttribute("contents", "mypage/my_file/my_file.jsp");
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/dept_board/share_folder.jsp");
 		
-		return "redirect:/mypage/my_file";
+		return "redirect:/groupware/share_folder";
 	}
 	
 	
@@ -284,7 +284,7 @@ public class MyFileController {
 			new File(uploadPath + folderFile.getUpload_file()).delete();
 			service.deleteFile(file_id);
 		}
-		return "/mypage/my_file";
+		return "/groupware/dept_board/share_folder";
 	}
 	
 }

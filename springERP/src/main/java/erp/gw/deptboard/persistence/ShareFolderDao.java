@@ -1,10 +1,10 @@
-package erp.my.myfile.service;
+package erp.gw.deptboard.persistence;
 
 import java.util.List;
 
 import erp.common.domain.FolderFileVO;
 
-public interface MyFileService {
+public interface ShareFolderDao {
 	public void insertFile(FolderFileVO folderFile) throws Exception;
 	public List<FolderFileVO> listFile() throws Exception;
 	public FolderFileVO selectFile(int share_folder_id) throws Exception;

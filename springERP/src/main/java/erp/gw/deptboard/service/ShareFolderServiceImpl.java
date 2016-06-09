@@ -1,4 +1,4 @@
-package erp.my.myfile.service;
+package erp.gw.deptboard.service;
 
 import java.util.List;
 
@@ -7,13 +7,13 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import erp.common.domain.FolderFileVO;
-import erp.my.myfile.persistence.MyFileDao;
+import erp.gw.deptboard.persistence.ShareFolderDao;
 
 @Service
-public class MyFileServiceImpl implements MyFileService {
+public class ShareFolderServiceImpl implements ShareFolderService {
 
 	@Inject
-	private MyFileDao dao;
+	private ShareFolderDao dao;
 	
 	@Override
 	public void insertFile(FolderFileVO folderFile) throws Exception {
@@ -26,12 +26,12 @@ public class MyFileServiceImpl implements MyFileService {
 	}
 
 	@Override
-	public FolderFileVO selectFile(int share_folder_id) throws Exception {
-		return dao.selectFile(share_folder_id);
+	public FolderFileVO selectFile(int file_id) throws Exception {
+		return dao.selectFile(file_id);
 	}
 
 	@Override
-	public void deleteFile(int share_folder_id) throws Exception {
-		dao.deleteFile(share_folder_id);
+	public void deleteFile(int file_id) throws Exception {
+		dao.deleteFile(file_id);
 	}
 }

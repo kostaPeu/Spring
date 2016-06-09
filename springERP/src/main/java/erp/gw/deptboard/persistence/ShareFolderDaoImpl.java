@@ -1,4 +1,4 @@
-package erp.my.myfile.persistence;
+package erp.gw.deptboard.persistence;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 import erp.common.domain.FolderFileVO;
 
 @Repository
-public class MyFileDaoImpl implements MyFileDao{
+public class ShareFolderDaoImpl implements ShareFolderDao{
 	
-	private static String namespace ="springERP.mypage.mapper.myFileMapper";
+	private static String namespace ="springERP.gw.mapper.shareFolderMapper";
 
 	@Inject
 	private SqlSession session;
@@ -31,14 +31,14 @@ public class MyFileDaoImpl implements MyFileDao{
 	
 	// 파일 하나의 정보 불러오기 - 보람
 	@Override
-	public FolderFileVO selectFile(int share_folder_id) throws Exception {
-		return session.selectOne(namespace + ".selectFile", share_folder_id);
+	public FolderFileVO selectFile(int file_id) throws Exception {
+		return session.selectOne(namespace + ".selectFile", file_id);
 	}
 
 	// 파일 삭제하기 - 보람
 	@Override
-	public void deleteFile(int share_folder_id) throws Exception {
-		session.delete(namespace + ".deleteFile", share_folder_id);
+	public void deleteFile(int file_id) throws Exception {
+		session.delete(namespace + ".deleteFile", file_id);
 	}
 
 }
