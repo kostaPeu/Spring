@@ -23,48 +23,6 @@
    
     <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
     <script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
-    <script type="text/javascript">
-    $(function(){
-    	$('#checkAll').click(function(){
-    		if(this.checked){
-    			$('input[name=id_box]').each(function(){
-    				$(this).prop('checked',true);
-    			});
-    		}else{
-    			$('input[name=id_box]').each(function(){
-    				$(this).prop('checked',false);
-    			});
-    		}        	
-    	});
-    	$('#deleteBtn').on('click', function(){
-			var array = [];
-			$("input[name=id_box]:checked").each(function() {
-				array.push($(this).val());	
-			});
-			var url = "/purchase/purchase_delete?array="+array;
-			if(array == ""){
-				alert("삭제할 목록을 체크하시오.");
-			}else{
-				$(location).attr('href',url);
-			}		
-		})
-		$('#newBtn').click(function(){
-			$(location).attr('href', "/purchase/purchase_add");
-		});
-    	$('#updateBtn').click(function(){
-    		var val = '';
-    		$("input[name=id_box]:checked").each(function() {
-				val = $(this).val();
-			});
-    		if(val == ""){
-    			alert("수정할 것을 체크하시오.");
-    			return false;
-    		}else{
-    			$('#buy_id_update').val(val);
-    		}
-    	});
-    });
-    </script>
 </head>
 <body>
 <h2>구매 조회</h2>
@@ -130,7 +88,6 @@
 					<li><a
 						href="purchase_check${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 				</c:if>
-
 			</ul>
 		</div>
 	</div>

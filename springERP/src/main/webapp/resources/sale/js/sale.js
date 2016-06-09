@@ -1,4 +1,11 @@
 $(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$(document).ajaxSend(function(e, xhr, options) {
+		xhr.setRequestHeader(header, token);
+	});
+})
+$(function(){
 	$('#excelBtn').click(function(){
 		$(location).attr('href','/sale/sale_excel');
 	})
@@ -14,7 +21,7 @@ $(function(){
     			$('input[name=id_box]').each(function(){
     				$(this).prop('checked',false);
     			});
-    		}        	
+    		}
     	});
     	//선택 목록 삭제
     	$('#deleteBtn').on('click', function(){
@@ -27,7 +34,7 @@ $(function(){
 				alert("삭제할 목록을 체크하시오.");
 			}else{
 				$(location).attr('href',url);
-			}		
+			}
 		})
 		//뉴 버튼
 		$('#newBtn').click(function(){
