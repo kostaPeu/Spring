@@ -1,4 +1,51 @@
 $(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$(document).ajaxSend(function(e, xhr, options) {
+		xhr.setRequestHeader(header, token);
+	});
+})
+$(function(){
+    	$('#checkAll').click(function(){
+    		if(this.checked){
+    			$('input[name=id_box]').each(function(){
+    				$(this).prop('checked',true);
+    			});
+    		}else{
+    			$('input[name=id_box]').each(function(){
+    				$(this).prop('checked',false);
+    			});
+    		}        	
+    	});
+    	$('#deleteBtn').on('click', function(){
+			var array = [];
+			$("input[name=id_box]:checked").each(function() {
+				array.push($(this).val());	
+			});
+			var url = "/purchase/purchase_delete?array="+array;
+			if(array == ""){
+				alert("삭제할 목록을 체크하시오.");
+			}else{
+				$(location).attr('href',url);
+			}		
+		})
+		$('#newBtn').click(function(){
+			$(location).attr('href', "/purchase/purchase_add");
+		});
+    	$('#updateBtn').click(function(){
+    		var val = '';
+    		$("input[name=id_box]:checked").each(function() {
+				val = $(this).val();
+			});
+    		if(val == ""){
+    			alert("수정할 것을 체크하시오.");
+    			return false;
+    		}else{
+    			$('#buy_id_update').val(val);
+    	}
+    });
+});
+$(function(){
 	$('#item_search').click(function(){
 		$('.item_div').css("display","block")
 	})
@@ -17,7 +64,12 @@ $(function(){
 	$('#simple_search').click(function(){
 		$('.hide_detail').css("display","none");
 	})
-	
+	$('#excelBtn').click(function(){
+		$(location).attr('href','/purchase/purchase_excel');
+	})
+	$('#excelBtn2').click(function(){
+		$(location).attr('href','/purchase/purchase_excelUp');
+	})
 })
 $(function(){
 	//거래처 인풋창 초기화
@@ -122,8 +174,7 @@ $(function(){
 	function w_handler(data){
 		var html = '<tr><th>창고 코드</th><th>창고명</th><th>창고위치</th></tr>';	
 		$.each(data, function(index, list){
-			html += '<tr class="w_getValue"><td class="w_getCustomerName">'+list.warehouse_id+'</td>';
-			html += '<td>'+list.warehouse_name+'</td>';
+			html += '<tr class="w_getValue"><td class="w_getCustomerName">'+list.warehouse_id+'</td>';			html += '<td>'+list.warehouse_name+'</td>';
 			html += '<td>'+list.warehouse_loc+'</td>';
 		});
 		$('#w_searchTable').append(html);

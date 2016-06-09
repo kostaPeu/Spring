@@ -1,6 +1,7 @@
 package erp.gw.deptboard.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
@@ -11,8 +12,9 @@ public interface DeptBoardDao {
 	  public List<DeptBoardVO> listAll() throws Exception;
 	  public List<DeptBoardVO> listCriteria(Criteria cri) throws Exception;
 	  public int countPaging(Criteria cri)throws Exception;
-	  public int listSearchCount(SearchCriteria cri)throws Exception;
-	  public List<DeptBoardVO> listSearch(SearchCriteria cri)throws Exception;
+	  public int listSearchCount(String dept_id)throws Exception;
+/*	  public int listSearchCount(SearchCriteria cri)throws Exception;
+*/	  public List<DeptBoardVO> listSearch(Map<String, Object> map)throws Exception;
 	  public String enameGet(String emp_id) throws Exception;
 	  public DeptBoardVO read(int dept_board_id) throws Exception;
 	  public void write(DeptBoardVO dept)throws Exception;

@@ -65,8 +65,6 @@ public class AccountController {
 		model.addAttribute("pageMaker", pageMaker);		
 	}
 	
-
-	
 	
 }
 	

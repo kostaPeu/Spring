@@ -20,4 +20,5 @@ public interface SaleDAO {
 	public int countPaging(Criteria cri) throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
 	public List<SaleListView> listSearch(SearchCriteria cri)throws Exception;
+	public void insertSaleExcel(SaleVO vo)throws Exception;
 }

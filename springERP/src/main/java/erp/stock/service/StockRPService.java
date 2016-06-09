@@ -7,12 +7,12 @@ import erp.stock.domain.StockCalendar;
 import erp.stock.domain.StockRP;
 
 public interface StockRPService {
-	public void stockRPInsert(StockRP stock) throws Exception;
+	public int stockRPInsert(StockRP stock) throws Exception;
 	
 	public List<Product> productList() throws Exception;
 
 	public List<StockCalendar> stockCalendarJson() throws Exception;
 
-	public void stockRPUpdate(StockRP stock) throws Exception;
+	public int stockRPUpdate(StockRP stock) throws Exception;
 	
 }

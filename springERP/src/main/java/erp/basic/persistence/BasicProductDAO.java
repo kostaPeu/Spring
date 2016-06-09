@@ -28,5 +28,5 @@ public interface BasicProductDAO {
 
 	public void stockInsert(Stock stock) throws Exception;
 	
-
+	public Product getProduct(String product_id)throws Exception;
 }

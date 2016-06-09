@@ -1,6 +1,9 @@
 package erp.sale.service;
 
+import java.io.OutputStream;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import erp.common.domain.Criteria;
 import erp.sale.domain.SaleListView;
@@ -16,4 +19,6 @@ public interface SaleService {
 	public List<SaleListView> listAll()throws Exception;
 	public List<SaleListView> listCriteria(Criteria cri)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
+	public void downloadExcel(OutputStream out ,HttpServletResponse res)throws Exception;
+	public void uploadExcel(String path)throws Exception;
 }

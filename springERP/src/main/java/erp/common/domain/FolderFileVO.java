@@ -1,4 +1,4 @@
-package erp.gw.deptboard.domain;
+package erp.common.domain;
 
 import lombok.Setter;
 
@@ -14,12 +14,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FolderFileVO {
-	@Getter @Setter private int share_folder_id;
+	@Getter @Setter private int file_id;
 	@Getter @Setter private String emp_id;
 	@Getter @Setter private String file_type;
 	@Getter @Setter private String file_name;
 	@Getter @Setter private int file_size;
-	@Getter @Setter private Date share_folder_date;
+	@Getter @Setter private Date file_date;
 	@Getter @Setter private int down_amount;
 	@Getter @Setter private String upload_file;
 }

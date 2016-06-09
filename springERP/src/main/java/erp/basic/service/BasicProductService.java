@@ -2,6 +2,8 @@ package erp.basic.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import erp.basic.domain.ListModelProduct;
 import erp.basic.domain.Product;
 import erp.basic.domain.ProductGroup;
@@ -23,5 +25,7 @@ public interface BasicProductService {
 	public void productDelete(String product_id) throws Exception;
 
 	public List<Product> productCodeJson(String word) throws Exception;
+	
+	public void productBarcode(HttpServletResponse res,String product_id)throws Exception;
 	
 }

@@ -54,7 +54,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   <![CDATA[  
 	     select * 
 	     from dept_board 
-	     where dept_board_id > 0   
+	     where dept_board_id > 0
+	     and dept_id = #{dept_id}
 	   ]]>  
 	   
 	     <include refid="search"></include>
@@ -91,14 +92,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </if> 
    </sql>
    
-   <select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
+   <select id="listSearchCount" resultType="int" parameterType="String">
+     select count(dept_board_id) 
+     from dept_board 
+     where dept_board_id > 0
+     and dept_id=#{dept_id}
+   </select>
+<!--    <select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
    <![CDATA[  
      select count(dept_board_id) 
      from dept_board 
      where dept_board_id > 0 
    ]]>
      <include refid="search"></include>
-   </select>
+   </select> -->
    
    <select id="enameGet" resultType="String" parameterType="String">
     <![CDATA[  

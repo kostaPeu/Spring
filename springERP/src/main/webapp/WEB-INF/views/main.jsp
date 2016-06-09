@@ -35,6 +35,7 @@
 
 
 <!-- Custom Script -->
+<!-- <script src="/resources/common/js/csrf.js"></script> -->
 <!-- <script src="/resources/common/js/common.js" type="text/javascript"></script> -->
 
 <!-- Style -->
@@ -56,8 +57,8 @@
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam"> <a id="a-in-spam"
-				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님
-				환영합니다. <form:form name="form">
+				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님	환영합니다. 
+				<form:form name="form">
 					<input type="hidden" name="emp_id" value="<%=emp_id%>">
 					<br>
 					<input type="button" name="button1" value="전 송"
@@ -67,7 +68,9 @@
 						onclick="javascript:popup(this.form);">
 						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 					</button>
-				</form:form> <form:form id="logoutForm" role="form">
+				</form:form> 
+				<form:form id="logoutForm" role="form">
+					<input name="leaveRe" type="checkbox" value="leave"> 퇴근
 					<button id="logoutBtn" class="btn btn-default">로그아웃</button>
 				</form:form>
 			</span>

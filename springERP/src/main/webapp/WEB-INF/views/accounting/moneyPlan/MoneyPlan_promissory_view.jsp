@@ -20,14 +20,13 @@
 
 <body>
 
-	<h2 class="page_title">계획전표조회</h2>
+	<h2 class="page_title">자금계획전표조회</h2>
 
 	<div class="mainContents">
 		<form class="form-horizontal" action="">
 			<table class="table table-bordered table-hover new" id="moneyList">
 				<thead style="vertical-align: middle; text-align: center;">
 					<tr>
-
 						<th><input type="checkbox"></th>
 						<th>구분</th>
 						<th>발생일자</th>
@@ -43,15 +42,14 @@
 				<c:forEach var="m" items="${listModel }">
 					<tr class="mainTable">
 						<td><input type="checkbox"></td>
-						<td>{m.typelist}</td>
-						<td>{m.start_date}</td>
-						<td>{m.periods}</td>
-						<td>{m.funds_id}</td>
-						<td>{m.sums}</td>
-						<td>{m.account_number}</td>
-						<td>{m.customer_id}</td>
-						<td>{m.remarks}</td>
-
+						<td>${m.typelist}</td>
+						<td>${m.start_date}</td>
+						<td>${m.periods}</td>
+						<td>${m.funds_id}</td>
+						<td>${m.sums}</td>
+						<td>${m.account_number}</td>
+						<td>${m.customer_id}</td>
+						<td>${m.remarks}</td>
 					</tr>
 				</c:forEach>
 				</tbody>

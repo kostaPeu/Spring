@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%
+	out.clear();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,48 +22,7 @@
 <!-- Custom CSS -->
    
     <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
-    <script type="text/javascript">
-    $(function(){
-    	$('#checkAll').click(function(){
-    		if(this.checked){
-    			$('input[name=id_box]').each(function(){
-    				$(this).prop('checked',true);
-    			});
-    		}else{
-    			$('input[name=id_box]').each(function(){
-    				$(this).prop('checked',false);
-    			});
-    		}        	
-    	});
-    	$('#deleteBtn').on('click', function(){
-			var array = [];
-			$("input[name=id_box]:checked").each(function() {
-				array.push($(this).val());	
-			});
-			var url = "/purchase/purchase_delete?array="+array;
-			if(array == ""){
-				alert("삭제할 목록을 체크하시오.");
-			}else{
-				$(location).attr('href',url);
-			}		
-		})
-		$('#newBtn').click(function(){
-			$(location).attr('href', "/purchase/purchase_add");
-		});
-    	$('#updateBtn').click(function(){
-    		var val = '';
-    		$("input[name=id_box]:checked").each(function() {
-				val = $(this).val();
-			});
-    		if(val == ""){
-    			alert("수정할 것을 체크하시오.");
-    			return false;
-    		}else{
-    			$('#buy_id_update').val(val);
-    		}
-    	});
-    });
-    </script>
+    <script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
 </head>
 <body>
 <h2>구매 조회</h2>
@@ -96,6 +58,12 @@
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
 		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
+		<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
+		<form:form action="/purchase/excelUp?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
+		<input type="file" id="excelFile" name="excelFile" class="btn btn-default">
+		<%-- <input type="hidden" value="${_csrf.token }" name="${_csrf.parameterName}"> --%>
+		<input type="submit" value="Excel업로드" class="btn btn-default">
+		</form:form>
 	</div>
 	<!-- 페이징 -->
 	<div class="box-footer">
@@ -120,7 +88,6 @@
 					<li><a
 						href="purchase_check${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 				</c:if>
-
 			</ul>
 		</div>
 	</div>

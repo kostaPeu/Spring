@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import erp.basic.domain.Product;
+import erp.common.service.CommonService;
 import erp.stock.domain.StockCalendar;
 import erp.stock.domain.StockRP;
 import erp.stock.persistence.StockRPDAO;
@@ -21,19 +22,20 @@ public class StockRPServiceImpl implements StockRPService {
 	
 	@Transactional
 	@Override
-	public void stockRPInsert(StockRP stock) throws Exception {
+	public int stockRPInsert(StockRP stock) throws Exception {
 		int max = dao.inoutMax();
-		
-		stock.setEmp_id("aa");
+		int re = 0;
+		stock.setEmp_id(CommonService.getEmployeeId());
 		stock.setInout_id("rp_"+(max+1));
 
 		try {
-			dao.stockRPInsert(stock);
+			re = dao.stockRPInsert(stock);
 			dao.stockUpdate(stock);
 		} catch (Exception e) {
 			e.printStackTrace();
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-		}	
+		}
+		return re;	
 		
 	}
 
@@ -48,10 +50,8 @@ public class StockRPServiceImpl implements StockRPService {
 	}
 
 	@Override
-	public void stockRPUpdate(StockRP stock) throws Exception {
-		System.out.println(stock.getInout_id());
-		System.out.println(stock.getInout_date());
-		dao.stockRPUpdate(stock);
+	public int stockRPUpdate(StockRP stock) throws Exception {
+		return dao.stockRPUpdate(stock);
 	}
 
 	

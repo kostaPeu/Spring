@@ -19,49 +19,7 @@
 <!-- Custom CSS -->
    
  <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
-    <script type="text/javascript">
-    $(function(){
-    	$('#checkAll').click(function(){
-    		if(this.checked){
-    			$('input[name=id_box]').each(function(){
-    				$(this).prop('checked',true);
-    			});
-    		}else{
-    			$('input[name=id_box]').each(function(){
-    				$(this).prop('checked',false);
-    			});
-    		}        	
-    	});
-    	$('#deleteBtn').on('click', function(){
-			var array = [];
-			$("input[name=id_box]:checked").each(function() {
-				array.push($(this).val());	
-			});
-			var url = "/sale/sale_delete?array="+array;
-			if(array == ""){
-				alert("삭제할 목록을 체크하시오.");
-			}else{
-				$(location).attr('href',url);
-			}		
-		})
-		$('#newBtn').click(function(){
-			$(location).attr('href', "/sale/sale_add");
-		});
-    	$('#updateBtn').click(function(){
-    		var val = '';
-    		$("input[name=id_box]:checked").each(function() {
-				val = $(this).val();
-			});
-    		if(val == ""){
-    			alert("수정할 것을 체크하시오.");
-    			return false;
-    		}else{
-    			$('#sell_id_update').val(val);
-    		}
-    	});
-    });
-    </script>
-   
+ <script type="text/javascript" src="/resources/sale/js/sale.js"></script>
 </head>
 <body>
 <h2>판매 조회</h2>
@@ -97,6 +55,12 @@
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
 		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
+		<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
+		<form:form action="/sale/excelUp?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
+			<input type="file" id="excelFile" name="excelFile" class="btn btn-default">
+			<%-- <input type="hidden" value="${_csrf.token }" name="${_csrf.parameterName}"> --%>
+			<input type="submit" value="Excel업로드" class="btn btn-default">
+		</form:form>
 	</div>
 <!-- 수정 -->
 <div id="update_modal" class="modal fade" role="dialog">

@@ -20,8 +20,8 @@ public class StockRPDAOImpl implements StockRPDAO {
 	private static String namespace = "erp.stock.mapper.stockRPMapper";
 	
 	@Override
-	public void stockRPInsert(StockRP stock) throws Exception{
-		session.insert(namespace+".stockRPInsert", stock);
+	public int stockRPInsert(StockRP stock) throws Exception{
+		return session.insert(namespace+".stockRPInsert", stock);
 	}
 
 	@Override
@@ -45,10 +45,8 @@ public class StockRPDAOImpl implements StockRPDAO {
 	}
 
 	@Override
-	public void stockRPUpdate(StockRP stock) throws Exception{
-		System.out.println(stock.getInout_id());
-		System.out.println(stock.getInout_date());
-		session.update(namespace+".stockRPUpdate",stock);
+	public int stockRPUpdate(StockRP stock) throws Exception{
+		return session.update(namespace+".stockRPUpdate",stock);
 	}
 
 	

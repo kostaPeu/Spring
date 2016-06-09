@@ -11,6 +11,7 @@ import erp.acc.basic.domain.Card;
 import erp.acc.basic.persistence.BasicAccountDAO;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.projectboard.domain.ProjectsVO;
 
 
 @Service
@@ -82,6 +83,15 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	@Override
 	public List<Card> cardList() throws Exception {
 		return dao.cardList();
+	}
+	@Override
+	public void projectUpdate(ProjectsVO vo) throws Exception {
+		dao.projectUpdate(vo);
+		
+	}
+	@Override
+	public List<ProjectsVO> projectList() throws Exception {
+		return dao.projectList();
 	}
 	
 	

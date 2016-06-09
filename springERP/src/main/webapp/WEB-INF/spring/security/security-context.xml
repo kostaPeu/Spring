@@ -16,14 +16,22 @@
 
 		<form-login login-page="/login" username-parameter="userId"
 			password-parameter="userPwd" login-processing-url="/login_check"
+			authentication-success-handler-ref="loginSuccessHandler"	
+			authentication-failure-url="/login?fail=true"
 			default-target-url="/"
-			authentication-failure-url="/login?fail=true" />
-
-		<logout logout-success-url="/login" delete-cookies="JSESSIONID"/>
-		
+		/>
+		<logout delete-cookies="JSESSIONID" success-handler-ref="logoutSeccessHandler"/>
 		<csrf/>
 	</http>
-
+	
+	<beans:bean id="loginSuccessHandler" class="erp.login.loginSuccessHandler">
+		<beans:property name="arrive" value="arriveRe"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="logoutSeccessHandler" class="erp.login.logoutSeccessHandler">
+		<beans:property name="leave" value="leaveRe"></beans:property>
+	</beans:bean>
+	
  	<authentication-manager>
 		<authentication-provider user-service-ref="customJdbcDaoImpl"></authentication-provider>
 	</authentication-manager>
@@ -31,7 +39,7 @@
 	<beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
 		<beans:property name="dataSource" ref="dataSource" />
  		<beans:property name="usersByUsernameQuery"
-			value="SELECT EMP_ID, E_PWD, E_NAME FROM EMPLOYEE WHERE EMP_ID=?" />
+			value="SELECT EMP_ID, E_PWD, E_NAME, DEPT_ID FROM EMPLOYEE WHERE EMP_ID=?" />
 		<beans:property name="authoritiesByUsernameQuery"
 			value="SELECT EMP_ROLE FROM MEMBER_ROLE WHERE EMP_ID=?" />
 		<beans:property name="enableGroups" value="false" />

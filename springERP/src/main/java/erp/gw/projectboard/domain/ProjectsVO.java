@@ -19,4 +19,7 @@ public class ProjectsVO {
 	@Getter @Setter private Date proj_start_date;
 	@Getter @Setter private Date proj_end_date;
 	@Getter @Setter private String emp_id;
+	@Getter @Setter private String sums;
+	@Getter @Setter private String account_number;
+	@Getter @Setter private String remarks;
 }
