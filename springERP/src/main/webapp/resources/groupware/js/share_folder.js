@@ -30,7 +30,7 @@ $(function(){
 	for(var i=0; i<itemboxes.length;i++){
 		var filetitle = $(itemboxes[i]).find(".item_title").attr("value").split(".")[0];
 		
-		$(itemboxes[i]).find(".imagefile").css("background", "url('/resources/mypage/upload" + $("#filename"+i).val() + "') no-repeat center center");
+		$(itemboxes[i]).find(".imagefile").css("background", "url('/resources/groupware/upload" + $("#filename"+i).val() + "') no-repeat center center");
 	}
 	
 	
@@ -46,7 +46,7 @@ $(function(){
 			formData.append("file", file);
 			
 			$.ajax({
-				url:'/mypage/my_file/uploadAjax',
+				url:'/groupware/dept_board/share_folder/uploadAjax',
 				data:formData,
 				dataType:'text',
 				processData:false,
@@ -54,11 +54,12 @@ $(function(){
 				type:'POST',
 				success:function(data){
 					alert("성공쿠!!");
-					location.href="/mypage/my_file";
+					location.href="/groupware/dept_board/share_folder";
 				}
 			});
 		}
 	});
+	
 })
 
 

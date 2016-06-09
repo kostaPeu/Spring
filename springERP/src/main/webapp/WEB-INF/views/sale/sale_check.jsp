@@ -20,10 +20,6 @@
    
  <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
  <script type="text/javascript" src="/resources/sale/js/sale.js"></script>
-    <script type="text/javascript">
-    
-    </script>
-   
 </head>
 <body>
 <h2>판매 조회</h2>
