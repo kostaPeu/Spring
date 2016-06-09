@@ -2,7 +2,9 @@ package erp.gw.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -32,7 +34,13 @@ public class ProjectBoardController {
 	
 	@RequestMapping(value="/pb_myproject_list", method=RequestMethod.GET)
 	public String myProjectList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
-		List<ProjectsVO> pList = service.listSearchCriteria(cri);
+		Map<String, Object> map = new HashMap<String, Object>();
+		String emp_id=common.getEmployeeId();
+		
+		map.put("cri", (SearchCriteria)cri);
+		map.put("emp_id", (String)emp_id);
+		
+		List<ProjectsVO> pList = service.listSearchCriteria(map);
 		model.addAttribute("list", pList);
 		ProjectsVO pro = new ProjectsVO();
 		
@@ -48,7 +56,7 @@ public class ProjectBoardController {
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listSearchCount(cri));
+		pageMaker.setTotalCount(service.listSearchCount(emp_id));
 		model.addAttribute("pageMaker", pageMaker);
 
 		model.addAttribute("left", "groupware/groupware.jsp");
@@ -57,8 +65,42 @@ public class ProjectBoardController {
 		return "/main";
 	}
 	
+	@RequestMapping(value="/all_project_list", method=RequestMethod.GET)
+	public String allProjectList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
+		List<ProjectsVO> pList = service.allSearchCriteria(cri);
+		model.addAttribute("list", pList);
+		ProjectsVO pro = new ProjectsVO();
+		
+		List<String> eNameList = new ArrayList<String>();
+		
+		for(int i=0; i<pList.size(); i++){
+			pro=pList.get(i);
+			String name = service.enameGet(pro.getEmp_id());
+			eNameList.add(name);
+		}
+		
+		model.addAttribute("e_name_list", eNameList);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.allSearchCount(cri));
+		model.addAttribute("pageMaker", pageMaker);
+		
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/project_board/all_project_list.jsp");
+		
+		return "/main";
+	}
+	
 	@RequestMapping(value="/pb_myproject_view", method = RequestMethod.GET)
 	public void read(@RequestParam("proj_id") int proj_id, @ModelAttribute("cri") SearchCriteria cri, Model model)throws Exception{
+		ProjectsVO pro = service.read(proj_id);
+		model.addAttribute("project", pro);
+		model.addAttribute("e_name", service.enameGet(pro.getEmp_id()));
+	}
+
+	@RequestMapping(value="/all_project_view", method = RequestMethod.GET)
+	public void allRead(@RequestParam("proj_id") int proj_id, @ModelAttribute("cri") SearchCriteria cri, Model model)throws Exception{
 		ProjectsVO pro = service.read(proj_id);
 		model.addAttribute("project", pro);
 		model.addAttribute("e_name", service.enameGet(pro.getEmp_id()));
@@ -118,31 +160,6 @@ public class ProjectBoardController {
 	@RequestMapping(value="/proj_delete", method = RequestMethod.GET)
 	public String projRemove(int proj_id, @ModelAttribute("cri") SearchCriteria cri, Model model)throws Exception{
 		service.deleteProj(proj_id);
-		/*
-		List<ProjectsVO> pList = service.listSearchCriteria(cri);
-		model.addAttribute("list", pList);
-		ProjectsVO pro = new ProjectsVO();
-		
-		List<String> eNameList = new ArrayList<String>();
-
-		for(int i=0; i<pList.size(); i++){
-			pro=pList.get(i);
-			String name = service.enameGet(pro.getEmp_id());
-			eNameList.add(name);
-		}
-		
-		model.addAttribute("e_name_list", eNameList);
-
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listSearchCount(cri));
-		model.addAttribute("pageMaker", pageMaker);
-		
-		model.addAttribute("left", "groupware/groupware.jsp");
-		model.addAttribute("contents", "groupware/project_board/pb_myproject_list.jsp");
-		
-		return "/main";*/
-		
 		return "redirect:/groupware/project_board/pb_myproject_list";
 	}
 	

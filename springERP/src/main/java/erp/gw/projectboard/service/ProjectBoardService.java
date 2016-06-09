@@ -1,6 +1,7 @@
 package erp.gw.projectboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
@@ -10,8 +11,10 @@ public interface ProjectBoardService {
 	   public List<ProjectsVO> listAll()throws Exception;
 	   public List<ProjectsVO> listCriteria(Criteria cri)throws Exception;
 	   public int listCountCriteria(Criteria cri)throws Exception;
-	   public List<ProjectsVO> listSearchCriteria(SearchCriteria cri)throws Exception;
-	   public int listSearchCount(SearchCriteria cri) throws Exception;
+	   public List<ProjectsVO> listSearchCriteria(Map<String, Object> map)throws Exception;
+	   public List<ProjectsVO> allSearchCriteria(SearchCriteria cri)throws Exception;
+	   public int listSearchCount(String emp_id) throws Exception;
+	   public int allSearchCount(SearchCriteria cri) throws Exception;
 	   public String enameGet(String emp_id) throws Exception;
 	   public ProjectsVO read(int proj_id)throws Exception;
 	   public void write(ProjectsVO project)throws Exception;

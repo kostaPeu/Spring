@@ -58,14 +58,18 @@
 						$('#contents').empty();
 						$('#contents').load(
 								'/groupware/notice/' + $(this).attr('href'));
+						$('#Left_Menu').empty();
+						$('#Left_Menu').load('/groupware');
 			});
 
 			$('.deptTitle').on('click',
 					function(e) {
 						e.preventDefault();
 						$('#contents').empty();
-						$('#contents').load(
-								'/groupware/dept_board/' + $(this).attr('href'));
+						$('#contents').load('/groupware/dept_board/' + $(this).attr('href'));
+						$('#Left_Menu').empty();
+						$('#Left_Menu').load('/groupware');
+						
 			});
 
 		})
