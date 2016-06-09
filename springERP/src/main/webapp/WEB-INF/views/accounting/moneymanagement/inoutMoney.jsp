@@ -10,6 +10,9 @@
 <script src="/resources/accounting/js/moneymanagement.js" type="text/javascript"></script>
 <script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 
+<!-- CS -->
+<link href="/resources/accounting/css/moneymanagement.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -53,7 +56,7 @@
 						</tr>
 					</thead>					
 					<tbody id="cardInfos">
-					<c:forEach var="cash" items="${listModel}">
+					<c:forEach var="cash" items="${allList}">
 						<tr class="mainTable">
 							<td><input type="checkbox"></td>													
 							<td>${cash.typelist}</td>
@@ -94,105 +97,103 @@
 		
 	<!-- 입금보고서 Start -->
 	
-		<form class="form-horizontal">
-			<div id="deposit-contents" class="tab-content">
-				<div id="first-tabs" class="tab-pane fade active in" aria-labelledby="first-tab" role="tabpanel" style="display: none;">
-				<table class="table table-bordered table-hover new" id="saleList">
-					<thead>
-					<tr id="abc" align="center" valign="middle">
-						<th class="abcd" align="center" valign="middle">
-							<input	type="checkbox" disabled="disabled">
+<form class="form-horizontal">
+	<div id="deposit-contents" class="tab-content">
+		<div id="first-tabs" class="tab-pane fade active in CssDisplay" aria-labelledby="first-tab" role="tabpanel">
+			<table class="table table-bordered table-hover new" id="saleList">
+				<thead>
+					<tr id="abc">
+						<th class="abcd">
+							<input type="checkbox">
 						</th>
-						<th align="center" valign="middle">
+						<th>
 							<input type="button" class="btn btn-default btn-sm saleListAdd" value="▼">
 						</th>
-						<th align="center" valign="middle" class="col-sm-12">계정코드</th>
-						<th align="center" valign="middle">입금된계좌번호</th>
-						<th align="center" valign="middle">거래처</th>
-						<th align="center" valign="middle">금액</th>
-						<th align="center" valign="middle">수수료</th>
-						<th align="center" valign="middle">부서</th>
-						<th align="center" valign="middle">프로젝트</th>
-						<th align="center" valign="middle">비고</th>
-					</tr>
+						<th>계정코드</th>
+						<th>입금된계좌번호</th>
+						<th>거래처</th>
+						<th>금액</th>
+						<th>수수료</th>
+						<th>부서</th>
+						<th>프로젝트</th>
+						<th>비고</th>
+						</tr>
 					</thead>
 					
 				<tbody>
-					<tr align="center">
+					<tr class="inoutMoneylist">
 						<td><input type="checkbox"></td>
-						<td>
-						
+						<td>						
 							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
-						</td>
-						
-						<td class="col-sm-8"><input type="text"	size="10">
-							<button class="btn btn-default btn-sm" type="submit" style="margin-left: 10px;">
-								<span class="fa fa-search" style="width: 100%"></span>
-							</button>
-						</td>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
 						
 						<td>
-						<input type="text" name="" id="" size="20">
-							<button class="btn btn-default btn-sm" type="submit"style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button>
-						</td>
+						<input type="text">													
+						</td>	
 						
 						<td>
-						<input type="text" name="" id="" size="15">
-							<button class="btn btn-default btn-sm" type="submit" style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button>
-						</td>
-						
+						<input type="text">													
+						</td>		
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 					</tr>
-					
-					<tr align="center">
+					<tr class="inoutMoneylist">
 						<td><input type="checkbox"></td>
-						<td>
-						
+						<td>						
 							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
-						</td>
-						
-						<td class="col-sm-8"><input type="text"	size="10">
-							<button class="btn btn-default btn-sm" type="submit" style="margin-left: 10px;">
-								<span class="fa fa-search" style="width: 100%"></span>
-							</button>
-						</td>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
 						
 						<td>
-						<input type="text" name="" id="" size="20">
-							<button class="btn btn-default btn-sm" type="submit"style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button>
-						</td>
+						<input type="text">													
+						</td>	
 						
 						<td>
-						<input type="text" name="" id="" size="15">
-							<button class="btn btn-default btn-sm" type="submit" style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button>
-						</td>
-						
+						<input type="text">													
+						</td>				
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 					</tr>
-					
+					<tr class="inoutMoneylist">
+						<td><input type="checkbox"></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>				
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+					</tr>									
 					<tr style="text-align: center; font-size: 14px; font-weight: bold;">
 						<td colspan="3">금액합계</td>
 						<td colspan="2"><input type="text" name="" id="" width="100%"
-							size="65" disabled="disabled"></td>
+							size="30" disabled="disabled"></td>
 						<td colspan="2">수수료합계</td>
 						<td colspan="3"><input type="text" name="" id=""
-							disabled="disabled" size="65" width="20"></td>
+							disabled="disabled" size="30" width="20"></td>
 					</tr>
 					</tbody>
 				</table>
@@ -205,134 +206,124 @@
 <!-- 출금보고서 Start -->
 	<form class="form-horizontal">
 		<div id="deposit-contents" class="tab-content">
-			<div id="second-tabs" class="tab-pane fade" aria-labelledby="second-tab" role="tabpanel">
+			<div id="second-tabs" class="tab-pane fade CssDisplay" aria-labelledby="second-tab" role="tabpanel" style="display: none;">
 			<table class="table table-bordered table-hover new" id="saleList">
 				<thead>
-					<tr id="abc" align="center" valign="middle">
-						<th class="abcd" align="center" valign="middle"><input
-							type="checkbox" disabled="disabled"></th>
-						<th align="center" valign="middle"><input type="button"
-							class="btn btn-default btn-sm saleListAdd" value="▼"></input></th>
-						<th align="center" valign="middle" class="col-sm-12">계정코드</th>
-						<th align="center" valign="middle">출금된계좌번호</th>
-						<th align="center" valign="middle">거래처</th>
-						<th align="center" valign="middle">금액</th>
-						<th align="center" valign="middle">수수료</th>
-						<th align="center" valign="middle">부서</th>
-						<th align="center" valign="middle">프로젝트</th>
-						<th align="center" valign="middle">비고</th>
+					<tr>
+						<th class="abcd">
+							<input type="checkbox">
+						</th>
+						<th>
+							<input type="button" class="btn btn-default btn-sm saleListAdd" value="▼">
+						</th>
+						<th>계정코드</th>
+						<th>출금된계좌번호</th>
+						<th>거래처</th>
+						<th>금액</th>
+						<th>수수료</th>
+						<th>부서</th>
+						<th>프로젝트</th>
+						<th>비고</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr align="center">
+				<tbody>
+					<tr class="inoutMoneylist">
 						<td><input type="checkbox"></td>
-						<td><input type="button"
-							class="btn btn-default btn-sm saleListAdd" value="▼"></input></td>
-						<td class="col-sm-8"><input type="text" name="" id=""
-							size="10">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search" style="width: 100%"></span>
-							</button></td>
-						<td><input type="text" name="" id="" size="20">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button></td>
-						<td><input type="text" name="" id="" size="15">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<div class="input-append">
+							<input type="text">							
+						</div>
+						</td>
+						
+						<td>
+						<input type="text">
+						</td>
+						
+						<td>
+						<input type="text">													
+						</td>						
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 					</tr>
-					<tr align="center">
+					<tr class="inoutMoneylist">
 						<td><input type="checkbox"></td>
-						<td><input type="button"
-							class="btn btn-default btn-sm saleListAdd" value="▼"></input></td>
-						<td><input type="text" name="" id="" class="col-sm-6">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search" style="width: 100%"></span>
-							</button></td>
-						<td><input type="text" name="" id="" size="20">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button></td>
-						<td><input type="text" name="" id="" size="15">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>				
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 					</tr>
-					<tr align="center">
+					<tr class="inoutMoneylist">
 						<td><input type="checkbox"></td>
-						<td><input type="button"
-							class="btn btn-default btn-sm saleListAdd" value="▼"></input></td>
-						<td><input type="text" name="" id="" class="col-sm-6">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search" style="width: 100%"></span>
-							</button></td>
-						<td><input type="text" name="" id="" size="20">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button></td>
-						<td><input type="text" name="" id="" size="15">
-							<button class="btn btn-default btn-sm" type="submit"
-								style="margin-left: 10px;">
-								<span class="fa fa-search"></span>
-							</button></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>
+								
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 						<td><input type="text" name="" id=""></td>
 					</tr>
-
-
-
 					<tr style="text-align: center; font-size: 14px; font-weight: bold;">
 						<td colspan="3">금액합계</td>
 						<td colspan="2"><input type="text" name="" id="" width="100%"
-							size="65" disabled="disabled"></td>
+							size="30" disabled="disabled"></td>
 						<td colspan="2">수수료합계</td>
 						<td colspan="3"><input type="text" name="" id=""
-							disabled="disabled" size="65" width="20"></td>
-					</tr>
+							disabled="disabled" size="30" width="20"></td>
+					</tr>									
 				</tbody>
 			</table>
 			</div>
 			</div>
 		</form><!-- 출금보고서 End --> 		
 	</div>
+	<div id="footer-Group" class="footer footer-fixed pull-right" >
+		<div class="wrapper-toolbar">
+			<div class="buttongroup">
+				<button id="btn-footer-Save" class="btn btn-xs btn-default"	 type="Submit">저장</button>
+				<button id="btn-footer-Reset" class="btn btn-xs btn-default" tepe="reset">선택삭제</button>
+				<button id="btn-footer-Close" class="btn btn-xs btn-default" type="button">닫기</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 
-			<div id="footer-Group" class="footer footer-fixed"
-				style="display: block;">
-				<div class="wrapper-toolbar">
-					<div class="buttongroup" align="right">
-						<button id="btn-footer-Save" class="btn btn-xs btn-default"
-							type="Submit">저장</button>
-						<button id="btn-footer-Reset" class="btn btn-xs btn-default"
-							value="reset" type="button">선택삭제</button>
-						<button id="btn-footer-Close" class="btn btn-xs btn-default"
-							type="button">닫기</button>
-					</div>
-				</div>
-			</div>
+			
 	
 	
 	

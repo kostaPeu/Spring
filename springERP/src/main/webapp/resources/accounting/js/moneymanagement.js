@@ -1,12 +1,19 @@
-//체크박스 삭제
+//입출금보고서 탭 클릭 이벤트
 $(function() {
 	$("#first-tab").on('click', function() {
-		if () {
+		if ($('#first-tabs').css('display') == 'none') {
+			$('#second-tabs').css('display', 'none');
+			$('#first-tabs').css('display', 'block');
 			
 		}
-		
-		$('#second-tabs').css('display',"none");
-		
-		}
+			
+		$("#second-tab").on('click', function() {
+			if ($('#second-tabs').css('display') == 'none') {
+				$('#first-tabs').css('display', 'none');
+				$('#second-tabs').css('display', 'block');
+				
+			}			
+		})
 	})
 });
+
