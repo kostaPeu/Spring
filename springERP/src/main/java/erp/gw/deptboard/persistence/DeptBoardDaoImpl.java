@@ -94,6 +94,11 @@ public class DeptBoardDaoImpl implements DeptBoardDao {
 		return  session.selectList(namespace+".calSearch", map, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
+	@Override
+	public List<DeptScheduleVO> getList(String dept_id) throws Exception {
+		return session.selectList(namespace+".getList", dept_id);
+	}
+
 
 
 }

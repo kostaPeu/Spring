@@ -6,13 +6,19 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
@@ -96,6 +102,13 @@ public class DeptBoardController {
 		model.addAttribute("contents", "groupware/dept_board/dept_calendar.jsp");
 		
 		return "/main";
+	}
+	
+	@RequestMapping(value="/getCalendar")
+	@ResponseBody
+	public List<DeptScheduleVO> calendarAjax() throws Exception{
+		String dept_id=common.getDeptId();
+		return service.getList(dept_id);
 	}
 	
 	@RequestMapping(value="/dept_board_view", method = RequestMethod.GET)

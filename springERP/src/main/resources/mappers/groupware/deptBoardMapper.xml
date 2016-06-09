@@ -163,6 +163,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    	select * from employee where emp_id=#{emp_id}
    </select>
    
+   <select id="getList" resultType="DeptScheduleVO">
+   	  	select * 
+	     from dept_schedule
+	     where dept_schedule_id > 0
+	     and dept_id = #{dept_id}
+   </select>
+   
 </mapper>
 
 

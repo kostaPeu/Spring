@@ -90,4 +90,9 @@ public class DeptBoardServiceImpl implements DeptBoardService {
 		return dao.getEmployee(emp_id);
 	}
 
+	@Override
+	public List<DeptScheduleVO> getList(String dept_id) throws Exception {
+		return dao.getList(dept_id);
+	}
+
 }
