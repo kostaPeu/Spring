@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>중간프로젝트-main</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                     <img alt="배너" src="image/footer_logo.gif">
+                    </a>
+                </li>
+              	<li class="vip">
+              	<a href="#" class="glyphicon glyphicon-star"> 1년VIP과정</a>
+              	</li>
+                <li id="allstudent">
+                   <a href="whole_chair.html" class="glyphicon glyphicon-list-alt" > 전체과정</a>
+                </li>
+                <li>
+                   <a data-target="#subsidebar" data-toggle="collapse" href="javascript:;" class="firstbar" aria-expanded="true">컴활 1급</a>
+                	<ul id="subsidebar" class="collapse" style="">
+						<li><a href="#">필기</a></li>
+						<li><a href="#">실기</a></li>
+					</ul>                
+                </li>
+                <li>
+                    <a data-target="#subsidebar-2" data-toggle="collapse" href="javascript:;" class="" aria-expanded="true">정보처리기사/산업기사</a>
+					<ul id="subsidebar-2" class="collapse"  style="">
+						<li><a href="#">필기</a></li>
+						<li><a href="#">실기</a></li>
+					</ul>		
+                </li>
+                <li>
+                    <a data-target="#subsidebar-3" data-toggle="collapse" href="javascript:;" class="" aria-expanded="true">정보처리 기능사</a>	
+					<ul id="subsidebar-3" class="collapse" style="">	
+						<li><a href="#">필기</a></li>
+						<li><a href="#">실기</a></li>
+					</ul>			
+                </li>
+              	<li class="divider"><a data-target="#subsidebar-4" data-toggle="collapse" href="javascript:;" class="" aria-expanded="true">사무자동화산업기사</a>
+					<ul id="subsidebar-4" class="collapse" style="">
+						<li><a href="#">필기</a></li>
+						<li><a href="#">실기</a></li>
+					</ul>
+                </li>
+                
+                <li><a href="#" >워드프로세서</a></li>
+				<li><a href="#" >ITQ</a></li>
+				
+				<li id="info"><a class="glyphicon glyphicon-info-sign" href="index2.html">고객센터</a>		
+			</ul>				
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                     	<a href="#menu-toggle" class="btn btn-default glyphicon glyphicon-triangle-left" id="menu-toggle"></a>
+                    </div>
+                	<div class="col-lg-6 pull-right">
+                	<form class="form-inline">
+                	<div class="form-group">
+						<input class="form-control" type="text" placeholder="ID">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="password" placeholder="Password">
+					</div>
+					<label class="checkbox">
+						<input type="checkbox"/> 로그인 유지
+					</label>
+						<button class="btn btn-success" type="submit">log In</button>
+					</form>
+                	</div>                
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+	<div class="top-content-wrapper">
+		<div class="container-fluid">
+        	<div class="row-fluid">
+        		<div class="col-lg-12 top:0	left:0 bottom:0 right:0 margin:auto 0	padding:0">
+        			<ul id="navbar" class="nav nav-tabs nav-justified" role="presentation">
+        				<li class="active" role="presentation">
+        					<a class="glyphicon glyphicon-home" aria-hidden="true" href="index.html"> Home</a>		
+        				</li>
+        				<li role="presentation">
+        					<a class="glyphicon glyphicon-pencil" aria-hidden="true" href="#"> 내 강의실</a>
+        				</li>
+        				<li class="active" role="presentation">
+        					<a class="glyphicon glyphicon-book" aria-hidden="true" href="#"> 수강신청</a>
+        				</li>
+        				<li role="presentation">
+        					<a class="glyphicon glyphicon-paperclip" aria-hidden="true" href="#"> 학습자료실</a>
+        				</li>
+        				<li class="active" role="presentation">
+        					<a class="glyphicon glyphicon-education" aria-hidden="true" href="testschedule/schedule.html">시험정보</a>
+        				</li>
+        				<li class="active" role="presentation">
+        					<a class="glyphicon glyphicon-info-sign" aria-hidden="true" href="index2.html">고객센터</a>
+        				</li>        				
+					</ul>	
+        		</div>
+        	</div>
+        </div>
+	</div>               
+		<div id="main-contents-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+ 								<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+ 								<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+ 							</ol>
+			 				<div class="carousel-inner" role="listbox">
+				 				<div class="active item">
+				 					<img alt="first slide" src="image/main1.jpg" width="100%"></div>
+				 				<div class="item">	
+				 					<img alt="" src="image/main2.jpg" width="100%"></div>
+				 				<div class="item">
+				 					<img alt="" src="image/main_01.jpg" width="100%"></div>			
+							</div>
+							<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span></a>
+			  				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			  					<span class="glyphicon glyphicon-chevron-right"></span></a>						
+						</div>				
+					</div>			
+				</div>		
+			</div>
+		</div> <!-- /#main-content-wrapper -->	 
+	<div id ="Bottom-contents-wrapper">
+ 		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="well well-sm">
+   						<div id="notices-carousel" class="carousel slide-up" data-ride="carousel">
+   							<ol class="carousel-indicators">	
+   								<li data-target="#notices-carousel" data-slide-to="0" class="active"></li>	
+   								<li data-target="#notices-carousel" data-slide-to="1" class=""></li>	
+   								<li data-target="#notices-carousel" data-slide-to="2" class=""></li>	
+   								<li data-target="#notices-carousel" data-slide-to="3" class=""></li>	
+   							</ol>
+   							<div class="carousel-inner" role="listbox" id='firstText'>
+   							</div>
+  						</div>	
+   					</div>
+   				</div>   						
+   			</div>
+   		</div>
+     </div> <!-- Bottom-contents-warpper -->
+	<div id="Bottom2-contents-warpper">
+		<div class="container-fuluid">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs" role="tabpanel">
+						<ul id="myTab" class="nav nav-tabs " role="tablist">
+							<li class="active" role="presentation">
+								<a id="first-tab" aria-expanded="true" aria-controls="first" data-toggle="tab" role="tab" href="#first-tabs">컴활</a>
+							</li>
+							<li class="" role="presentation">
+								<a id="second-tab" aria-controls="second" data-toggle="tab" role="tab" href="#second-tabs" aria-expanded="false">정보처리기사</a>
+							</li>
+							<li class="" role="presentation">
+								<a id="third-tab" aria-controls="third" data-toggle="tab" role="tab" href="#third-tabs" aria-expanded="false">자동화산업기사</a>
+							</li>
+						</ul>
+					<div id="myTabContent" class="tab-content">
+						<div id="first-tabs" class="tab-pane fade active in" aria-labelledby="first-tab" role="tabpanel">
+							<div class="row" id="row-1">
+  								<div class="col-md-2" id="col-1">
+  									<img alt="강사 사진" src="image/teacherName_01.jpg" >
+  									<a id="jh">최정화 강사</a>
+  									<button id="jh1-1"  class="btn btn-xs btn-default " type="button">강사소개</button>
+  								</div>
+  								<div class="col-md-10">
+  						<div class="titleVideo" data-example-id="responsive-embed-16by9-iframe-youtube" >
+  						<div class="embed-responsive embed-responsive-16by9" >
+  							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/RWFXmdLqgcc/" >
+  							</iframe>
+  						</div>
+  						</div>
+					</div>
+						</div>
+					</div><!--first-tabs-->
+					
+					<div id="second-tabs" class="tab-pane fade" aria-labelledby="second-tab" role="tabpanel">
+							<div class="row" id="row-2">
+  								<div class="col-md-2" id="col-2">
+  									<img alt="강사 사진" src="image/teacherName_02.jpg" >
+  									<a id="jh2">나이쁨 강사</a>
+  									<button id="jh2-1"  class="btn btn-xs btn-default " type="button">강사소개</button>
+  								</div>
+  								<div class="col-md-10">
+  						<div class="titleVideo" data-example-id="responsive-embed-16by9-iframe-youtube" >
+  						<div class="embed-responsive embed-responsive-16by9" >
+  							<iframe width="640" height="360" src="https://www.youtube.com/embed/A4cCuXC2Ty0">
+  							</iframe>
+  						</div>
+  						</div>
+					</div>
+						</div>
+					</div> <!--second-tabs  -->
+					
+					<div id="third-tabs" class="tab-pane fade" aria-labelledby="third-tab" role="tabpanel">
+							<div class="row" id="row-3">
+  								<div class="col-md-2" id="col-3">
+  									<img alt="강사 사진" src="image/teacherName_03.jpg" >
+  									<a id="jh3">김상효 강사</a>
+  									<button id="jh3-1"  class="btn btn-xs btn-default " type="button">강사소개</button>
+  								</div>
+  								<div class="col-md-10">
+  						<div class="titleVideo" data-example-id="responsive-embed-16by9-iframe-youtube" >
+  						<div class="embed-responsive embed-responsive-16by9" >
+  							<iframe width="854" height="480" src="https://www.youtube.com/embed/D0F2NNFihvg"></iframe>
+  						</div>
+  						</div>
+								</div>
+							</div>
+					</div><!--third-tabs -->
+					
+				</div><!--myTabContent-->
+			</div>
+		</div>	
+		
+			<div class="col-md-4">
+  				<img alt="오른쪽" src="image/txt_check.gif" width="90%">
+  				<div class="row">
+  					<div class="col-md-12" id="exam">
+  					<img alt="시험정보" src="image/txt_check_03.gif" width="100%">  					
+  					<div class="select_box">
+  						<select id="shot" name="shot">
+  							<option value="#">자격증 선택하기</option>
+							<option value="http://www.q-net.or.kr/rcv001.do?id=rcv00103&gSite=Q&gId=">정보처리(산업)기사 실기</option>
+							<option value="http://www.q-net.or.kr/rcv001.do?id=rcv00103&gSite=Q&gId=">정보처리(산업)기사 필기</option>
+							<option value="http://license.korcham.net/index.jsp">컴퓨터활용능력 실기</option>
+							<option value="http://license.korcham.net/index.jsp">컴퓨터활용능력 필기</option>
+							<option value="http://www.q-net.or.kr/rcv001.do?id=rcv00103&gSite=Q&gId=">사무자동화산업기사 실기</option>
+							<option value="http://license.korcham.net/index.jsp">워드프로세서 실기</option>
+  						</select>
+  							
+  						</div>
+  					</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div> <!-- Bottom2 container-fuluid -->
+  </div><!--Bottom2-contents-warpper -->
+
+	<footer>
+		<div class="footer-contents-wrapper">
+			<div class="row" id="footer-row">
+				<div class="col-md-2">
+					<img alt="대통령상" src="image/btn_cert01.png"></div>
+				<div class="col-md-2">
+					<img alt="법무부" src="image/btn_cert02.png"></div>					
+				<div class="col-md-2">
+					<img alt="미래창조부" src="image/btn_cert03.png"></div>					
+				<div class="col-md-2">
+					<img alt="고용노동부" src="image/btn_cert04.png"></div>					
+				<div class="col-md-2">
+					<img alt="교육과학기술부" src="image/btn_cert05.png"></div>					
+				<div class="col-md-2">
+					<img alt="산업자원부" src="image/btn_cert06.png"></div>					
+			</div><!-- foter-row  -->
+			
+			<div class="row" id="foter-row2">
+				<div class="col-md-2">
+					<img alt="인증-1" src="image/footer_01.png"></div>
+				<div class="col-md-2">
+					<img alt="인증-2" src="image/footer_02.png"></div>
+				<div class="col-md-2">
+					<img alt="인증-3" src="image/footer_03.png"></div>
+				<div class="col-md-2">
+					<img alt="인증-4" src="image/footer_04.png"></div>
+				<div class="col-md-2">
+					<img alt="인증-5" src="image/footer_05.png"></div>		
+			</div><!-- foter-row2  -->
+			
+			<div class="row" id="foter-row3">
+				<div class="col-md-1">
+				<img alt="로고" src="image/footer_logo.gif">
+				</div>
+				<div class="col-md-11" id="abcd">
+				<ul class="foter-text">
+				<li>
+					<a href="http://www.gisafirst.com/company/com_01.html">회사소개</a>
+					<a href="http://www.gisafirst.com/member/privacy.html">개인정보취급방침</a>
+					<a href="http://www.gisafirst.com/member/stipulation.html">이용약관</a>
+					<a href="http://www.gisafirst.com/company/com_01.html">이메일추출방지정책</a>
+					<a>	상호명: 모두교육평생교육원 | 대표자: 권우석 | 소재지: 대구 남구 현충로 174(대명동) 2층 (구: 남구 대명동 1738-14번지 2층)|전화번호: 070-7012-1418</a>
+					<a>이메일:gisafirst@naver.com | 사업자등록번호: 502-92-01062 [사업자정보확인] 통신판매신고 : 제 2011-대구남구-0276호 | 정보보호책임자: 권재호
+					호스팅제공자: (주)카페24, (주)스마일서브</a>
+				</li>
+				</ul>
+				</div>
+			</div>
+			
+			
+		</div>
+	</footer>
+</div><!-- /#wrapper -->	
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js" ></script>
+    <script src="js/bootstrap.min.js"></script> 
+     <script>  
+
+    </script>
+
+</body>
+</html>
