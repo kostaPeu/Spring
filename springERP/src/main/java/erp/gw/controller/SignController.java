@@ -3,6 +3,8 @@ package erp.gw.controller;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import erp.gw.sign.service.DraftService;
 @RequestMapping("/groupware/sign")
 public class SignController {
 	
+	@Inject
 	private DraftService service;
 	
 	@RequestMapping(value="/write_draft_write", method=RequestMethod.GET)
@@ -27,13 +30,22 @@ public class SignController {
 		return "/main";
 	}
 	
-	@RequestMapping(value="/draft_format_list")
-	public String draftFormat(Model model) throws Exception{		
-		System.out.println("컨트롤러 시작쿠!!!");
+	@RequestMapping("/draft_format_list")
+	public String draftFormat(Model model) throws Exception{
+		
 		List<DraftFormatVO> list = service.listFormat();
-		System.out.println(list.toString());
 		
 		model.addAttribute("list", list);
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/sign/draft_format_list.jsp");
+		
+		return "/main";
+	}
+	
+	@RequestMapping("/draft_format_list{draft_format_id}")
+	public String draftFormatView(Model model) throws Exception{
+		
+		//model.addAttribute("list", list);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_format_list.jsp");
 		
