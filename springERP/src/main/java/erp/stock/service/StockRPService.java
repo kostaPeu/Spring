@@ -13,6 +13,6 @@ public interface StockRPService {
 
 	public List<StockCalendar> stockCalendarJson() throws Exception;
 
-	public void stockRPUpdate(StockRP stock) throws Exception;
+	public int stockRPUpdate(StockRP stock) throws Exception;
 	
 }

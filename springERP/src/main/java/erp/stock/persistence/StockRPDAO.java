@@ -12,6 +12,6 @@ public interface StockRPDAO {
 	public int inoutMax() throws Exception;
 	public void stockUpdate(StockRP stock) throws Exception;
 	public List<StockCalendar> stockCalendarJson() throws Exception;
-	public void stockRPUpdate(StockRP stock) throws Exception;
+	public int stockRPUpdate(StockRP stock) throws Exception;
 
 }

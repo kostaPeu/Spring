@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class StockJsonController {
 
 	@Inject
 	private StockRPService service;
-	
+
 	@RequestMapping("/calendar")
 	public List<StockCalendar> stockCalendar() throws Exception{
 		
@@ -28,11 +29,18 @@ public class StockJsonController {
 	@RequestMapping("/insert")
 	public int stockRPInsert(StockRP stock) throws Exception{
 		int re = 0;
-		System.out.println(stock.getProduct_id());
-		System.out.println(stock.getInout_type());
-		System.out.println(stock.getInout_amount());
 		
-		//service.stockRPInsert(stock);
+		re = service.stockRPInsert(stock);
+		
+		return re;
+	}
+	
+	@RequestMapping("/update")
+	public int stockRPupdate(StockRP stock, Model model) throws Exception{
+		int re =0;
+		
+		re = service.stockRPUpdate(stock);
+		
 		return re;
 	}
 }
