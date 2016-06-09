@@ -11,7 +11,7 @@ import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.service.PromissoryService;
 
 @Controller
-@RequestMapping("/accounting/promissory")
+@RequestMapping("/accounting/promissory/*")
 public class PromissoryController {
 
 	@Inject
@@ -21,21 +21,21 @@ public class PromissoryController {
 	public String promissoryList(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("listModel", service.promissoryList());
-		model.addAttribute("contents", "/accounting/promissory/promissory_noteAll.jsp");
+		model.addAttribute("contents", "accounting/promissory2/promissory_noteAll.jsp");
 		return "/main";
 	}
 
-	@RequestMapping(value = "/promissory_note", method = RequestMethod.GET)
+	@RequestMapping(value="promissory_note", method = RequestMethod.GET)
 	public String promissoryInsertGET(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "/accounting/promissory/promissory_note.jsp");
+		model.addAttribute("contents", "accounting/promissory2/promissory_note.jsp");
 		return "/main";
 	}
 
-	@RequestMapping(value = "/promissory_note", method = RequestMethod.POST)
+	@RequestMapping(value="promissory_note", method = RequestMethod.POST)
 	public String promissoryInsertPOST(Model model, Promissory promissory) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "/accounting/promissory/promissory_note.jsp");
+		model.addAttribute("contents", "accounting/promissory2/promissory_note.jsp");
 		service.promissoryInsert(promissory);
 		return "/main";
 	}

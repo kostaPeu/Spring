@@ -238,7 +238,10 @@
 <select id="getVacation" resultType="int" parameterType="String">
 	select vacation from indolence_info where emp_id=#{emp_id}
 </select>
-	
+
+<select id="empFull" resultType="EmployeeViewVO">
+	select * from emp_view
+</select>
 	
 </mapper>
 

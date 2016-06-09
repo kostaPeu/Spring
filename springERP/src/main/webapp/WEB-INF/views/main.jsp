@@ -15,8 +15,10 @@
 
 	Object principal = auth.getPrincipal();
 	String name = "";
+	String emp_id = "";
 	if (principal != null && principal instanceof EmployeeVO) {
 		name = ((EmployeeVO) principal).getE_name();
+		emp_id = ((EmployeeVO) principal).getEmp_id();
 	}
 %>
 
@@ -54,9 +56,19 @@
 			<a href="/main"><span>hoho</span></a>
 		</div>
 		<div class="hello pull-right">
-			<span class="delicious-spam"> 
-				<a id="a-in-spam" href="./main.jsp?left=./mypage/view/mypage.jsp">
-					<%=name%></a>님 환영합니다. 
+			<span class="delicious-spam"> <a id="a-in-spam"
+				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님	환영합니다. 
+				<form:form name="form">
+					<input type="hidden" name="emp_id" value="<%=emp_id%>">
+					<br>
+					<input type="button" name="button1" value="전 송"
+						onclick="javascript:popup(this.form);">
+					<button type="button" name="messagBtn"
+						class="btn btn-default btn-sm"
+						onclick="javascript:popup(this.form);">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+					</button>
+				</form:form> 
 				<form:form id="logoutForm" role="form">
 					<input name="leaveRe" type="checkbox" value="leave"> 퇴근
 					<button id="logoutBtn" class="btn btn-default">로그아웃</button>
@@ -71,7 +83,8 @@
 
 	<div id="Top-Menu" class="erp-global-nav">
 		<ul>
-			<li class=""><a href="/basic">기초관리</a> <li class=""><a href="/purchase">구매관리</a></li>
+			<li class=""><a href="/basic">기초관리</a>
+			<li class=""><a href="/purchase">구매관리</a></li>
 			<li class=""><a href="/sale">판매관리</a></li>
 			<li class=""><a href="/odm">주문/배송관리</a></li>
 			<li class=""><a href="/stock">재고관리</a></li>
@@ -81,7 +94,7 @@
 			<li class=""><a href="/mypage">마이페이지</a></li>
 		</ul>
 	</div>
-	
+
 	<!-- topMenuBar end -->
 	<div id="Left_Menu" class="show erp-local-nav">
 		<jsp:include page="${left }"></jsp:include>
@@ -90,7 +103,7 @@
 	<div id="contents" class="container">
 		<jsp:include page="${contents }"></jsp:include>
 	</div>
-	
+
 	<script>
 		$(function() {
 			var formObj = $("form[role='form']");
@@ -104,6 +117,16 @@
 						formObj.submit();
 					});
 		})
+		function popup(frm) {
+			var url = "/message";
+			var title = "Message";
+			var status = "toolbar=no,directories=no,scrollbars=no,resizable=no,status=no,menubar=no,width=520, height=450, top=0,left=20";
+			window.open("", title, status); 
+			frm.target = title; 
+			frm.action = url; 
+			frm.method = "get";
+			frm.submit();
+		}
 	</script>
 </body>
 </html>

@@ -29,7 +29,7 @@ public class ProjectController {
 	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String projectUpdate(ProjectsVO vo, Model model)throws Exception{
 		service.projectUpdate(vo);
-		return "/main";
+		return "redirect:/accounting/project/list";
 	}
 	
 }
