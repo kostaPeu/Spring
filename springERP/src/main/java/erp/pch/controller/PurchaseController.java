@@ -120,4 +120,10 @@ public class PurchaseController {
 		service.uploadExcel(path);
 		return "redirect:purchase_check";
 	}
+	@RequestMapping("print")
+	public String print(Model model)throws Exception{
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/print.jsp");
+		return "/main";
+	}
 }
