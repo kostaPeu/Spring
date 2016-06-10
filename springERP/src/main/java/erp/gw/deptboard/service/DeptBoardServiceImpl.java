@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.deptboard.domain.DeptBoardVO;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.deptboard.persistence.DeptBoardDao;
 import erp.hr.domain.EmployeeVO;
 
@@ -40,8 +41,18 @@ public class DeptBoardServiceImpl implements DeptBoardService {
 	}
 
 	@Override
+	public List<DeptScheduleVO> calSearchCriteria(Map<String, Object> map) throws Exception {
+		return dao.calSearch(map);
+	}
+
+	@Override
 	public int listSearchCount(String dept_id) throws Exception {
 		return dao.listSearchCount(dept_id);
+	}
+
+	@Override
+	public int calSearchCount(String dept_id) throws Exception {
+		return dao.calSearchCount(dept_id);
 	}
 /*	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
@@ -77,6 +88,11 @@ public class DeptBoardServiceImpl implements DeptBoardService {
 	@Override
 	public EmployeeVO getEmployee(String emp_id) throws Exception {
 		return dao.getEmployee(emp_id);
+	}
+
+	@Override
+	public List<DeptScheduleVO> getList(String dept_id) throws Exception {
+		return dao.getList(dept_id);
 	}
 
 }

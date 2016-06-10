@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.deptboard.domain.DeptBoardVO;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.hr.domain.EmployeeVO;
 
 @Repository
@@ -40,6 +41,11 @@ public class DeptBoardDaoImpl implements DeptBoardDao {
 	@Override
 	public int listSearchCount(String dept_id) throws Exception {
 		return session.selectOne(namespace+".listSearchCount", dept_id);
+	}
+
+	@Override
+	public int calSearchCount(String dept_id) throws Exception {
+		return session.selectOne(namespace+".calSearchCount", dept_id);
 	}
 /*	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
@@ -80,6 +86,17 @@ public class DeptBoardDaoImpl implements DeptBoardDao {
 	public List<DeptBoardVO> listSearch(Map<String, Object> map) throws Exception {
 		SearchCriteria cri = (SearchCriteria)map.get("cri");
 		return  session.selectList(namespace+".listSearch", map, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+	@Override
+	public List<DeptScheduleVO> calSearch(Map<String, Object> map) throws Exception {
+		SearchCriteria cri = (SearchCriteria)map.get("cri");
+		return  session.selectList(namespace+".calSearch", map, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+	@Override
+	public List<DeptScheduleVO> getList(String dept_id) throws Exception {
+		return session.selectList(namespace+".getList", dept_id);
 	}
 
 

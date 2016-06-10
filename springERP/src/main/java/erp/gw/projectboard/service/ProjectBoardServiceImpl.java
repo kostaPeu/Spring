@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.projectboard.domain.ProjectsVO;
 import erp.gw.projectboard.persistence.ProjectBoardDao;
 
@@ -61,6 +62,11 @@ public class ProjectBoardServiceImpl implements ProjectBoardService {
 	@Override
 	public void write(ProjectsVO project) throws Exception {
 		dao.write(project);
+	}
+
+	@Override
+	public void dsvoWrite(DeptScheduleVO dsvo) throws Exception {
+		dao.dsvoWrite(dsvo);
 	}
 
 	@Override

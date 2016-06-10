@@ -6,6 +6,7 @@ import java.util.Map;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.deptboard.domain.DeptBoardVO;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.hr.domain.EmployeeVO;
 
 public interface DeptBoardService {
@@ -13,7 +14,10 @@ public interface DeptBoardService {
 	   public List<DeptBoardVO> listCriteria(Criteria cri)throws Exception;
 	   public int listCountCriteria(Criteria cri)throws Exception;
 	   public List<DeptBoardVO> listSearchCriteria(Map<String, Object> map)throws Exception;
+	   public List<DeptScheduleVO> calSearchCriteria(Map<String, Object> map)throws Exception;
+	   public List<DeptScheduleVO> getList(String dept_id)throws Exception;
 	   public int listSearchCount(String dept_id) throws Exception;
+	   public int calSearchCount(String dept_id) throws Exception;
 /*	   public int listSearchCount(SearchCriteria cri) throws Exception;
 */	   public String enameGet(String emp_id) throws Exception;
 	   public DeptBoardVO read(int dept_board_id)throws Exception;
@@ -21,4 +25,5 @@ public interface DeptBoardService {
 	   public void updateDept(DeptBoardVO dept)throws Exception;
 	   public void deleteDept(int dept_board_id)throws Exception;
 	   public EmployeeVO getEmployee(String emp_id) throws Exception;
+	   
 }

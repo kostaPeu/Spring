@@ -144,6 +144,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     insert into projects(proj_id, proj_name, proj_content, proj_period, proj_start_date, proj_end_date, emp_id)
 	values(projB_seq.NEXTVAL, #{proj_name}, #{ proj_content}, #{ proj_period}, #{ proj_start_date}, #{proj_end_date }, #{emp_id})
    </insert>
+
+   <insert id="dsvoWrite">
+   insert into dept_schedule(dept_schedule_id, emp_id, schedule_name, start_schedule_date, end_schedule_date, schedule_content, proj_id, dept_id)
+   values(dept_schedule_seq.NEXTVAL, #{emp_id}, #{ schedule_name}, #{ start_schedule_date}, #{ end_schedule_date}, #{schedule_content }, (SELECT MAX(proj_id) FROM projects), #{dept_id})
+   </insert>
    
    <update id="updateProj">
    		update projects set proj_name=#{proj_name}, proj_content=#{proj_content} where proj_id=#{proj_id}

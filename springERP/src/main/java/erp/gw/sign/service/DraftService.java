@@ -1,5 +1,9 @@
 package erp.gw.sign.service;
 
-public interface DraftService {
+import java.util.List;
 
+import erp.gw.sign.domain.DraftFormatVO;
+
+public interface DraftService {
+	public List<DraftFormatVO> listFormat() throws Exception;
 }

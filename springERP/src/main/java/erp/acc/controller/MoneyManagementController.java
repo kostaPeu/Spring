@@ -1,13 +1,17 @@
 package erp.acc.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.MoneyManagement;
+import erp.acc.basic.domain.MoneyPlanTimeSet;
 import erp.acc.basic.service.MoneyManagementService;
 
 @Controller
@@ -26,6 +30,14 @@ public class MoneyManagementController {
 		return "/main";
 	}
 
+	//입출금 all자금계획조회
+	@RequestMapping("/allList")
+	@ResponseBody
+	public List<MoneyPlanTimeSet> allList()throws Exception{
+		return service.monseyPlanAllList();
+	}	
+
+	
 	// 거래처현금관리 등록 - JH
 	@RequestMapping(value = "/inoutCompanyMoney", method = RequestMethod.GET)
 	public String inoutCompanyMoneyGET(Model model) throws Exception {
