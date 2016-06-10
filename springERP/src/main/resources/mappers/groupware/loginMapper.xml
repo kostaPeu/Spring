@@ -6,13 +6,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="erp.login.loginMapperr">
 
    <update id="arrive" parameterType="String">
-   		update indolence_date set arrive_time=SYSDATE where emp_id=#{emp_id}
+   		update indolence_date set arrive_time=SYSDATE, day_info=sysdate where emp_id=#{emp_id}
    </update>
 
    <update id="leave" parameterType="String">
    		update indolence_date set leave_time=SYSDATE where emp_id=#{emp_id}
    </update>
-   
+
+   <update id="late" parameterType="String">
+   		update indolence_info set lateness=lateness+1 where emp_id=#{emp_id}
+   </update>
+
+   <update id="half" parameterType="String">
+   		update indolence_info set half_annual=half_annual+1 where emp_id=#{emp_id}
+   </update>
+
+   <update id="reset" parameterType="String">
+   		update indolence_date set arrive_time=null, leave_time=null, day_info=null where emp_id=#{emp_id}
+   </update>
    
 </mapper>
 
