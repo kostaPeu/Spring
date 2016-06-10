@@ -24,6 +24,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		cash_trade
 	</select>
 
+	<select id="moneyPlanAllList" resultType="MoneyPlanTimeSet">
+		SELECT * FROM funds_plan
+	</select>
 	<!-- MoneyManageMent CRUD END -->
 
 </mapper>

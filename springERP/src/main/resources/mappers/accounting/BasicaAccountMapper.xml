@@ -88,7 +88,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     ]]>
 	</select>
 
-	<select id="listSearch" resultType="ProjectsVO" parameterType="SearchCriteria">
+	<!-- <select id="listSearch" resultType="ProjectsVO" parameterType="SearchCriteria">
       <![CDATA[  
 	     SELECT * 
 	     from accounts 
@@ -141,7 +141,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      where account_number 
    ]]>
 		<include refid="search"></include>
-	</select>
+	</select> -->
 	<!-- 계좌 페이징 END -->
 
 
@@ -165,7 +165,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="cardUpdate">
 		UPDATE cards SET card_number = #{card_number},
 		card_name = #{card_name}, account_number = #{account_number},
-		type = #{type}, emp_id = #{emp_id}, use_detail = #{use_detail}, use = #{use},
+		type =
+		#{type}, emp_id = #{emp_id}, use_detail = #{use_detail}, use = #{use},
 		remarks = #{remarks}
 		WHERE card_number = #{card_number}
 	</update>
@@ -178,16 +179,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="projectList" resultType="ProjectsVO">
-	select *from projects
-	
-	</select>	
-	
-	<!-- 프로젝트 RU START-->
+		select *from projects
+
+	</select>
+
+	<!-- 프로젝트 RU START -->
 	<update id="projectUpdate">
-	UPDATE projects SET 	
-	WHERE proj_id = #{proj_id}
-	
-	
+		UPDATE projects SET sums = #{sums}, account_number = #{account_number},
+		remarks = #{remarks}
+		WHERE proj_id = #{proj_id}
 	</update>
 
 

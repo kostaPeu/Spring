@@ -39,5 +39,4 @@ public class PromissoryController {
 		service.promissoryInsert(promissory);
 		return "/main";
 	}
-
 }

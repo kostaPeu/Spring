@@ -86,8 +86,13 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	}
 	@Override
 	public void projectUpdate(ProjectsVO vo) throws Exception {
-		dao.projectUpdate(vo);
-		
+		System.out.println(vo.getProj_id());
+		System.out.println(vo.getProj_name());
+			System.out.println(vo.getSums());
+			System.out.println(vo.getAccount_number());
+			System.out.println(vo.getRemarks());	
+			dao.projectUpdate(vo);
+				
 	}
 	@Override
 	public List<ProjectsVO> projectList() throws Exception {
