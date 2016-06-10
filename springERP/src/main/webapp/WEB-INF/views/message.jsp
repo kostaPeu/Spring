@@ -30,7 +30,7 @@
 				'click',
 				function(event) {
 					self.location = "message" + '${pageMaker.makeQuery(1)}'
-							+ "&searchType=tc" + "&emp_id="+ $('#log_id').val() +"&keyword="
+							+ "&searchType=null" + "&emp_id="+ $('#log_id').val() +"&keyword="
 							+ $('#keyword_input').val();
 				});
 	});
@@ -89,8 +89,8 @@
 					<c:forEach items="${list }" var="messageViewVO">
 						<tr class="emp_info_body">
 							<td><input type="checkbox" class="upSelect check_id"
-								name="id_box" value="${messageViewVO.message_id }"></td>
-							<td>${messageViewVO.title }</td>
+								name="id_box" value="${messageViewVO.message_id }"></td>								
+							<td><a class="message_read" href="/message/readMessage${pageMaker.makeSearch(pageMaker.cri.page) }&message_id=${messageViewVO.message_id }">${messageViewVO.title }</a></td>
 							<td>${messageViewVO.send_id }</td>
 						</tr>
 					</c:forEach>
@@ -114,7 +114,7 @@
 
 					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 						<li><a
-							href="message${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+							href="message${pageMaker.makeSearch(pageMaker.endPage +1)}">&raquo;</a></li>
 					</c:if>
 
 				</ul>

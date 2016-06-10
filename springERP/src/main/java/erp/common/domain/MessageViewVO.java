@@ -13,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MessageViewVO implements Serializable{
 	@Getter @Setter
-	private String message_id;
+	private int message_id;
 	@Getter @Setter
 	private String	send_id;
 	@Getter @Setter
