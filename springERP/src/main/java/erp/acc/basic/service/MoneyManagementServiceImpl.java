@@ -34,11 +34,15 @@ public class MoneyManagementServiceImpl implements MoneyManagementService {
 	}
 
 	@Override
-	public List<MoneyPlanTimeSet> monseyPlanAllList() throws Exception {
-		return dao.moneyPlanAllList();
+	public List<MoneyPlanTimeSet> monseyPlanAllList(String type) throws Exception {
+		return dao.moneyPlanAllList(type);
 	}
 
-	
+	@Override
+	public MoneyPlanTimeSet useMoney(String funds_id) throws Exception {
+		return dao.getMoneyPlan(funds_id);
+	}
+
 	
 	
 }

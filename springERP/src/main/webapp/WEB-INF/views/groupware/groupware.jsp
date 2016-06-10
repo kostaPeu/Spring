@@ -6,7 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Custom CSS -->
 <!-- <script src="./resources/common/js/common.js"></script>
- --></head>
+ -->
+ <script src="/resources/common/js/csrf.js"></script>
+ </head>
 <body>
 		<div class="erp-local-nav-title">그룹웨어</div>
 		<div class="erp-local-nav">

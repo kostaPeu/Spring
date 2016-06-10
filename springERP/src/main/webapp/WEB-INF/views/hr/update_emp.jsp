@@ -17,7 +17,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<!--?${_csrf.parameterName}=${_csrf.token }" enctype="multipart/form-data" -->
 			<form:form class="form-horizontal" id="emp_insert"
-				action="/hr/emp/update" method="post">
+				action="/hr/emp/update?${_csrf.parameterName}=${_csrf.token }" enctype="multipart/form-data" method="post">
 				<input type='hidden' name='page' value="${cri.page}">
 				<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 				<input type='hidden' name='searchType' value="${cri.searchType}">
@@ -128,13 +128,13 @@
 					</div>
 				</div>
 
-				<!-- 				<div class="form-group">
+				 <div class="form-group">
 					<label for="pic_label" class="col-sm-2 control-label">프로필사진</label>
 					<div class="col-sm-8">
 						<input type="file" name="e_profile_pic">
 					</div>
 
-				</div> -->
+				</div>
 				<div class="form-group">
 					<div class="col-sm-3 col-sm-offset-5">
 						<button type="submit" class="btn btn-default">제출</button>
