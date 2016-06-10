@@ -61,20 +61,36 @@ public class DeptBoardDaoImpl implements DeptBoardDao {
 	public DeptBoardVO read(int dept_board_id) throws Exception {
 		return session.selectOne(namespace + ".read", dept_board_id);
 	}
+	@Override
+	public DeptScheduleVO readSch(int sch_id) throws Exception {
+		return session.selectOne(namespace + ".readSch", sch_id);
+	}
 
 	@Override
 	public void write(DeptBoardVO dept) throws Exception {
 		session.insert(namespace + ".writeDept", dept);
+	}
+	@Override
+	public void writeSch(DeptScheduleVO dept) throws Exception {
+		session.insert(namespace + ".writeDeptSch", dept);
 	}
 
 	@Override
 	public void updateDept(DeptBoardVO dept) throws Exception {
 		session.update(namespace + ".updateDept", dept);
 	}
+	@Override
+	public void updateSch(DeptScheduleVO dept) throws Exception {
+		session.update(namespace + ".updateSch", dept);
+	}
 
 	@Override
 	public void deleteDept(int dept_board_id) throws Exception {
 		session.delete(namespace + ".deleteDept", dept_board_id);
+	}
+	@Override
+	public void deleteSch(int dept_schedule_id) throws Exception {
+		session.delete(namespace + ".deleteSch", dept_schedule_id);
 	}
 
 	@Override

@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import erp.common.domain.Criteria;
 import erp.common.domain.MessageCriteria;
 import erp.common.domain.MessageVO;
+import erp.common.domain.MessageViewVO;
 import erp.common.domain.PageMakerMessage;
 import erp.common.service.MessageService;
 import erp.hr.domain.EmployeeVO;
@@ -52,6 +54,8 @@ public class CommonController {
 		model.addAttribute("contents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
+		model.addAttribute("mcnt", getMessageCount());
+		System.out.println(getMessageCount());
 	}
 
 	@RequestMapping("/")
@@ -60,10 +64,16 @@ public class CommonController {
 		model.addAttribute("contents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
+		model.addAttribute("mcnt", getMessageCount());
+		System.out.println(getMessageCount());
 		
 		return "/main";
 	}
-	
+	public int getMessageCount(){
+		String emp_id=commonService.getEmployeeId();
+		return service.getNotReadCnt(emp_id);
+	}
+
 	public void mainNotice(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		List<NoticeVO> pList = noticeService.listSearchCriteria(cri);
 		model.addAttribute("noticeList", pList);
@@ -154,6 +164,7 @@ public class CommonController {
 	@RequestMapping(value="/message", method = RequestMethod.GET)
 	public String emp_print(@ModelAttribute("cri") MessageCriteria cri, String emp_id, Model model) {
 		cri.setEmp_id(emp_id);
+		
 		model.addAttribute("list", service.getMessageList(cri));
 		
 		PageMakerMessage pageMaker = new PageMakerMessage();
@@ -191,15 +202,28 @@ public class CommonController {
 		}
 		return entity;
 	}
-	@RequestMapping("/message/sendForm")
-	public String sendForm(@RequestParam("emp_id") String emp_id, Model model){
+	@RequestMapping(value="/message/sendForm", method = RequestMethod.GET)
+	public String sendForm(@RequestParam("emp_id") String emp_id, @RequestParam("receive_id") String receive_id, Model model){
 		model.addAttribute("emp_id",emp_id);
+		model.addAttribute("receive_id", receive_id);
 		return "message_insert";
 	}	
 	
 	@RequestMapping(value="/message/send_message", method = RequestMethod.POST)
-	public String send_message(MessageVO vo)throws Exception{
+	public String send_message(MessageVO vo, RedirectAttributes rtts)throws Exception{
 		service.sendMessage(vo);
+		rtts.addAttribute("emp_id", vo.getSend_id());
 		return "redirect:/message";
+	}
+	
+	@RequestMapping(value="/message/readMessage", method = RequestMethod.GET)
+	public String getMessage(@RequestParam("message_id") int message_id, @ModelAttribute("cri") MessageCriteria cri, Model model){
+		model.addAttribute("message", service.getMessage(message_id));
+		PageMakerMessage pageMaker = new PageMakerMessage();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.messageListCount(cri));
+		pageMaker.setEmp_id(cri.getEmp_id());
+		model.addAttribute("pageMaker", pageMaker);
+		return "readMessage";
 	}
 }

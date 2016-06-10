@@ -145,18 +145,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       dept_board
       where dept_board_id = #{dept_board_id}
    </select>
+
+   <select id="readSch" resultType="DeptScheduleVO">
+      select
+	  *
+      from
+      dept_schedule
+      where dept_schedule_id = #{sch_id}
+   </select>
    
    <insert id="writeDept">
     insert into dept_board(dept_board_id, emp_id, dept_board_title, dept_board_content, dept_board_date, dept_board_hit, dept_board_file, dept_id)
 	values(dept_board_seq.NEXTVAL, #{emp_id}, #{ dept_board_title}, #{ dept_board_content}, SYSDATE, 0, 0, #{dept_id })
    </insert>
 
+   <insert id="writeDeptSch">
+    insert into dept_schedule(dept_schedule_id, emp_id, schedule_name, start_schedule_date, end_schedule_date, schedule_content, dept_id)
+	values(dept_schedule_seq.NEXTVAL, #{emp_id}, #{ schedule_name}, #{ start_schedule_date}, #{ end_schedule_date}, #{ schedule_content}, #{dept_id })
+   </insert>
+
    <update id="updateDept">
    		update dept_board set dept_board_title=#{dept_board_title}, dept_board_content=#{dept_board_content} where dept_board_id=#{dept_board_id}
+   </update>
+   <update id="updateSch">
+   		update dept_schedule set start_schedule_date=#{start_schedule_date}, end_schedule_date=#{end_schedule_date}, schedule_name=#{schedule_name}, schedule_content=#{schedule_content} where dept_schedule_id=#{dept_schedule_id}
    </update>
    
    <delete id="deleteDept">
    		delete from dept_board where dept_board_id=#{dept_board_id}
+   </delete>
+
+   <delete id="deleteSch">
+   		delete from dept_schedule where dept_schedule_id=#{dept_schedule_id}
    </delete>
    
    <select id="getEmployee" resultType="EmployeeVO" parameterType="String">

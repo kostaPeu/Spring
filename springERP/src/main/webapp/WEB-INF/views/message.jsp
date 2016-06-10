@@ -30,7 +30,7 @@
 				'click',
 				function(event) {
 					self.location = "message" + '${pageMaker.makeQuery(1)}'
-							+ "&searchType=tc" + "&emp_id="+ $('#log_id').val() +"&keyword="
+							+ "&searchType=null" + "&emp_id="+ $('#log_id').val() +"&keyword="
 							+ $('#keyword_input').val();
 				});
 	});
@@ -90,8 +90,15 @@
 						<tr class="emp_info_body">
 							<td><input type="checkbox" class="upSelect check_id"
 								name="id_box" value="${messageViewVO.message_id }"></td>
-							<td>${messageViewVO.title }</td>
-							<td>${messageViewVO.send_id }</td>
+							<c:choose>
+								<c:when test="${messageViewVO.receive_check eq 'Y' }">
+									<td><b><a class="message_read" href="/message/readMessage${pageMaker.makeSearch(pageMaker.cri.page) }&message_id=${messageViewVO.message_id }">${messageViewVO.title }</a></b></td>
+								</c:when>
+								<c:otherwise>
+									<td><a class="message_read" href="/message/readMessage${pageMaker.makeSearch(pageMaker.cri.page) }&message_id=${messageViewVO.message_id }">${messageViewVO.title }</a></td>
+								</c:otherwise>
+							</c:choose>									
+							<td>${messageViewVO.e_name }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -114,7 +121,7 @@
 
 					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 						<li><a
-							href="message${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+							href="message${pageMaker.makeSearch(pageMaker.endPage +1)}">&raquo;</a></li>
 					</c:if>
 
 				</ul>

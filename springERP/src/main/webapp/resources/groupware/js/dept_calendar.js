@@ -1,4 +1,24 @@
 $(function(){
+	
+	 $('.schBoard').on('click', function(e) {
+	      e.preventDefault();
+	      $('#contents').empty();	
+	      $('#contents').load('/groupware/dept_board/'+$(this).attr('href'));
+	   });
+
+	 $('.projBoard').on('click', function(e) {
+		 e.preventDefault();
+		 $('#contents').empty();	
+		 $('#contents').load('/groupware/project_board/'+$(this).attr('href'));
+	 });
+
+	   $('#write').click(function(e) {
+	      e.preventDefault();
+	      
+	      $('#contents').empty();
+	      $('#contents').load('/groupware/dept_board/'+$(this).attr('href'));
+	   });
+	   
 	var lists = [];
 	function listAjax() {
 		$.ajax({
@@ -11,6 +31,7 @@ $(function(){
 				$.each(data, function(index, list) {
 					var json = {};
 					
+					json.id = list.dept_schedule_id;
 					json.title = list.schedule_name;
 					json.content = list.schedule_content;
 					json.start = list.start_schedule_date;
@@ -29,89 +50,36 @@ $(function(){
 			left : 'today',
 			center : 'prev title next',
 			right : ''
-		//right: 'month,agendaWeek,agendaDay'
 		},
 		events : lists,
-		droppable : true, // this allows things to be dropped onto the calendar
-		drop : function(start) {
-
-		},
-		editable: true,
-		eventDrop : function(event, delta, revertFunc) {
-
-			var date = event.start.format('YYYY-MM-DD');
-			if (confirm("선택한 날짜로 변경하시겠습니까?")) {
-				$.ajax({
-					url : '/stock/rp/update',
-					type : 'post',
-					async : false,
-					data : {
-						inout_id : event.id,
-						inout_date : date
-					},
-					success : function(data) {
-						if (data == 0) {
-							alert('실패');
-						}
-
-						listAjax();
-
-						$('#calendar').fullCalendar('removeEvents');
-						$('#calendar').fullCalendar('addEventSource', lists);
-						$('#calendar').fullCalendar('rerenderEvents');
-					}
-				});
-			}
-		},
-		dayClick : function(date) {
-			$('#addModal').modal('show');
-			
-			$("#addBtn").on('click', function() {
-				
-				var product_id = $('#product_id').val();
-				var inout_amount = $('#inout_amount').val();
-				var type = $('#type').val();
-				var day = date.format("YYYY-MM-DD");
-				
-				$.ajax({
-					url : '/stock/rp/insert',
-					type : 'post',
-					async : false,
-					data : {
-						product_id : product_id,
-						inout_amount : inout_amount,
-						inout_type : type,
-						inout_date : day
-					},
-					success : function(data) {
-
-						if (data == 0) {
-							alert('실패');
-						}
-						$('#addModal').modal('hide');
-
-						listAjax();
-
-						$('#calendar').fullCalendar('removeEvents');
-						$('#calendar').fullCalendar('addEventSource', lists);
-						$('#calendar').fullCalendar('rerenderEvents');
-					}
-				});
-				$('#addBtn').unbind('click');
-			});
-		},
-		eventLimit : true, // allow "more" link when too many events
+		droppable : false,
+		editable: false,
+		eventLimit : true,
 		eventClick : function(calEvent, jsEvent, view) {
 			
 			$(".modal-title").text(calEvent.title);
 			$.each(lists, function(index, s) {
 				if (calEvent.id == s.id) {
+					
+					var str="";
 
-					$('#product_name').text(s.product_name);
-					$('#amount').text(s.inout_amount);
-					$('#warehouse_name').text(s.warehouse_name);
-					$('#stock_amount').text(s.stock_amount);
-					$('#e_name').text(s.e_name);
+					var keyword   = s.content;
+					var arrayList = keyword.split("<p>");
+					
+					for(var i=1 ; i < arrayList.length ; i++){
+						str +=arrayList[i];
+					}
+
+					arrayList = str.split("</p>");
+					str="";
+
+					for(var i=0 ; i < arrayList.length ; i++){
+						str+=arrayList[i];
+					}
+
+					$('#sch_content').text(str);
+					$('#sch_start_date').text(s.start);
+					$('#sch_end_date').text(s.end);
 				}
 			});
 			$('#showModal').modal('show');

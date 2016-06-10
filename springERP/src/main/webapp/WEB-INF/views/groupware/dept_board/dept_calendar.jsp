@@ -13,10 +13,9 @@
 
 <!-- full Calendar js,css경로 -->
 <link href='/resources/common/css/fullcalendar.css' rel='stylesheet' />
-<link href='/resources/common/css/fullcalendar.print.css'
-	rel='stylesheet' media='print' />
-<script src='/resources/common/js/jquery.min.js'></script>
-<script src="/resources/common/js/moment.min.js"></script>
+<link href='/resources/common/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+<!-- <script src='/resources/common/js/jquery.min.js'></script>
+ --><script src="/resources/common/js/moment.min.js"></script>
 <script src='/resources/common/js/jquery-ui.custom.min.js'></script>
 <script src="/resources/common/js/fullcalendar.js"></script>
 
@@ -46,8 +45,16 @@
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
 						<td class="col-sm-1">${list.get(i).getDept_schedule_id()}</td>
-						<td class="col-sm-3"><a class="eggFri"
-							href="all_project_view?proj_id=${list.get(i).getProj_id()}">${list.get(i).getSchedule_name() }</a></td>
+						<td class="col-sm-3">
+							<c:choose>
+								<c:when test="${list.get(i).getProj_id() == '' }">
+									<a class="schBoard" href="dept_sch_view?sch_id=${list.get(i).getDept_schedule_id()}">${list.get(i).getSchedule_name() }</a>
+								</c:when>
+								<c:otherwise>
+									<a class="projBoard" href="all_project_view?proj_id=${list.get(i).getProj_id()}">${list.get(i).getSchedule_name() }</a>
+								</c:otherwise>
+							</c:choose>
+						</td>
 						<td class="col-sm-2">${e_name_list.get(i) }</td>
 						<td class="col-sm-2"><fmt:formatDate
 								value="${list.get(i).getStart_schedule_date() }"
@@ -88,7 +95,11 @@
 		</div>
 
 	</div>
-
+	
+	<div class="row">
+		<a id="write" href="dept_sch_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+	</div>
+	
 	<form action="noticeSearchAction.gw" method="post">
 		<div class="col-xs-2">
 			<select name="type" class="form-control">
@@ -103,5 +114,41 @@
 		</div>
 		<button type="submit" class="btn btn-default">검색</button>
 	</form>
+	
+	
+<div id="showModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      
+    <div class="modal-content">
+	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="sch_content_t" class="col-sm-5 control-label">Content : </label>
+    <div class="col-sm-7">
+		<p id="sch_content"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="sch_start_date_t" class="col-sm-5 control-label">Start Date : </label>
+    <div class="col-sm-7">
+		<p id="sch_start_date"></p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="sch_end_date_t" class="col-sm-5 control-label">End Date : </label>
+    <div class="col-sm-7">
+		<p id="sch_end_date"></p>
+    </div>
+  </div>
+</form>
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>

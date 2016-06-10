@@ -130,7 +130,10 @@ ul {list-style: none;}
 	float: left;
 }
 
-
 #logoutForm{
 	display: inline;	
+}
+
+#messageForm{
+	display: inline-block;
 }

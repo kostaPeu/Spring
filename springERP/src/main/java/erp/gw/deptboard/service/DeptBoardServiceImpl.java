@@ -68,21 +68,37 @@ public class DeptBoardServiceImpl implements DeptBoardService {
 	public DeptBoardVO read(int dept_board_id) throws Exception {
 		return dao.read(dept_board_id);
 	}
+	@Override
+	public DeptScheduleVO readSch(int sch_id) throws Exception {
+		return dao.readSch(sch_id);
+	}
 
 	@Override
 	public void write(DeptBoardVO dept) throws Exception {
 		dao.write(dept);
+	}
+	@Override
+	public void writeSch(DeptScheduleVO dept) throws Exception {
+		dao.writeSch(dept);
 	}
 
 	@Override
 	public void updateDept(DeptBoardVO dept) throws Exception {
 		dao.updateDept(dept);
 	}
+	@Override
+	public void updateSch(DeptScheduleVO dept) throws Exception {
+		dao.updateSch(dept);
+	}
 
 	@Override
 	public void deleteDept(int dept_board_id) throws Exception {
 		dao.deleteDept(dept_board_id);
-		
+	}
+
+	@Override
+	public void deleteSch(int dept_schedule_id) throws Exception {
+		dao.deleteSch(dept_schedule_id);
 	}
 
 	@Override
