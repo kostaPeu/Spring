@@ -42,7 +42,13 @@ public class ShareFolderController {
 	@RequestMapping("")
 	public String sharefolderMain(HttpServletRequest request, Model model) throws Exception{
 		
-		String[] arr = request.getSession().getServletContext().getRealPath("/").split("/");
+		String[] arr = request.getSession().getServletContext().getRealPath("/").split("\\\\");
+		
+		for(int i=0; i<arr.length; i++){
+			System.out.println("간다!!!"+arr[i]);
+			
+		}
+			
 		String path ="";
 		for (int i=0; i<3; i++){
 			path += arr[i] + "/"; 
