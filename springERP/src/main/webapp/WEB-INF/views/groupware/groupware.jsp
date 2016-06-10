@@ -23,14 +23,14 @@
 				
 				<li><a data-toggle="collapse" href="/groupware/sign/all_draft_list #dept_sign">전자결재</a>
 					<ul id="dept_sign" class="collapse">
-						<li><a href="/groupware/sign/write_draft_write">기안서 작성</a></li>
+						<li><a href="/groupware/sign/select_draft_list">기안서 작성</a></li>
 						<li><a href="/groupware/sign/my_draft_list">내 결재 관리</a></li>
 						<li><a href="/groupware/sign/all_draft_list">기안서 통합 관리</a></li>
 						<li><a href="/groupware/sign/draft_format_list">공통 양식 관리</a></li>
 					</ul>
 				</li>
 				
-				<li><a href="/?left=/groupware/groupware.jsp&contents=/groupware/image_board/image_board_list.jsp">이미지게시판</a></li>
+				<li><a href="/groupware/image_board/imageboard_list">이미지게시판</a></li>
 				
 				<li><a data-toggle="collapse" href="/groupware/project_board/pb_myproject_list #dept_project">프로젝트게시판</a>
 	               <ul id="dept_project" class="collapse">
