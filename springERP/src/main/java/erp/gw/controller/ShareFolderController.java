@@ -50,11 +50,11 @@ public class ShareFolderController {
 		}
 			
 		String path ="";
-		for (int i=0; i<3; i++){
-			path += arr[i] + "/"; 
-		}
+//		for (int i=0; i<3; i++){
+//			path += arr[i] + "/"; 
+//		}
 		
-		path += "git/Spring/springERP/src/main/webapp/resources/groupware/upload";
+		path += "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\groupware\\upload";
 		uploadPath = path;
 		
 		System.out.println(uploadPath);
