@@ -25,10 +25,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="moneyPlanAllList" resultType="MoneyPlanTimeSet">
-		SELECT * FROM funds_plan
+		SELECT * FROM funds_plan where typelist = #{value}
+	</select>
+	<select id="moneyPlanOne" resultType="MoneyPlanTimeSet">
+		select * from funds_plan where funds_id = #{value}
 	</select>
 	<!-- MoneyManageMent CRUD END -->
-
+	
 </mapper>
 
 

@@ -11,6 +11,6 @@ public interface MoneyManagementService {
 	public List<MoneyManagement> moneyManageMentList() throws Exception;
 	
 	public void moneyPlanInsert(MoneyPlanTimeSet set)throws Exception;
-	public List<MoneyPlanTimeSet> monseyPlanAllList()throws Exception;
-	
+	public List<MoneyPlanTimeSet> monseyPlanAllList(String type)throws Exception;
+	public MoneyPlanTimeSet useMoney(String funds_id)throws Exception;
 }
