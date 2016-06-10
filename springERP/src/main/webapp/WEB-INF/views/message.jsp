@@ -89,9 +89,16 @@
 					<c:forEach items="${list }" var="messageViewVO">
 						<tr class="emp_info_body">
 							<td><input type="checkbox" class="upSelect check_id"
-								name="id_box" value="${messageViewVO.message_id }"></td>								
-							<td><a class="message_read" href="/message/readMessage${pageMaker.makeSearch(pageMaker.cri.page) }&message_id=${messageViewVO.message_id }">${messageViewVO.title }</a></td>
-							<td>${messageViewVO.send_id }</td>
+								name="id_box" value="${messageViewVO.message_id }"></td>
+							<c:choose>
+								<c:when test="${messageViewVO.receive_check eq 'Y' }">
+									<td><b><a class="message_read" href="/message/readMessage${pageMaker.makeSearch(pageMaker.cri.page) }&message_id=${messageViewVO.message_id }">${messageViewVO.title }</a></b></td>
+								</c:when>
+								<c:otherwise>
+									<td><a class="message_read" href="/message/readMessage${pageMaker.makeSearch(pageMaker.cri.page) }&message_id=${messageViewVO.message_id }">${messageViewVO.title }</a></td>
+								</c:otherwise>
+							</c:choose>									
+							<td>${messageViewVO.e_name }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
