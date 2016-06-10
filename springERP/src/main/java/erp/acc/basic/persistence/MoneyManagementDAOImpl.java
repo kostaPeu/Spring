@@ -30,8 +30,8 @@ public class MoneyManagementDAOImpl implements MoneyManagementDAO {
 	}
 
 	@Override
-	public List<MoneyPlanTimeSet> moneyPlanAllList() throws Exception {
-		return session.selectList(namespace + ".moneyPlanAllList");
+	public List<MoneyPlanTimeSet> moneyPlanAllList(String type) throws Exception {
+		return session.selectList(namespace + ".moneyPlanAllList",type);
 	}
 
 	@Override
@@ -39,5 +39,8 @@ public class MoneyManagementDAOImpl implements MoneyManagementDAO {
 		session.insert(namespace + ".MoneyplanInsert", set);
 
 	}
-
+	@Override
+	public MoneyPlanTimeSet getMoneyPlan(String funds_id) throws Exception {
+		return session.selectOne(namespace+".moneyPlanOne", funds_id);
+	}
 }

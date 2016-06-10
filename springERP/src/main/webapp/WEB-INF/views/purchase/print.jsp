@@ -659,7 +659,7 @@ $(function(){
 	$('.icon-md').click(function(){
 		var id = $(this).attr('id'); //<-- id값 받아옴
 		alert(id);
-		//$(location).attr('href',id+'.jsp');  <-- a.jsp 링크  밑에도 다 똑같음
+		//$(location).attr('href',id+'.jsp');  <-- a.jsp 링크  
 	})
 });
 </script>
