@@ -7,9 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
 <script src="/resources/accounting/js/moneymanagement.js" type="text/javascript"></script>
-<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
+<!-- <script src="/resources/common/js/csrf.js" type="text/javascript"></script> -->
+<script type="text/javascript">
 
+
+</script>
 <!-- CS -->
 <link href="/resources/accounting/css/moneymanagement.css" rel="stylesheet">
 
@@ -23,9 +27,7 @@
 	<div>
 		<div class="selectdate">
 			<input type="date" id="datefiker">
-			<a  data>
 			<button type="button" id="moneyplanselect" data-toggle="modal" data-target="#Modal">자금계획</button>
-			</a>
 		</div>
 	</div>
 
@@ -34,7 +36,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" class="close" data-dismiss="modal" id="MoneyPlanListView"></button>
 					<h4 class="modal-title">
 						<strong>자금계획</strong>
 					</h4>
@@ -56,7 +58,7 @@
 						</tr>
 					</thead>					
 					<tbody id="cardInfos">
-					<c:forEach var="cash" items="${allList}">
+					<%-- <c:forEach var="cash" items="${allList}">
 						<tr class="mainTable">
 							<td><input type="checkbox"></td>													
 							<td>${cash.typelist}</td>
@@ -68,7 +70,7 @@
 							<td>${cash.customer_id}</td>
 							<td>${cash.remarks}</td>							
 						</tr>
-					</c:forEach>
+					</c:forEach> --%>
 					</tbody>
 				</table>
 					<div id="ustBtnArea">

@@ -1,11 +1,14 @@
 package erp.acc.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.MoneyManagement;
 import erp.acc.basic.domain.MoneyPlanTimeSet;
@@ -29,9 +32,9 @@ public class MoneyManagementController {
 
 	//입출금 all자금계획조회
 	@RequestMapping("/allList")
-	public String allList(Model model)throws Exception{
-		model.addAttribute("allList", service.monseyPlanAllList());
-		return "/main";
+	@ResponseBody
+	public List<MoneyPlanTimeSet> allList()throws Exception{
+		return service.monseyPlanAllList();
 	}	
 
 	
