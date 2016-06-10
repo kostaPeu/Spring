@@ -91,7 +91,7 @@
 					<label for="emp_id_label" class="col-sm-2 control-label">TO</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="receive_id"
-							id='receive_id'>
+							id='receive_id' value="${receive_id }">
 					</div>
 					<div class="col-sm-5">
 						<button type="button" id="emp_Search" class="btn btn-default"

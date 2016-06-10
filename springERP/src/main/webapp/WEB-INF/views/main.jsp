@@ -5,6 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page
 	import="org.springframework.security.core.context.SecurityContextHolder"%>
 <%@ page import="org.springframework.security.core.Authentication"%>
@@ -57,19 +58,30 @@
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam"> <a id="a-in-spam"
-				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님	환영합니다. 
-				<form:form name="form">
+				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님
+				환영합니다. <form:form name="form">
 					<input type="hidden" name="emp_id" value="<%=emp_id%>">
-					<br>
 					<input type="button" name="button1" value="전 송"
 						onclick="javascript:popup(this.form);">
-					<button type="button" name="messagBtn"
-						class="btn btn-default btn-sm"
-						onclick="javascript:popup(this.form);">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-					</button>
-				</form:form> 
-				<form:form id="logoutForm" role="form">
+					<c:set var="cnt" value="${mcnt }"></c:set>
+					<c:choose>
+						<c:when test="${cnt > 0 }">
+							<button type="button" name="messagBtn"
+								class="btn btn-default btn-sm"
+								onclick="javascript:popup(this.form);">
+								!!<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+							</button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" name="messagBtn"
+								class="btn btn-default btn-sm"
+								onclick="javascript:popup(this.form);">
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+							</button>
+						</c:otherwise>
+					</c:choose>
+
+				</form:form> <form:form id="logoutForm" role="form">
 					<input name="leaveRe" type="checkbox" value="leave"> 퇴근
 					<button id="logoutBtn" class="btn btn-default">로그아웃</button>
 				</form:form>
