@@ -59,7 +59,7 @@
 		<div class="hello pull-right">
 			<span class="delicious-spam"> <a id="a-in-spam"
 				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님
-				환영합니다. <form:form name="form">
+				환영합니다. <form:form name="form" id="messageForm">
 					<input type="hidden" name="emp_id" value="<%=emp_id%>">
 					<input type="button" name="button1" value="전 송"
 						onclick="javascript:popup(this.form);">
