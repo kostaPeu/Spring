@@ -88,7 +88,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     ]]>
 	</select>
 
-	<select id="listSearch" resultType="ProjectsVO" parameterType="SearchCriteria">
+	<!-- <select id="listSearch" resultType="ProjectsVO" parameterType="SearchCriteria">
       <![CDATA[  
 	     SELECT * 
 	     from accounts 
@@ -141,7 +141,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      where account_number 
    ]]>
 		<include refid="search"></include>
-	</select>
+	</select> -->
 	<!-- 계좌 페이징 END -->
 
 

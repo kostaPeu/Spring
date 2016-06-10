@@ -30,7 +30,7 @@
 					</ul>
 				</li>
 				
-				<li><a href="/?left=/groupware/groupware.jsp&contents=/groupware/image_board/image_board_list.jsp">이미지게시판</a></li>
+				<li><a href="/groupware/image_board/imageboard_list">이미지게시판</a></li>
 				
 				<li><a data-toggle="collapse" href="/groupware/project_board/pb_myproject_list #dept_project">프로젝트게시판</a>
 	               <ul id="dept_project" class="collapse">
