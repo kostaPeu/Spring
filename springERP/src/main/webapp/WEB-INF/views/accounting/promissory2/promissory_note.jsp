@@ -13,11 +13,35 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <!--jQuery UI 라이브러리 js파일   -->
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<!-- JS파일 -->
 <script src="/resources/accounting/js/promissory.js" type="text/javascript"></script>
+
+<!-- CSS파일 -->
+<link href="/resources/accounting/css/account.css" rel="stylesheet">
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
+<script type="text/javascript">
+$(function() {
+		var reddate = '';
+		var exdate = $('input[name=ex_date]');
+	$('#datepicker').change(function() {
+		reddate = $('input[name=red_date]').val();
+		alert(reddate)
+		if (reddate == '') {
+			alert(reddate);
+		}else {
+			exdate = a;
+			alert(exdate);
+			
+			
+		}
+	})
+});
+</script>
 </head>
 <body>
 
@@ -34,10 +58,15 @@
 						<col style="width: 600px;">
 					</colgroup>
 					<tbody>
-						<tr id="row-CardTYPE">
+						<tr id="row-date">
 							<th>전표일자</th>
-							<td><input type="date" id="promissory_date" name="red_date"></td>
-						</tr>
+							<td><div class="col-sm-6 input-group">
+								<input type="text" name="red_date" id="datepicker" class="form-control">
+								<div class="input-group-addon">
+									<span class="glyphicon glyphicon-th" id="icon"></span>
+								</div>
+							</div></td>
+						</tr>												
 						<tr id="row-CardTYPE">
 							<th>받는어음 / 지급어음 <span class="card-Info" data-html="true"
 								data-toggle="popover" data-trigger="focus hover"
@@ -96,9 +125,11 @@
 						</tr> -->
 						<tr id="row-CardTYPE">
 							<th>만기일자</th>
-							<td><input type="date" name="ex_date" id="final promissory_date">
-							<button id="promissorySelect" value="3개월" onclick="sumDate()"></button>
-							</td>
+							<td>
+							<div class="col-sm-3 input-group">
+								<input type="text" name="ex_date" id="datepicker2"disabled="disabled">												
+							</div>							
+						</td>
 						</tr>
 						<tr id="row-money">
 							<th>금액</th>
@@ -107,11 +138,7 @@
 						<tr id="row-Employee">
 							<th>비고</th>
 							<td><input class="form-control" type="text" name="remarks"></td>
-						</tr>
-						<tr id="row-date">
-							<th>날짜계산</th>
-							<td><input type="text" name="remarks" id="datepicker"></td>
-						</tr>
+						</tr>						
 					</tbody>
 				</table>
 			</div>

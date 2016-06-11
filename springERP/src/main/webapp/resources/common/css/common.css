@@ -134,3 +134,7 @@ ul {list-style: none;}
 #logoutForm{
 	display: inline;	
 }
+
+#logoutBtn{
+	display: inline-block;
+}

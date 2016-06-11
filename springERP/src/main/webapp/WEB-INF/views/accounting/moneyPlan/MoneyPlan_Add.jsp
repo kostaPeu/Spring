@@ -6,6 +6,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<!--jQuery UI CSS파일   -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!--jQuery 기본 js파일   -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--jQuery UI 라이브러리 js파일   -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
@@ -85,7 +93,7 @@
 							<th>최초 발생날짜</th>
 							<td>
 								<div class="col-sm-6 input-group">
-									<input type="date" class="form-control" name="start_date">
+									<input type="text" id="datepicker2" class="form-control" name="start_date">
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>
@@ -96,7 +104,7 @@
 						<tr>
 							<th>발생기간</th>
 							<td><div class="col-sm-6 input-group date">
-									<input type="date" class="form-control" name="periods">
+									<input type="text" id="datepicker" class="form-control" name="periods">
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>
