@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.common.domain.MessageCriteria;
 import erp.common.domain.MessageVO;
+import erp.common.domain.MessageViewVO;
 import erp.hr.domain.EmployeeVO;
 import erp.hr.domain.EmployeeViewVO;
 
@@ -21,7 +22,7 @@ public class CommonDAOImpl implements CommonDAO {
 	private static String namespace = "erp.common.mapper.CommonMapper";
 
 	@Override
-	public List<MessageVO> getMessageList(MessageCriteria cri) {
+	public List<MessageViewVO> getMessageList(MessageCriteria cri) {
 		return session.selectList(namespace + ".getMessageList", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
@@ -42,11 +43,21 @@ public class CommonDAOImpl implements CommonDAO {
 
 	@Override
 	public void sendMessage(MessageVO vo) {
-		System.out.println(vo.getTitle());
-		System.out.println(vo.getContents());
-		System.out.println("vv"+vo.getSend_id());
-		System.out.println(vo.getReceive_id());
-		System.out.println(vo.getReceive_check());
 		session.insert(namespace + ".sendMessage", vo);
+	}
+
+	@Override
+	public MessageViewVO getMessage(int message_id) {
+		return session.selectOne(namespace + ".getMessage", message_id);
+	}
+
+	@Override
+	public int NotReadCnt(String emp_id) {
+		return session.selectOne(namespace + ".NotReadCnt", emp_id);
+	}
+
+	@Override
+	public void updateState(int message_id) {
+		session.update(namespace + ".updateState", message_id);
 	}
 }

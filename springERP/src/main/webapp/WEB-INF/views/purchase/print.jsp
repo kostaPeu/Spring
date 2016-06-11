@@ -656,30 +656,10 @@ textarea#message {
 </style>
 <script type="text/javascript">
 $(function(){
-	var loc = $(location);
-	$('#a').click(function(){
-		alert('a');
-		//loc.attr('href','a.jsp');  <-- a.jsp 링크  밑에도 다 똑같음
-	})
-	$('#b').click(function(){
-		alert('b');
-		//loc.attr('href','b.jsp');
-	})
-	$('#c').click(function(){
-		alert('c');
-		//loc.attr('href','c.jsp');
-	})
-	$('#d').click(function(){
-		alert('d');
-		//loc.attr('href','d.jsp');
-	})
-	$('#e').click(function(){
-		alert('e');
-		//loc.attr('href','e.jsp');
-	})
-	$('#f').click(function(){
-		alert('f');
-		//loc.attr('href','f.jsp');
+	$('.icon-md').click(function(){
+		var id = $(this).attr('id'); //<-- id값 받아옴
+		alert(id);
+		//$(location).attr('href',id+'.jsp');  <-- a.jsp 링크  
 	})
 });
 </script>
