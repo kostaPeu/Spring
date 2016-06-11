@@ -8,14 +8,18 @@
 <html>
 <head>
 <!--jQuery UI CSS파일   -->
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
+	type="text/css" />
 <!--jQuery 기본 js파일   -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <!--jQuery UI 라이브러리 js파일   -->
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 <!-- JS파일 -->
-<script src="/resources/accounting/js/promissory.js" type="text/javascript"></script>
+<script src="/resources/accounting/js/promissory.js"
+	type="text/javascript"></script>
 
 <!-- CSS파일 -->
 <link href="/resources/accounting/css/account.css" rel="stylesheet">
@@ -25,22 +29,7 @@
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <script type="text/javascript">
-$(function() {
-		var reddate = '';
-		var exdate = $('input[name=ex_date]');
-	$('#datepicker').change(function() {
-		reddate = $('input[name=red_date]').val();
-		alert(reddate)
-		if (reddate == '') {
-			alert(reddate);
-		}else {
-			exdate = a;
-			alert(exdate);
-			
-			
-		}
-	})
-});
+	
 </script>
 </head>
 <body>
@@ -49,10 +38,12 @@ $(function() {
 
 	<!-- 상단 메뉴이름 -->
 	<div class="mainContents">
-		<form:form action="/accounting/promissory/promissory_note" method="post">
+		<form:form action="/accounting/promissory/promissory_note"
+			method="post">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
-				<table class="table table-bordered table-hover table-left table-striped">
+				<table
+					class="table table-bordered table-hover table-left table-striped">
 					<colgroup>
 						<col style="width: 149px;">
 						<col style="width: 600px;">
@@ -61,12 +52,12 @@ $(function() {
 						<tr id="row-date">
 							<th>전표일자</th>
 							<td><div class="col-sm-6 input-group">
-								<input type="text" name="red_date" id="datepicker" class="form-control">
-								<div class="input-group-addon">
-									<span class="glyphicon glyphicon-th" id="icon"></span>
-								</div>
-							</div></td>
-						</tr>												
+									<input type="text" name="red_date" id="datepicker"	class="form-control">
+									<div class="input-group-addon">
+										<span class="glyphicon glyphicon-th" id="icon"></span>
+									</div>
+								</div></td>
+						</tr>
 						<tr id="row-CardTYPE">
 							<th>받는어음 / 지급어음 <span class="card-Info" data-html="true"
 								data-toggle="popover" data-trigger="focus hover"
@@ -74,8 +65,7 @@ $(function() {
 							</th>
 							<td>
 								<div class="radio-inline">
-									<label> <input id="optionsRadios1" type="radio"
-										checked="" value="option1" name="typelist">받는어음
+									<label> <input id="optionsRadios1" type="radio"	checked="" value="option1" name="typelist">받는어음
 									</label>
 								</div>
 								<div class="radio-inline">
@@ -126,10 +116,10 @@ $(function() {
 						<tr id="row-CardTYPE">
 							<th>만기일자</th>
 							<td>
-							<div class="col-sm-3 input-group">
-								<input type="text" name="ex_date" id="datepicker2"disabled="disabled">												
-							</div>							
-						</td>
+								<div class="col-sm-3 input-group">
+									<input type="text" name="ex_date" id="datepicker2"	disabled="disabled">
+								</div>
+							</td>
 						</tr>
 						<tr id="row-money">
 							<th>금액</th>
@@ -138,7 +128,7 @@ $(function() {
 						<tr id="row-Employee">
 							<th>비고</th>
 							<td><input class="form-control" type="text" name="remarks"></td>
-						</tr>						
+						</tr>
 					</tbody>
 				</table>
 			</div>

@@ -23,7 +23,7 @@ $(function() {
 			});
 });
 
-$(function() {
+/*$(function() {
 	$("#datepicker2").datepicker(
 			{
 				dateFormat : 'yy-mm-dd',
@@ -41,9 +41,21 @@ $(function() {
 				changeYear : true,
 				yearSuffix : '년'
 			});
+});*/
+
+//만기일자 계산
+$(function() {
+	var reddate = '';
+	$('#datepicker').change(function() {
+		reddate = new Date($('input[name=red_date]').val());
+		if (reddate != null) {
+			reddate.setDate(reddate.getDate() + 90);
+			var year = reddate.getFullYear();
+			var month = reddate.getMonth()+1;
+			var day = reddate.getDate();			
+			if (("" + month).length == 1) { month = "0" + month; }
+	        if (("" + day).length   == 1) { day   = "0" + day;   }	        
+			var exdate = new Date($('input[name=ex_date]').val(""+year+"-"+month+"-"+day))				
+		} 
+	})
 });
-
-
-var dt = new Date();
-
-var sysdate = dt.getDate();
