@@ -113,7 +113,6 @@ public class PurchaseController {
 		
 		Map<String, MultipartFile> files = request.getFileMap();
 		CommonsMultipartFile cmf = (CommonsMultipartFile) files.get("excelFile");
-		
 		String path ="c:/upload/"+cmf.getOriginalFilename();
 		File file = new File(path);
 		cmf.transferTo(file);

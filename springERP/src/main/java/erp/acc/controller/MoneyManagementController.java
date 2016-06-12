@@ -23,7 +23,7 @@ public class MoneyManagementController {
 	@Inject
 	private MoneyManagementService service;
 
-	// 현금관리 리스트
+	// �쁽湲덇�由� 由ъ뒪�듃
 	@RequestMapping("/list")
 	public String moneyPlanList(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
@@ -32,13 +32,13 @@ public class MoneyManagementController {
 		return "/main";
 	}
 
-	//입금 all자금계획조회
+	//�엯湲� all�옄湲덇퀎�쉷議고쉶
 	@RequestMapping("/allListIn")
 	@ResponseBody
 	public List<MoneyPlanTimeSet> allListIn()throws Exception{
 		return service.monseyPlanAllList("입금");
 	}
-	//출금 all자금계획조회
+	//異쒓툑 all�옄湲덇퀎�쉷議고쉶
 	@RequestMapping("/allListOut")
 	@ResponseBody
 	public List<MoneyPlanTimeSet> allListOut()throws Exception{
@@ -46,7 +46,7 @@ public class MoneyManagementController {
 	}	
 
 	
-	// 거래처현금관리 등록 - JH
+	// 嫄곕옒泥섑쁽湲덇�由� �벑濡� - JH
 	@RequestMapping(value = "/inoutCompanyMoney", method = RequestMethod.GET)
 	public String inoutCompanyMoneyGET(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
@@ -54,18 +54,18 @@ public class MoneyManagementController {
 		return "/main";
 	}
 
-	// 거래처현금관리 등록 -JH
+	// 嫄곕옒泥섑쁽湲덇�由� �벑濡� -JH
 	@RequestMapping(value = "/inoutCompanyMoney", method = RequestMethod.POST)
 	public String inoutCompanyMoneyPOST(MoneyManagement mg, Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "accounting/moneymanagement/inoutCompanyMoney.jsp");
 		service.moneyManageMentInsert(mg);
-		System.out.println("등록되었습니다.");
+		System.out.println("�벑濡앸릺�뿀�뒿�땲�떎.");
 
 		return "/main";
 	}
 
-	// 거래처현금관리 등록 - JH
+	// 嫄곕옒泥섑쁽湲덇�由� �벑濡� - JH
 	@RequestMapping(value = "/inoutMoney", method = RequestMethod.GET)
 	public String inoutMoneyGET(Model model) throws Exception {
 		model.addAttribute("left", "accounting/accounting.jsp");

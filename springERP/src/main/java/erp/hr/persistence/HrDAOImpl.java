@@ -246,4 +246,11 @@ public class HrDAOImpl implements HrDAO {
 	public List<EmployeeViewVO> empFull() {
 		return session.selectList(namespace+".empFull");
 	}
+
+	@Override
+	public void sendIndolMessage(Map<String, String> paramMap) {
+		session.insert(namespace+".sendIndolMessage", paramMap);
+	}
+
+
 }
