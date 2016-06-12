@@ -12,28 +12,33 @@
 </head>
 <body>
 
-	<h2 class="page_title">공통 양식 관리</h2>
+	<h2 class="page_title">기안서 목록</h2>
 	
 	<table class="table table-hover" class="boardList">
 		<thead>
 			<tr class="row">
-				<th class="col-sm-3">양식번호</th>
-				<th class="col-sm-6">양식이름</th>
-				<th class="col-sm-3">종류</th>
+				<th class="col-sm-2">기안서 번호</th>
+				<th class="col-sm-4">제목</th>
+				<th class="col-sm-2">종류</th>
+				<th class="col-sm-2">작성자</th>
+				<th class="col-sm-2">작성 일자</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:if test="${list.size()-1 >=0}">
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
-						<th class="col-sm-3">${list.get(i).draft_format_id }</th>
-						<th class="col-sm-6"><a href="format_write${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></th>
-						<th class="col-sm-3">${list.get(i).draft_format_type }</th>
+						<th class="col-sm-2">${list.get(i).draft_id }</th>
+						<th class="col-sm-4"><a href="draft_view${list.get(i).draft_id }">${list.get(i).draft_title }</a></th>
+						<th class="col-sm-2">${list.get(i).draft_type }</th>
+						<th class="col-sm-2">${list.get(i).emp_id }</th>
+						<th class="col-sm-2">${list.get(i).draft_date }</th>
 					</tr>
 				</c:forEach>
 			</c:if>
 		</tbody>
 	</table>
+	
 	
 	<div class="box-footer">
 		<div class="text-center">
@@ -58,23 +63,9 @@
 	</div>
 
 	<div class="row">
-		<a id="write" href="draft_format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
+		<a id="write" href="format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
 	</div>
 
-	<!-- <form action="noticeSearchAction.gw" method="post">
-		<div class="col-xs-2">
-			<select name="type" class="form-control">
-				<option value="writer">글쓴이</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-			</select>
-		</div>
-		
-		<div class="col-xs-2">
-			<input class="form-control" id="ex1" type="text" name="word">
-		</div>
-		<button type="submit" class="btn btn-default">검색</button>
-	</form> -->
 	
 	<script type="text/javascript">
 	
