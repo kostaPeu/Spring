@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
@@ -92,6 +93,13 @@ public class ProjectBoardController {
 		model.addAttribute("contents", "groupware/project_board/all_project_list.jsp");
 		
 		return "/main";
+	}
+	
+	/*	메인 달력 전체 프로젝트 들고가기*/
+	@RequestMapping(value="/getAllPro")
+	@ResponseBody
+	public List<ProjectsVO> getAllPro() throws Exception{		
+		return service.getAllPro();
 	}
 	
 	@RequestMapping(value="/pb_myproject_view", method = RequestMethod.GET)

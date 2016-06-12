@@ -84,4 +84,9 @@ public class ProjectBoardServiceImpl implements ProjectBoardService {
 	public List<ProjectsVO> allSearchCriteria(SearchCriteria cri) throws Exception {
 		return dao.allSearchCriteria(cri);
 	}
+
+	@Override
+	public List<ProjectsVO> getAllPro() throws Exception {
+		return dao.getAllPro();
+	}
 }
