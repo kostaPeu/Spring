@@ -14,6 +14,7 @@ public interface ProjectBoardService {
 	   public int listCountCriteria(Criteria cri)throws Exception;
 	   public List<ProjectsVO> listSearchCriteria(Map<String, Object> map)throws Exception;
 	   public List<ProjectsVO> allSearchCriteria(SearchCriteria cri)throws Exception;
+	   public List<ProjectsVO> getAllPro()throws Exception;
 	   public int listSearchCount(String emp_id) throws Exception;
 	   public int allSearchCount(SearchCriteria cri) throws Exception;
 	   public String enameGet(String emp_id) throws Exception;

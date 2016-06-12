@@ -88,4 +88,9 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 		session.delete(namespace + ".deleteProj", proj_id);
 	}
 
+	@Override
+	public List<ProjectsVO> getAllPro() throws Exception {
+		return session.selectList(namespace + ".getAllPro");
+	}
+
 }

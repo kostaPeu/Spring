@@ -16,10 +16,12 @@ public interface ProjectBoardDao {
 	  public int allSearchCount(SearchCriteria cri)throws Exception;
 	  public List<ProjectsVO> listSearch(Map<String, Object> map)throws Exception;
 	  public List<ProjectsVO> allSearchCriteria(SearchCriteria cri)throws Exception;
+	  public List<ProjectsVO> getAllPro()throws Exception;
 	  public String enameGet(String emp_id) throws Exception;
 	  public ProjectsVO read(int proj_id) throws Exception;
 	  public void write(ProjectsVO project)throws Exception;
 	  public void dsvoWrite(DeptScheduleVO dsvo)throws Exception;
 	  public void updateProj(ProjectsVO project)throws Exception;
 	  public void deleteProj(int proj_id)throws Exception;
+
 }

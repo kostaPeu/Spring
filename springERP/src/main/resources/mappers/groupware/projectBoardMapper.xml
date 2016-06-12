@@ -158,6 +158,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		delete from projects where proj_id=#{proj_id}
    </delete>
    
+   <select id="getAllPro" resultType="ProjectsVO">
+   		select * from projects
+   </select>
+   
 </mapper>
 
 
