@@ -1,5 +1,7 @@
 package erp.gw.imageboard.service;
 
-public interface ImageBoardService {
+import erp.gw.imageboard.domain.ImageBoardVO;
 
+public interface ImageBoardService {
+	public void insertImage(ImageBoardVO vo)throws Exception;
 }
