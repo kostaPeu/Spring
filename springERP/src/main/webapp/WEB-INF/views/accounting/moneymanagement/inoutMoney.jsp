@@ -139,7 +139,7 @@ $(function() {
 					id="Card">
 					<thead id="cardList">
 						<tr class="mainTable">							
-							<th><input type="checkbox"></th>
+							<th><input type="checkbox" id="checkAll"></th>
 							<th>구분</th>
 							<th>발생일자</th>						
 							<th>발생기간</th>

@@ -22,7 +22,7 @@ $(function() {
 				var content = "";
 				$.each(data, function(index, list) {
 					content += '<tr>';
-					content += '<td><input type="checkbox"></td>';
+					content += '<td><input type="checkbox" name="number_box"></td>';
 					content += '<td>' + list.typelist + '</td>';
 					content += '<td>' + list.start_date + '</td>';
 					content += '<td>' + list.periods + '</td>';
@@ -38,6 +38,22 @@ $(function() {
 		})
 	});
 });
+
+//체크박스 선택,해제
+$(function() {
+	$('#checkAll').click(function() {
+		if (this.checked) {
+			$('input[name=number_box]').each(function() {
+				$(this).prop('checked', true);
+			});
+		} else {
+			$('input[name=number_box').each(function() {
+				$(this).prop('checked', false);
+			});
+		}
+	});
+
+})
 
 
 
