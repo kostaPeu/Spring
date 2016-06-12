@@ -3,14 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <!--jQuery UI CSS파일   -->
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
-	type="text/css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <!--jQuery 기본 js파일   -->
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -18,19 +15,13 @@
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 <!-- JS파일 -->
-<script src="/resources/accounting/js/promissory.js"
-	type="text/javascript"></script>
+<script src="/resources/accounting/js/promissory.js" type="text/javascript"></script>
 
 <!-- CSS파일 -->
 <link href="/resources/accounting/css/account.css" rel="stylesheet">
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
-<script type="text/javascript">
-	
-</script>
 </head>
 <body>
 
@@ -81,7 +72,7 @@
 							<td><input id="warehouse_id" type="text">
 								<button id="warehouse_id_search" class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="dept_id" value="">
+								</button> <input type="text" name="dept_id">
 						</tr>
 						<tr id="row-project">
 							<th>프로젝트번호</th>
@@ -89,7 +80,7 @@
 								<button id="project_number_search"
 									class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="proj_id" value="">
+								</button> <input type="text" name="proj_id">
 						</tr>
 						<tr id="row-accountNum">
 							<th>계좌번호</th>
@@ -97,14 +88,14 @@
 								<button id="account_number_search"
 									class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="account_number" value="">
+								</button> <input type="text" name="account_number">
 						</tr>
 						<tr id="row-customer">
 							<th>거래처</th>
 							<td><input id="warehouse_id" type="text">
 								<button id="warehouse_id_search" class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="Customer_id" value="">
+								</button> <input type="text" name="customer_id">
 						</tr>
 						<!-- <tr id="row-noteNum">
 							<th>어음번호</th>
@@ -118,6 +109,9 @@
 							<td>
 								<div class="col-sm-3 input-group">
 									<input type="text" name="ex_date" id="datepicker2"	disabled="disabled">
+									<input class="btn btn-xs btn-default" type="button" value="30일">
+									<input class="btn btn-xs btn-default" type="button" value="60일">
+									<input class="btn btn-xs btn-default" type="button" value="90일">									
 								</div>
 							</td>
 						</tr>

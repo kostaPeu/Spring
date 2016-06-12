@@ -4,11 +4,10 @@ import java.util.List;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
-
-
 
 public interface BasicAccountDAO {
 
@@ -48,6 +47,10 @@ public interface BasicAccountDAO {
 	public void projectUpdate(ProjectsVO vo)throws Exception;
 	
 	public List<ProjectsVO> projectList()throws Exception;
+	
+	//diagnosis
+	public void diagnosisInsert(Diagnosiss diagnosis)throws Exception;
+	public List<Diagnosiss>diagnosisList() throws Exception;
 	
 
 }

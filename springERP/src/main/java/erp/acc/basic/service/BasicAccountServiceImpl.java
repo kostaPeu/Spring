@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.persistence.BasicAccountDAO;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
@@ -97,6 +98,15 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	@Override
 	public List<ProjectsVO> projectList() throws Exception {
 		return dao.projectList();
+	}
+	@Override
+	public void diagnosisInsert(Diagnosiss diagnosis) throws Exception {
+		dao.diagnosisInsert(diagnosis);
+		
+	}
+	@Override
+	public List<Diagnosiss> diagnosisList() throws Exception {
+		return dao.diagnosisList();
 	}
 	
 	

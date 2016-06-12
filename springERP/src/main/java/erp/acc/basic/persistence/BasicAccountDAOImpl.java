@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
@@ -112,6 +113,16 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	@Override
 	public List<ProjectsVO> projectList() throws Exception {
 		return session.selectList(namespace+".projectList");
+	}
+
+	@Override
+	public void diagnosisInsert(Diagnosiss diagnosis) throws Exception {
+		session.insert(namespace+ ".diagnosisInsert", diagnosis);
+	}
+
+	@Override
+	public List<Diagnosiss> diagnosisList() throws Exception {
+		return session.selectList(namespace+".diagnosisList");
 	}
 
 }

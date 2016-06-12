@@ -4,10 +4,10 @@ import java.util.List;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
-
 
 public interface BasicAccountService {
 
@@ -21,8 +21,8 @@ public interface BasicAccountService {
 	public List<Accounts> accountList() throws Exception;
 
 	// 페이징
-	public List<Accounts> listAll()throws Exception;
-	
+	public List<Accounts> listAll() throws Exception;
+
 	public List<Accounts> listCriteria(Criteria cri) throws Exception;
 
 	public int listCountCriteria(Criteria cri) throws Exception;
@@ -30,8 +30,8 @@ public interface BasicAccountService {
 	public List<Accounts> listSearchCriteria(SearchCriteria cri) throws Exception;
 
 	public int listSearchCount(SearchCriteria cri) throws Exception;
-	
-	//신용카드
+
+	// 신용카드
 	public void cardInsert(Card card) throws Exception;
 
 	public void cardUpdate(Card card) throws Exception;
@@ -40,14 +40,14 @@ public interface BasicAccountService {
 
 	public List<Card> cardList() throws Exception;
 
-	
-	//프로젝트
-	
-	public void projectUpdate(ProjectsVO vo)throws Exception;
-	
-	public List<ProjectsVO> projectList()throws Exception;
-	
+	// 프로젝트
 
+	public void projectUpdate(ProjectsVO vo) throws Exception;
+
+	public List<ProjectsVO> projectList() throws Exception;
+
+	// diagnosis
+	public void diagnosisInsert(Diagnosiss diagnosis) throws Exception;
+
+	public List<Diagnosiss> diagnosisList() throws Exception;
 }
-
-
