@@ -12,22 +12,33 @@
 </head>
 <body>
 
-	<h2 class="page_title">부서 게시판</h2>
+	<h2 class="page_title">공통 양식 관리</h2>
 	
-	<form:form id="writeForm" role="form" method="post">
+	<form:form id="writeForm" action="draft_format_write" role="form" method="post">
 	
 		<div class="write_header content-group">
 			<label class="control-label col-sm-1" for="title">제목</label>
 			<div class="col-sm-11">
-				<input type="text" class="form-control" name="dept_board_title"
-					placeholder="제목 입력">
+				<input type="text" class="form-control" name="draft_format_title"
+					placeholder="제목 입력"  value="${draftFormat.draft_format_title }">
 			</div>
 		</div>
-
+		
+		<div class="content-group col-sm-12">
+			<label class="control-label col-sm-1" for="draft_format_type">종류</label>
+			<div class="col-sm-3">
+				<select class="form-control" name="draft_format_type">
+					<option value="공통" selected>공통</option>
+					<option value="인사">인사</option>
+					<option value="회계">회계</option>
+				</select>
+			</div>
+		</div>
+		
 		<div id="write_content content-group">
 			<label class="control-label col-sm-1" for="content">내용</label>
 			<div class="col-sm-11">
-				<textarea class="ckeditor" cols="133" name="dept_board_content" rows="15"></textarea>
+				<textarea class="ckeditor" cols="133" name="draft_format_content" rows="15">${draftFormat.draft_format_content }</textarea>
 			</div>
 		</div>
 			

@@ -163,7 +163,7 @@
 		e_address=#{e_address}, e_email=#{e_email},
 		phone_number=#{phone_number}, e_hiredate=#{e_hiredate},
 		dept_id=#{dept_id}, position_id=#{position_id}, job_id=#{job_id},
-		duty_id=#{duty_id}, e_pwd=#{e_pwd} where emp_id=#{emp_id}
+		duty_id=#{duty_id}, e_pwd=#{e_pwd}, e_profile_pic=#{e_profile_pic} where emp_id=#{emp_id}
 	</update>
 	
 	<select id="getEmp" parameterType="String" resultType="EmployeeVO">
@@ -242,6 +242,12 @@
 <select id="empFull" resultType="EmployeeViewVO">
 	select * from emp_view
 </select>
+
+<insert id="sendIndolMessage">
+	insert into message(message_id, send_id, receive_id, title, contents, receive_check)
+			values(message_seq.NEXTVAL, #{send_id}, 
+			#{receive_id}, '인사부입니다.', '요청이승인되었습니다.', 'N')
+</insert>
 	
 </mapper>
 

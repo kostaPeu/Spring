@@ -25,7 +25,7 @@
 				
 				<li><a data-toggle="collapse" href="/groupware/sign/all_draft_list #dept_sign">전자결재</a>
 					<ul id="dept_sign" class="collapse">
-						<li><a href="/groupware/sign/write_draft_write">기안서 작성</a></li>
+						<li><a href="/groupware/sign/format_select_list">기안서 작성</a></li>
 						<li><a href="/groupware/sign/my_draft_list">내 결재 관리</a></li>
 						<li><a href="/groupware/sign/all_draft_list">기안서 통합 관리</a></li>
 						<li><a href="/groupware/sign/draft_format_list">공통 양식 관리</a></li>

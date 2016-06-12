@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +18,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<!--?${_csrf.parameterName}=${_csrf.token }" enctype="multipart/form-data" -->
 			<form:form class="form-horizontal" id="emp_insert"
-				action="/hr/emp/update?${_csrf.parameterName}=${_csrf.token }" enctype="multipart/form-data" method="post">
+				action="/hr/emp/update?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
 				<input type='hidden' name='page' value="${cri.page}">
 				<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 				<input type='hidden' name='searchType' value="${cri.searchType}">
@@ -131,10 +132,14 @@
 				 <div class="form-group">
 					<label for="pic_label" class="col-sm-2 control-label">프로필사진</label>
 					<div class="col-sm-8">
-						<input type="file" name="e_profile_pic">
+						<input type="file" name="uploadFile"/>
 					</div>
-
 				</div>
+				<%-- <c:if test="${employeeVO.e_profile_pic != null}">
+					<c:set var="path" value="${employeeVO.getPath() }"></c:set>
+					<img alt="" src="${path }">
+				</c:if> --%>
+				
 				<div class="form-group">
 					<div class="col-sm-3 col-sm-offset-5">
 						<button type="submit" class="btn btn-default">제출</button>

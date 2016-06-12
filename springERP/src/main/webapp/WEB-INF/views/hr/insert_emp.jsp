@@ -15,7 +15,8 @@
 <body>
 	<div class="container-fluid">
 		<div class="col-md-8 col-md-offset-2">
-			<form:form class="form-horizontal" id="emp_insert" action="/hr/emp/emp_insert?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
+			<form:form class="form-horizontal" id="emp_insert"
+				action="/hr/emp/emp_insert?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="emp_id_label" class="col-sm-2 control-label">사번</label>
 					<div class="col-sm-3">
@@ -29,7 +30,7 @@
 						<input type="password" class="form-control" name="e_pwd">
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<label for="e_name_label" class="col-sm-2 control-label">이름</label>
 					<div class="col-sm-3">
@@ -77,7 +78,8 @@
 				<div class="form-group">
 					<label for="dept_id_label" class="col-sm-2 control-label">부서</label>
 					<div class="col-sm-5">
-						<input type="text" id="dept_id" class="form-control" name="dept_id">
+						<input type="text" id="dept_id" class="form-control"
+							name="dept_id">
 					</div>
 					<div class="col-sm-2">
 						<button type="button" id="dept_Search" class="btn btn-default"
@@ -88,7 +90,8 @@
 				<div class="form-group">
 					<label for="position_id_label" class="col-sm-2 control-label">직급</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" name="position_id" id="position_id">
+						<input type="text" class="form-control" name="position_id"
+							id="position_id">
 					</div>
 					<div class="col-sm-2">
 						<button type="button" id="position_Search" class="btn btn-default"
@@ -110,7 +113,8 @@
 				<div class="form-group">
 					<label for="duty_id_label" class="col-sm-2 control-label">직책</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control" name="duty_id" id="duty_id">
+						<input type="text" class="form-control" name="duty_id"
+							id="duty_id">
 					</div>
 					<div class="col-sm-2">
 						<button type="button" id="duty_Search" class="btn btn-default"
@@ -121,7 +125,7 @@
 				<div class="form-group">
 					<label for="pic_label" class="col-sm-2 control-label">프로필사진</label>
 					<div class="col-sm-8">
-						<input type="file" name="uploadFile"/>
+						<input type="file" name="uploadFile" />
 					</div>
 
 				</div>
@@ -133,8 +137,8 @@
 			</form:form>
 		</div>
 	</div>
-<!-- 모달 -->
-<!-- dept -->
+	<!-- 모달 -->
+	<!-- dept -->
 	<div id="deptSearch_modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -149,9 +153,9 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="deptModalData">
-						<input type="button" class="btn btn-default center useBtn"
-							value="사용" data-dismiss="modal" id="deptUse">
+						<input type="text" id="deptModalData"> <input
+							type="button" class="btn btn-default center useBtn" value="사용"
+							data-dismiss="modal" id="deptUse">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -162,7 +166,7 @@
 		</div>
 	</div>
 	<!-- position -->
-		<div id="positionSearch_modal" class="modal fade" role="dialog">
+	<div id="positionSearch_modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
 			<div class="modal-content">
@@ -176,9 +180,9 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="positionModalData">
-						<input type="button" class="btn btn-default center useBtn"
-							value="사용" data-dismiss="modal" id="positionUse">
+						<input type="text" id="positionModalData"> <input
+							type="button" class="btn btn-default center useBtn" value="사용"
+							data-dismiss="modal" id="positionUse">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -189,7 +193,7 @@
 		</div>
 	</div>
 	<!-- job -->
-		<div id="jobSearch_modal" class="modal fade" role="dialog">
+	<div id="jobSearch_modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
 			<div class="modal-content">
@@ -203,9 +207,9 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="jobModalData">
-						<input type="button" class="btn btn-default center useBtn"
-							value="사용" data-dismiss="modal" id="jobUse">
+						<input type="text" id="jobModalData"> <input type="button"
+							class="btn btn-default center useBtn" value="사용"
+							data-dismiss="modal" id="jobUse">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -216,7 +220,7 @@
 		</div>
 	</div>
 	<!-- duty -->
-		<div id="dutySearch_modal" class="modal fade" role="dialog">
+	<div id="dutySearch_modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
 			<div class="modal-content">
@@ -230,9 +234,9 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="dutyModalData">
-						<input type="button" class="btn btn-default center useBtn"
-							value="사용" data-dismiss="modal" id="dutyUse">
+						<input type="text" id="dutyModalData"> <input
+							type="button" class="btn btn-default center useBtn" value="사용"
+							data-dismiss="modal" id="dutyUse">
 					</div>
 				</div>
 				<div class="modal-footer">

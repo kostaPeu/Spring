@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<h2 class="page_title">공통 양식 관리</h2>
+	<h2 class="page_title">기안서 작성</h2>
 	
 	<table class="table table-hover" class="boardList">
 		<thead>
@@ -27,7 +27,7 @@
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
 						<th class="col-sm-3">${list.get(i).draft_format_id }</th>
-						<th class="col-sm-6"><a href="format_write${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></th>
+						<th class="col-sm-6"><a href="draft_write${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></th>
 						<th class="col-sm-3">${list.get(i).draft_format_type }</th>
 					</tr>
 				</c:forEach>
@@ -58,7 +58,8 @@
 	</div>
 
 	<div class="row">
-		<a id="write" href="draft_format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
+		<a id="writeDraft" href="draft_write" class="btn btn-info col-sm-1 col-sm-push-11">새로 쓰기</a>
+		<a id="newFormat" href="format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
 	</div>
 
 	<!-- <form action="noticeSearchAction.gw" method="post">
