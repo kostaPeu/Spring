@@ -101,9 +101,7 @@ $(function() {
 					$('#cardInfos').append(content);
 				}
 			})
-		}		
-		
-		 
+		}
 	});
 });
 </script>
