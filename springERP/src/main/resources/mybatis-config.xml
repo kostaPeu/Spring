@@ -19,6 +19,7 @@
     <package name="erp.common.domain"/>  
     <package name="erp.sale.domain"/> 
     <package name="erp.sale.companybuy.domain"/>
+    <package name="erp.my.mytext.domain"/>
   </typeAliases>
   
 </configuration>

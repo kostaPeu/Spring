@@ -20,7 +20,7 @@
 
 <script type="text/javascript">
 	function fn_send_message(){
-		location.href="/message/sendForm?emp_id="+$('#log_id').val();
+		location.href="/message/sendForm?emp_id="+$('#log_id').val()+"&receive_id=";
 	}
 </script>
 
