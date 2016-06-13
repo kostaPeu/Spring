@@ -23,7 +23,9 @@ import erp.pch.domain.PurchaseExcelUp;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.persistence.PurchaseDAO;
+import erp.sale.domain.SaleCustomerChart;
 import erp.sale.domain.SaleListView;
+import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
 import erp.sale.domain.SaleSearchTimeSet;
 import erp.sale.domain.SaleVO;
@@ -246,6 +248,16 @@ public class SaleServiceImpl implements SaleService {
 		        dao.insertSaleExcel(vo);
 		    }		   
 		}
+	}
+
+	@Override
+	public List<SaleProductChart> saleProductChart(String customer_id) throws Exception {
+		return dao.saleProductChart(customer_id);
+	}
+
+	@Override
+	public List<SaleCustomerChart> saleCustomerChart() throws Exception {
+		return dao.saleCustomerChart();
 	}
 
 }
