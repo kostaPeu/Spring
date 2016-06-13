@@ -7,7 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+<script src='/resources/groupware/js/myproject.js'></script>
 
 </head>
 <body>
@@ -90,25 +94,6 @@
 		</div>
 		<button type="submit" class="btn btn-default">검색</button>
 	</form>
-	
-	<script type="text/javascript">
-	
-	$(function(){
-		   $('.eggFri').on('click', function(e) {
-		      e.preventDefault();
-		      $('#contents').empty();	
-		      $('#contents').load('/groupware/project_board/'+$(this).attr('href'));
-		   });
-
-		   $('#write').click(function(e) {
-		      e.preventDefault();
-		      
-		      $('#contents').empty();
-		      $('#contents').load('/groupware/project_board/'+$(this).attr('href'));
-		   });
-		   
-		})
-	</script>
 	
 </body>
 </html>

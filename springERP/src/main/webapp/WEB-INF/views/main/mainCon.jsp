@@ -85,6 +85,71 @@
 		
 	</div>
 	
+	<div class="row">
+
+		<div class="col-sm-6">
+			<h2 class="page_title">재고 현황</h2>
+			<table class="table">
+				<thead>
+					<tr class="row">
+						<th class="col-sm-2">상품명</th>
+						<th class="col-sm-2">재고량</th>
+						<th class="col-sm-2">입고/출고</th>
+						<th class="col-sm-3">입고량/출고량</th>
+						<th class="col-sm-3">입고일/출고일</th>
+					</tr>
+				</thead>
+		
+				<tbody>
+					<c:if test="${list.size()-1 >=0}">
+						<c:forEach var="i" begin="0" end="2" step="1">
+							<tr class="row">
+								<td class="col-sm-32">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-3">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-3">
+									<fmt:formatDate value="${list.get(i).getDept_board_date() }" pattern="yyyy-MM-dd" />
+								</td>
+							</tr>
+						</c:forEach>
+					</c:if>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-sm-6">
+			<h2 class="page_title">매출 현황</h2>
+			<table class="table">
+				<thead>
+					<tr class="row">
+						<th class="col-sm-2">목록</th>
+						<th class="col-sm-2">재고량</th>
+						<th class="col-sm-2">입고/출고</th>
+						<th class="col-sm-3">입고량/출고량</th>
+						<th class="col-sm-3">입고일/출고일</th>
+					</tr>
+				</thead>
+		
+				<tbody>
+					<c:if test="${list.size()-1 >=0}">
+						<c:forEach var="i" begin="0" end="2" step="1">
+							<tr class="row">
+								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-3">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-3">
+									<fmt:formatDate value="${list.get(i).getDept_board_date() }" pattern="yyyy-MM-dd" />
+								</td>
+							</tr>
+						</c:forEach>
+					</c:if>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
 	<div id="allProModal" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
