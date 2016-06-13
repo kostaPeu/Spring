@@ -27,7 +27,7 @@
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
 						<th class="col-sm-3">${list.get(i).draft_format_id }</th>
-						<th class="col-sm-6"><a href="draft_format_list${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></th>
+						<th class="col-sm-6"><a href="format_write${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></th>
 						<th class="col-sm-3">${list.get(i).draft_format_type }</th>
 					</tr>
 				</c:forEach>

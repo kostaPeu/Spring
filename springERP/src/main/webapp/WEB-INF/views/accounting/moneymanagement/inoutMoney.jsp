@@ -12,6 +12,17 @@
 <!-- <script src="/resources/common/js/csrf.js" type="text/javascript"></script> -->
 <script type="text/javascript">
 $(function(){
+	totalSums();
+	$(document).on('keyup','.sums',totalSums);
+})
+function totalSums(){
+	var total = 0;
+	$('.sums').each(function(){
+		total = total + parseInt($(this).val());
+		$('#totalSums').val(total);
+	});
+}
+$(function(){
 	$('#use').on('click', function(){
 		var array = [];
 		$("input[name=id_box]:checked").each(function() {

@@ -134,6 +134,10 @@ ul {list-style: none;}
 	display: inline;	
 }
 
+#logoutBtn{
+	display: inline-block;
+}
+
 #messageForm{
 	display: inline-block;
 }

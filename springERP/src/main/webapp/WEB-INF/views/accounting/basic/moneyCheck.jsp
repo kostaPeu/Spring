@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
 </head>
 <body>
 

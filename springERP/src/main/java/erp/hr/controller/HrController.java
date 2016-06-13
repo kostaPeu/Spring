@@ -284,15 +284,24 @@ public class HrController {
 	}
 	@RequestMapping(value = "/emp/update", method = RequestMethod.POST)
 	public String emp_update(@ModelAttribute("cri") SearchCriteriaHR cri, EmployeeVO vo ,RedirectAttributes rtts) throws IllegalStateException, IOException {
-		/*if (vo.getUploadFile() != null) {
+		if (vo.getUploadFile() != null) {
 			MultipartFile file = vo.getUploadFile();
 			logger.info("originalName: " + file.getOriginalFilename());
 			logger.info("size: " + file.getSize());
 			logger.info("conetentType: " + file.getContentType());
-
-			String savedName = uploadFile(file.getOriginalFilename(), file.getBytes());	
+			
+			String savedName = uploadFile(file.getOriginalFilename(), file.getBytes());
 			vo.setE_profile_pic(savedName);
-		}*/
+			
+			EmployeeVO picvo = service.getEmp(vo.getEmp_id());
+			String fpath = "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\hr\\images\\"+picvo.getE_profile_pic();
+			File delFile = new File(fpath);
+			delFile.delete();	
+		}
+		else{
+			EmployeeVO pvo = service.getEmp(vo.getEmp_id());
+			vo.setE_profile_pic(pvo.getE_profile_pic());
+		}
 		service.empUpdate(vo);
 		rtts.addAttribute("page", cri.getPage());
 		rtts.addAttribute("perPageNum", cri.getPerPageNum());
@@ -313,6 +322,12 @@ public class HrController {
 	public String emp_delete(@ModelAttribute("cri") SearchCriteriaHR cri, @RequestParam("array") String[] array, RedirectAttributes rtts) throws Exception{
 		for(int i=0;i<array.length;i++){
 			try {
+				EmployeeVO vo =service.getEmp(array[i]);
+				if(vo.getE_profile_pic()!=null){
+					String fpath = "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\hr\\images\\"+vo.getE_profile_pic();
+					File delFile = new File(fpath);
+					delFile.delete();
+				}						
 				service.empDelete(array[i]);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -357,14 +372,23 @@ public class HrController {
 		return "redirect:/hr/indol_request";
 	}
 	
-	
-	
-	
-	
 	@RequestMapping(value = "/emp/emp_print", method = RequestMethod.GET)
 	public String emp_print(Model model) throws Exception{
 		model.addAttribute("list", service.FullempLIst());
 		return "hr/emp_print";
+	}
+	
+	@RequestMapping(value="/emp/showPic", method = RequestMethod.POST)
+	public ResponseEntity<EmployeeVO> showPic(@RequestBody EmployeeVO vo){
+		ResponseEntity<EmployeeVO> entity = null;
+		try{
+			vo = service.getEmp(vo.getEmp_id());
+			vo.makeFullPath();
+			entity = new ResponseEntity<EmployeeVO>(vo, HttpStatus.OK);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return entity;
 	}
 }
 

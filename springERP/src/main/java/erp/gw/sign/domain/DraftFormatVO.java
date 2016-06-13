@@ -10,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DraftFormatVO {
-	@Getter @Setter private int draft_format_id;
+	@Getter @Setter private String draft_format_id;
 	@Getter @Setter private String draft_format_title;
 	@Getter @Setter private String draft_format_content;
 	@Getter @Setter private String draft_format_type;

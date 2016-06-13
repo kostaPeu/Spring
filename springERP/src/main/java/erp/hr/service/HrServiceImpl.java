@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import erp.common.service.CommonService;
 import erp.hr.domain.EmployeeVO;
 import erp.hr.domain.EmployeeViewVO;
 import erp.hr.domain.HrBasicVo;
@@ -223,7 +224,17 @@ public class HrServiceImpl implements HrService {
 				throw new Exception();
 			}
 		}
+		
+		
 		dao.indolApprove(string);
+		CommonService cservice = new CommonService();
+		String send_id = cservice.getEmployeeId();
+		String receive_id = vo.getEmp_id();
+		Map<String, String> paramMap = new HashMap<String, String>();
+		paramMap.put("send_id", send_id);
+		paramMap.put("receive_id", receive_id);
+		
+		dao.sendIndolMessage(paramMap);
 	}
 
 	@Override

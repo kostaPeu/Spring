@@ -20,4 +20,5 @@ public class ImageBoardVO {
 	@Getter @Setter private Date img_board_date;
 	@Getter @Setter private int imgfile_downamount;
 	@Getter @Setter private String imgfile_upload;
+	@Getter @Setter private String imgfile_date;
 }
