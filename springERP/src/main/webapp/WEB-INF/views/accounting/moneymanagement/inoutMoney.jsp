@@ -30,10 +30,10 @@ $(function(){
 		});
 		var url = "/accounting/moneymanagement/useMoney?array="+array;
 		if(array == ""){
-			alert("사용할 목록을 체크하시오.");
+			alert("삭제할 목록을 체크하시오.");
 		}else{
 			$(location).attr('href',url);
-		}
+		}		
 	})
 });
 $(function() {
@@ -47,7 +47,7 @@ $(function() {
 	})
 });
 $(function() {
-	$('.tbody').on('click','input[type=button]',function(){		
+	$('.tbody').on('click','input',function(){		
 		var html = '';
 		html += '<tr class="inoutMoneylist">';
 		html += '<td><input type="checkbox"></td>';
@@ -57,7 +57,7 @@ $(function() {
 		html += '<td><input type="text" value=""></td>';
 		html += '<td><input type="text" value=""></td>';
 		html += '<td><input type="text" value=""></td>';
-		html += '<td><input type="text" class="sums" name="" value=""></td>';
+		html += '<td><input type="text" name="" value=""></td>';
 		html += '<td><input type="text" name="" value=""></td>';
 		html += '<td><input type="text" name="" value=""></td>';
 		html += '<td><input type="text" name="" value=""></td>';
@@ -112,7 +112,7 @@ $(function() {
 					$('#cardInfos').append(content);
 				}
 			})
-		}		 
+		}
 	});
 });
 </script>
@@ -148,7 +148,7 @@ $(function() {
 					id="Card">
 					<thead id="cardList">
 						<tr class="mainTable">							
-							<th><input type="checkbox" id="checkAll"></th>
+							<th><input type="checkbox"></th>
 							<th>구분</th>
 							<th>발생일자</th>						
 							<th>발생기간</th>
@@ -160,7 +160,19 @@ $(function() {
 						</tr>
 					</thead>					
 					<tbody id="cardInfos">
-					
+					<%-- <c:forEach var="cash" items="${allList}">
+						<tr class="mainTable">
+							<td><input type="checkbox"></td>													
+							<td>${cash.typelist}</td>
+							<td>${cash.start_date}</td>
+							<td>${cash.periods}</td>
+							<td>${cash.funds_id}</td>							
+							<td>${cash.sums}</td>
+							<td>${cash.account_number}</td>
+							<td>${cash.customer_id}</td>
+							<td>${cash.remarks}</td>							
+						</tr>
+					</c:forEach> --%>
 					</tbody>
 				</table>
 					<div id="ustBtnArea">
@@ -213,32 +225,23 @@ $(function() {
 					</thead>
 					
 				<tbody class="tbody" id="tbodyTable">
-					<c:forEach var="list" items="${list }">				
-						<tr class="inoutMoneylist">
-							<td><input type="checkbox"></td>
-							<td class="button">						
-								<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
-							</td>						
-							<td><input type="text" value="${list.funds_id }"></td>							
-							<td><input type="text" value="${list.account_number }"></td>	
-							<td><input type="text" value="${list.customer_id }"></td>		
-							<td><input type="text" class="sums" name="" value="${list.sums }"></td>
-							<td><input type="text" name="" value="${list.sums }"></td>
-							<td><input type="text" name="" value="${list.dept_id }"></td>
-							<td><input type="text" name="" value="${list.proj_id }"></td>
-							<td><input type="text" name="" value="${list.remarks }"></td>
-						</tr>
-					</c:forEach>
-					
-					</tbody>
-					<tr style="text-align: center; font-size: 14px; font-weight: bold;">
-						<td colspan="3">금액합계</td>
-						<td colspan="2"><input type="text" name="totalSums" id="totalSums" width="100%"
-							size="30" disabled="disabled"></td>
-						<td colspan="2">수수료합계</td>
-						<td colspan="3"><input type="text" name="totalCharge" id="totalCharge"
-							disabled="disabled" size="30" width="20"></td>
+				<c:forEach var="list" items="${list }">				
+					<tr class="inoutMoneylist">
+						<td><input type="checkbox"></td>
+						<td class="button">						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td><input type="text" value="${list.funds_id }"></td>							
+						<td><input type="text" value="${list.account_number }"></td>	
+						<td><input type="text" value="${list.customer_id }"></td>		
+						<td><input type="text" name="" value=""></td>
+						<td><input type="text" name="" value=""></td>
+						<td><input type="text" name="" value="${list.dept_id }"></td>
+						<td><input type="text" name="" value=""></td>
+						<td><input type="text" name="" value=""></td>
 					</tr>
+				</c:forEach>
+					</tbody>
 				</table>
 				</div>
 			</div>
@@ -271,22 +274,75 @@ $(function() {
 				</thead>
 				<tbody>
 				<tbody>
-					<c:forEach var="list" items="${list }">				
-						<tr class="inoutMoneylist">
-							<td><input type="checkbox"></td>
-							<td class="button">						
-								<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
-							</td>						
-							<td><input type="text" value="${list.funds_id }"></td>							
-							<td><input type="text" value="${list.account_number }"></td>	
-							<td><input type="text" value="${list.customer_id }"></td>		
-							<td><input type="text" name="" value=""></td>
-							<td><input type="text" name="" value=""></td>
-							<td><input type="text" name="" value="${list.dept_id }"></td>
-							<td><input type="text" name="" value=""></td>
-							<td><input type="text" name="" value=""></td>
-						</tr>
-					</c:forEach>
+					<tr class="inoutMoneylist">
+						<td><input type="checkbox"></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<div class="input-append">
+							<input type="text">							
+						</div>
+						</td>
+						
+						<td>
+						<input type="text">
+						</td>
+						
+						<td>
+						<input type="text">													
+						</td>						
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+					</tr>
+					<tr class="inoutMoneylist">
+						<td><input type="checkbox"></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>				
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+					</tr>
+					<tr class="inoutMoneylist">
+						<td><input type="checkbox"></td>
+						<td>						
+							<input type="button"class="btn btn-default btn-sm saleListAdd" value="▼"/>
+						</td>						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>	
+						
+						<td>
+						<input type="text">													
+						</td>
+								
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+						<td><input type="text" name="" id=""></td>
+					</tr>
 					<tr style="text-align: center; font-size: 14px; font-weight: bold;">
 						<td colspan="3">금액합계</td>
 						<td colspan="2"><input type="text" name="" id="" width="100%"

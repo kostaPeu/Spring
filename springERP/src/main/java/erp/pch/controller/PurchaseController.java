@@ -3,6 +3,7 @@ package erp.pch.controller;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.pch.domain.GetCustomer;
 import erp.pch.domain.GetWareHouse;
+import erp.pch.domain.JsonDataChart;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
@@ -124,5 +126,22 @@ public class PurchaseController {
 		model.addAttribute("left", "purchase/purchase.jsp");
 		model.addAttribute("contents", "purchase/print.jsp");
 		return "/main";
+	}
+	@RequestMapping(value="purchase_accounts", method=RequestMethod.GET)
+	public String account(Model model)throws Exception{
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/purchase_accounts.jsp");
+		return "/main";
+	}
+	@RequestMapping("chartData")
+	@ResponseBody
+	public List<JsonDataChart> chartData()throws Exception{
+		List<JsonDataChart> list = new ArrayList<JsonDataChart>();
+		JsonDataChart jc = new JsonDataChart();
+		jc.setName("hi");
+		jc.setY(100);
+		jc.setDrilldown("Chrome");
+		list.add(jc);
+		return list;
 	}
 }
