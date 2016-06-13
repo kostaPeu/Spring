@@ -13,7 +13,7 @@
 			<li><a href="/mypage/my_info">개인정보 및 휴무신청</a></li>
 			<li><a href="/mypage/my_file">개인파일함</a></li>
 			<li><a href="/?left=/mypage/mypage.jsp&contents=/mypage/my_draft/my_draft_list.jsp">내 결재 관리</a></li>
-			<li><a href="/?left=/mypage/mypage.jsp&contents=/mypage/my_text/my_text.jsp">내가 작성한 글</a></li>
+			<li><a href="/mypage/my_text/my_text">내가 작성한 글</a></li>
 			
 		</ul>
 	</div>
