@@ -125,4 +125,15 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 		return session.selectList(namespace+".diagnosisList");
 	}
 
+	@Override
+	public List<Accounts> accountListId(String account_id) throws Exception {
+		return session.selectList(namespace+".accountListId", account_id);
+	}
+
+	//계정검색
+	@Override
+	public List<Diagnosiss> diagnosisNumberSearch(String diagnosis_number) throws Exception {
+		return session.selectList(namespace+".diagnosisNumberSearch", diagnosis_number);
+	}
+
 }

@@ -44,21 +44,60 @@ $(function() {
 	var reddate = '';
 	$('#datepicker').change(function() {
 		reddate = new Date($('input[name=red_date]').val());
-		if (reddate != null) {
-			reddate.setDate(reddate.getDate() + 90);
-			var year = reddate.getFullYear();
-			var month = reddate.getMonth() + 1;
-			var day = reddate.getDate();
-			if (("" + month).length == 1) {
-				month = "0" + month;
-			}
-			if (("" + day).length == 1) {
-				day = "0" + day;
+		$('#ex_date30').on("click", function() {			
+			if (reddate != null) {
+				reddate.setDate(reddate.getDate() + 30);
+				var year = reddate.getFullYear();
+				var month = reddate.getMonth() + 1;
+				var day = reddate.getDate();
+				if (("" + month).length == 1) {
+					month = "0" + month;
+				}
+				if (("" + day).length == 1) {
+					day = "0" + day;
+				}				
 			}
 			var exdate = new Date($('input[name=ex_date]'));
 			var exdates = year + "-" + month + "-"+day;
 			$('input[name=ex_date]').val(exdates)
-
-		}
+			$('#ex_date30').off();			
+		});
+		$('#ex_date60').on("click",function() {			
+			if (reddate != null) {
+				reddate.setDate(reddate.getDate() + 60);
+				var year = reddate.getFullYear();
+				var month = reddate.getMonth() + 1;
+				var day = reddate.getDate();
+				if (("" + month).length == 1) {
+					month = "0" + month;
+				}
+				if (("" + day).length == 1) {
+					day = "0" + day;
+				}
+			}
+			var exdate = new Date($('input[name=ex_date]'));
+			var exdates = year + "-" + month + "-"+day;
+			$('input[name=ex_date]').val(exdates)
+			$('#ex_date60').off();
+		})
+		$('#ex_date90').on("click",function() {			
+			if (reddate != null) {
+				reddate.setDate(reddate.getDate() + 90);
+				var year = reddate.getFullYear();
+				var month = reddate.getMonth() + 1;
+				var day = reddate.getDate();
+				if (("" + month).length == 1) {
+					month = "0" + month;
+				}
+				if (("" + day).length == 1) {
+					day = "0" + day;
+				}			
+			}
+			var exdate = new Date($('input[name=ex_date]'));
+			var exdates = year + "-" + month + "-"+day;
+			$('input[name=ex_date]').val(exdates)
+			$('#ex_date90').off();
+		})
+		
 	})
 });

@@ -1,12 +1,16 @@
 package erp.acc.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.service.BasicAccountService;
 
 @Controller
@@ -24,4 +28,13 @@ public class DiagnosisController {
 		
 		return "/main";
 	}
+	
+	@RequestMapping("Diagnosislist")
+	@ResponseBody
+	public List<Diagnosiss> diagnosisList2(Model model)throws Exception{
+	
+		return service.diagnosisList();
+	}
+	
+	
 }

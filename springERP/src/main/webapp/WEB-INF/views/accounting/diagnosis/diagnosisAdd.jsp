@@ -138,9 +138,8 @@
 				<div class="wrapper-toolbar">
 					<div class="pull-reft"></div>
 					<div class="pull-right" id="button-Group">
-						<input id="btn-footer-Save" class="btn btn-xs btn-default"
-							type="submit" value="저장"> <input id="btn-footer-Reset"
-							class="btn btn-xs btn-default" type="reset" value="다시작성">
+						<input id="btn-footer-Save" class="btn btn-xs btn-default"	type="submit" value="저장">
+						<input id="btn-footer-Reset" class="btn btn-xs btn-default" type="reset" value="다시작성">
 					</div>
 				</div>
 			</div>

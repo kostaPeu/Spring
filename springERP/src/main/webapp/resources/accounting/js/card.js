@@ -43,7 +43,63 @@ $(function() {
 	});
 
 })	
- //작은 검색창 인풋창 초기화
+
+//************계정검색 Start************
+$(function() {
+$('#diagnosis_number_search').click(function() {
+	$('#m_searchTable').empty();
+	$('#search_diagnosis_number').val('');
+	var url = "/accounting/diagnosis2/Diagnosislist";
+	$.ajax({
+		url : url,
+		dataType : 'json',
+		success: handler
+	})
+})
+
+//검색된 계정 사용하기
+$('.useBtn').on('click', function() {
+	var diagnosisName = $('#search_diagnosis_number').val();
+	$('#diagnosis_number').val(diagnosisName);
+})
+
+//계정 테이블 내용 클릭시 
+$('#m_searchTable').on('click', '.getValue', function() {	
+	var diagnosisName = $(this).find('.getDiagnosisName').text();
+	$('#search_diagnosis_number').val(diagnosisName);
+})
+
+//계정 검색하기
+$('#diagnosis_numbers').click(function() {	
+	var diagnosis_number = $('#search_diagnosis_number').val();
+	var url = "/accounting/account/diagnosis_numbers_search?diagnosis_number="+diagnosis_number;
+	$('#m_searchTable').empty();
+	$.ajax({
+		url : url,
+		dateType : 'json',
+		success: handler	
+	});
+});
+
+//계정거래 검색 ajax 이벤트 처리
+function handler(data) {
+	var html = '<tr><th>계정번호</th><th>계정명</th><th>사용구분</th><th>비고</th></tr>';
+	$.each(data, function(index, list) {
+		html += '<tr class="getValue"><td class="getDiagnosisName">'+list.diagnosis_number+'</td>';
+		html += '<td>'+list.diagnosis_name+'</td>';
+		html += '<td>'+list.use+'</td>';
+		html += '<td>'+list.remarks+'</td>';
+		html += '</tr>'
+	});
+		$('#m_searchTable').append(html);
+	}
+})
+//************계정검색 END************
+
+
+
+
+ //계좌번호 검색창
 $(function() {
 	$('#account_numbers').click(function() {
 		$('#m_searchTable').empty();
@@ -55,7 +111,7 @@ $(function() {
 		$('#account_number').val(accountName);
 	})
 	// 작은 검생창 테이블 클릭
-	$('#m_searchTable').click(function() {
+	$('#m_searchTable').on('click', '.getValue', function() {
 		var accountName = $(this).find('.getAccountName').text();
 		$('#search_account_number').val(accountName);
 	})

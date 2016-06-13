@@ -51,4 +51,13 @@ public class PromissoryController {
 		model.addAttribute("contents", "accounting/promissory2/promissory_notePayment.jsp");
 		return "/main";
 	}
+	
+	//어음결재GET
+		@RequestMapping(value="promissory_noteBill", method = RequestMethod.GET)
+		public String promissory_noteBillGET(Model model)throws Exception{
+			model.addAttribute("left", "accounting/accounting.jsp");
+			model.addAttribute("contents", "accounting/promissory2/promissory_noteBill.jsp");
+			return "/main";
+		}
+	
 }

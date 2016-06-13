@@ -68,6 +68,14 @@ $(function() {
 			</div>
 		</div>
 	</div>
+	
+		
+			<div class="buttongroup">
+				<button type="button" class="btn btn-default">신규등록</button>
+				<button id="updateBtn" type="button" class="btn btn-default">수정</button>
+				<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
+			</div>
+		</div>
 
 </body>
 </html>

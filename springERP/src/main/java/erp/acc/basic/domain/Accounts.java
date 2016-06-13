@@ -15,6 +15,10 @@ public class Accounts implements Serializable {
 
 	@Getter
 	@Setter
+	private int account_id;
+	
+	@Getter
+	@Setter
 	private String account_number;
 	@Getter
 	@Setter

@@ -108,6 +108,16 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	public List<Diagnosiss> diagnosisList() throws Exception {
 		return dao.diagnosisList();
 	}
+	@Override
+	public List<Accounts> accountListId(String account_id) throws Exception {
+		return dao.accountListId(account_id);
+	}
+	
+	//계정넘버검색
+	@Override
+	public List<Diagnosiss> diagnosisNumberSearch(String diagnosis_number) throws Exception {
+		return dao.diagnosisNumberSearch(diagnosis_number);
+	}
 	
 	
 }

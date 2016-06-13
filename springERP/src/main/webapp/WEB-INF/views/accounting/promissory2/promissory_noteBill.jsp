@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-	<h2 class="page_title">어음등록</h2>
+	<h2 class="page_title">어음할인/만기</h2>
 
 	<!-- 상단 메뉴이름 -->
 	<div class="mainContents">
@@ -49,30 +49,19 @@
 									</div>
 								</div></td>
 						</tr>
-						<tr id="row-CardTYPE">
-							<th>받는어음 / 지급어음 <span class="card-Info" data-html="true"
-								data-toggle="popover" data-trigger="focus hover"
-								data-placement="right" data-original-title="" title=""></span>
-							</th>
-							<td>
-								<div class="radio-inline">
-									<label> <input id="optionsRadios1" type="radio"	checked="" value="option1" name="typelist">받는어음
-									</label>
-								</div>
-								<div class="radio-inline">
-									<label> <input id="optionsRadios2" type="radio"
-										value="option2" name="typelist">지급어음
-									</label>
-								</div>
-							</td>
+						<tr id="row-noteNum">
+							<th>어음번호</th>
+							<td><input id="card_number" type="text">
+								<button id="card_number_search" class="btn btn-default btn-sm">
+									<span class="fa fa-search"></span>
+								</button> <input type="text" name="note_id" value="">
 						</tr>
-
 						<tr id="row-deptNum">
 							<th>부서코드</th>
 							<td><input id="warehouse_id" type="text">
 								<button id="warehouse_id_search" class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="dept_id">
+							</button><input type="text" name="dept_id">
 						</tr>
 						<tr id="row-project">
 							<th>프로젝트번호</th>
@@ -89,34 +78,17 @@
 									class="btn btn-default btn-sm">
 									<span class="fa fa-search"></span>
 								</button> <input type="text" name="account_number">
-						</tr>
-						<tr id="row-customer">
-							<th>거래처</th>
-							<td><input id="warehouse_id" type="text">
-								<button id="warehouse_id_search" class="btn btn-default btn-sm">
-									<span class="fa fa-search"></span>
-								</button> <input type="text" name="customer_id">
-						</tr>
-						<!-- <tr id="row-noteNum">
-							<th>어음번호</th>
-							<td><input id="card_number" type="text">
-								<button id="card_number_search" class="btn btn-default btn-sm">
-									<span class="fa fa-search"></span>
-								</button> <input type="text" name="note_id" value="">
-						</tr> -->
-						<tr id="row-CardTYPE">
-							<th>만기일자</th>
-							<td>
-								<div class="col-sm-3 input-group">
-									<input type="text" name="ex_date" id="datepicker2"	disabled="disabled">
-									<input class="btn btn-xs btn-default" type="button" value="30일" id="ex_date30">
-									<input class="btn btn-xs btn-default" type="button" value="60일" id="ex_date60">
-									<input class="btn btn-xs btn-default" type="button" value="90일" id="ex_date90">									
-								</div>
-							</td>
+						</tr>					
+						<tr id="row-money">
+							<th>입금액</th>
+							<td><input class="form-control" type="text" name="sums"></td>
 						</tr>
 						<tr id="row-money">
-							<th>금액</th>
+							<th>수수료</th>
+							<td><input class="form-control" type="text" name="sums"></td>
+						</tr>
+						<tr id="row-money">
+							<th>어음금액(입금액+수수료)</th>
 							<td><input class="form-control" type="text" name="sums"></td>
 						</tr>
 						<tr id="row-Employee">
@@ -145,6 +117,5 @@
 		</form:form>
 	</div>
 	<!-- 신규등록 END -->
-
 </body>
 </html>

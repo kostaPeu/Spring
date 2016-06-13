@@ -19,6 +19,8 @@ public interface BasicAccountDAO {
 	public void accountDelete(String account_number) throws Exception;
 
 	public List<Accounts> accountList() throws Exception;
+	
+	public List<Accounts>accountListId(String account_id)throws Exception;
 
 	// BASIC ACCOUNT PAGE
 	public List<Accounts> listAll() throws Exception;
@@ -51,6 +53,9 @@ public interface BasicAccountDAO {
 	//diagnosis
 	public void diagnosisInsert(Diagnosiss diagnosis)throws Exception;
 	public List<Diagnosiss>diagnosisList() throws Exception;
+	
+	//diagnosis 서치
+	public List<Diagnosiss>diagnosisNumberSearch(String diagnosis_number)throws Exception;
 	
 
 }

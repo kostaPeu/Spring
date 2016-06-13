@@ -19,6 +19,9 @@ public interface BasicAccountService {
 	public void accountDelete(String account_number) throws Exception;
 
 	public List<Accounts> accountList() throws Exception;
+	
+	public List<Accounts>accountListId(String account_id)throws Exception;
+	
 
 	// 페이징
 	public List<Accounts> listAll() throws Exception;
@@ -48,6 +51,6 @@ public interface BasicAccountService {
 
 	// diagnosis
 	public void diagnosisInsert(Diagnosiss diagnosis) throws Exception;
-
 	public List<Diagnosiss> diagnosisList() throws Exception;
+	public List<Diagnosiss>diagnosisNumberSearch(String diagnosis_number)throws Exception;
 }

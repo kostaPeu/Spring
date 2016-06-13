@@ -1,5 +1,7 @@
 package erp.acc.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -8,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.Accounts;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.service.BasicAccountService;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
@@ -55,7 +59,7 @@ public class AccountController {
 	return "redirect:/accounting/account/list";
 	}
 	
-	
+	//계좌리스트 페이징처리
 	@RequestMapping(value="/Account", method=RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri")SearchCriteria cri, Model model)throws Exception{
 		model.addAttribute("list", service.listSearchCriteria(cri));
@@ -65,6 +69,18 @@ public class AccountController {
 		model.addAttribute("pageMaker", pageMaker);		
 	}
 	
+	//계좌검색
+	@RequestMapping("account_id_search")
+	@ResponseBody
+	public List<Accounts> account_Id_Search(@RequestParam("account_id")String account_id)throws Exception{
+		
+		return service.accountListId(account_id);
+	}
+	@RequestMapping("diagnosis_numbers_search")
+	@ResponseBody
+	public List<Diagnosiss> diagnosis_numbers_search(@RequestParam("diagnosis_number")String diagnosis_number)throws Exception{
+		return service.diagnosisNumberSearch(diagnosis_number);
+	}
 	
 }
 	

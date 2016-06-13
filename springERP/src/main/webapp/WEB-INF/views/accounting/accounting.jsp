@@ -30,7 +30,7 @@
 					<li><a href="/accounting/promissory/list">어음원장</a></li>
 					<li><a href="/accounting/promissory/promissory_note">어음등록</a></li>
 					<li><a href="/accounting/promissory/promissory_notePayment">어음결제</a></li>
-					<li><a href="#">어음 할인/만기</a></li>
+					<li><a href="/accounting/promissory/promissory_noteBill">어음 할인/만기</a></li>
 				</ul></li>
 			<li><a data-toggle="collapse" href="#four">채무채권관리</a>
 				<ul id="four" class="collapse">
