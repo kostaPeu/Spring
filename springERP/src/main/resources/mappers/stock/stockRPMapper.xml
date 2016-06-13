@@ -51,4 +51,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE inout_id = #{inout_id} 
 	</update>
 
+	<select id="stockRPSearchList" resultType="StockRPSearch" parameterType="StockRPSearch">
+		SELECT c.customer_name, p.product_name, io.inout_date, io.inout_amount, io.inout_type, s.stock_amount 
+				FROM customer c, product p, stock_inoutlist io, stock s
+				WHERE c.customer_id = io.customer_id
+				AND io.product_id = p.product_id
+				AND s.product_id = io.product_id
+				AND inout_date BETWEEN #{start_date} and #{end_date}
+				ORDER BY io.inout_date
+	</select>
 </mapper>
