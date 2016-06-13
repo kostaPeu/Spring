@@ -59,4 +59,6 @@ public interface HrDAO {
 	public void updateAVacation(String emp_id);
 	public String CalVacation(String string);
 	public void updateVVacation(Map<String, Object> paramMap);
+	public List<EmployeeViewVO> empFull();
+	public void sendIndolMessage(Map<String, String> paramMap);
 }

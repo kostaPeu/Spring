@@ -4,8 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,7 +16,7 @@
 
 	<!-- 일별/거래쳐별 기초등록 Start -->
 	<div class="abc" style="position: relative;">	
-		<div id="moneyList-2" role="tablist" 1 class="tab-pane fade" aria-labelledby="basic-tab1" style="position: absolute; z-index: 2;">
+		<div id="moneyList-2" role="tablist" 1 class="tab-pane fade" aria-labelledby="basic-tab1" style="position: block; z-index: 2;">
 			<form class="form-horizontal" id="b">
 				<table class="table table-bordered table-hover new">
 					<thead style="vertical-align: middle; text-align: center;">
@@ -75,8 +73,7 @@
 		<!-- 일별/거래쳐별 기초등록 end -->
 
 		<!-- 재무재표별기초 잔액입력 -->
-		<div id="moneyList-1" role="tablist" class="tab-pane fade active in"
-			aria-labelledbhy="basic-tab2" style="position: absolute; z-index: 4;">
+		<div id="moneyList-1" role="tablist" class="tab-pane fade active in" aria-labelledbhy="basic-tab2" style="position: absolute; z-index: 4;">
 			<form class="form-horizontal" action="SearchPurchase.pc" id="b">
 				<table class="table table-bordered table-hover new">
 					<tr>

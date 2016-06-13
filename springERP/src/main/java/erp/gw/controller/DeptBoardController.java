@@ -6,18 +6,25 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.common.service.CommonService;
 import erp.gw.deptboard.domain.DeptBoardVO;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.deptboard.service.DeptBoardService;
 import erp.hr.domain.EmployeeVO;
 
@@ -124,5 +131,4 @@ public class DeptBoardController {
 		service.deleteDept(dept_board_id);
 		return "redirect:/groupware/dept_board/dept_board_list";
 	}
-	
 }

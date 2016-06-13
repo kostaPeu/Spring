@@ -1,6 +1,7 @@
 package erp.gw.projectboard.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.projectboard.domain.ProjectsVO;
 
 @Repository
@@ -36,13 +38,24 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri) throws Exception {
-		return session.selectOne(namespace+".listSearchCount", cri);
+	public int listSearchCount(String emp_id) throws Exception {
+		return session.selectOne(namespace+".listSearchCount", emp_id);
 	}
 
 	@Override
-	public List<ProjectsVO> listSearch(SearchCriteria cri) throws Exception {
-		return session.selectList(namespace+".listSearch", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	public int allSearchCount(SearchCriteria cri) throws Exception {
+		return session.selectOne(namespace+".allSearchCount", cri);
+	}
+
+	@Override
+	public List<ProjectsVO> listSearch(Map<String, Object> map) throws Exception {
+		SearchCriteria cri = (SearchCriteria)map.get("cri");
+		return session.selectList(namespace+".listSearch", map, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+
+	@Override
+	public List<ProjectsVO> allSearchCriteria(SearchCriteria cri) throws Exception {
+		return session.selectList(namespace+".allSearchCriteria", cri, new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
 	@Override
@@ -61,6 +74,11 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 	}
 
 	@Override
+	public void dsvoWrite(DeptScheduleVO dsvo) throws Exception {
+		session.insert(namespace + ".dsvoWrite", dsvo);
+	}
+	
+	@Override
 	public void updateProj(ProjectsVO project) throws Exception {
 		session.update(namespace + ".updateProj", project);
 	}
@@ -68,6 +86,11 @@ public class ProjectBoardDaoImpl implements ProjectBoardDao {
 	@Override
 	public void deleteProj(int proj_id) throws Exception {
 		session.delete(namespace + ".deleteProj", proj_id);
+	}
+
+	@Override
+	public List<ProjectsVO> getAllPro() throws Exception {
+		return session.selectList(namespace + ".getAllPro");
 	}
 
 }

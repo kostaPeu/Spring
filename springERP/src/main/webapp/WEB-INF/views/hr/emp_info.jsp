@@ -66,6 +66,43 @@
     			$(location).attr('href',url);
     		}
     	});
+    	
+    	
+    	
+    	$('#print_emp_btn').click(function(){
+    		var newWindow = window.open("about:blank")
+    		var url = "/hr/emp/emp_print";
+    		newWindow.location.href=url;
+    	});
+    	
+    	$('#pic_show_btn').click(function(){
+    		$("#pic_area").empty();
+    		var emp_id = '';
+    		
+    		$("input[name=id_box]:checked").each(function() {
+				emp_id = $(this).val();
+			});
+    		
+    		$.ajax({
+				type:"POST",
+				url:"/hr/emp/showPic",
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'json',
+				data : JSON.stringify({
+					emp_id : emp_id
+				}),
+				success : function(data){
+					var str='';
+					if(data.e_profile_pic!=null){
+						str+="<img alt='' src='"+data.fullPath+"'>";
+						$("#pic_area").html(str);
+					}
+				}
+			});
+    	});	
     });
 </script>
 <style type="text/css">
@@ -83,8 +120,8 @@ ul {
 	<div class="hr_body">
 		<div class="pull-right">
 			<div class="form-group">
-				<label for="search_employee">이름</label> 
-				<input type="text" class="form-control input-sm" id="emp_name_input" name="emp_name">
+				<label for="search_employee">이름</label> <input type="text"
+					class="form-control input-sm" id="emp_name_input" name="emp_name">
 				<button id='empSearch' class="btn btn-sm">직원검색</button>
 			</div>
 		</div>
@@ -110,7 +147,8 @@ ul {
 				<tbody>
 					<c:forEach items="${list }" var="empViewVO">
 						<tr class="emp_info_body">
-							<td><input type="checkbox" class="upSelect check_id" name="id_box" value="${empViewVO.emp_id }"></td>
+							<td><input type="checkbox" class="upSelect check_id"
+								name="id_box" value="${empViewVO.emp_id }"></td>
 							<td>${empViewVO.emp_id }</td>
 							<td>${empViewVO.e_name }</td>
 							<td>${empViewVO.e_age }</td>
@@ -155,6 +193,26 @@ ul {
 			onclick="fn_insert_emp()">신규등록</button>
 		<button type="button" class="btn btn-default" id="update_emp_btn">수정</button>
 		<button type="button" class="btn btn-default" id="delete_emp_btn">삭제</button>
+		<button type="button" class="btn btn-default" id="pic_show_btn"
+			data-toggle="modal" data-target="#show_pic">프로필사진</button>
+		<button type="button" class="btn btn-default" id="print_emp_btn">인쇄</button>
+	</div>
+	<div id="show_pic" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">프로필사진</h4>
+			</div>
+			<div class="modal-body">
+				<br>
+				<div id="pic_area">
+					
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

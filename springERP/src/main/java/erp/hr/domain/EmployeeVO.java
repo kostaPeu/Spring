@@ -49,6 +49,8 @@ public class EmployeeVO implements UserDetails{
 	@Getter @Setter private String duty_id;
 	@Getter @Setter private String e_pwd;
 	@Getter @Setter private MultipartFile uploadFile;
+    @Setter private String path="/resources/hr/images/";
+	@Getter @Setter private String fullPath;
 	
 	private Set<GrantedAuthority> authorities;
 	
@@ -70,6 +72,12 @@ public class EmployeeVO implements UserDetails{
 		this.duty_id = duty_id;
 		this.e_pwd = e_pwd;
 		this.authorities = Collections.unmodifiableSortedSet(sortAuthorities(authorities));
+	}
+	public String getPath(){
+		return path+e_profile_pic;
+	}
+	public void makeFullPath(){
+		fullPath=path+e_profile_pic;
 	}
 
 	public EmployeeVO(String emp_id, String e_pwd, String e_name, String dept_id, Collection<? extends GrantedAuthority> authorities){

@@ -20,6 +20,9 @@ public class MoneyPlanController {
 	@Inject
 	private MoneyPlanService service;
 
+	// 자금계획 올 리스트
+	
+	
 	// 자금계획현금 리스트
 	@RequestMapping("/list")
 	public String moneyPlanList(Model model) throws Exception {
@@ -56,9 +59,7 @@ public class MoneyPlanController {
 		System.out.println("등록되었습니다.");
 	
 		return "/main";
-	}
-	
-	
+	}	
 	
 	
 	// 자금계획수정 - JH

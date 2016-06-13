@@ -8,6 +8,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<annotation-driven />
+	
+	
 
 	<context:component-scan base-package="erp.*.controller" />
 	<context:component-scan base-package="erp.*.*.controller" />
@@ -28,7 +30,10 @@
       <beans:property name="maxUploadSize" value="10485760"></beans:property>
    </beans:bean>
 
+	
    <beans:bean id="uploadPath" class="java.lang.String">
-      <beans:constructor-arg value="C:\\upload"></beans:constructor-arg>
+      <beans:constructor-arg value="C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\hr\\images"></beans:constructor-arg>
    </beans:bean>
+   
+   
 </beans:beans>

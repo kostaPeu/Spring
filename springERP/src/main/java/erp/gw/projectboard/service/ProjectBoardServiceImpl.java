@@ -1,6 +1,7 @@
 package erp.gw.projectboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.gw.deptboard.domain.DeptScheduleVO;
 import erp.gw.projectboard.domain.ProjectsVO;
 import erp.gw.projectboard.persistence.ProjectBoardDao;
 
@@ -33,13 +35,18 @@ public class ProjectBoardServiceImpl implements ProjectBoardService {
 	}
 
 	@Override
-	public List<ProjectsVO> listSearchCriteria(SearchCriteria cri) throws Exception {
-		return dao.listSearch(cri);
+	public List<ProjectsVO> listSearchCriteria(Map<String, Object> map) throws Exception {
+		return dao.listSearch(map);
 	}
 
 	@Override
-	public int listSearchCount(SearchCriteria cri) throws Exception {
-		return dao.listSearchCount(cri);
+	public int listSearchCount(String emp_id) throws Exception {
+		return dao.listSearchCount(emp_id);
+	}
+
+	@Override
+	public int allSearchCount(SearchCriteria cri) throws Exception {
+		return dao.allSearchCount(cri);
 	}
 
 	@Override
@@ -58,6 +65,11 @@ public class ProjectBoardServiceImpl implements ProjectBoardService {
 	}
 
 	@Override
+	public void dsvoWrite(DeptScheduleVO dsvo) throws Exception {
+		dao.dsvoWrite(dsvo);
+	}
+
+	@Override
 	public void updateProj(ProjectsVO project) throws Exception {
 		dao.updateProj(project);
 	}
@@ -66,5 +78,15 @@ public class ProjectBoardServiceImpl implements ProjectBoardService {
 	public void deleteProj(int proj_id) throws Exception {
 		dao.deleteProj(proj_id);
 		
+	}
+
+	@Override
+	public List<ProjectsVO> allSearchCriteria(SearchCriteria cri) throws Exception {
+		return dao.allSearchCriteria(cri);
+	}
+
+	@Override
+	public List<ProjectsVO> getAllPro() throws Exception {
+		return dao.getAllPro();
 	}
 }

@@ -7,12 +7,48 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
+
+<!-- full Calendar js,css경로 -->
+<link href='/resources/common/css/fullcalendar.css' rel='stylesheet' />
+<link href='/resources/common/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+<!-- <script src='/resources/common/js/jquery.min.js'></script>
+ --><script src="/resources/common/js/moment.min.js"></script>
+<script src='/resources/common/js/jquery-ui.custom.min.js'></script>
+<script src="/resources/common/js/fullcalendar.js"></script>
+
+<!-- custom js,css경로 -->
+<script src='/resources/main/js/mainCon.js'></script>
 
 </head>
 <body>
 	<div class="row">
-		<div class="col-sm-4 pull-right">
+	
+		<div class="col-sm-6">
+			
+			<div role="tabpanel">
+				  <!-- Nav tabs -->
+				  <ul class="nav nav-tabs" role="tablist" id="myTab">
+				    <li role="presentation" class="active"><a id="allProCalA" href="#allPro" aria-controls="allPro" role="tab" data-toggle="tab">전체 프로젝트</a></li>
+				    <li role="presentation"><a id="deptCalA" href="#deptCal" aria-controls="deptCal" role="tab" data-toggle="tab">부서 일정</a></li>
+				  </ul>
+				
+				  <!-- Tab panes -->
+				  <div class="tab-content">
+				    <div role="tabpanel" class="tab-pane fade in active" id="allPro">
+						<div id='allProCalendar'></div>
+				    </div>
+				    <div role="tabpanel" class="tab-pane fade " id="deptCal">
+						<div id='deptCalendar'></div>
+				    </div>
+				  </div>
+			</div>
+
+		</div>
+		
+		<div class="col-sm-3 pull-right">
 			<h2 class="page_title">공지사항</h2>
 
 			<table class="table table-hover" class="boardList">
@@ -29,10 +65,8 @@
 			</table>
 		<hr>
 		</div>
-	</div>
-	
 	<div class="row">
-		<div class="col-sm-4 pull-right">
+		<div class="col-sm-3 pull-right">
 			<h2 class="page_title">부서 게시판</h2>
 
 			<table class="table table-hover" class="boardList">
@@ -48,28 +82,79 @@
 			</table>
 		</div>
 	</div>
+		
+	</div>
 	
-	
-	<script type="text/javascript">
-		$(function() {
-			$('.noticeTitle').on('click',
-					function(e) {
-						e.preventDefault();
-						$('#contents').empty();
-						$('#contents').load(
-								'/groupware/notice/' + $(this).attr('href'));
-			});
+	<div id="allProModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+			<div class="modal-header">
+	     	   <button type="button" class="close" data-dismiss="modal">&times;</button>
+	     	   <h4 class="modal-title"></h4>
+	      	</div>
+	      	<div class="modal-body">
+				<form class="form-horizontal">
+					  <div class="form-group">
+	 				   <label for="proj_content_t" class="col-sm-5 control-label">Content : </label>
+	   				 <div class="col-sm-7">
+						<p id="proj_content"></p>
+	  				  </div>
+	  			      </div>
+				  	<div class="form-group">
+				    <label for="proj_start_date_t" class="col-sm-5 control-label">Period : </label>
+				    <div class="col-sm-7">
+						<p id="proj_period"></p>
+				    </div>
+				  </div>
+				  	<div class="form-group">
+				    <label for="proj_start_date_t" class="col-sm-5 control-label">Start Date : </label>
+				    <div class="col-sm-7">
+						<p id="proj_start_date"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="proj_end_date_t" class="col-sm-5 control-label">End Date : </label>
+				    <div class="col-sm-7">
+						<p id="proj_end_date"></p>
+				    </div>
+				  </div>
+			</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-			$('.deptTitle').on('click',
-					function(e) {
-						e.preventDefault();
-						$('#contents').empty();
-						$('#contents').load(
-								'/groupware/dept_board/' + $(this).attr('href'));
-			});
-
-		})
-	</script>
-
+	<div id="deptCalModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+			<div class="modal-header">
+	     	   <button type="button" class="close" data-dismiss="modal">&times;</button>
+	     	   <h4 class="modal-title"></h4>
+	      	</div>
+	      	<div class="modal-body">
+				<form class="form-horizontal">
+					  <div class="form-group">
+	 				   <label for="dept_cal_content_t" class="col-sm-5 control-label">Content : </label>
+	   				 <div class="col-sm-7">
+						<p id="dept_cal_content"></p>
+	  				  </div>
+	  			      </div>
+				  	<div class="form-group">
+				    <label for="dept_cal_start_date_t" class="col-sm-5 control-label">Start Date : </label>
+				    <div class="col-sm-7">
+						<p id="dept_cal_start_date"></p>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="dept_cal_end_date_t" class="col-sm-5 control-label">End Date : </label>
+				    <div class="col-sm-7">
+						<p id="dept_cal_end_date"></p>
+				    </div>
+				  </div>
+			</form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>

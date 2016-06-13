@@ -33,11 +33,22 @@ public class loginSuccessHandler implements AuthenticationSuccessHandler {
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth)
 			throws IOException, ServletException {
+		EmployeeVO emp = (EmployeeVO)auth.getPrincipal();
+		String emp_id = emp.getEmp_id();
+
 		arrive = request.getParameter(arrive);
 		
+		String inTime   = new java.text.SimpleDateFormat("HH").format(new java.util.Date());
+		int time = Integer.parseInt(inTime);
+		
 		if(arrive != null){
-			EmployeeVO emp = (EmployeeVO)auth.getPrincipal();
-			String emp_id = emp.getEmp_id();
+			if(time > 9){
+				try {
+					dao.lateness(emp_id);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			try {
 				dao.arrive(emp_id);
 			} catch (Exception e) {

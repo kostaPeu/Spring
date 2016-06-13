@@ -42,13 +42,19 @@ public class ShareFolderController {
 	@RequestMapping("")
 	public String sharefolderMain(HttpServletRequest request, Model model) throws Exception{
 		
-		String[] arr = request.getSession().getServletContext().getRealPath("/").split("/");
-		String path ="";
-		for (int i=0; i<3; i++){
-			path += arr[i] + "/"; 
-		}
+		String[] arr = request.getSession().getServletContext().getRealPath("/").split("\\\\");
 		
-		path += "git/Spring/springERP/src/main/webapp/resources/groupware/upload";
+		for(int i=0; i<arr.length; i++){
+			System.out.println("간다!!!"+arr[i]);
+			
+		}
+			
+		String path ="";
+//		for (int i=0; i<3; i++){
+//			path += arr[i] + "/"; 
+//		}
+		
+		path += "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\groupware\\upload";
 		uploadPath = path;
 		
 		System.out.println(uploadPath);

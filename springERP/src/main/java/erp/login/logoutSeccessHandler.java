@@ -32,11 +32,24 @@ public class logoutSeccessHandler implements LogoutSuccessHandler {
 			throws IOException, ServletException {
 		leave = request.getParameter(leave);
 
+		EmployeeVO emp = (EmployeeVO) auth.getPrincipal();
+		String emp_id = emp.getEmp_id();
+		
+		String inTime   = new java.text.SimpleDateFormat("HH").format(new java.util.Date());
+		int time = Integer.parseInt(inTime);
+		
+
 		if (leave != null) {
-			EmployeeVO emp = (EmployeeVO) auth.getPrincipal();
-			String emp_id = emp.getEmp_id();
+			if(time < 18){
+				try {
+					dao.halfAnnual(emp_id);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			try {
 				dao.leave(emp_id);
+				dao.dateReset(emp_id);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

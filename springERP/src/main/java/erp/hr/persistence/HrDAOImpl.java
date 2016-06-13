@@ -241,4 +241,16 @@ public class HrDAOImpl implements HrDAO {
 	public void updateVVacation(Map<String, Object> paramMap) {
 		session.update(namespace+".updateVVacation", paramMap);
 	}
+
+	@Override
+	public List<EmployeeViewVO> empFull() {
+		return session.selectList(namespace+".empFull");
+	}
+
+	@Override
+	public void sendIndolMessage(Map<String, String> paramMap) {
+		session.insert(namespace+".sendIndolMessage", paramMap);
+	}
+
+
 }
