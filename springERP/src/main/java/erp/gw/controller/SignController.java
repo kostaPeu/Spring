@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import erp.common.service.CommonService;
 import erp.gw.sign.domain.DraftFormatVO;
 import erp.gw.sign.domain.DraftVO;
+import erp.gw.sign.domain.DraftViewVO;
 import erp.gw.sign.domain.PersonViewVO;
 import erp.gw.sign.service.DraftService;
 
@@ -66,18 +67,24 @@ public class SignController {
 	
 	// 기안서 등록
 	@RequestMapping(value="/draft_write", method=RequestMethod.POST)
-	public String insertDraft(@RequestParam("approval_emp") String approval_emp, DraftVO draft, Model model) throws Exception{
+	public String insertDraft(@RequestParam("approval_emp") String approval_emp, @RequestParam("reference_emp") String reference_emp, DraftVO draft, Model model) throws Exception{
 		
 		draft.setEmp_id(CommonService.getEmployeeId());
 		
 		System.out.println(draft.toString());
 		service.insertDraft(draft);
 		
-		String[] strarr = approval_emp.replaceAll("\\s", "").split(",");
+		String[] approvalArr = approval_emp.replaceAll("\\s", "").split(",");
+		String[] referenceArr = reference_emp.replaceAll("\\s", "").split(",");
 		
-		service.insertApproval(strarr);
+		service.insertApproval(approvalArr);
+		String draft_id = service.insertReference(referenceArr);
 		
-		model.addAttribute("draft", draft);
+		DraftVO draftVO = service.selectDraft(draft_id);
+		String e_name = service.getEname(draftVO.getEmp_id());
+		
+		model.addAttribute("e_name", e_name);
+		model.addAttribute("draft", draftVO);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_view.jsp");
 		return "/main";
@@ -141,13 +148,10 @@ public class SignController {
 	}
 	
 	
-	
-	
 	// 내 결재 관리 리스트
 	@RequestMapping("/my_draft_list")
 	public String myDraft(Model model) throws Exception{
-		
-		List<DraftVO> list = service.selectlistDraft(CommonService.getEmployeeId());
+		List<DraftViewVO> list = service.myDraftViewList();
 		
 		model.addAttribute("list", list);
 		model.addAttribute("left", "groupware/groupware.jsp");
@@ -156,16 +160,15 @@ public class SignController {
 		return "/main";
 	}
 	
+	
 	// 기안서 리스트
 	@RequestMapping("/all_draft_list")
 	public String allDraft(Model model) throws Exception{
-		
-		List<DraftVO> list = service.listDraft();
+		List<DraftViewVO> list = service.draftViewList();
 		
 		model.addAttribute("list", list);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_list.jsp");
-		
 		return "/main";
 	}
 	
@@ -174,7 +177,9 @@ public class SignController {
 	public String draftView(@PathVariable("draft_id") String draft_id ,Model model) throws Exception{
 		
 		DraftVO draft = service.selectDraft(draft_id);
+		String e_name = service.getEname(draft.getEmp_id());
 		
+		model.addAttribute("e_name", e_name);
 		model.addAttribute("draft", draft);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_view.jsp");
