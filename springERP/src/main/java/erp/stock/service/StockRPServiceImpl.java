@@ -12,6 +12,7 @@ import erp.basic.domain.Product;
 import erp.common.service.CommonService;
 import erp.stock.domain.StockCalendar;
 import erp.stock.domain.StockRP;
+import erp.stock.domain.StockRPSearch;
 import erp.stock.persistence.StockRPDAO;
 
 @Service
@@ -52,6 +53,14 @@ public class StockRPServiceImpl implements StockRPService {
 	@Override
 	public int stockRPUpdate(StockRP stock) throws Exception {
 		return dao.stockRPUpdate(stock);
+	}
+
+	@Override
+	public List<StockRPSearch> stockRPSearchList(StockRPSearch search) throws Exception {
+		List<StockRPSearch> list = null;
+		//list.add(search);
+		list = dao.stockRPSearchList(search);
+		return list;
 	}
 
 	

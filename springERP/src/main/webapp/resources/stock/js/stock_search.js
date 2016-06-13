@@ -1,5 +1,5 @@
 $(function() {
-	  $(".datepicker1").datepicker({
+	  $(".stockRP_date").datepicker({
 	    dateFormat: 'yy-mm-dd'
 	  });
 	});

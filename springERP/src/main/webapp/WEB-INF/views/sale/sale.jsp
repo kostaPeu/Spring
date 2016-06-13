@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/js/ajax.js"></script>
 </head>
 <body>
 	<div class="erp-local-nav-title">판매관리</div>
@@ -13,7 +12,7 @@
 			<li><a href="/sale/sale_check">판매조회</a></li>
 			<li><a href="/sale/sale_add">판매입력</a></li>
 			<li><a href="/sale/sale_search">판매현황</a></li>
-			<li><a href="./sale/view/sale_accounts.jsp">판매처별 정산</a></li>	
+			<li><a href="/sale/sale_accounts">판매처별 정산</a></li>	
 			<li><a class="" data-target="#five" data-toggle="collapse" href="javascript:;">사입관리</a>
 				<ul id="five" class="collapse">
 					<li><a href="/sale/companyBuy/companyBuy_check">사입 이력 조회</a></li>
