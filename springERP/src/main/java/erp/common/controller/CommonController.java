@@ -226,4 +226,9 @@ public class CommonController {
 		model.addAttribute("pageMaker", pageMaker);
 		return "readMessage";
 	}
+	
+	@RequestMapping(value="/403page")
+	public void errorPage(){
+		
+	}
 }

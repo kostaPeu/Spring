@@ -28,7 +28,10 @@
 			authentication-failure-url="/login?fail=true"
 			default-target-url="/"
 		/>
+		
 		<logout delete-cookies="JSESSIONID" success-handler-ref="logoutSeccessHandler"/>
+		<access-denied-handler error-page="/403page"/>
+		
 		<csrf/>
 	</http>
 	
