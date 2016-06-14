@@ -31,8 +31,7 @@ public class DiagnosisController {
 	
 	@RequestMapping("Diagnosislist")
 	@ResponseBody
-	public List<Diagnosiss> diagnosisList2(Model model)throws Exception{
-	
+	public List<Diagnosiss> diagnosisList2()throws Exception{
 		return service.diagnosisList();
 	}
 	

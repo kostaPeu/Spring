@@ -14,6 +14,7 @@ import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
+import erp.hr.domain.EmployeeViewVO;
 
 
 @Repository
@@ -134,6 +135,16 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	@Override
 	public List<Diagnosiss> diagnosisNumberSearch(String diagnosis_number) throws Exception {
 		return session.selectList(namespace+".diagnosisNumberSearch", diagnosis_number);
+	}
+
+	@Override
+	public List<EmployeeViewVO> searchEmp_idList(String emp_id) throws Exception {
+		return session.selectList(namespace+".searchEmp_idList", emp_id);
+	}
+
+	@Override
+	public List<EmployeeViewVO> EmpList() throws Exception {
+		return session.selectList(namespace+".EmpList");
 	}
 
 }

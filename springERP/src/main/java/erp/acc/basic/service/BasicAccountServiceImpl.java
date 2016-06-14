@@ -13,6 +13,7 @@ import erp.acc.basic.persistence.BasicAccountDAO;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
+import erp.hr.domain.EmployeeViewVO;
 
 
 @Service
@@ -117,6 +118,15 @@ public class BasicAccountServiceImpl implements BasicAccountService {
 	@Override
 	public List<Diagnosiss> diagnosisNumberSearch(String diagnosis_number) throws Exception {
 		return dao.diagnosisNumberSearch(diagnosis_number);
+	}
+	//사원검색
+	@Override
+	public List<EmployeeViewVO> searchEmp_idList(String emp_id) throws Exception {
+		return dao.searchEmp_idList(emp_id);
+	}
+	@Override
+	public List<EmployeeViewVO> EmpList() throws Exception {
+		return dao.EmpList();
 	}
 	
 	

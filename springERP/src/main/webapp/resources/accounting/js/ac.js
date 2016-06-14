@@ -96,6 +96,9 @@ function handler(data) {
 
 
 
+
+
+
 // 작은 검색창 인풋창 초기화
 /*
 $(function() {

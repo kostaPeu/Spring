@@ -155,10 +155,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 신용카드 CRUD START -->
 	<insert id="cardInsert" parameterType="Card">
 		insert into cards (
-		card_number, card_name, account_number, type, emp_id, diagnosis_number, use,
+		card_number, card_name, account_id, type, emp_id, diagnosis_number, use,
 		remarks
 		) values(
-		card_seq.NEXTVAL, #{card_name}, #{account_number},
+		card_seq.NEXTVAL, #{card_name}, #{account_id},
 		#{type}, #{emp_id}, #{diagnosis_number}, #{use}, #{remarks}
 		)
 	</insert>
@@ -195,12 +195,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE proj_id = #{proj_id}
 	</update>
 	
+	
+	<!-- 모델 검색부분 -->
 	<select id="diagnosisList" resultType="Diagnosiss">
 	select *from Diagnosis
 	</select>
 	<select id="diagnosisNumberSearch" resultType="Diagnosiss">
 	select *from Diagnosis
 		where diagnosis_number = #{diagnosis_number}
+	</select>
+	
+	<select id="searchEmp_idList" resultType="EmployeeViewVO">
+	SELECT * FROM employee
+		where emp_id = #{emp_id}
+	</select>
+	<select id="EmpList" resultType="EmployeeViewVO">
+	SELECT * FROM employee
 	</select>
 
 

@@ -125,25 +125,25 @@
 						
 						<div class="form-group">
 							<label for="message-text" class="control-label">계좌번호</label>
-							<a data-toggle="modal" href="#myModal2"><button type="button" class="btn btn-default btn-sm" id="account_numbers">
+							<button type="button" class="btn btn-default btn-sm" id="account_numbers_search" data-toggle="modal" data-target="#account_numbers_modal">
 								<span class="fa fa-search"></span>
-							</button></a>
+							</button>
 							<input class="form-control" type="text" placeholder="계좌번호" name="account_number" id="account_number">
 						</div>
 						
 						
 						<div class="form-group">
 							<label for="message-text" class="control-label">사원번호</label>
-							<button type="button" class="btn btn-default btn-sm" id="emp_ids">
+							<button type="button" class="btn btn-default btn-sm" id="emp_ids_search" data-toggle="modal" data-target="#empidSearch_modal">
 								<span class="fa fa-search"></span>
 							</button>
-							<input class="form-control" type="text" placeholder="사원번호" name="emp_id">
+							<input class="form-control" type="text" placeholder="사원번호" name="emp_id" id="emp_id">
 						</div>						
 						<div class="form-group">
-								<label for="message-text" class="control-label">계정코드</label>
-									<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm" id="diagnosis_number_search">
+							<label for="message-text" class="control-label">계정코드</label>
+								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm" id="diagnosis_number_search">
 									<span class="fa fa-search"></span></button>
-								<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+							<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
 						</div>
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">사용여부</label>
@@ -264,7 +264,7 @@
 	
 	<!--  <div id="warehouseSearch_modal" class="modal fade" role="dialog">
 <!-- 계좌번호 검색 -->
-<div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">
+<!-- <div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">
  <div class="modal-dialog modal-lg">      
     <div class="modal-content">
 		<div class="modal-header">
@@ -272,14 +272,14 @@
 			   <h4 class="modal-title"><strong>목록 검색</strong></h4>	
 		</div>
 			<div class="modal-body">
-				<!-- <div class="col-sm-2">
+				<div class="col-sm-2">
 					<select >
 						<option id="">계좌번호</option>	
 						<option id="">사원번호</option>	
 						<option id="">카드번호</option>	
 						<option id="">ㅁㄴㅇㅁ</option>	
 					</select>
-				</div>	 -->
+				</div>	
 				<div class="col-sm-8">
 					<input type="text" class="form-control" name="account_number" id="search_account_number">
 				</div>
@@ -300,7 +300,74 @@
 			</div>
 		</div>
 	</div>
+</div> -->
+
+<!-- 계좌번호 검색 Start-->
+<div class="modal fade" id="account_numbers_modal" role="dialog">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>사원검색</strong></h4>	
+		</div>
+			<div class="modal-body">				
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="account_number" id="search_account_number">
+				</div>
+						
+				<div class="col-sm-2">
+						<button type="button" class="btn btn-info btn-sm" id="account_numbers"><span class="fa fa-search"></span></button>
+				</div>
+				<br><br><br>
+				<table id="a_searchTable" class="table table-bordered table-hover">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
+	</div>
 </div>
+<!-- 사원번호 검색 End-->
+
+
+<!-- 사원번호 검색 Start-->
+<div class="modal fade" id="empidSearch_modal" role="dialog">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>사원검색</strong></h4>	
+		</div>
+			<div class="modal-body">				
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="diagnosis_number" id="search_empId_number">
+				</div>
+						
+				<div class="col-sm-2">
+						<button type="button" class="btn btn-info btn-sm" id="empIds"><span class="fa fa-search"></span></button>
+				</div>
+				<br><br><br>
+				<table id="e_searchTable" class="table table-bordered table-hover">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 사원번호 검색 End-->
+
+
 
 <!-- 계정 검색 Start-->
 <div class="modal fade" id="diagnosisSearch_modal" role="dialog">
@@ -333,6 +400,10 @@
 	</div>
 </div>
 <!-- 계정 검색 End-->
+
+
+
+
 
 </body>
 </html>

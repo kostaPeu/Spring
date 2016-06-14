@@ -76,11 +76,23 @@ public class AccountController {
 		
 		return service.accountListId(account_id);
 	}
+	@RequestMapping("accountList")
+	@ResponseBody
+	public List<Accounts> accountSearchList() throws Exception{
+		return service.accountList();
+	}
+	
+	
+	
+	
+	//계정검색
 	@RequestMapping("diagnosis_numbers_search")
 	@ResponseBody
 	public List<Diagnosiss> diagnosis_numbers_search(@RequestParam("diagnosis_number")String diagnosis_number)throws Exception{
 		return service.diagnosisNumberSearch(diagnosis_number);
 	}
+	
+	
 	
 }
 	

@@ -8,6 +8,7 @@ import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
+import erp.hr.domain.EmployeeViewVO;
 
 public interface BasicAccountDAO {
 
@@ -54,8 +55,10 @@ public interface BasicAccountDAO {
 	public void diagnosisInsert(Diagnosiss diagnosis)throws Exception;
 	public List<Diagnosiss>diagnosisList() throws Exception;
 	
-	//diagnosis 서치
+	//서치
 	public List<Diagnosiss>diagnosisNumberSearch(String diagnosis_number)throws Exception;
+	public List<EmployeeViewVO> searchEmp_idList(String emp_id)throws Exception;
+	public List<EmployeeViewVO> EmpList()throws Exception;
 	
 
 }
