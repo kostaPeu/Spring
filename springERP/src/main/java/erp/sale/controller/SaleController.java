@@ -11,16 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import erp.basic.service.BasicCustomerService;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
+import erp.sale.domain.SaleCustomerChart;
 import erp.sale.domain.SaleListView;
+import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
 import erp.sale.domain.SaleVO;
 import erp.sale.service.SaleService;
@@ -31,6 +37,8 @@ public class SaleController {
 	
 	@Inject
 	private SaleService service;
+	@Inject
+	private BasicCustomerService basicService;
 	
 	@RequestMapping(value="sale_add", method=RequestMethod.GET)
 	public String saleAddGET(Model model)throws Exception{
@@ -96,5 +104,24 @@ public class SaleController {
 		cmf.transferTo(file);
 		service.uploadExcel(path);
 		return "redirect:sale_check";
+	}
+	@RequestMapping("sale_accounts")
+	public String saleAccounts(Model model) throws Exception{
+		
+		model.addAttribute("list", basicService.customerList());
+		model.addAttribute("left", "sale/sale.jsp");
+		model.addAttribute("contents", "sale/sale_accounts.jsp");
+		return "/main";
+	}
+	
+	@RequestMapping("customer_chart")
+	@ResponseBody
+	public List<SaleCustomerChart> saleCustomerChart() throws Exception{
+		return service.saleCustomerChart();
+	}
+	@RequestMapping("product_chart")
+	@ResponseBody
+	public List<SaleProductChart> saleProductChart(@RequestParam("customer_id") String customer_id) throws Exception{
+		return service.saleProductChart(customer_id);
 	}
 }

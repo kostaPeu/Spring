@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <title>Insert title here</title>
 
 <!-- Google Fonts -->
@@ -13,22 +16,22 @@
 
  <!-- Font Awesome -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	
+
 <!-- Custom CSS -->
-   	
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="purchase/css/purchase.css" rel="stylesheet">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+   
+    <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
+    <script type="text/javascript" src="/resources/purchase/js/purchase2.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+
+
+
 	
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script src="js/jquery.js" type="text/javascript"></script> 
-    <script src="purchase/js/purchase.js" type="text/javascript"></script>   
 </head>
 <body>
-	<div class="item_div">
+	<!-- <div class="item_div">
 		<div class="title">
 			<span class=""><strong>품목코드검색</strong></span>
 			<button type="button" class="close" id="item_closeBtn"><span>&times;</span></button>
@@ -98,12 +101,12 @@
 							<input type="text" class="form-control" id="product_id">							
 							<span></span>					
 						</div>						
-					</div><!-- hide detail end -->
+					</div>hide detail end
 					<button class="btn btn-default btn-sm" type="submit"><span class="fa fa-search"></span></button>
 				</div>
 			</div>
 		</form>
-	</div><!-- customer_div End -->
+	</div>customer_div End
 	<table class="table table-bordered table-hover new">
 		<tr>
 			<td>기준일자</td>
@@ -123,7 +126,8 @@
 				<button id="item_search" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button>				
 			</td>
 		</tr>
-	</table>
+	</table> -->
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	<div class="buttongroup">
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
 		<input type="button" id="searchBtn" class="btn btn-default" value="검색">

@@ -94,4 +94,12 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	public void insertExcel(PurchaseVO vo) throws Exception {
 		session.insert(namespace+".insertExcel", vo);
 	}
+	@Override
+	public List<PurchaseListView> getTotalPrice() throws Exception {
+		return session.selectList(namespace+".getTotalPrice");
+	}
+	@Override
+	public List<PurchaseListView> getCustomerGroup() throws Exception {
+		return session.selectList(namespace+".getCustomerGroup");
+	}
 }

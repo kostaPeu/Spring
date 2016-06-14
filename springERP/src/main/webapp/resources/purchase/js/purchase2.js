@@ -180,66 +180,184 @@ $(function(){
 		$('#w_searchTable').append(html);
 	}
 })
-// 차트!!
-/*$(function () {
-
-    // Radialize the colors
-    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
-        return {
-            radialGradient: {
-                cx: 0.5,
-                cy: 0.3,
-                r: 0.7
-            },
-            stops: [
-                [0, color],
-                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
-            ]
-        };
-    });
-
-    // Build the chart
+$(function () {
+    // Create the chart2
+	var list;
+	$.ajax({
+		url : "/purchase/chartData",
+		dataType : 'json',
+		async: false,
+		success : success
+	})
+	function success(data){
+		list = data;
+	}
     $('#container').highcharts({
         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
+            type: 'column'
         },
         title: {
-            text: '구매처별 정산'
+            text: '거래처별 구매 정산'
         },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total percent market share'
+            }
+
+        },
+        legend: {
+            enabled: false
         },
         plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
+            series: {
+                borderWidth: 0,
                 dataLabels: {
                     enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    },
-                    connectorColor: 'silver'
+                    format: '{point.y:.1f}%'
                 }
             }
         },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+        },
         series: [{
             name: 'Brands',
-            data: [
-                { name: '거래처5', y: 56.33 },
-                {
-                    name: '거래처4',
-                    y: 24.03,
-                    sliced: true,
-                    selected: true
-                },
-                { name: '거래처1', y: 10.38 },
-                { name: '거래처2', y: 4.77 }, { name: '거래처6', y: 0.91 },
-                { name: '거래처3', y: 0.2 }
-            ]
-        }]
+            colorByPoint: true,
+            data: list
+        }],
+        
+        drilldown: {
+            series: [{
+                name: '두산',
+                id: '두산',
+                data: [
+                    [
+                        '인텔코어',
+                        17.2
+                    ],
+                    [
+                        '하나로',
+                        24.13
+                    ],
+                    [
+                        '총각김치',
+                        8.11
+                    ],
+                    [
+                        'ZARA',
+                        5.33
+                    ],
+                    [
+                        '성량스피커',
+                        1.06
+                    ]
+                ]
+            }, {
+                name: '한성컴퓨터',
+                id: '한성컴퓨터',
+                data: [
+                    [
+                        '인텔코어',
+                        8.11
+                    ],
+                    [
+                        '하나로',
+                        17.2
+                    ],
+                    [
+                        '총각김치',
+                        24.13
+                    ],
+                    [
+                        'ZARA',
+                        5.33
+                    ],
+                    [
+                        '성량스피커',
+                        1.06
+                    ]
+                ]
+            }, {
+                name: 'KOSTA',
+                id: 'KOSTA',
+                data: [
+                    [
+                        '인텔코어',
+                        1.06
+                    ],
+                    [
+                        '하나로',
+                        17.2
+                    ],
+                    [
+                        '총각김치',
+                        5.33
+                    ],
+                    [
+                        'ZARA',                       
+                        8.11
+                    ],
+                    [
+                        '성량스피커',                        
+                        24.13
+                    ]
+                ]
+            }, {
+                name: 'g&shop',
+                id: 'g&shop',
+                data: [
+                    [
+                        '인텔코어',
+                        8.11
+                    ],
+                    [
+                        '하나로',
+                        17.2
+                    ],
+                    [
+                        '총각김치',                        
+                        24.13
+                    ],
+                    [
+                        'ZARA',
+                        5.33
+                    ],
+                    [
+                        '성량스피커',
+                        1.06
+                    ]
+                ]
+            }, {
+                name: 'Opera',
+                id: 'Opera',
+                data: [
+                    [
+                        '인텔코어',
+                        5.33
+                    ],
+                    [
+                        '하나로',
+                        1.06
+                    ],
+                    [
+                        '총각김치',
+                        8.11
+                    ],
+                    [
+                        'ZARA',
+                        24.13
+                    ],
+                    [
+                        '성량스피커',
+                        17.2
+                    ]
+                ]
+            }]
+        }
     });
-});*/
+});
