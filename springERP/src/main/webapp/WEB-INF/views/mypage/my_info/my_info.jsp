@@ -58,7 +58,7 @@
 			<input type="hidden" name="e_sal" value="${employee.e_sal }"/>
 			<table class="table table-bordered">
 				<tr>
-					<td>hoho사원번호</td>
+					<td>사원번호</td>
 					<td><span>${employee.emp_id }</span></td>
 					<td>이름</td>
 					<td><span>${employee.e_name }</span></td>

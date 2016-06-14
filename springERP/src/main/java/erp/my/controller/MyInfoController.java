@@ -19,6 +19,8 @@ public class MyInfoController {
 	
 	@Inject
 	private MyInfoService service;
+	@Inject
+	private CommonService common;
 	
 	@RequestMapping("")
 	public String myinfoMain(Model model){
@@ -34,6 +36,9 @@ public class MyInfoController {
 	// employee 테이블 개인정보 수정하기 - 보람
 	@RequestMapping(value="/edit_info", method=RequestMethod.POST)
 	public String myinfoEdit(@ModelAttribute("employee") EmployeeVO employee, Model model){
+		String pass = common.passwordEncoder(employee.getPassword());
+		
+		employee.setE_pwd(pass);
 		
 		service.editEmpInfo(employee);
 		
@@ -47,9 +52,7 @@ public class MyInfoController {
 	// 휴가신청 - 보람
 	@RequestMapping(value="/indol_request", method=RequestMethod.POST)
 	public String myinfoRequest(@ModelAttribute("indolRequest") IndolRequestVO indolRequest, Model model){
-	
 		EmployeeVO employee = service.selectEmpInfo(CommonService.getEmployeeId());
-		
 		service.insertIndolRequest(indolRequest);
 		
 		model.addAttribute("employee", employee);
