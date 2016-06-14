@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/shopERP/stock/css/stock.css" rel="stylesheet">
-<script src="/shopERP/stock/js/stock_search.js"></script>
-<script src="/shopERP/js/bootstrap-datepicker.js"></script>
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+<link href="/resources/stock/css/stock.css" rel="stylesheet">
+<script src="/resources/stock/js/stock_search.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script type="text/javascript">
 $(function(){
@@ -138,14 +137,15 @@ $(function(){
 		</div>
 	</div>
 <div class="search">
+<form:form action="stockRP_searchList" method="post">
 			<div class="searchform">
 			<table class="table table-bordered table-hover new">
 				<tr>
 					<td>기준일자</td>
-					<td><input type="text" class="datepicker1">  -  <input type="text" class="datepicker1"></td>
+					<td><input type="text" class="stockRP_date" name="start_date">  -  <input type="text" class="stockRP_date" name="end_date"></td>
 				</tr> 
 				<tr>
-					<td>창고</td>
+					<td>거래처</td>
 					<td><input type="text" id="warehouse_id" disabled="disabled">&nbsp;&nbsp;<button id="warehouse_search" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button></td>
 				</tr>
 				<tr>
@@ -153,8 +153,9 @@ $(function(){
 					<td><input type="text" id="product_id" disabled="disabled">&nbsp;&nbsp;<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><span class="fa fa-search"></span></button></td>
 				</tr>
 			</table>
-				<a href="./main.jsp?left=./stock/view/stock.jsp&contents=./stock/view/stock_search_calendar.jsp"" class="btn btn-default btn-sm localcenter"><span class="fa fa-search"></span></a>
+				<button type="submit" class="btn btn-default btn-sm localcenter"><span class="fa fa-search"></span></button>
 			</div>
+</form:form>
 </div>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">

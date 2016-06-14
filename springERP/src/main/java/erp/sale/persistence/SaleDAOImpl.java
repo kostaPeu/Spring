@@ -10,7 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
+import erp.sale.domain.SaleCustomerChart;
 import erp.sale.domain.SaleListView;
+import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
 import erp.sale.domain.SaleSearchTimeSet;
 import erp.sale.domain.SaleVO;
@@ -64,5 +66,13 @@ public class SaleDAOImpl implements SaleDAO {
 	@Override
 	public void insertSaleExcel(SaleVO vo) throws Exception {
 		sqlSession.insert(namespace+".insertSaleExcel", vo);
+	}
+	@Override
+	public List<SaleProductChart> saleProductChart(String customer_id) throws Exception {
+		return sqlSession.selectList(namespace+".saleProductChart", customer_id);
+	}
+	@Override
+	public List<SaleCustomerChart> saleCustomerChart() throws Exception {
+		return sqlSession.selectList(namespace+".saleCustomerChart");
 	}
 }

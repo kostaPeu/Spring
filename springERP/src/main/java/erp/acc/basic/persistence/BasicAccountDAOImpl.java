@@ -10,9 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
+import erp.hr.domain.EmployeeViewVO;
 
 
 @Repository
@@ -112,6 +114,37 @@ public class BasicAccountDAOImpl implements BasicAccountDAO {
 	@Override
 	public List<ProjectsVO> projectList() throws Exception {
 		return session.selectList(namespace+".projectList");
+	}
+
+	@Override
+	public void diagnosisInsert(Diagnosiss diagnosis) throws Exception {
+		session.insert(namespace+ ".diagnosisInsert", diagnosis);
+	}
+
+	@Override
+	public List<Diagnosiss> diagnosisList() throws Exception {
+		return session.selectList(namespace+".diagnosisList");
+	}
+
+	@Override
+	public List<Accounts> accountListId(String account_id) throws Exception {
+		return session.selectList(namespace+".accountListId", account_id);
+	}
+
+	//계정검색
+	@Override
+	public List<Diagnosiss> diagnosisNumberSearch(String diagnosis_number) throws Exception {
+		return session.selectList(namespace+".diagnosisNumberSearch", diagnosis_number);
+	}
+
+	@Override
+	public List<EmployeeViewVO> searchEmp_idList(String emp_id) throws Exception {
+		return session.selectList(namespace+".searchEmp_idList", emp_id);
+	}
+
+	@Override
+	public List<EmployeeViewVO> EmpList() throws Exception {
+		return session.selectList(namespace+".EmpList");
 	}
 
 }

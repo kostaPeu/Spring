@@ -6,10 +6,10 @@
 <mapper namespace="springERP.sale.mapper.saleMapper">
 	<insert id="insertSale" parameterType="SaleVO">
 		insert into sell(
-			sell_id, customer_id, product_id, sell_date, warehouse_id, pay_type,sell_price, sell_amount
+			sell_id, customer_id, product_id, sell_date, warehouse_id, pay_type,sell_price, sell_amount, total_price
 		)		
 		values(
-			#{sell_id},#{customer_id},#{product_id},SYSDATE,#{warehouse_id},#{pay_type},#{sell_price},#{sell_amount}
+			#{sell_id},#{customer_id},#{product_id},SYSDATE,#{warehouse_id},#{pay_type},#{sell_price},#{sell_amount}, #{sell_price}*#{sell_amount}
 		)
 	</insert>
 	<insert id="insertSaleExcel" parameterType="SaleVO">
@@ -167,6 +167,17 @@
    ]]>
      <include refid="search"></include>
    </select> -->
+   
+   <select id="saleProductChart" parameterType="String" resultType="SaleProductChart">
+	SELECT product_id, SUM(total_price) as total_price FROM sell
+		WHERE customer_id = #{customer_id}
+		GROUP BY product_id
+   </select>
+   
+   <select id="saleCustomerChart" resultType="SaleCustomerChart">
+	SELECT customer_id, SUM(total_price) as total FROM sell
+		GROUP BY customer_id
+   </select>
 </mapper>
 
 

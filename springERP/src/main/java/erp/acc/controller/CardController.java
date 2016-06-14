@@ -1,5 +1,7 @@
 package erp.acc.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -7,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.Card;
 import erp.acc.basic.service.BasicAccountService;
+import erp.hr.domain.EmployeeViewVO;
 
 @Controller
 @RequestMapping("/accounting/card")
@@ -25,6 +29,17 @@ public class CardController {
 		model.addAttribute("listModel", service.cardList());
 		model.addAttribute("contents", "accounting/basic/card.jsp");
 		return "/main";
+	}
+	@RequestMapping("/searchEmpList")
+	@ResponseBody
+	public List<EmployeeViewVO> searchEmpIdList(@RequestParam("emp_id")String emp_id)throws Exception{
+		return service.searchEmp_idList(emp_id);
+	}
+	
+	@RequestMapping("/searchEmpIdList")
+	@ResponseBody
+	public List<EmployeeViewVO> EmpList()throws Exception{
+		return service.EmpList();
 	}
 		
 	//카드등록 -JH
