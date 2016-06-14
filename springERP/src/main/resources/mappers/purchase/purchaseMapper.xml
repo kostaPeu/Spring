@@ -199,4 +199,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    			where b.customer_id = c.customer_id
 			group by c.customer_name
    </select>
+   <select id="getTotalSales" resultType="Slip">
+   		select *from slip
+   			order by slip_id
+   </select>
+   <select id="getMonth" resultType="Slip">
+   		select * from slip 
+			where slip_date LIKE #{value}
+   </select>
 </mapper>

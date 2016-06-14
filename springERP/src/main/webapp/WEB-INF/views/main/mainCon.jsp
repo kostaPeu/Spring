@@ -18,6 +18,9 @@
  --><script src="/resources/common/js/moment.min.js"></script>
 <script src='/resources/common/js/jquery-ui.custom.min.js'></script>
 <script src="/resources/common/js/fullcalendar.js"></script>
+<script src="/resources/common/js/totalData.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 <!-- custom js,css경로 -->
 <script src='/resources/main/js/mainCon.js'></script>
@@ -65,7 +68,16 @@
 			</table>
 		<hr>
 		</div>
+		<div class="col-sm-3 pull-right">
+			<h2 class="page_title"></h2>
+			<div id="container" style="width: 250px; height: 230px; margin: 0 auto"></div>
+			
+		<hr>
+		</div>
+		
 	<div class="row">
+		
+		
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title">부서 게시판</h2>
 
@@ -81,6 +93,11 @@
 				</tbody>
 			</table>
 		</div>
+		<div class="col-sm-3 pull-right">
+			<h2 class="page_title"></h2>
+			<div id="container2" style="width: 250px; height: 230px; margin: 0 auto"></div>
+		<hr>
+		</div>		
 	</div>
 		
 	</div>
