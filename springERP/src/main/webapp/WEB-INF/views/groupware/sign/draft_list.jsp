@@ -7,6 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -52,7 +55,6 @@
 		</tbody>
 	</table>
 	
-	
 	<div class="box-footer">
 		<div class="text-center">
 		<ul class="pagination">
@@ -74,30 +76,6 @@
 		</ul>
 		</div>
 	</div>
-
-	<div class="row">
-		<a id="write" href="format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
-	</div>
-
-	
-	<script type="text/javascript">
-	
-	$(function(){
-		   $('.titleLink').on('click', function(e) {
-		      e.preventDefault();
-		      $('#contents').empty();	
-		      $('#contents').load('/groupware/sign/'+$(this).attr('href'));
-		   });
-
-		   $('#write').click(function(e) {
-		      e.preventDefault();
-		      
-		      $('#contents').empty();
-		      $('#contents').load('/groupware/sign/'+$(this).attr('href'));
-		   });
-		   
-		})
-	</script>
 	
 </body>
 </html>

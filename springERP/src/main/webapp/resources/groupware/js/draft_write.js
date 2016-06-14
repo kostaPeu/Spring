@@ -1,5 +1,18 @@
-$(function(){
+window.onload = function(){
+	$("#createBtn").on("click", function(){
+		document.writeForm.action = "draft_write";
+		document.writeForm.submit();
+	})
 	
+	$("#editBtn").on("click", function(){
+		alert("hoho!");
+		document.writeForm.action = "draft_edit";
+		document.writeForm.submit();
+	})
+}
+
+$(function(){
+
 //결재자 검색
 	var approvalName = '';
 	

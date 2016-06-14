@@ -105,4 +105,24 @@ public class DraftDaoImpl implements DraftDao {
 	public List<String> selectReferenceEmpId(String emp_id) throws Exception {
 		return session.selectList(namespace + ".selectReferenceEmpId", emp_id);
 	}
+
+	@Override
+	public void updateDraft(DraftVO draft) throws Exception {
+		session.update(namespace + ".updateDraft", draft);
+	}
+
+	@Override
+	public void deleteDraft(String draft_id) throws Exception {
+		session.delete(namespace + ".deleteDraft", draft_id);
+	}
+
+	@Override
+	public void deleteApproval(String draft_id) throws Exception {
+		session.delete(namespace + ".deleteApproval", draft_id);
+	}
+
+	@Override
+	public void deleteReference(String draft_id) throws Exception {
+		session.delete(namespace + ".deleteReference", draft_id);
+	}
 }

@@ -14,6 +14,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 )
 	</insert>
 	
+	<!-- 기안서 수정하기 -->
+	<insert id="updateDraft" parameterType="DraftVO">
+		UPDATE draft
+			SET draft_title = #{draft_title},
+				draft_content = #{draft_content },
+				draft_type = #{draft_type },
+				draft_state = #{draft_state }
+			WHERE draft_id = #{draft_id }
+	</insert>
+	
+	<!-- 기안서 삭제하기 -->
+	<delete id="deleteDraft">
+		DELETE FROM draft WHERE draft_id = #{draft_id } 
+	</delete>
+	
 	<!--  공통양식 추가 -->
 	<insert id="insertFormat" parameterType="DraftFormatVO">
 		INSERT INTO draft_format (
@@ -93,6 +108,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT emp_id FROM reference WHERE draft_id = #{draft_id }
 	</select>
 	
+	<!-- 기안서 별 결재자 정보 삭제 -->
+	<delete id="deleteApproval">
+		DELETE FROM approval WHERE draft_id = #{draft_id}
+	</delete>
+	
+	<!-- 기안서 별 참조자 정보 삭제 -->
+	<delete id="deleteReference">
+		DELETE FROM reference WHERE draft_id = #{draft_id}
+	</delete>
+	
 	<!-- 결재자 별 기안서 뽑아오기 -->
 	<select id="selectApprovalEmpId" parameterType="String" resultType="String">
 		SELECT draft_id FROM approval WHERE emp_id = #{emp_id }
@@ -102,4 +127,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectReferenceEmpId" parameterType="String" resultType="String">
 		SELECT draft_id FROM reference WHERE emp_id = #{emp_id }
 	</select>
+	
 </mapper>
