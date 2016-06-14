@@ -188,4 +188,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    ]]>
      <include refid="search"></include>
    </select>  -->
+   
+   <select id="getTotalPrice" resultType="PurchaseListView">
+   		select c.customer_name, b.buy_price, b.buy_amount from buy b, customer c
+   			where b.customer_id = c.customer_id
+			order by buy_price desc
+   </select>
+   <select id="getCustomerGroup" resultType="PurchaseListView">
+   		select c.customer_name from buy b, customer c			
+   			where b.customer_id = c.customer_id
+			group by c.customer_name
+   </select>
+   <select id="getTotalSales" resultType="Slip">
+   		select *from slip
+   			order by slip_id
+   </select>
+   <select id="getMonth" resultType="Slip">
+   		select * from slip 
+			where slip_date LIKE #{value}
+   </select>
 </mapper>

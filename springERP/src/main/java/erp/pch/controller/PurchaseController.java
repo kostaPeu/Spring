@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +33,7 @@ import erp.pch.domain.JsonDataChart;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
+import erp.pch.domain.TotalDataChart;
 import erp.pch.service.PurchaseService;
 
 @Controller
@@ -136,12 +138,17 @@ public class PurchaseController {
 	@RequestMapping("chartData")
 	@ResponseBody
 	public List<JsonDataChart> chartData()throws Exception{
-		List<JsonDataChart> list = new ArrayList<JsonDataChart>();
-		JsonDataChart jc = new JsonDataChart();
-		jc.setName("hi");
-		jc.setY(100);
-		jc.setDrilldown("Chrome");
-		list.add(jc);
-		return list;
+		return service.getChartData();
+	}
+	@RequestMapping("total_chart")
+	public String totalChart(Model model)throws Exception{
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/main_total.jsp");
+		return "/main";
+	}
+	@RequestMapping("totalDataChart")
+	@ResponseBody
+	public List<TotalDataChart> totalData()throws Exception{
+		return service.getTotalSales();
 	}
 }

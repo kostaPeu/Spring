@@ -100,10 +100,10 @@ public class HrController {
 		return "/main";
 	}
 
-	@RequestMapping(value = "/jubis")
+	@RequestMapping(value = "/authority")
 	public String jubis(Model model) {
 		model.addAttribute("left", "hr/hr.jsp");
-		model.addAttribute("contents", "hr/jubis.jsp");
+		model.addAttribute("contents", "hr/authority.jsp");
 		return "/main";
 	}
 
@@ -389,6 +389,18 @@ public class HrController {
 			e.printStackTrace();
 		}
 		return entity;
+	}
+	
+	@RequestMapping(value="/autorityDept", method = RequestMethod.POST)
+	public String autorityDept(@RequestParam("dept_id") String dept_id, @RequestParam("authorities") String authorities){
+		service.autorityDept(dept_id, authorities);
+		return "redirect:/hr/authority";
+	}
+	
+	@RequestMapping(value="/autorityPerson", method = RequestMethod.POST)
+	public String autorityPerson(@RequestParam("emp_id") String emp_id, @RequestParam("authorities") String authorities){
+		service.autorityEmp(emp_id, authorities);
+		return "redirect:/hr/authority";
 	}
 }
 

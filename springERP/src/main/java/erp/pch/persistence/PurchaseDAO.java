@@ -13,6 +13,7 @@ import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseSearchTimeSet;
 import erp.pch.domain.PurchaseVO;
+import erp.pch.domain.Slip;
 import erp.sale.domain.SaleListView;
 
 public interface PurchaseDAO {
@@ -33,4 +34,8 @@ public interface PurchaseDAO {
 	public String getProductId(String product_name)throws Exception;
 	public String getWarehouseId(String warehouse_name)throws Exception;
 	public void insertExcel(PurchaseVO vo)throws Exception;
+	public List<PurchaseListView> getTotalPrice()throws Exception;
+	public List<PurchaseListView> getCustomerGroup()throws Exception;
+	public List<Slip> getTotalSales()throws Exception;
+	public List<Slip> getMonth(String value)throws Exception;
 }

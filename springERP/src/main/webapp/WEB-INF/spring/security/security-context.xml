@@ -11,8 +11,16 @@
 
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login" access="isAnonymous()" />
-		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/basic/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS')" />
+		<intercept-url pattern="/purchase/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS')" />
+		<intercept-url pattern="/sale/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS')" />
+		<intercept-url pattern="/odm/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_OS')" />
+		<intercept-url pattern="/stock/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_OS')" />
+		<intercept-url pattern="/accounting/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ACC')" />
+		<intercept-url pattern="/hr/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_HR')" />
+		<intercept-url pattern="/groupware/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS', 'ROLE_OS', 'ROLE_ACC', 'ROLE_HR')" />
+		<intercept-url pattern="/mypage/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS', 'ROLE_OS', 'ROLE_ACC', 'ROLE_HR')" />
+		<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS', 'ROLE_OS', 'ROLE_ACC', 'ROLE_HR')" />
 
 		<form-login login-page="/login" username-parameter="userId"
 			password-parameter="userPwd" login-processing-url="/login_check"
@@ -20,7 +28,10 @@
 			authentication-failure-url="/login?fail=true"
 			default-target-url="/"
 		/>
+		
 		<logout delete-cookies="JSESSIONID" success-handler-ref="logoutSeccessHandler"/>
+		<access-denied-handler error-page="/403page"/>
+		
 		<csrf/>
 	</http>
 	
@@ -32,8 +43,11 @@
 		<beans:property name="leave" value="leaveRe"></beans:property>
 	</beans:bean>
 	
+  	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
  	<authentication-manager>
-		<authentication-provider user-service-ref="customJdbcDaoImpl"></authentication-provider>
+		<authentication-provider user-service-ref="customJdbcDaoImpl">	
+  			<password-encoder ref="bcryptPasswordEncoder"/>
+ 		</authentication-provider>
 	</authentication-manager>
     
 	<beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
@@ -41,7 +55,7 @@
  		<beans:property name="usersByUsernameQuery"
 			value="SELECT EMP_ID, E_PWD, E_NAME, DEPT_ID FROM EMPLOYEE WHERE EMP_ID=?" />
 		<beans:property name="authoritiesByUsernameQuery"
-			value="SELECT EMP_ROLE FROM MEMBER_ROLE WHERE EMP_ID=?" />
+			value="SELECT AUTHORITIES FROM EMPLOYEE WHERE EMP_ID=?" />
 		<beans:property name="enableGroups" value="false" />
 	</beans:bean>
 

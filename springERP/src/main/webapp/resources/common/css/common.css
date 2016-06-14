@@ -141,3 +141,22 @@ ul {list-style: none;}
 #messageForm{
 	display: inline-block;
 }
+
+#errTitle{
+	text-align: center;
+	font-size: 80px;
+	color: mediumpurple;
+	 line-height : 200px;
+	 vertical-align: middle;
+}
+#errSubTitle{
+	text-align: center;
+	font-size: 30px;
+	color: mediumpurple;
+	 line-height : 120px;
+	 vertical-align: middle;
+	
+}
+.errText{
+	text-align: center;
+}
