@@ -43,8 +43,11 @@
 		<beans:property name="leave" value="leaveRe"></beans:property>
 	</beans:bean>
 	
+  	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
  	<authentication-manager>
-		<authentication-provider user-service-ref="customJdbcDaoImpl"></authentication-provider>
+		<authentication-provider user-service-ref="customJdbcDaoImpl">	
+  			<password-encoder ref="bcryptPasswordEncoder"/>
+ 		</authentication-provider>
 	</authentication-manager>
     
 	<beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
