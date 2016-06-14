@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +45,8 @@ import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseSearchTimeSet;
 import erp.pch.domain.PurchaseVO;
+import erp.pch.domain.Slip;
+import erp.pch.domain.TotalDataChart;
 import erp.pch.persistence.PurchaseDAO;
 
 @Service
@@ -314,5 +317,29 @@ public class PurchaseServiceImpl implements PurchaseService{
 			json.add(jdc);
 		}
 		return json;
+	}
+
+	@Override
+	public List<TotalDataChart> getTotalSales() throws Exception {		
+		List<TotalDataChart> list = new ArrayList<TotalDataChart>();
+		List<Slip> slipList = null;
+		long[] temps = new long[12];
+		for(int i=1;i<13;i++){
+			long val = 0;
+			if(i<10){
+				slipList = dao.getMonth("16/0"+i+"%");
+			}else{
+				slipList = dao.getMonth("16/"+i+"%");
+			}
+			for(int j=0;j<slipList.size();j++){
+				val += slipList.get(j).getSlip_amount();
+			}
+			temps[i-1] = val;
+		}
+		TotalDataChart tdc = new TotalDataChart();
+		tdc.setName("shop");
+		tdc.setData(temps);
+		list.add(tdc);
+		return list;
 	}
 }

@@ -1,5 +1,6 @@
 package erp.pch.test;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
+import erp.pch.domain.Slip;
+import erp.pch.domain.TotalDataChart;
 import erp.pch.persistence.PurchaseDAO;
 import erp.pch.service.PurchaseService;
 
@@ -26,8 +29,29 @@ public class PurchaseTest {
 	@Inject
 	private PurchaseDAO dao;
 	
-	
 	@Test
+	public void getMonth()throws Exception{
+		List<TotalDataChart> list = new ArrayList<TotalDataChart>();
+		List<Slip> slipList = null;
+		long[] temps = new long[12];
+		for(int i=1;i<13;i++){
+			long val = 0;
+			if(i<10){
+				slipList = dao.getMonth("16/0"+i+"%");
+			}else{
+				slipList = dao.getMonth("16/"+i+"%");
+			}
+			for(int j=0;j<slipList.size();j++){
+				//temps[i-1] = 1;
+				val += slipList.get(j).getSlip_amount();
+			}
+			temps[i-1] = val;
+		}
+		for(int i=0;i<temps.length;i++){
+			System.out.println(temps[i]);
+		}
+	}
+	/*@Test
 	public void getTotalPriceTest()throws Exception{
 		List<PurchaseListView> list = dao.getTotalPrice();
 		List<PurchaseListView> customerList = dao.getCustomerGroup();
@@ -46,7 +70,7 @@ public class PurchaseTest {
 				customerList.get(i).setBuy_price(tmp);
 			}
 		}
-	}
+	}*/
 	
 	/*@Test
 	public void getCustomerId()throws Exception{
