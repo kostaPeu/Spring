@@ -17,6 +17,8 @@ public interface MoneyPlanService {
 	public List<MoneyPlanTimeSet> moneyPlanList() throws Exception;
 	
 	public List<MoneyPlanTimeSet> moneyPlnapromissoryList()throws Exception;
+
+	public List<MoneyPlanTimeSet> moneyAllList();
 	
 	
 }

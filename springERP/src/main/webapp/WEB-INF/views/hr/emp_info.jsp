@@ -142,6 +142,7 @@ ul {
 						<th>직급명</th>
 						<th>직무명</th>
 						<th>직책명</th>
+						<th>권한</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -161,6 +162,7 @@ ul {
 							<td>${empViewVO.position_name }</td>
 							<td>${empViewVO.job_name }</td>
 							<td>${empViewVO.duty_name }</td>
+							<td>${empViewVO.authorities }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

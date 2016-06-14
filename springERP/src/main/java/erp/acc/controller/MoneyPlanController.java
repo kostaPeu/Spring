@@ -1,5 +1,7 @@
 package erp.acc.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -14,14 +16,11 @@ import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.service.MoneyPlanService;
 
 @Controller
-@RequestMapping("/accounting/moneyPlan")
+@RequestMapping("/accounting/moneyPlan/*")
 public class MoneyPlanController {
 
 	@Inject
 	private MoneyPlanService service;
-
-	// 자금계획 올 리스트
-	
 	
 	// 자금계획현금 리스트
 	@RequestMapping("/list")
@@ -76,5 +75,12 @@ public class MoneyPlanController {
 			service.moneyPlanDelete(cmt[i]);
 		}
 		return "redirect:/accounting/moneyPlan/list";
+	}
+	
+	@RequestMapping("/MoneyPlan_calendar")
+	public String MoneyPlan_calendar(Model model) throws Exception {
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/moneyPlan/MoneyPlan_calendar.jsp");
+		return "/main";
 	}
 }
