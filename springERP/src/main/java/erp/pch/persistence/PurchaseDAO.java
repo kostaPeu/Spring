@@ -33,4 +33,6 @@ public interface PurchaseDAO {
 	public String getProductId(String product_name)throws Exception;
 	public String getWarehouseId(String warehouse_name)throws Exception;
 	public void insertExcel(PurchaseVO vo)throws Exception;
+	public List<PurchaseListView> getTotalPrice()throws Exception;
+	public List<PurchaseListView> getCustomerGroup()throws Exception;
 }

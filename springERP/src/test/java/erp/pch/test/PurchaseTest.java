@@ -1,6 +1,7 @@
 package erp.pch.test;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,11 +26,33 @@ public class PurchaseTest {
 	@Inject
 	private PurchaseDAO dao;
 	
+	
 	@Test
+	public void getTotalPriceTest()throws Exception{
+		List<PurchaseListView> list = dao.getTotalPrice();
+		List<PurchaseListView> customerList = dao.getCustomerGroup();
+		
+		for(int i=0;i<customerList.size();i++){
+			int tmp = 0;
+			boolean check = false;
+			for(int j=0;j<list.size();j++){				
+				if(customerList.get(i).getCustomer_name().equals(list.get(j).getCustomer_name())){
+					tmp += list.get(j).getBuy_price() * list.get(j).getBuy_amount();
+					System.out.println(customerList.get(i).getCustomer_name()+":"+list.get(j).getCustomer_name()+":"+tmp);
+					check = true;
+				}
+			}
+			if(check){
+				customerList.get(i).setBuy_price(tmp);
+			}
+		}
+	}
+	
+	/*@Test
 	public void getCustomerId()throws Exception{
 		String str = dao.getCustomerId("옥션");
 		System.out.println(str);
-	}
+	}*/
 	
 	/*@Test
 	public void purchaseSearch()throws Exception{
