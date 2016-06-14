@@ -38,6 +38,7 @@ import erp.basic.domain.Product;
 import erp.common.domain.Criteria;
 import erp.pch.domain.GetCustomer;
 import erp.pch.domain.GetWareHouse;
+import erp.pch.domain.JsonDataChart;
 import erp.pch.domain.PurchaseExcelUp;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
@@ -281,5 +282,37 @@ public class PurchaseServiceImpl implements PurchaseService{
 		        dao.insertExcel(vo);
 		    }		   
 		}
+	}
+
+	@Override
+	public List<JsonDataChart> getChartData() throws Exception {
+		List<PurchaseListView> list = dao.getTotalPrice();
+		List<PurchaseListView> customerList = dao.getCustomerGroup();
+		List<JsonDataChart> json = new ArrayList<JsonDataChart>();
+		int totalPirce = 0;
+		for(int i=0;i<customerList.size();i++){
+			int tmp = 0;
+			boolean check = false;
+			for(int j=0;j<list.size();j++){				
+				if(customerList.get(i).getCustomer_name().equals(list.get(j).getCustomer_name())){
+					tmp += list.get(j).getBuy_price() * list.get(j).getBuy_amount();
+					System.out.println(customerList.get(i).getCustomer_name()+":"+list.get(j).getCustomer_name()+":"+tmp);
+					check = true;
+				}
+			}
+			if(check){
+				customerList.get(i).setBuy_price(tmp);
+				totalPirce += tmp;
+			}
+		}
+		for(PurchaseListView plv : customerList){
+			JsonDataChart jdc = new JsonDataChart();
+			double y = (double)plv.getBuy_price()/totalPirce * 100;
+			jdc.setName(plv.getCustomer_name());
+			jdc.setDrilldown(plv.getCustomer_name());
+			jdc.setY(y);
+			json.add(jdc);
+		}
+		return json;
 	}
 }

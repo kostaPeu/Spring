@@ -8,10 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 계좌 CRUD START -->
 	<insert id="accountInsert" parameterType="Accounts">
 		insert into Accounts (
-		ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+		account_id, ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
 		ACCOUNT_DETAIL,
 		REMARKS, USE
 		) values(
+		account_seq.NEXTVAL,
 		#{account_number},
 		#{account_name},
 		#{diagnosis_number},
@@ -23,6 +24,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="accountList" resultType="Accounts">
 		SELECT * FROM accounts
+	</select>
+	
+	<select id="accountListId" resultType="Accounts">
+		SELECT *FROM accounts where account_id = #{account_id}
 	</select>
 
 	<update id="accountUpdate">
@@ -150,11 +155,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 신용카드 CRUD START -->
 	<insert id="cardInsert" parameterType="Card">
 		insert into cards (
-		card_number, card_name, account_number, type, emp_id, use_detail, use,
+		card_number, card_name, account_id, type, emp_id, diagnosis_number, use,
 		remarks
 		) values(
-		#{card_number}, #{card_name}, #{account_number},
-		#{type}, #{emp_id}, #{use_detail}, #{use}, #{remarks}
+		card_seq.NEXTVAL, #{card_name}, #{account_id},
+		#{type}, #{emp_id}, #{diagnosis_number}, #{use}, #{remarks}
 		)
 	</insert>
 
@@ -166,7 +171,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE cards SET card_number = #{card_number},
 		card_name = #{card_name}, account_number = #{account_number},
 		type =
-		#{type}, emp_id = #{emp_id}, use_detail = #{use_detail}, use = #{use},
+		#{type}, emp_id = #{emp_id}, diagnosis_number = #{diagnosis_number}, use = #{use},
 		remarks = #{remarks}
 		WHERE card_number = #{card_number}
 	</update>
@@ -189,6 +194,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		remarks = #{remarks}
 		WHERE proj_id = #{proj_id}
 	</update>
+	
+	
+	<!-- 모델 검색부분 -->
+	<select id="diagnosisList" resultType="Diagnosiss">
+	select *from Diagnosis
+	</select>
+	<select id="diagnosisNumberSearch" resultType="Diagnosiss">
+	select *from Diagnosis
+		where diagnosis_number = #{diagnosis_number}
+	</select>
+	
+	<select id="searchEmp_idList" resultType="EmployeeViewVO">
+	SELECT * FROM employee
+		where emp_id = #{emp_id}
+	</select>
+	<select id="EmpList" resultType="EmployeeViewVO">
+	SELECT * FROM employee
+	</select>
 
 
 

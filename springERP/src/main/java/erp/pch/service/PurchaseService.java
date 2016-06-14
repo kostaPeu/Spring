@@ -11,6 +11,7 @@ import erp.basic.domain.Product;
 import erp.common.domain.Criteria;
 import erp.pch.domain.GetCustomer;
 import erp.pch.domain.GetWareHouse;
+import erp.pch.domain.JsonDataChart;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
@@ -30,4 +31,5 @@ public interface PurchaseService {
 	public void updatePurchase(PurchaseVO vo)throws Exception;
 	public void downloadExcel(OutputStream out,HttpServletResponse res)throws Exception;
 	public void uploadExcel(String path)throws Exception;
+	public List<JsonDataChart> getChartData()throws Exception;
 }

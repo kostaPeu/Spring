@@ -252,5 +252,13 @@ public class HrDAOImpl implements HrDAO {
 		session.insert(namespace+".sendIndolMessage", paramMap);
 	}
 
+	@Override
+	public void autorityDept(Map<String, String> paramMap) {
+		session.update(namespace+".autorityDept", paramMap);
+	}
 
+	@Override
+	public void autorityEmp(Map<String, String> paramMap) {
+		session.update(namespace+".autorityEmp", paramMap);
+	}
 }

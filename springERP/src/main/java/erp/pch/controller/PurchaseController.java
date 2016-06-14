@@ -136,12 +136,6 @@ public class PurchaseController {
 	@RequestMapping("chartData")
 	@ResponseBody
 	public List<JsonDataChart> chartData()throws Exception{
-		List<JsonDataChart> list = new ArrayList<JsonDataChart>();
-		JsonDataChart jc = new JsonDataChart();
-		jc.setName("hi");
-		jc.setY(100);
-		jc.setDrilldown("Chrome");
-		list.add(jc);
-		return list;
+		return service.getChartData();
 	}
 }

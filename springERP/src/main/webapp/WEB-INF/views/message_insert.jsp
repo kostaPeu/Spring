@@ -21,7 +21,7 @@
 
 
 <!-- Custom Style -->
-<link rel="stylesheet" href="/resources/common/css/common.css">
+<link rel="stylesheet" href="/resources/common/css/common.css"><base>
 
 
 <script type="text/javascript">
