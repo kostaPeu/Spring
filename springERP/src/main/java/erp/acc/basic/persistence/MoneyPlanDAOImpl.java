@@ -46,4 +46,9 @@ public class MoneyPlanDAOImpl implements MoneyPlanDAO {
 	public List<MoneyPlanTimeSet> moneyPlnapromissoryList() throws Exception {
 		return session.selectList(namespace+".moneyPlnapromissoryList");
 	}
+
+	@Override
+	public List<MoneyPlanTimeSet> moneyAllList() {
+		return session.selectList(namespace+".moneyAllList");
+	}
 }

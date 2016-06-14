@@ -27,4 +27,10 @@ public class MoneyPlanTimeSet implements Serializable {
 	@Getter @Setter private String customer_id;
 	@Getter @Setter private int sums;
 	@Getter @Setter private String remarks;	
+	@Setter private String calPrint;
+	
+	public String getCalPrint(){
+		calPrint = moneytype+" "+sums;
+		return calPrint;
+	}
 }

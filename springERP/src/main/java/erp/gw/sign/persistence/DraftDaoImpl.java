@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import erp.gw.sign.domain.ApprovalVO;
 import erp.gw.sign.domain.DraftFormatVO;
 import erp.gw.sign.domain.DraftVO;
+import erp.gw.sign.domain.ReferenceVO;
 import erp.hr.domain.EmployeeViewVO;
 
 @Repository
@@ -43,8 +44,8 @@ public class DraftDaoImpl implements DraftDao {
 	}
 
 	@Override
-	public List<DraftVO> selectlistDraft(String emp_id) throws Exception {
-		return session.selectList(namespace + ".selectlistDraft", emp_id);
+	public List<DraftVO> selectDraftEmpId(String emp_id) throws Exception {
+		return session.selectList(namespace + ".selectDraftEmpId", emp_id);
 	}
 
 	@Override
@@ -69,9 +70,59 @@ public class DraftDaoImpl implements DraftDao {
 		session.insert(namespace + ".insertApproval", approval);
 	}
 
+	// 참조자 추가
+	@Override
+	public void insertReference(ReferenceVO reference) throws Exception {
+		session.insert(namespace + ".insertReference", reference);
+	}
+
 	@Override
 	public int currvalDraft() throws Exception {
 		return session.selectOne(namespace + ".currvalDraft");
 	}
 
+	@Override
+	public String getEname(String emp_id) throws Exception {
+		return session.selectOne(namespace + ".getEname", emp_id);
+	}
+
+	@Override
+	public List<String> selectApprovalDraft(String draft_id) throws Exception {
+		return session.selectList(namespace + ".selectApprovalDraft", draft_id);
+	}
+
+	@Override
+	public List<String> selectReferenceDraft(String draft_id) throws Exception {
+		return session.selectList(namespace + ".selectReferenceDraft", draft_id);
+	}
+
+	@Override
+	public List<String> selectApprovalEmpId(String emp_id) throws Exception {
+		return session.selectList(namespace + ".selectApprovalEmpId", emp_id);
+	}
+
+	@Override
+	public List<String> selectReferenceEmpId(String emp_id) throws Exception {
+		return session.selectList(namespace + ".selectReferenceEmpId", emp_id);
+	}
+
+	@Override
+	public void updateDraft(DraftVO draft) throws Exception {
+		session.update(namespace + ".updateDraft", draft);
+	}
+
+	@Override
+	public void deleteDraft(String draft_id) throws Exception {
+		session.delete(namespace + ".deleteDraft", draft_id);
+	}
+
+	@Override
+	public void deleteApproval(String draft_id) throws Exception {
+		session.delete(namespace + ".deleteApproval", draft_id);
+	}
+
+	@Override
+	public void deleteReference(String draft_id) throws Exception {
+		session.delete(namespace + ".deleteReference", draft_id);
+	}
 }

@@ -8,14 +8,17 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.common.service.CommonService;
+import erp.gw.sign.domain.ApReVO;
 import erp.gw.sign.domain.DraftFormatVO;
 import erp.gw.sign.domain.DraftVO;
+import erp.gw.sign.domain.DraftViewVO;
 import erp.gw.sign.domain.PersonViewVO;
 import erp.gw.sign.service.DraftService;
 
@@ -40,21 +43,10 @@ public class SignController {
 		return "/main";
 	}
 	
-	
-	// 공통양식 선택없이 기안서 작성페이지로
-	@RequestMapping(value="/draft_write", method=RequestMethod.GET)
-	public String draftWirte(Model model) throws Exception{		
-
-		model.addAttribute("left", "groupware/groupware.jsp");
-		model.addAttribute("contents", "groupware/sign/draft_write.jsp");
-		
-		return "/main";
-	}
-	
 	// 공통양식 골라서 기안서 작성페이지로
 	@RequestMapping("/draft_write{draft_format_id}")
 	public String selectFormat(@PathVariable("draft_format_id") String draft_format_id, Model model) throws Exception{
-		
+		System.out.println("/draft_write{draft_format_id}");
 		DraftFormatVO draftFormat = service.selectFormat(draft_format_id);
 		
 		model.addAttribute("draftFormat", draftFormat);
@@ -64,33 +56,89 @@ public class SignController {
 		return "/main";
 	}
 	
+	// 공통양식 선택없이 기안서 작성페이지로
+	@RequestMapping(value="/draft_write", method=RequestMethod.GET)
+	public String draftWirte(Model model) throws Exception{		
+
+		System.out.println("/draft_write hohohohoho");
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/sign/draft_write.jsp");
+		
+		return "/main";
+	}
+	
 	// 기안서 등록
 	@RequestMapping(value="/draft_write", method=RequestMethod.POST)
-	public String insertDraft(@RequestParam("approval_emp") String approval_emp, DraftVO draft, Model model) throws Exception{
+	public String insertDraft(ApReVO apre, DraftVO draft, Model model) throws Exception{
+		
+		System.out.println("value='/draft_write', method=RequestMethod.POST");
+		System.out.println(apre.toString());
 		
 		draft.setEmp_id(CommonService.getEmployeeId());
 		
 		System.out.println(draft.toString());
 		service.insertDraft(draft);
 		
-		String[] strarr = approval_emp.replaceAll("\\s", "").split(",");
+//		String[] approvalArr = approval_emp.replaceAll("\\s", "").split(",");
+//		String[] referenceArr = reference_emp.replaceAll("\\s", "").split(",");
+//		
+		service.insertApproval(apre.getApproval_emp());
+		String draft_id = service.insertReference(apre.getReference_emp());
 		
-		service.insertApproval(strarr);
+		DraftVO draftVO = service.selectDraft(draft_id);
 		
-		model.addAttribute("draft", draft);
+		DraftViewVO draftView = service.createDraftView(draftVO);
+		
+		model.addAttribute("draftView", draftView);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_view.jsp");
 		return "/main";
 	}
 		
+	// 기안서 수정하는 페이지로
+	@RequestMapping("/draft_edit{draft_id}")
+	public String editDraft(@PathVariable("draft_id") String draft_id, Model model) throws Exception {
+		System.out.println("여긴 들어오나?????");
+		System.out.println("여긴 들어오나?????" + draft_id);
+		DraftViewVO draftView = service.createDraftView(service.selectDraft(draft_id));
+		System.out.println("여긴 들어오나?????"+draftView.toString());
+		String emp_id = service.selectDraft(draft_id).getEmp_id();
+		model.addAttribute("emp_id", emp_id);
+		model.addAttribute("draftView", draftView);
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/sign/draft_write.jsp");
+		return "/main";
+	}
 	
+	// 기안서 수정완료
+	@RequestMapping(value="/draft_edit", method=RequestMethod.POST)
+	public String editDraft(DraftVO draft, Model model) throws Exception {
+		System.out.println("여긴 들어오나?????");
+		System.out.println("이얍 ::::: " + draft.toString());
+		service.updateDraft(draft);
+		DraftViewVO draftView = service.createDraftView(draft);
+		System.out.println("여긴 들어오나?????"+draftView.toString());
+		model.addAttribute("draftView", draftView);
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/sign/draft_view.jsp");
+		return "/main";
+	}
+	
+	// 기안서 삭제하기
+	@RequestMapping("/draft_delete{draft_id}")
+	public String deleteDraft(@PathVariable("draft_id") String draft_id, Model model) throws Exception {
+		service.deleteDraft(draft_id);
+		System.out.println("delete 실행쿠~!");
+//		model.addAttribute("left", "groupware/groupware.jsp");
+//		model.addAttribute("contents", "groupware/sign/draft_view.jsp");
+		return "redirect:/groupware/sign/all_draft_list";
+	}
 	
 	// 공통양식 작성페이지로
 	@RequestMapping("/draft_format_write")
 	public void newFormat(Model model) throws Exception{
 		System.out.println("/draft_format_write 들어옴");
 	}
-	
 	
 	// 공통양식 수정페이지로
 	@RequestMapping("/format_write{draft_format_id}")
@@ -141,41 +189,34 @@ public class SignController {
 	}
 	
 	
-	
-	
 	// 내 결재 관리 리스트
 	@RequestMapping("/my_draft_list")
 	public String myDraft(Model model) throws Exception{
-		
-		List<DraftVO> list = service.selectlistDraft(CommonService.getEmployeeId());
-		
-		model.addAttribute("list", list);
+		List<DraftViewVO> myWriteList = service.myWriteDraftList();
+		List<DraftViewVO> myApReList = service.myApReDraftList();
+		model.addAttribute("myWriteList", myWriteList);
+		model.addAttribute("myApReList", myApReList);
 		model.addAttribute("left", "groupware/groupware.jsp");
-		model.addAttribute("contents", "groupware/sign/draft_list.jsp");
-		
+		model.addAttribute("contents", "groupware/sign/my_draft_list.jsp");
 		return "/main";
 	}
 	
 	// 기안서 리스트
 	@RequestMapping("/all_draft_list")
 	public String allDraft(Model model) throws Exception{
-		
-		List<DraftVO> list = service.listDraft();
+		List<DraftViewVO> list = service.draftViewList();
 		
 		model.addAttribute("list", list);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_list.jsp");
-		
 		return "/main";
 	}
 	
 	// 기안서 상세보기
 	@RequestMapping("/draft_view{draft_id}")
-	public String draftView(@PathVariable("draft_id") String draft_id ,Model model) throws Exception{
-		
-		DraftVO draft = service.selectDraft(draft_id);
-		
-		model.addAttribute("draft", draft);
+	public String draftView(@PathVariable("draft_id") String draft_id, Model model) throws Exception{
+		DraftViewVO draftView = service.createDraftView(service.selectDraft(draft_id));
+		model.addAttribute("draftView", draftView);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/sign/draft_view.jsp");
 		return "/main";

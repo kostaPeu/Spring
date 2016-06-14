@@ -7,91 +7,46 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="/resources/groupware/css/draft_view.css">
 </head>
 <body>
 
-	<h2 class="page_title">기안서 작성 > ${draft.draft_id }번 기안서</h2>
+	<h2 class="page_title">기안서 작성 > ${draftView.draft_id }번 기안서</h2>
 
 	<div class="page-header">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h4 class="panel-title">${draft.draft_title }</h4>
-				<small> 글번호 : ${draft.draft_id } / 작성자 : ${e_name}
-				/ 작성일 : <fmt:formatDate value="${draft.draft_date }" pattern="yyyy-MM-dd" /> 
+				<h4 class="panel-title">${draftView.draft_title }</h4>
+				<small> 글번호 : ${draftView.draft_id } / 작성자 : ${draftView.e_name}
+				/ 작성일 : <fmt:formatDate value="${draftView.draft_date }" pattern="yyyy-MM-dd" /> 
+				/ 결재자 :
+				<c:forEach var="i" begin="0" end="${draftView.approval.size()-1}" step="1">
+					${draftView.approval.get(i)}<c:if test="${ i != draftView.approval.size()-1}">, </c:if>
+				</c:forEach>
+			 	/ 참조자 :
+				<c:forEach var="i" begin="0" end="${draftView.reference.size()-1}" step="1">
+					${draftView.reference.get(i)}<c:if test="${ i != draftView.reference.size()-1}">, </c:if>
+				</c:forEach>
 				</small>
 			</div>
 		</div>
 	</div>
 	<div id="write_content">
-		<p>${draft.draft_content }</p>
+		<p>${draftView.draft_content }</p>
 		<hr>
 
-		<form role="form" method="post">
-			<input type='hidden' name='draft_id' value="${draft.draft_id}">
-		</form>
-
 		<div class="row">
-			<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-   			<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
-   			<button type="button" class="btn btn-primary" id="goListBtn">목록</button>
+   			<a href="/groupware/sign/draft_edit${draftView.draft_id}" class="btn btn-warning">수정</a>
+   			<a href="/groupware/sign/draft_delete${draftView.draft_id}" class="btn btn-danger">삭제</a>
+   			<a href="/groupware/sign/all_draft_list" class="btn btn-primary">목록</a>
+   			<a href="/groupware/sign/all_draft_list" id="printBtn" class="btn btn-primary glyphicon glyphicon-print">프린트</a>
 		</div>
 		
 	</div>
 	<br/>
-	
-	<script>
-		$(document).ready(function(){
-		
-			var formObj = $("form[role='form']");
-			
-			console.log(formObj);
-		       
-			$("#modifyBtn").on("click", function(){
-				formObj.attr("method", "get");
-				formObj.attr("action", "/groupware/sign/draft_edit");
-				formObj.submit();
-			});
-			
-		 	$("#removeBtn").on("click", function(){
-		 		formObj.attr("method", "get");
-				formObj.attr("action", "/groupware/sign/draft_delete");
-				formObj.submit();
-			});
-		
-			/* $("#removeBtn").on("click", function(){
-				
-				var replyCnt =  $("#replycntSmall").html();
-				
-				if(replyCnt > 0 ){
-					alert("댓글이 달린 게시물을 삭제할 수 없습니다.");
-					return;
-				}	
-				
-				var arr = [];
-				$(".uploadedList li").each(function(index){
-					 arr.push($(this).attr("data-src"));
-				});
-				
-				if(arr.length > 0){
-					$.post("/deleteAllFiles",{files:arr}, function(){
-						
-					});
-				}
-				
-				formObj.attr("action", "/sboard/removePage");
-				formObj.submit();
-			});	 */
-			
-			$("#goListBtn").click(function(){
-				/* formObj.attr("method", "get");
-				formObj.attr("action", "/groupware/sign/draft_list");
-				formObj.submit(); */
-				location.href="/groupware/sign/all_draft_list";
-			});
-		
-		});
-	</script>
-
 </body>
 </html>

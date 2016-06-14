@@ -57,4 +57,9 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 	public List<MoneyPlanTimeSet> moneyPlnapromissoryList() throws Exception {
 		return	dao.moneyPlnapromissoryList();
 	}
+
+	@Override
+	public List<MoneyPlanTimeSet> moneyAllList() {
+		return dao.moneyAllList();
+	}
 }
