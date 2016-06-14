@@ -85,7 +85,7 @@ function handler(data) {
 	var html = '<tr><th>계정번호</th><th>계정명</th><th>사용구분</th><th>비고</th></tr>';
 	$.each(data, function(index, list) {
 		html += '<tr class="getValue"><td class="getDiagnosisName">'+list.diagnosis_number+'</td>';
-		html += '<td>'+list.diagnosis_name+'</td>';
+		html += '<td>'+"["+list.diagnosis_number+"]"+list.diagnosis_name+'</td>';
 		html += '<td>'+list.use+'</td>';
 		html += '<td>'+list.remarks+'</td>';
 		html += '</tr>'

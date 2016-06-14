@@ -85,8 +85,8 @@ $('#account_numbers').click(function() {
 function handler(data) {
 	var html = '<tr><th>계좌번호 아이디</th><th>계좌번호</th><th>계좌이름</th><th>계정번호</th><th>계좌내용</th><th>사용여부</th><th>비고</th></tr>';
 	$.each(data, function(index, list) {
-		html += '<tr class="getValue"><td class="getaccountName">'+list.account_id+'</td>';
-		html += '<td>'+list.account_number+'</td>';
+		html += '<tr class="getValue"><td>'+list.account_id+'</td>';
+		html += '<td class="getaccountName">'+list.account_number+'</td>';
 		html += '<td>'+list.account_name+'</td>';
 		html += '<td>'+list.diagnosis_number+'</td>';
 		html += '<td>'+list.account_detail+'</td>';
@@ -146,7 +146,7 @@ function handler(data) {
 	var html = '<tr><th>계정번호</th><th>계정명</th><th>사용구분</th><th>비고</th></tr>';
 	$.each(data, function(index, list) {
 		html += '<tr class="getValue"><td class="getDiagnosisName">'+list.diagnosis_number+'</td>';
-		html += '<td>'+list.diagnosis_name+'</td>';
+		html += '<td>'+"["+list.diagnosis_number+"]"+list.diagnosis_name+'</td>';
 		html += '<td>'+list.use+'</td>';
 		html += '<td>'+list.remarks+'</td>';
 		html += '</tr>';
@@ -199,8 +199,8 @@ $('#empIds').click(function() {
 function handler(data) {
 	var html = '<tr><th>사원번호</th><th>이름</th><th>부서번호</th><th>직급번호</th><th>직무번호</th><th>직책번호</th></tr>';
 	$.each(data, function(index, list) {
-		html += '<tr class="getValue"><td class="getempId">'+list.emp_id+'</td>';
-		html += '<td>'+list.e_name+'</td>';
+		html += '<tr class="getValue"><td>'+list.emp_id+'</td>';
+		html += '<td class="getempId">'+list.e_name+'</td>';
 		html += '<td>'+list.dept_id+'</td>';
 		html += '<td>'+list.position_id+'</td>';
 		html += '<td>'+list.job_id+'</td>';

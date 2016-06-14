@@ -5,11 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-$(function() {
-	
-})
-</script>
+<script src="/resources/accounting/js/di.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -22,8 +19,7 @@ $(function() {
 					id="Card">
 					<thead id="diagnosisHeader">
 						<tr class="mainTable">
-							<th class="center" style="width: 20px"><input
-								type="checkbox"></th>
+							<th class="center" style="width: 20px"><input 	type="checkbox"></th>
 							<th style="width: 375px;">[계정코드]계정명</th>
 							<th style="width: 55px;">계정</th>
 							<th style="width: 55px;">대차구분</th>
@@ -37,9 +33,10 @@ $(function() {
 					<tbody id="diagnosisContents">
 						<tr class="mainTable">
 							<td class="center" style="width: 20px"></td>
-							<td style="padding-left: 0px !important"><span
-								style="font-weight: bolder; padding-left: 4px;"> [0000]
-									최상위 </span></td>
+							<td id="bigTitle" style="padding-left: 0px !important"><span style="font-weight: bolder; padding-left: 4px;"> [0000] 최상위 </span></td>
+							
+							
+							
 							<td class="center font12px"><a class="list_link" onclick="fnAdd('0000','');return false;" href="#">추가</a></td>
 							<td class="center font12px"></td>
 							<td class="center font12px"></td>

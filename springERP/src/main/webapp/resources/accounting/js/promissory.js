@@ -47,6 +47,7 @@ $(function() {
 		$('#ex_date30').on("click", function() {			
 			if (reddate != null) {
 				reddate.setDate(reddate.getDate() + 30);
+				alert(reddate);
 				var year = reddate.getFullYear();
 				var month = reddate.getMonth() + 1;
 				var day = reddate.getDate();

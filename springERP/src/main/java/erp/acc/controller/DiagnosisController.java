@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.service.BasicAccountService;
+import erp.acc.basic.service.DiagnosissService;
 
 @Controller
 @RequestMapping("/accounting/diagnosis2/*")
 public class DiagnosisController {
 
 	@Inject
-	private BasicAccountService service;
+	private DiagnosissService service;
 	
 	@RequestMapping(value="DiagnosisList", method = RequestMethod.GET)
 	public String diagnosisList(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		/*model.addAttribute("listModel", service.diagnosisList());*/
+		model.addAttribute("listModel", service.diagnosisList());
 		model.addAttribute("contents", "accounting/diagnosis/DiagnosisList.jsp");
 		
 		return "/main";
@@ -34,6 +35,8 @@ public class DiagnosisController {
 	public List<Diagnosiss> diagnosisList2()throws Exception{
 		return service.diagnosisList();
 	}
+	
+
 	
 	
 }
