@@ -248,7 +248,14 @@
 			values(message_seq.NEXTVAL, #{send_id}, 
 			#{receive_id}, '인사부입니다.', '요청이승인되었습니다.', 'N')
 </insert>
-	
+
+<update id="autorityDept">
+	update employee set authorities=#{authorities} where dept_id=#{dept_id}
+</update>
+
+<update id="autorityEmp">
+	update employee set authorities=#{authorities} where emp_id=#{emp_id}
+</update>
 </mapper>
 
 

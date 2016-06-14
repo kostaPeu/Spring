@@ -41,4 +41,6 @@ public interface HrService {
 	public int indolRequestSearchCount(SearchCriteriaHR cri);
 	public void indolApprove(String string) throws Exception;
 	public List<EmployeeViewVO> FullempLIst();
+	public void autorityDept(String dept_id, String authorities);
+	public void autorityEmp(String emp_id, String authorities);
 }
