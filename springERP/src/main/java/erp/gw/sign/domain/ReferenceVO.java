@@ -10,6 +10,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReferenceVO {
-	@Getter @Setter private int draft_id;
+	@Getter @Setter private String draft_id;
 	@Getter @Setter private String emp_id;
 }

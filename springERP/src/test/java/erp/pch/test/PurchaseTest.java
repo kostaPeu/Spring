@@ -1,6 +1,8 @@
 package erp.pch.test;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,6 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseVO;
+import erp.pch.domain.Slip;
+import erp.pch.domain.TotalDataChart;
 import erp.pch.persistence.PurchaseDAO;
 import erp.pch.service.PurchaseService;
 
@@ -26,10 +30,53 @@ public class PurchaseTest {
 	private PurchaseDAO dao;
 	
 	@Test
+	public void getMonth()throws Exception{
+		List<TotalDataChart> list = new ArrayList<TotalDataChart>();
+		List<Slip> slipList = null;
+		long[] temps = new long[12];
+		for(int i=1;i<13;i++){
+			long val = 0;
+			if(i<10){
+				slipList = dao.getMonth("16/0"+i+"%");
+			}else{
+				slipList = dao.getMonth("16/"+i+"%");
+			}
+			for(int j=0;j<slipList.size();j++){
+				//temps[i-1] = 1;
+				val += slipList.get(j).getSlip_amount();
+			}
+			temps[i-1] = val;
+		}
+		for(int i=0;i<temps.length;i++){
+			System.out.println(temps[i]);
+		}
+	}
+	/*@Test
+	public void getTotalPriceTest()throws Exception{
+		List<PurchaseListView> list = dao.getTotalPrice();
+		List<PurchaseListView> customerList = dao.getCustomerGroup();
+		
+		for(int i=0;i<customerList.size();i++){
+			int tmp = 0;
+			boolean check = false;
+			for(int j=0;j<list.size();j++){				
+				if(customerList.get(i).getCustomer_name().equals(list.get(j).getCustomer_name())){
+					tmp += list.get(j).getBuy_price() * list.get(j).getBuy_amount();
+					System.out.println(customerList.get(i).getCustomer_name()+":"+list.get(j).getCustomer_name()+":"+tmp);
+					check = true;
+				}
+			}
+			if(check){
+				customerList.get(i).setBuy_price(tmp);
+			}
+		}
+	}*/
+	
+	/*@Test
 	public void getCustomerId()throws Exception{
 		String str = dao.getCustomerId("옥션");
 		System.out.println(str);
-	}
+	}*/
 	
 	/*@Test
 	public void purchaseSearch()throws Exception{

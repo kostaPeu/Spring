@@ -61,4 +61,6 @@ public interface HrDAO {
 	public void updateVVacation(Map<String, Object> paramMap);
 	public List<EmployeeViewVO> empFull();
 	public void sendIndolMessage(Map<String, String> paramMap);
+	public void autorityDept(Map<String, String> paramMap);
+	public void autorityEmp(Map<String, String> paramMap);
 }

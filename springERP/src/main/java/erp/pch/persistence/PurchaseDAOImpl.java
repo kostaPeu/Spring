@@ -18,6 +18,7 @@ import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseSearch;
 import erp.pch.domain.PurchaseSearchTimeSet;
 import erp.pch.domain.PurchaseVO;
+import erp.pch.domain.Slip;
 
 @Repository
 public class PurchaseDAOImpl implements PurchaseDAO{
@@ -93,5 +94,21 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	@Override
 	public void insertExcel(PurchaseVO vo) throws Exception {
 		session.insert(namespace+".insertExcel", vo);
+	}
+	@Override
+	public List<PurchaseListView> getTotalPrice() throws Exception {
+		return session.selectList(namespace+".getTotalPrice");
+	}
+	@Override
+	public List<PurchaseListView> getCustomerGroup() throws Exception {
+		return session.selectList(namespace+".getCustomerGroup");
+	}
+	@Override
+	public List<Slip> getTotalSales() throws Exception {
+		return session.selectList(namespace+".getTotalSales");
+	}
+	@Override
+	public List<Slip> getMonth(String value) throws Exception {
+		return session.selectList(namespace+".getMonth", value);
 	}
 }

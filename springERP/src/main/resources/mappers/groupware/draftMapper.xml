@@ -14,6 +14,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 )
 	</insert>
 	
+	<!-- 기안서 수정하기 -->
+	<insert id="updateDraft" parameterType="DraftVO">
+		UPDATE draft
+			SET draft_title = #{draft_title},
+				draft_content = #{draft_content },
+				draft_type = #{draft_type },
+				draft_state = #{draft_state }
+			WHERE draft_id = #{draft_id }
+	</insert>
+	
+	<!-- 기안서 삭제하기 -->
+	<delete id="deleteDraft">
+		DELETE FROM draft WHERE draft_id = #{draft_id } 
+	</delete>
+	
 	<!--  공통양식 추가 -->
 	<insert id="insertFormat" parameterType="DraftFormatVO">
 		INSERT INTO draft_format (
@@ -28,8 +43,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM draft
 	</select>
 	
-	<!-- 내 기안서 리스트 -->
-	<select id="selectlistDraft" parameterType="String" resultType="DraftVO">
+	<!-- 내가 쓴 기안서 리스트 -->
+	<select id="selectDraftEmpId" parameterType="String" resultType="DraftVO">
 		SELECT * FROM draft WHERE emp_id = #{emp_id}
 	</select>
 	
@@ -64,8 +79,53 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
+	<!-- 참조자 등록 -->
+	<insert id="insertReference" parameterType="ReferenceVO">
+		INSERT INTO reference (
+			draft_id, emp_id
+		) VALUES (
+			#{draft_id }, #{emp_id }
+		)
+	</insert>
+	
 	<!-- currval 대신 -->
 	<select id="currvalDraft" resultType="int">
 		SELECT MAX(draft_id) FROM draft
 	</select>
+	
+	<!-- emp_id 로 e_name 뽑아오기 -->
+	<select id="getEname" parameterType="String" resultType="String">
+		SELECT e_name FROM employee WHERE emp_id = #{emp_id }
+	</select>
+	
+	<!-- 기안서 별 결재자 뽑아오기 -->
+	<select id="selectApprovalDraft" parameterType="String" resultType="String">
+		SELECT emp_id FROM approval WHERE draft_id = #{draft_id }
+	</select>
+	
+	<!-- 기안서 별 참조자 뽑아오기 -->
+	<select id="selectReferenceDraft" parameterType="String" resultType="String">
+		SELECT emp_id FROM reference WHERE draft_id = #{draft_id }
+	</select>
+	
+	<!-- 기안서 별 결재자 정보 삭제 -->
+	<delete id="deleteApproval">
+		DELETE FROM approval WHERE draft_id = #{draft_id}
+	</delete>
+	
+	<!-- 기안서 별 참조자 정보 삭제 -->
+	<delete id="deleteReference">
+		DELETE FROM reference WHERE draft_id = #{draft_id}
+	</delete>
+	
+	<!-- 결재자 별 기안서 뽑아오기 -->
+	<select id="selectApprovalEmpId" parameterType="String" resultType="String">
+		SELECT draft_id FROM approval WHERE emp_id = #{emp_id }
+	</select>
+	
+	<!-- 참조자 별 기안서 뽑아오기 -->
+	<select id="selectReferenceEmpId" parameterType="String" resultType="String">
+		SELECT draft_id FROM reference WHERE emp_id = #{emp_id }
+	</select>
+	
 </mapper>

@@ -26,9 +26,9 @@
 			<c:if test="${list.size()-1 >=0}">
 				<c:forEach var="i" begin="0" end="${list.size()-1}" step="1">
 					<tr class="row">
-						<th class="col-sm-3">${list.get(i).draft_format_id }</th>
-						<th class="col-sm-6"><a href="draft_write${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></th>
-						<th class="col-sm-3">${list.get(i).draft_format_type }</th>
+						<td class="col-sm-3">${list.get(i).draft_format_id }</td>
+						<td class="col-sm-6"><a href="draft_write${list.get(i).draft_format_id }">${list.get(i).draft_format_title }</a></td>
+						<td class="col-sm-3">${list.get(i).draft_format_type }</td>
 					</tr>
 				</c:forEach>
 			</c:if>

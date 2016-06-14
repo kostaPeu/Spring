@@ -107,9 +107,8 @@
 								</div>								
 								<div class="form-group">
 									<label for="message-text" class="control-label">계정코드</label>
-									<a data-toggle="modal" href="#myModal2">
-									<button type="button" class="btn btn-default btn-sm" id="diagnosis_number">
-									<span class="fa fa-search"></span></button></a>
+									<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm" id="diagnosis_number_search">
+									<span class="fa fa-search"></span></button>
 									<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
 								</div>
 								
@@ -217,29 +216,21 @@
 		
 		
 
-<!-- 계좌번호 검색 -->
-<div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">
+<!-- 계정 검색 -->
+<div class="modal fade" id="diagnosisSearch_modal" role="dialog">
  <div class="modal-dialog modal-lg">      
     <div class="modal-content">
 		<div class="modal-header">
 			   <button type="button" class="close" data-dismiss="modal">&times;</button>
-			   <h4 class="modal-title"><strong>목록 검색</strong></h4>	
+			   <h4 class="modal-title"><strong>계정검색</strong></h4>	
 		</div>
-			<div class="modal-body">
-				<div class="col-sm-2">
-					<select >
-						<option id="">계좌번호</option>	
-						<option id="">사원번호</option>	
-						<option id="">카드번호</option>	
-						<option id="">ㅁㄴㅇㅁ</option>	
-					</select>
-				</div>	
+			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="account_number" id="search_account_number">
+					<input type="text" class="form-control" name="diagnosis_number" id="search_diagnosis_number">
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="warehouseID"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
 				<table id="m_searchTable" class="table table-bordered table-hover">

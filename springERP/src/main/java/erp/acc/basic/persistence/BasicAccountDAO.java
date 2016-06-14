@@ -4,11 +4,11 @@ import java.util.List;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Card;
+import erp.acc.basic.domain.Diagnosiss;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.gw.projectboard.domain.ProjectsVO;
-
-
+import erp.hr.domain.EmployeeViewVO;
 
 public interface BasicAccountDAO {
 
@@ -20,6 +20,8 @@ public interface BasicAccountDAO {
 	public void accountDelete(String account_number) throws Exception;
 
 	public List<Accounts> accountList() throws Exception;
+	
+	public List<Accounts>accountListId(String account_id)throws Exception;
 
 	// BASIC ACCOUNT PAGE
 	public List<Accounts> listAll() throws Exception;
@@ -48,6 +50,15 @@ public interface BasicAccountDAO {
 	public void projectUpdate(ProjectsVO vo)throws Exception;
 	
 	public List<ProjectsVO> projectList()throws Exception;
+	
+	//diagnosis
+	public void diagnosisInsert(Diagnosiss diagnosis)throws Exception;
+	public List<Diagnosiss>diagnosisList() throws Exception;
+	
+	//서치
+	public List<Diagnosiss>diagnosisNumberSearch(String diagnosis_number)throws Exception;
+	public List<EmployeeViewVO> searchEmp_idList(String emp_id)throws Exception;
+	public List<EmployeeViewVO> EmpList()throws Exception;
 	
 
 }

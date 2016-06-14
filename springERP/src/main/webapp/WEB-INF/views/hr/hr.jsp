@@ -15,7 +15,7 @@
 			<li><a href="/hr/hr_basic">인사기초등록</a></li>
 			<li><a href="/hr/indol">근태조회</a></li>
 			<li><a href="/hr/indol_request">연차/휴가 요청</a></li>
-			<li><a href="/hr/jubis">주비스관리</a></li>
+			<li><a href="/hr/authority">권한관리</a></li>
 		</ul>
 	</div>
 </body>

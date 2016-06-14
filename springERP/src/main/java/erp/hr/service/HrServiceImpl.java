@@ -241,4 +241,20 @@ public class HrServiceImpl implements HrService {
 	public List<EmployeeViewVO> FullempLIst() {
 		return dao.empFull();
 	}
+
+	@Override
+	public void autorityDept(String dept_id, String authorities) {
+		Map<String, String> paramMap = new HashMap<String, String>();
+		paramMap.put("dept_id", dept_id);
+		paramMap.put("authorities", authorities);
+		dao.autorityDept(paramMap);
+	}
+
+	@Override
+	public void autorityEmp(String emp_id, String authorities) {
+		Map<String, String> paramMap = new HashMap<String, String>();
+		paramMap.put("emp_id", emp_id);
+		paramMap.put("authorities", authorities);
+		dao.autorityEmp(paramMap);
+	}
 }
