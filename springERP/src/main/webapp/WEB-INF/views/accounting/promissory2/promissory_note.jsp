@@ -47,8 +47,8 @@
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th" id="icon"></span>
 									</div>
-								</div></td>
-						</tr>
+							</div></td>
+						</tr>							
 						<tr id="row-CardTYPE">
 							<th>받는어음 / 지급어음 <span class="card-Info" data-html="true"
 								data-toggle="popover" data-trigger="focus hover"
@@ -65,31 +65,27 @@
 									</label>
 								</div>
 							</td>
-						</tr>
-
+						</tr>						
+						<tr id="row-noteNum">
+							<th>어음번호</th>
+							<td><input type="text" name="note_id" value=""></td>
+						</tr>					
 						<tr id="row-deptNum">
 							<th>부서코드</th>
-							<td><input id="warehouse_id" type="text">
-								<button id="warehouse_id_search" class="btn btn-default btn-sm">
+							<td><input type="text" name="dept_id" class="dept_id">
+								<button type="button" class="btn btn-default btn-sm dept_id_search" id="dept_id_search" data-toggle="modal" data-target="#departmentSearch_modal">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="dept_id">
+								</button><input type="text" class="dept_name" name="dept_name">
+							</td>
 						</tr>
 						<tr id="row-project">
 							<th>프로젝트번호</th>
-							<td><input id="project_number" type="text">
-								<button id="project_number_search"
-									class="btn btn-default btn-sm">
+							<td><input type="text" name="proj_id" class="proj_id">
+								<button type="button" class="btn btn-default btn-sm proj_id_search" id="proj_id_search" data-toggle="modal" data-target="#projectsSearch_modal">
 									<span class="fa fa-search"></span>
-								</button> <input type="text" name="proj_id">
-						</tr>
-						<tr id="row-accountNum">
-							<th>계좌번호</th>
-							<td><input id="account_number" type="text">
-								<button id="account_number_search"
-									class="btn btn-default btn-sm">
-									<span class="fa fa-search"></span>
-								</button> <input type="text" name="account_number">
-						</tr>
+								</button><input type="text" class="proj_name" name="proj_name">
+							</td>
+						</tr>						
 						<tr id="row-customer">
 							<th>거래처</th>
 							<td><input id="warehouse_id" type="text">
@@ -97,13 +93,7 @@
 									<span class="fa fa-search"></span>
 								</button> <input type="text" name="customer_id">
 						</tr>
-						<!-- <tr id="row-noteNum">
-							<th>어음번호</th>
-							<td><input id="card_number" type="text">
-								<button id="card_number_search" class="btn btn-default btn-sm">
-									<span class="fa fa-search"></span>
-								</button> <input type="text" name="note_id" value="">
-						</tr> -->
+						
 						<tr id="row-CardTYPE">
 							<th>만기일자</th>
 							<td>
@@ -143,8 +133,75 @@
 			</div>
 			<!-- 메뉴 footar END -->
 		</form:form>
+	</div><!-- 신규등록 END -->
+
+<!--########## 검색 모달 부분  ##########-->
+
+<!-- 부서 검색 Start-->
+<div class="modal fade" id="departmentSearch_modal" role="dialog">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>부서검색</strong></h4>	
+		</div>
+			<div class="modal-body">				
+				<div class="col-sm-8">
+					<input type="text" class="form-control search_proj_id" name="search_proj_id" id="search_proj_id">
+					<input type="hidden" class="search_dept_name">
+				</div>					
+		
+				<br><br><br>
+				<table id="d_searchTable" class="table table-bordered table-hover d_searchTable">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
 	</div>
-	<!-- 신규등록 END -->
+</div>
+<!-- 부서검색 End-->
+
+
+<!-- 프로젝트 검색 Start-->
+<div class="modal fade" id="projectsSearch_modal" role="dialog">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>사원검색</strong></h4>	
+		</div>
+			<div class="modal-body">				
+				<div class="col-sm-8">
+					<input type="text" class="form-control search_proj_id" name="search_proj_id" id="search_proj_id">
+					<input type="hidden" class="search_proj_name">
+				</div>		
+						
+				<div class="col-sm-2">
+						<button type="button" class="btn btn-info btn-sm empIds" id="empIds"><span class="fa fa-search"></span></button>
+				</div>
+				<br><br><br>
+				<table id="p_searchTable" class="table table-bordered table-hover e_searchTable">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 프로젝트 검색 End-->
+
+
 
 </body>
 </html>

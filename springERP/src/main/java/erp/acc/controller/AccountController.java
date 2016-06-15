@@ -69,28 +69,6 @@ public class AccountController {
 		model.addAttribute("pageMaker", pageMaker);		
 	}
 	
-	//계좌검색
-	@RequestMapping("account_id_search")
-	@ResponseBody
-	public List<Accounts> account_Id_Search(@RequestParam("account_id")String account_id)throws Exception{
-		
-		return service.accountListId(account_id);
-	}
-	@RequestMapping("accountList")
-	@ResponseBody
-	public List<Accounts> accountSearchList() throws Exception{
-		return service.accountList();
-	}
-	
-	
-	
-	
-	//계정검색
-	@RequestMapping("diagnosis_numbers_search")
-	@ResponseBody
-	public List<Diagnosiss> diagnosis_numbers_search(@RequestParam("diagnosis_number")String diagnosis_number)throws Exception{
-		return service.diagnosisNumberSearch(diagnosis_number);
-	}
 	
 	
 	

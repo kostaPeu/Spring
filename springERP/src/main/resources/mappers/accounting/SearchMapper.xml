@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="erp.acc.mapper.SearchMapper">
+
+
+<select id="diagnosisList" resultType="Diagnosiss">
+	SELECT *FROM diagnosis
+</select>
+
+<select id="diagnosisNumberSearch" resultType="Diagnosiss">
+	SELECT *FROM diagnosis
+	WHERE diagnosis_number = #{diagnosis_number}
+</select>
+
+<select id="searchEmp_idList" resultType="EmployeeViewVO">
+	SELECT *FROM employee
+	WHERE emp_id = #{emp_id}
+</select>
+
+<select id="EmpList" resultType="EmployeeViewVO">
+	SELECT *FROM employee	
+</select>
+
+<select id="accountList" resultType="Accounts">
+	SELECT *FROM accounts
+	
+</select>
+<select id="accountListId" resultType="Accounts">
+	SELECT *FROM accounts
+	WHERE account_id = #{account_id}
+</select>
+
+
+<select id="listDept" resultType="HrDeptVO">
+	SELECT *FROM department	
+</select>
+
+<select id="projectList" resultType="ProjectsVO">
+	SELECT *FROM projects
+</select>
+
+<select id="projectProj_idList" resultType="ProjectsVO">
+	SELECT *FROM projects
+	WHERE proj_id = #{proj_id}
+</select>
+<select id="customerList" resultType="Customer">
+	SELECT *FROM customer
+</select>
+
+<select id="customerIdList" resultType="Customer">
+	SELECT *FROM customer
+	WHERE customer_id = #{customer_id}
+</select>
+
+
+
+
+</mapper>
