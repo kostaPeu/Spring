@@ -79,9 +79,6 @@ public class SignController {
 		System.out.println(draft.toString());
 		service.insertDraft(draft);
 		
-//		String[] approvalArr = approval_emp.replaceAll("\\s", "").split(",");
-//		String[] referenceArr = reference_emp.replaceAll("\\s", "").split(",");
-//		
 		service.insertApproval(apre.getApproval_emp());
 		String draft_id = service.insertReference(apre.getReference_emp());
 		
@@ -229,4 +226,16 @@ public class SignController {
 		return service.enameSearchList(e_name);
 	}
 	
+	// 프린트
+	@ResponseBody
+	@RequestMapping("/print{draft_id}")
+	public DraftVO print(@PathVariable("draft_id") String draft_id) throws Exception{
+		return service.selectDraft(draft_id);
+	}
+	
+	// 프린트 새창으로
+	@RequestMapping("/printPop{draft_id}")
+	public String printPop() throws Exception{
+		return "/groupware/sign/printPop";
+	}
 }

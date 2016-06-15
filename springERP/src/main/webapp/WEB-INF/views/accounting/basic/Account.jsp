@@ -107,11 +107,10 @@
 								</div>								
 								<div class="form-group">
 									<label for="message-text" class="control-label">계정코드</label>
-									<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm" id="diagnosis_number_search">
+									<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm diagnosis_number_search" id="diagnosis_number_search">
 									<span class="fa fa-search"></span></button>
-									<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
-								</div>
-								
+									<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								</div>								
 								<div class="form-group">
 									<label for="message-text" class="control-label">검색창내용</label>
 									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail">
@@ -171,15 +170,15 @@
 								<div class="form-group">
 									<label for="message-text" class="control-label">계좌명</label>
 									<input class="form-control" type="text" placeholder="계좌명"	name="account_name">
-								</div>								
+								</div>	
+														
 								<div class="form-group">
 									<label for="message-text" class="control-label">계정코드</label>
-									<a data-toggle="modal" href="#myModal2">
-									<button type="button" class="btn btn-default btn-sm" id="diagnosis_number">
-									<span class="fa fa-search"></span></button></a>
-									<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
-								</div>
-								
+									<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm diagnosis_number_search" id="diagnosis_number_search">
+									<span class="fa fa-search"></span></button>
+									<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								</div>			
+														
 								<div class="form-group">
 									<label for="message-text" class="control-label">검색창내용</label>
 									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail">
@@ -226,14 +225,15 @@
 		</div>
 			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="diagnosis_number" id="search_diagnosis_number">
+					<input type="text" class="form-control search_diagnosis_number" name="diagnosis_number" id="search_diagnosis_number">
+					
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm diagnosis_numbers" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
-				<table id="m_searchTable" class="table table-bordered table-hover">
+				<table id="m_searchTable" class="table table-bordered table-hover m_searchTable">
 				
 				</table>
 				<div id="ustBtnArea">
