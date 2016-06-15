@@ -15,14 +15,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 기안서 수정하기 -->
-	<insert id="updateDraft" parameterType="DraftVO">
+	<update id="updateDraft" parameterType="DraftVO">
 		UPDATE draft
 			SET draft_title = #{draft_title},
 				draft_content = #{draft_content },
 				draft_type = #{draft_type },
 				draft_state = #{draft_state }
 			WHERE draft_id = #{draft_id }
-	</insert>
+	</update>
 	
 	<!-- 기안서 삭제하기 -->
 	<delete id="deleteDraft">
@@ -95,8 +95,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- emp_id 로 e_name 뽑아오기 -->
 	<select id="getEname" parameterType="String" resultType="String">
-		SELECT e_name FROM employee WHERE emp_id = #{emp_id }
+		SELECT e_name FROM employee WHERE emp_id = #{emp_id}
 	</select>
+	
+	<!-- 기안서 별 결재자테이블 정보 가져오기 -->
+	<select id="approvalListDraft" resultType="ApprovalVO">
+		SELECT * FROM approval WHERE draft_id = #{draft_id}
+	</select>
+	
+	<!-- 결재자테이블 정보 수정하기 -->
+	<update id="updateApproval" parameterType="ApprovalVO">
+		UPDATE approval
+			SET confirm = #{confirm}
+			WHERE draft_id = #{draft_id} AND emp_id = #{emp_id}
+	</update>
 	
 	<!-- 기안서 별 결재자 뽑아오기 -->
 	<select id="selectApprovalDraft" parameterType="String" resultType="String">

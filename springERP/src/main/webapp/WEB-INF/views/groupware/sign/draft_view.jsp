@@ -33,6 +33,7 @@
 					${draftView.reference.get(i)}<c:if test="${ i != draftView.reference.size()-1}">, </c:if>
 				</c:forEach>
 				</small>
+				<a href="/groupware/sign/draft_ok${draftView.draft_id}" class="btn btn-warning">결재확인</a>
 			</div>
 		</div>
 	</div>
