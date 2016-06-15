@@ -105,10 +105,11 @@ function handler(data) {
 
 
 //************계정검색 ************
+//계정검색 
 $(function() {
-$('#diagnosis_number_search').click(function() {
-	$('#m_searchTable').empty();
-	$('#search_diagnosis_number').val('');
+$('.diagnosis_number_search').click(function() {
+	$('.m_searchTable').empty();
+	$('.search_diagnosis_number').val('');
 	var url = "/accounting/diagnosis2/Diagnosislist";
 	$.ajax({
 		url : url,
@@ -119,21 +120,21 @@ $('#diagnosis_number_search').click(function() {
 
 //검색된 계정 사용하기
 $('.useBtn').on('click', function() {
-	var diagnosisName = $('#search_diagnosis_number').val();
-	$('#diagnosis_number').val(diagnosisName);
+	var diagnosisName = $('.search_diagnosis_number').val();
+	$('.diagnosis_number').val(diagnosisName);
 })
 
 //계정 테이블 내용 클릭시 
-$('#m_searchTable').on('click', '.getValue', function() {	
+$('.m_searchTable').on('click', '.getValue', function() {	
 	var diagnosisName = $(this).find('.getDiagnosisName').text();
-	$('#search_diagnosis_number').val(diagnosisName);
+	$('.search_diagnosis_number').val(diagnosisName);
 })
 
 //계정 검색하기
-$('#diagnosis_numbers').click(function() {	
-	var diagnosis_number = $('#search_diagnosis_number').val();
+$('.diagnosis_numbers').click(function() {	
+	var diagnosis_number = $('.search_diagnosis_number').val();
 	var url = "/accounting/account/diagnosis_numbers_search?diagnosis_number="+diagnosis_number;
-	$('#m_searchTable').empty();
+	$('.m_searchTable').empty();
 	$.ajax({
 		url : url,
 		dateType : 'json',
@@ -149,16 +150,16 @@ function handler(data) {
 		html += '<td>'+"["+list.diagnosis_number+"]"+list.diagnosis_name+'</td>';
 		html += '<td>'+list.use+'</td>';
 		html += '<td>'+list.remarks+'</td>';
-		html += '</tr>';
+		html += '</tr>'
 	});
-		$('#m_searchTable').append(html);
+		$('.m_searchTable').append(html);
 	}
 })
 //************계정검색 END************
 
 
 
-//************사워번호 검색************
+//************사원번호 검색************
 $(function() {
 $('#emp_ids_search').click(function() {
 	$('#e_searchTable').empty();
@@ -199,8 +200,8 @@ $('#empIds').click(function() {
 function handler(data) {
 	var html = '<tr><th>사원번호</th><th>이름</th><th>부서번호</th><th>직급번호</th><th>직무번호</th><th>직책번호</th></tr>';
 	$.each(data, function(index, list) {
-		html += '<tr class="getValue"><td>'+list.emp_id+'</td>';
-		html += '<td class="getempId">'+list.e_name+'</td>';
+		html += '<tr class="getValue"><td class="getempId">'+list.emp_id+'</td>';
+		html += '<td>'+list.e_name+'</td>';
 		html += '<td>'+list.dept_id+'</td>';
 		html += '<td>'+list.position_id+'</td>';
 		html += '<td>'+list.job_id+'</td>';

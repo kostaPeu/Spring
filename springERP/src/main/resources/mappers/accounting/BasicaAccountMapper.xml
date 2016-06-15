@@ -43,8 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="accountDelete">
 		DELETE FROM Accounts
-		WHERE account_number =
-		#{account_number}
+		WHERE account_number = #{account_number}
 	</delete>
 	<!-- 계좌 CRUD END -->
 
@@ -52,44 +51,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listAll" resultType="Accounts">
     <![CDATA[
     SELECT 
-     ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+     account_id,ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
 		ACCOUNT_DETAIL,	REMARKS, USE
     from 
       accounts 
-    where account_number
+    where account_id
     ]]>
 	</select>
 
 	<select id="listPage" resultType="Accounts">
     <![CDATA[
     SELECT 
-       ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+       account_id ,ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
 		ACCOUNT_DETAIL,	REMARKS, USE
     from 
       accounts 
-    where account_number
+    where account_id
     ]]>
 	</select>
 
 	<select id="listCriteria" resultType="Accounts">
     <![CDATA[
      SELECT 
-      ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
+      account_id,ACCOUNT_NUMBER, ACCOUNT_NAME, DIAGNOSIS_NUMBER,
 		ACCOUNT_DETAIL,	REMARKS, USE
     from 
       accounts 
-    where account_number
+    where account_id
     ]]>
 	</select>
 
 	<select id="countPaging" resultType="int">
     <![CDATA[
     SELECT 
-      count(account_number) 
+      count(account_id) 
     from 
       accounts 
     where 
-      account_number 
+      account_id 
     ]]>
 	</select>
 
@@ -155,10 +154,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 신용카드 CRUD START -->
 	<insert id="cardInsert" parameterType="Card">
 		insert into cards (
-		card_number, card_name, account_id, type, emp_id, diagnosis_number, use,
+		card_id, card_number, card_name, account_id, type, emp_id, diagnosis_number, use,
 		remarks
 		) values(
-		card_seq.NEXTVAL, #{card_name}, #{account_id},
+		card_seq.NEXTVAL, #{card_number}, #{card_name}, #{account_id},
 		#{type}, #{emp_id}, #{diagnosis_number}, #{use}, #{remarks}
 		)
 	</insert>
@@ -173,12 +172,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		type =
 		#{type}, emp_id = #{emp_id}, diagnosis_number = #{diagnosis_number}, use = #{use},
 		remarks = #{remarks}
-		WHERE card_number = #{card_number}
+		WHERE card_id = #{card_id}
 	</update>
 
 	<delete id="cardDelete">
 		DELETE FROM cards
-		WHERE card_number = #{card_number}
+		WHERE card_id = #{card_id}
 	</delete>
 	<!-- 신용카드 CRUD END -->
 

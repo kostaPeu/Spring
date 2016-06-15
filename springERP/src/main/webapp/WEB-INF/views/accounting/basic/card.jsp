@@ -121,30 +121,28 @@
 						<div class="form-group">
 							<label for="message-text" class="control-label">카드명</label>
 							<input class="form-control" type="text" placeholder="카드명"	name="card_name">
-						</div>
-						
+						</div>						
 						<div class="form-group">
 							<label for="message-text" class="control-label">계좌번호</label>
 							<button type="button" class="btn btn-default btn-sm" id="account_numbers_search" data-toggle="modal" data-target="#account_numbers_modal">
 								<span class="fa fa-search"></span>
 							</button>
+							<input type="hidden" name ="account_id">
 							<input class="form-control" type="text" placeholder="계좌번호" name="account_number" id="account_number">
-						</div>
-						
-						
+						</div>						
 						<div class="form-group">
 							<label for="message-text" class="control-label">사원번호</label>
 							<button type="button" class="btn btn-default btn-sm" id="emp_ids_search" data-toggle="modal" data-target="#empidSearch_modal">
 								<span class="fa fa-search"></span>
-							</button>
-							<input class="form-control" type="text" placeholder="사원번호" name="emp_id" id="emp_id">
+							</button>				
+							<input class="form-control" type="text" placeholder="사원명" name="emp_name" id="emp_id">
 						</div>						
 						<div class="form-group">
-							<label for="message-text" class="control-label">계정코드</label>
-								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm" id="diagnosis_number_search">
-									<span class="fa fa-search"></span></button>
-							<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
-						</div>
+								<label for="message-text" class="control-label">계정코드</label>
+								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm diagnosis_number_search" id="diagnosis_number_search">
+								<span class="fa fa-search"></span></button>
+								<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								</div>	
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">사용여부</label>
 							<div class="radio-inline">
@@ -379,14 +377,14 @@
 		</div>
 			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="diagnosis_number" id="search_diagnosis_number">
+					<input type="text" class="form-control search_diagnosis_number" name="diagnosis_number" id="search_diagnosis_number">
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm diagnosis_numbers" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
-				<table id="m_searchTable" class="table table-bordered table-hover">
+				<table id="m_searchTable" class="table table-bordered table-hover m_searchTable">
 				
 				</table>
 				<div id="ustBtnArea">

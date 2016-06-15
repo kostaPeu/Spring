@@ -1,6 +1,8 @@
 package erp.acc.basic.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -37,6 +39,12 @@ public class DiagnosissDAOImpl implements DiagnosissDAO {
 	@Override
 	public List<Diagnosiss> diagnosisList() throws Exception {
 		return session.selectList(namespace+".diagnosisList");
+	}
+
+	@Override
+	public ArrayList<Map<String, Object>> getJsonMap() throws Exception {
+		return ((ArrayList)session.selectList(namespace+".getJsonMap"));
+		
 	}
 
 }

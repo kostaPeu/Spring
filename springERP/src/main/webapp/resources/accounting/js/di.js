@@ -1,3 +1,35 @@
+/*(function() {
+
+$http({
+	method: 'POST',
+	url: '/accounting/diagnosis2/Diagnosislist',
+	data:  $.param({
+		diagnosis_number: $scope.diagnosis_number,
+		diagnosis_name: $scope.diagnosis_name,
+		dIagnosis_add: $scope.dIagnosis_add,
+		sort: $scope.sort,
+		diagnosis_type: $scope.diagnosis_type,
+		use:$scope.use,
+		remarks: $scope.remarks
+	}),
+	headers: {'Content-Type': 'application/json; charset=utf-8'}
+})
+.success(function(data, status, headers, config) {
+	if( data ) {
+		$scope.diagnosis_number = response.diagnosis_number;
+	}
+	else {
+		console.log('실패');
+		 통신한 URL에서 데이터가 넘어오지 않았을 때 처리 
+	}
+})
+.error(function(data, status, headers, config) {
+	 서버와의 연결이 정상적이지 않을 때 처리 
+	console.log(status);
+});
+});*/
+
+
 /*$(function() {
 	var url = '/accounting/diagnosis2/Diagnosislist';
 	$.ajax({

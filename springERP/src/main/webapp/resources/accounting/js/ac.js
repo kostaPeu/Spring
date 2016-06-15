@@ -45,9 +45,9 @@ $(function() {
 
 //계정검색 
 $(function() {
-$('#diagnosis_number_search').click(function() {
-	$('#m_searchTable').empty();
-	$('#search_diagnosis_number').val('');
+$('.diagnosis_number_search').click(function() {
+	$('.m_searchTable').empty();
+	$('.search_diagnosis_number').val('');
 	var url = "/accounting/diagnosis2/Diagnosislist";
 	$.ajax({
 		url : url,
@@ -58,21 +58,21 @@ $('#diagnosis_number_search').click(function() {
 
 //검색된 계정 사용하기
 $('.useBtn').on('click', function() {
-	var diagnosisName = $('#search_diagnosis_number').val();
-	$('#diagnosis_number').val(diagnosisName);
+	var diagnosisName = $('.search_diagnosis_number').val();
+	$('.diagnosis_number').val(diagnosisName);
 })
 
 //계정 테이블 내용 클릭시 
-$('#m_searchTable').on('click', '.getValue', function() {	
+$('.m_searchTable').on('click', '.getValue', function() {	
 	var diagnosisName = $(this).find('.getDiagnosisName').text();
-	$('#search_diagnosis_number').val(diagnosisName);
+	$('.search_diagnosis_number').val(diagnosisName);
 })
 
 //계정 검색하기
-$('#diagnosis_numbers').click(function() {	
-	var diagnosis_number = $('#search_diagnosis_number').val();
+$('.diagnosis_numbers').click(function() {	
+	var diagnosis_number = $('.search_diagnosis_number').val();
 	var url = "/accounting/account/diagnosis_numbers_search?diagnosis_number="+diagnosis_number;
-	$('#m_searchTable').empty();
+	$('.m_searchTable').empty();
 	$.ajax({
 		url : url,
 		dateType : 'json',
@@ -90,7 +90,7 @@ function handler(data) {
 		html += '<td>'+list.remarks+'</td>';
 		html += '</tr>'
 	});
-		$('#m_searchTable').append(html);
+		$('.m_searchTable').append(html);
 	}
 })
 
