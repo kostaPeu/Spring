@@ -5,46 +5,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/shopERP/odm/css/odm.css" rel="stylesheet"> 
-<script type="text/javascript">
-$("#addBtn").on('click',function(){
-		$("input[name=orderRow]:checked").each(function() {
-		var checks = $(this).val();
-		$(location).attr("href","deliveryAdd.odm?checks="+checks);
-		
-	});
-});
-</script>
+<link href="/resources/odm/css/odm.css" rel="stylesheet"> 
+<script src="/resources/odm/js/orderList.js"></script>
 </head>
 <body>
-
+<div id="a"></div>
 	<h2 class="page_title">주문리스트</h2>
-	<table class="table table-bordered table-hover">
+	<table id="odmTable" class="table table-bordered table-hover">
 		<thead>
 			<tr>
 				<th><input type="checkbox"></th>
-				<th>주문일</th>
 				<th>주문번호</th>
-				<th>상품코드</th>
-				<th>상품명</th>
+				<th>주문일시</th>
 				<th>주문자명</th>
-<!-- 				<th>주문수량</th> -->
-<!-- 				<th>결제금액</th> -->
+ 				<th>결제금액</th>
+ 				<th>연락처</th>
 			</tr>
 		</thead>
-		<c:forEach var="order" items="${list }">
-				<tr class="tablecenter">
-					<td><input type="checkbox" class="orderChecked" name="orderRow" value="${order.order_detail_id }"></td>
-					<td>${order.order_date}</td>
-					<td>${order.order_id }</td>
-					<td>${order.product_id }</td>
-					<td>${order.product_name }</td>
-					<td>${order.client_name }</td>
-	<!-- 			<td></td> -->
-	<!-- 			<td></td> -->
-				</tr>
-		</c:forEach>
-
+		<tbody id="tbody">
+		</tbody>
 	</table>
 	<div class="buttongroup">
 <!-- 		<input type="button" id="checkBtn" class="btn btn-default" value="발주확인"> -->

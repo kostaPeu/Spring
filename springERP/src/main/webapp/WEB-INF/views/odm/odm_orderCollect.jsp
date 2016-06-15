@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/odm/js/odm.js"></script>
-<link href="/shopERP/odm/css/odm.css" rel="stylesheet">
+<script src="/resources/odm/js/odm.js"></script>
+<link href="/resources/odm/css/odm.css" rel="stylesheet">
 </head>
 <body>
 
 	<h2 class="page_title">주문수집</h2>
-
+<div id="container">
 	<div class="success xclose">
 		<div class="title">
 			<button type="button" class="close closeBtn">
@@ -42,24 +42,19 @@
 					<th>쇼핑몰이름</th>
 					<th>주문수집일</th>
 				</tr>
-				<c:forEach var="shop" items="${list }">
-					<tr class="localcenter">
-						<td><input type="checkbox" value="${shop.shoppingmall_name }"
-							name="shopList"></td>
-						<td>${shop.shoppingmall_name }</td>
-						<td>${shop.collect_date }</td>
-					</tr>
-				</c:forEach>
+				<tr class="localcenter">
+					<td><input type="checkbox" value="godo" name="shopList"></td>
+					<td>godo</td>
+					<td></td>
+				</tr>
 			</table>
 			<div class="localcenter">
-				<button type="button" class="btn btn-default" data-toggle="modal"
-					data-target="#registerModal" id="registerBtn">등록</button>
-				<button type="button" class="btn btn-default" data-toggle="modal"
-					data-target="#collectModal" id="collectBtn">수집</button>
+				<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#registerModal" id="registerBtn">등록</button> -->
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#collectModal" id="collectBtn">수집</button>
 			</div>
 		</div>
 	</div>
-
+</div>
 	<!-- collectModal -->
 	<div id="collectModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -82,7 +77,7 @@
 							role="progressbar" aria-valuenow="73" aria-valuemin="0"
 							aria-valuemax="100" style="width: 73%">취소/반품 요청</div>
 					</div>
-										<div class="progress">
+					<div class="progress">
 						<div
 							class="progress-bar progress-bar-warning progress-bar-striped"
 							role="progressbar" aria-valuenow="33" aria-valuemin="0"

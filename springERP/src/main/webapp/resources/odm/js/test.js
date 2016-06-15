@@ -87,6 +87,38 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 //    	res.send(resBody);
 	});
 
+	app.post('/orderCollect', function(req, res, next) {
+		 // Handle the post for this route
+			var step = req.param('step');
+			var step2 = req.param('step2');
+
+			var key = "SSUyMSUyNiVDMyUyNyVFNzclODclMkMlRkMlQ0ElM0QlQ0YlMDclMTZJNHolOUUlODYlRjQlQURKJUEyJTJCJTFCNCUwOVQlRTclMDclRUQlQjclOUUlRDg2";
+			var partner_key = "aCUwMmslRjAlODclOUJWdA==";
+			var resBody= null;
+			request({
+			    url: 'https://openhub.godo.co.kr/enamoo/order/Order_Search.php?key='+key+"&partner_key="+partner_key+"&step="+step+"&step2="+step2, //URL to hit
+			   // qs: {from: 'blog example', time: +new Date()}, //Query string data
+			    //method: 'POST', 
+			    //Lets post the following key/values as form
+//			    json: {
+//			        field1: 'data',
+//			        field2: 'data'
+//			    }
+			}, function(error, response, body){
+			    if(error) {
+			        console.log(error);
+			    } else {
+			        //console.log(body);
+//			    	res.set('Content-Type', 'text/xml');
+//			    	res.send(xml(body));
+			    	res.send(body);
+			        console.log("성공");
+			}
+			});
+//	    	res.set('Content-Type', 'text/xml');
+//	    	res.send(resBody);
+		});
+
 	app.post('/get', function(req,res){
 //		if(cnt===0){
 //			res.send(fn_scrappingReturn("https://github.com/eigen94/kosta111MidProject"));

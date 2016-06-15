@@ -6,7 +6,7 @@
 $(function(){
 	$.ajax({
 	    url : "http://localhost:8000/",
-	    cache : false,
+	    //cache : false,
 	    type : "post",
 	    dataType : 'xml',
 	    data : {
