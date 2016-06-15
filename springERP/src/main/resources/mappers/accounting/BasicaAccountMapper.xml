@@ -168,16 +168,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="cardUpdate">
 		UPDATE cards SET card_number = #{card_number},
-		card_name = #{card_name}, account_number = #{account_number},
+		card_name = #{card_name}, account_id = #{account_id},
 		type =
 		#{type}, emp_id = #{emp_id}, diagnosis_number = #{diagnosis_number}, use = #{use},
 		remarks = #{remarks}
-		WHERE card_id = #{card_id}
+		WHERE card_number = #{card_number}
 	</update>
 
 	<delete id="cardDelete">
 		DELETE FROM cards
-		WHERE card_id = #{card_id}
+		WHERE card_number = #{card_number}
 	</delete>
 	<!-- 신용카드 CRUD END -->
 

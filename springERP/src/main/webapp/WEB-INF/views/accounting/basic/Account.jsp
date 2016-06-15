@@ -226,6 +226,7 @@
 			<div class="modal-body">				
 				<div class="col-sm-8">
 					<input type="text" class="form-control search_diagnosis_number" name="diagnosis_number" id="search_diagnosis_number">
+					
 				</div>
 						
 				<div class="col-sm-2">
