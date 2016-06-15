@@ -27,6 +27,28 @@ body
 	word-wrap: break-word;
 }
 
+.cke_editable table {
+	border-collapse:collapse;
+	width:90%;
+	text-align:center;
+}
+
+.cke_editable table th{
+	background:#f0f0f0;
+}
+
+.cke_editable table tr{
+	height:60px;
+}
+
+#height-lg {
+	height:500px;
+}
+
+#height-sm {
+	height:100px;
+}
+
 blockquote
 {
 	font-style: italic;
