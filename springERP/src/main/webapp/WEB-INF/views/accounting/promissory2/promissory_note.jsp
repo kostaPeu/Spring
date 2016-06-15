@@ -108,7 +108,7 @@
 							<th>만기일자</th>
 							<td>
 								<div class="col-sm-3 input-group">
-									<input type="text" name="ex_date" id="datepicker2"	disabled="disabled">
+									<input type="text" name="ex_date" readonly="readonly">
 									<input class="btn btn-xs btn-default" type="button" value="30일" id="ex_date30">
 									<input class="btn btn-xs btn-default" type="button" value="60일" id="ex_date60">
 									<input class="btn btn-xs btn-default" type="button" value="90일" id="ex_date90">									

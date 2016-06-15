@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		) values(
 		#{typelist}, #{dept_id},
 		#{proj_id},
-		#{customer_id}, #{account_number}, #{note_id}, #{ex_date},
+		#{customer_id}, #{account_number}, promissory_seq.nextval, #{ex_date},
 		#{sums}, #{red_date}, #{remarks}
 		)
 	</insert>
