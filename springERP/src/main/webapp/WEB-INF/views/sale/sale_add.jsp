@@ -25,7 +25,6 @@
 						<th>판매번호</th>
 						<th>거래처코드</th>
 						<th>품목코드</th>
-						<th>판매금액</th>
 						<th>판매수량</th>
 						<th>입고창고</th>
 						<th>지급방법</th>					
@@ -41,7 +40,6 @@
 						<input type="text" name="product_id" id="product_id" size="15">
 						<button type="button" id="product_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
 					</td>
-					<td><input type="text" name="sell_price" id="sell_price" size="15"></td>
 					<td><input type="text" name="sell_amount" id="sell_amount" size="15"></td>
 					<td>
 						<input type="text" name="warehouse_id" id="warehouse_id" size="15">
