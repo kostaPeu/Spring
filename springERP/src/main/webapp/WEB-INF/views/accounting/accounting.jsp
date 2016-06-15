@@ -9,7 +9,7 @@
 	<div class="erp-local-nav-title">회계관리</div>
 	<div class="erp-local-nav">
 		<ul class="local">
-			<li><a href="./accounting/view/printing/financial_position.jsp">회계 핵심 출력물</a></li>
+			<li><a href="/purchase/print">회계 핵심 출력물</a></li>
 			<li><a data-toggle="collapse"
 				href="./accounting/view/basic/moneyCheck.jsp #one">회계기초등록</a>
 				<ul id="one" class="collapse">
