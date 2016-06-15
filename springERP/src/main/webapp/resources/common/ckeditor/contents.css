@@ -22,6 +22,7 @@ body
 {
 	font-size: 13px;
 	line-height: 1.6;
+	text-align:center;
 
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
@@ -30,6 +31,7 @@ body
 .cke_editable table {
 	border-collapse:collapse;
 	width:90%;
+	margin:0 auto;
 	text-align:center;
 }
 

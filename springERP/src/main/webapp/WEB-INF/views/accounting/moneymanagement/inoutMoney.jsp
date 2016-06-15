@@ -47,7 +47,7 @@ $(function() {
 	})
 });
 $(function() {
-	$('.tbody').on('click','input',function(){		
+	$('.tbody').on('click','input[type=button]',function(){		
 		var html = '';
 		html += '<tr class="inoutMoneylist">';
 		html += '<td><input type="checkbox"></td>';
@@ -57,8 +57,8 @@ $(function() {
 		html += '<td><input type="text" value=""></td>';
 		html += '<td><input type="text" value=""></td>';
 		html += '<td><input type="text" value=""></td>';
-		html += '<td><input type="text" name="" value=""></td>';
-		html += '<td><input type="text" name="" value=""></td>';
+		html += '<td><input type="text" name="" value="" class="sums"></td>';
+		html += '<td><input type="text" name="" value="0"></td>';
 		html += '<td><input type="text" name="" value=""></td>';
 		html += '<td><input type="text" name="" value=""></td>';
 		html += '<td><input type="text" name="" value=""></td>';
@@ -234,14 +234,22 @@ $(function() {
 						<td><input type="text" value="${list.funds_id }"></td>							
 						<td><input type="text" value="${list.account_number }"></td>	
 						<td><input type="text" value="${list.customer_id }"></td>		
-						<td><input type="text" name="" value=""></td>
-						<td><input type="text" name="" value=""></td>
+						<td><input type="text" name="" value="${list.sums }" class="sums"></td>
+						<td><input type="text" name="" value="0"></td>
 						<td><input type="text" name="" value="${list.dept_id }"></td>
-						<td><input type="text" name="" value=""></td>
-						<td><input type="text" name="" value=""></td>
+						<td><input type="text" name="" value="${list.proj_id }"></td>
+						<td><input type="text" name="" value="${list.remarks }"></td>
 					</tr>
-				</c:forEach>
+				</c:forEach>					
 					</tbody>
+					<tr style="text-align: center; font-size: 14px; font-weight: bold;">
+						<td colspan="3">금액합계</td>
+						<td colspan="2"><input type="text" name="" id="totalSums" width="100%"
+							size="30" disabled="disabled"></td>
+						<td colspan="2">수수료합계</td>
+						<td colspan="3"><input type="text" name="" id=""
+							disabled="disabled" size="30" width="20"></td>
+					</tr>
 				</table>
 				</div>
 			</div>

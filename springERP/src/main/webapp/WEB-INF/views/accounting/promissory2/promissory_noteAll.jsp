@@ -4,9 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
-</head>
+<!--jQuery UI CSS파일   -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!--jQuery 기본 js파일   -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--jQuery UI 라이브러리 js파일   -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<!-- JS파일 -->
+<script src="/resources/accounting/js/promissory.js" type="text/javascript"></script>
+<script type="text/javascript" src="/resources/purchase/js/purchase.js"></script>
+<!-- CSS파일 -->
+<link href="/resources/accounting/css/account.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" /></head>
 <body>
 
 	<h2 class="page_title">어음원장</h2>
@@ -25,82 +38,12 @@
 				<tbody>
 					<tr id="row-CardTYPE">
 						<th>조회일자</th>
-						<td><select id="yy" onfocus="nextfield ='mm';" name="yy">
-								<option value="2017">2017</option>
-								<option value="2016" selected="selected">2016</option>
-								<option value="2015">2015</option>
-								<option value="2014">2014</option>
-								<option value="2013">2013</option>
-								<option value="2012">2012</option>
-						</select> <select id="mm" onfocus="nextfield ='dd';" name="mm">
-								<option value="01">1월</option>
-								<option value="02">2월</option>
-								<option value="03">3월</option>
-								<option value="04" selected="selected">4월</option>
-								<option value="05">5월</option>
-								<option value="06">6월</option>
-								<option value="07">7월</option>
-								<option value="08">8월</option>
-								<option value="09">9월</option>
-								<option value="10">10월</option>
-								<option value="11">11월</option>
-								<option value="12">12월</option>
-						</select> <input type="text" class="default" id="dd"
-							style="width: 20px; background-color: rgb(255, 255, 255);"
-							size="5" value="25" maxlength="3" name="dd"><a> ~ </a> <select
-							id="yy" onfocus="nextfield ='mm';" name="yy">
-								<option value="2017">2017</option>
-								<option value="2016" selected="selected">2016</option>
-								<option value="2015">2015</option>
-								<option value="2014">2014</option>
-								<option value="2013">2013</option>
-								<option value="2012">2012</option>
-						</select> <select id="mm" onfocus="nextfield ='dd';" name="mm">
-								<option value="01">1월</option>
-								<option value="02">2월</option>
-								<option value="03">3월</option>
-								<option value="04" selected="selected">4월</option>
-								<option value="05">5월</option>
-								<option value="06">6월</option>
-								<option value="07">7월</option>
-								<option value="08">8월</option>
-								<option value="09">9월</option>
-								<option value="10">10월</option>
-								<option value="11">11월</option>
-								<option value="12">12월</option>
-						</select> <input type="text" class="default" id="dd"
-							style="width: 20px; background-color: rgb(255, 255, 255);"
-							size="5" value="25" maxlength="3" name="dd"></td>
+						<td><input type="text" class="purchase_date" name="start_date" id="start_date"> ~ <input type="text" class="purchase_date" name="end_date" id="end_date"></td>
 					</tr>
 
 					<tr id="row-sysdate">
 						<th>기준일</th>
-						<td><select id="yy" onfocus="nextfield ='mm';" name="yy"
-							disabled="disabled">
-								<option value="2017">2017</option>
-								<option value="2016" selected="selected">2016</option>
-								<option value="2015">2015</option>
-								<option value="2014">2014</option>
-								<option value="2013">2013</option>
-								<option value="2012">2012</option>
-						</select> <select id="mm" onfocus="nextfield ='dd';" name="mm"
-							disabled="disabled">
-								<option value="01">1월</option>
-								<option value="02">2월</option>
-								<option value="03">3월</option>
-								<option value="04" selected="selected">4월</option>
-								<option value="05">5월</option>
-								<option value="06">6월</option>
-								<option value="07">7월</option>
-								<option value="08">8월</option>
-								<option value="09">9월</option>
-								<option value="10">10월</option>
-								<option value="11">11월</option>
-								<option value="12">12월</option>
-						</select> <input type="text" class="default" id="dd"
-							style="width: 20px; background-color: rgb(255, 255, 255);"
-							size="5" value="25" maxlength="3" name="dd" disabled="disabled">
-						</td>
+						<td><input type="text" class="purchase_date" name="start_date" id="standard_date"></td>
 					</tr>
 					<tr id="row-deptNum">
 						<th>부서코드</th>
