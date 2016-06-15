@@ -48,7 +48,7 @@ public class PurchaseTest {
 			temps[i-1] = val;
 		}
 		for(int i=0;i<temps.length;i++){
-			System.out.println(temps[i]);
+			System.out.println(i+1+ ":" +temps[i]);
 		}
 	}
 	/*@Test
