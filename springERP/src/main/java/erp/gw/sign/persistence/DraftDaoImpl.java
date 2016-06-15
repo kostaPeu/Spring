@@ -125,4 +125,14 @@ public class DraftDaoImpl implements DraftDao {
 	public void deleteReference(String draft_id) throws Exception {
 		session.delete(namespace + ".deleteReference", draft_id);
 	}
+
+	@Override
+	public List<ApprovalVO> approvalListDraft(String draft_id) throws Exception {
+		return session.selectList(namespace + ".approvalListDraft", draft_id);
+	}
+
+	@Override
+	public void updateApproval(ApprovalVO approval) throws Exception {
+		session.update(namespace + ".updateApproval", approval);
+	}
 }
