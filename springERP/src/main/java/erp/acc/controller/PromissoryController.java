@@ -38,6 +38,7 @@ public class PromissoryController {
 	//어음등록 POST
 	@RequestMapping(value="promissory_note", method = RequestMethod.POST)
 	public String promissoryInsertPOST(Model model, Promissory promissory) throws Exception {
+		System.out.println(promissory.getEx_date());
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("contents", "accounting/promissory2/promissory_note.jsp");
 		service.promissoryInsert(promissory);
