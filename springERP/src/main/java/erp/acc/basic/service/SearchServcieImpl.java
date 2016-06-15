@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.persistence.SearchDAO;
 import erp.basic.domain.Customer;
 import erp.gw.projectboard.domain.ProjectsVO;
@@ -19,8 +20,8 @@ public class SearchServcieImpl implements SearchService {
 
 	@Inject
 	SearchDAO dao;
-	
-	
+
+	// 계정관리
 	@Override
 	public List<Diagnosiss> diagnosisList() throws Exception {
 		return dao.diagnosisList();
@@ -31,6 +32,7 @@ public class SearchServcieImpl implements SearchService {
 		return dao.diagnosisNumberSearch(diagnosis_number);
 	}
 
+	// 직원정보
 	@Override
 	public List<EmployeeViewVO> searchEmp_idList(String emp_id) throws Exception {
 		return dao.searchEmp_idList(emp_id);
@@ -41,6 +43,7 @@ public class SearchServcieImpl implements SearchService {
 		return dao.EmpList();
 	}
 
+	// 통장계좌
 	@Override
 	public List<Accounts> accountList() throws Exception {
 		return dao.accountList();
@@ -49,24 +52,27 @@ public class SearchServcieImpl implements SearchService {
 	@Override
 	public List<Accounts> accountListId(int account_id) throws Exception {
 		return dao.accountListId(account_id);
-			}
+	}
 
+	// 부서
 	@Override
 	public List<HrDeptVO> listDept() throws Exception {
 		return dao.listDept();
 	}
 
+	// 프로젝트
 	@Override
 	public List<ProjectsVO> projectList() throws Exception {
 		return dao.projectList();
 	}
-	
+
 	@Override
 	public List<ProjectsVO> projectProj_idList(int proj_id) throws Exception {
-		
+
 		return dao.projectProj_idList(proj_id);
 	}
 
+	// 거래처
 	@Override
 	public List<Customer> customerList() throws Exception {
 		return dao.customerList();
@@ -75,6 +81,28 @@ public class SearchServcieImpl implements SearchService {
 	@Override
 	public List<Customer> customerIdList(String customer_id) throws Exception {
 		return dao.customerIdList(customer_id);
+	}
+
+	// 어음지급
+	@Override
+	public List<Promissory> promissoryList() throws Exception {
+		return dao.promissoryList();
+	}
+
+	@Override
+	public List<Promissory> promissoryIdList(String note_id) throws Exception {
+		return dao.promissoryIdList(note_id);
+	}
+
+	// 어음결재
+	@Override
+	public List<Promissory> promissoryPaymentList() throws Exception {
+		return dao.promissoryPaymentList();
+	}
+
+	@Override
+	public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception {
+		return dao.promissoryPaymentIdList(note_id);
 	}
 
 }

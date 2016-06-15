@@ -46,6 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT *FROM projects
 	WHERE proj_id = #{proj_id}
 </select>
+
 <select id="customerList" resultType="Customer">
 	SELECT *FROM customer
 </select>
@@ -55,6 +56,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE customer_id = #{customer_id}
 </select>
 
+<select id="promissoryList" resultType="Promissory">
+	SELECT *FROM note_ledger
+	WHERE typelist = '받는어음' AND state = '미지급'
+</select>
+
+<select id="promissoryPaymentIdList" resultType="Promissory">
+	SELECT *FROM note_ledger
+	WHERE note_id = #{note_id}
+</select>
+
+<select id="promissoryPaymentList" resultType="Promissory">
+	SELECT *FROM note_ledger
+	WHERE typelist = '지급어음' AND state = '미지급'
+</select>
 
 
 

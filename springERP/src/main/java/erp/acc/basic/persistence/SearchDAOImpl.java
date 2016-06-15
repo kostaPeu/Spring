@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.Promissory;
 import erp.basic.domain.Customer;
 import erp.gw.projectboard.domain.ProjectsVO;
 import erp.hr.domain.EmployeeViewVO;
@@ -75,6 +76,26 @@ public class SearchDAOImpl implements SearchDAO {
 	@Override
 	public List<Customer> customerIdList(String customer_id) throws Exception {
 		return session.selectList(namespace+".customerIdList", customer_id);
+	}
+
+	@Override
+	public List<Promissory> promissoryList() throws Exception {
+		return session.selectList(namespace+".promissoryList");
+	}
+
+	@Override
+	public List<Promissory> promissoryIdList(String note_id) throws Exception {
+		return session.selectList(namespace+".promissoryIdList", note_id);
+	}
+
+	@Override
+	public List<Promissory> promissoryPaymentList() throws Exception {
+		return session.selectList(namespace+".promissoryPaymentList");
+	}
+
+	@Override
+	public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception {
+		return session.selectList(namespace+".promissoryPaymentIdList", note_id);
 	}
 
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.service.SearchService;
 import erp.basic.domain.Customer;
 import erp.gw.projectboard.domain.ProjectsVO;
@@ -92,5 +93,28 @@ public class SearchController {
 		return service.customerIdList(customer_id);
 	}
 
+	@RequestMapping("promissory/list")
+	@ResponseBody
+	public List<Promissory> promissoryList()throws Exception{
+		return service.promissoryList();
+	}
+	
+	@RequestMapping("promissory/Idlist")
+	@ResponseBody
+	public List<Promissory> promissoryIdList(String note_id)throws Exception{
+		return service.promissoryIdList(note_id);
+	}
+	
+	@RequestMapping("promissory/Payment/list")
+	@ResponseBody
+	public List<Promissory> promissoryPaymentList() throws Exception {
+		return service.promissoryPaymentList();
+	}
+	
+	@RequestMapping("promissory/Payment/Idlist")
+	@ResponseBody
+	public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception {
+		return service.promissoryIdList(note_id);
+	}
 	
 }
