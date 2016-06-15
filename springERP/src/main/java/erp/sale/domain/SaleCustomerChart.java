@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SaleCustomerChart {
 	@Getter @Setter
-	private String customer_id;
+	private String customer_name;
 	@Getter @Setter
 	private int total;
 }

@@ -24,6 +24,7 @@ public interface DraftService {
 	public String getEname(String emp_id) throws Exception;
 	public List<DraftViewVO> myWriteDraftList() throws Exception;
 	public List<DraftViewVO> myApReDraftList() throws Exception;
+	public void draftOk(String draft_id) throws Exception;
 
 	// 공통양식
 	public List<DraftFormatVO> listFormat() throws Exception;

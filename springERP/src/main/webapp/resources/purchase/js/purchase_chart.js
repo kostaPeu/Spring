@@ -180,3 +180,184 @@ $(function(){
 		$('#w_searchTable').append(html);
 	}
 })
+$(function () {
+    // Create the chart2
+	var list;
+	$.ajax({
+		url : "/purchase/chartData",
+		dataType : 'json',
+		async: false,
+		success : success
+	})
+	function success(data){
+		list = data;
+	}
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '거래처별 구매 정산'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total percent market share'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}%'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: list
+        }],
+        
+        drilldown: {
+            series: [{
+                name: '두산',
+                id: '두산',
+                data: [
+                    [
+                        '인텔코어',
+                        17.2
+                    ],
+                    [
+                        '하나로',
+                        24.13
+                    ],
+                    [
+                        '총각김치',
+                        8.11
+                    ],
+                    [
+                        'ZARA',
+                        5.33
+                    ],
+                    [
+                        '성량스피커',
+                        1.06
+                    ]
+                ]
+            }, {
+                name: '한성컴퓨터',
+                id: '한성컴퓨터',
+                data: [
+                    [
+                        '인텔코어',
+                        8.11
+                    ],
+                    [
+                        '하나로',
+                        17.2
+                    ],
+                    [
+                        '총각김치',
+                        24.13
+                    ],
+                    [
+                        'ZARA',
+                        5.33
+                    ],
+                    [
+                        '성량스피커',
+                        1.06
+                    ]
+                ]
+            }, {
+                name: 'KOSTA',
+                id: 'KOSTA',
+                data: [
+                    [
+                        '인텔코어',
+                        1.06
+                    ],
+                    [
+                        '하나로',
+                        17.2
+                    ],
+                    [
+                        '총각김치',
+                        5.33
+                    ],
+                    [
+                        'ZARA',                       
+                        8.11
+                    ],
+                    [
+                        '성량스피커',                        
+                        24.13
+                    ]
+                ]
+            }, {
+                name: 'g&shop',
+                id: 'g&shop',
+                data: [
+                    [
+                        '인텔코어',
+                        8.11
+                    ],
+                    [
+                        '하나로',
+                        17.2
+                    ],
+                    [
+                        '총각김치',                        
+                        24.13
+                    ],
+                    [
+                        'ZARA',
+                        5.33
+                    ],
+                    [
+                        '성량스피커',
+                        1.06
+                    ]
+                ]
+            }, {
+                name: 'Opera',
+                id: 'Opera',
+                data: [
+                    [
+                        '인텔코어',
+                        5.33
+                    ],
+                    [
+                        '하나로',
+                        1.06
+                    ],
+                    [
+                        '총각김치',
+                        8.11
+                    ],
+                    [
+                        'ZARA',
+                        24.13
+                    ],
+                    [
+                        '성량스피커',
+                        17.2
+                    ]
+                ]
+            }]
+        }
+    });
+});

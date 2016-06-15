@@ -82,42 +82,6 @@ public class DraftServiceImpl implements DraftService {
 		return list;
 	}
 	
-
-//	// 결재자 추가
-//	@Override
-//	public String insertApproval(String[] strarr) throws Exception {
-//		List<ApprovalVO> list = new ArrayList<ApprovalVO>();
-//		String draft_id = dao.currvalDraft()+"";
-//		for(int i=0; i<strarr.length; i++){
-//			System.out.println("결재자 아이디를 얻어보쟝" + i + " : " + strarr[i]);
-//			ApprovalVO approval = new ApprovalVO();
-//			approval.setDraft_id(draft_id);
-//			approval.setEmp_id(strarr[i]);
-//			list.add(approval);
-//		}
-//		for(int i=0; i<list.size(); i++){
-//			dao.insertApproval(list.get(i));
-//		}
-//		return draft_id;
-//	}
-
-//	@Override
-//	public String insertReference(String[] strarr) throws Exception {
-//		List<ReferenceVO> list = new ArrayList<ReferenceVO>();
-//		String draft_id = dao.currvalDraft()+"";
-//		for(int i=0; i<strarr.length; i++){
-//			System.out.println("참조자 아이디를 얻어보쟝" + i + " : " + strarr[i]);
-//			ReferenceVO reference = new ReferenceVO();
-//			reference.setDraft_id(dao.currvalDraft()+"");
-//			reference.setEmp_id(strarr[i]);
-//			list.add(reference);
-//		}
-//		for(int i=0; i<list.size(); i++){
-//			dao.insertReference(list.get(i));
-//		}
-//		return draft_id;
-//	}
-	
 	// emp_id 로 e_name 구하기
 	@Override
 	public String getEname(String emp_id) throws Exception {
@@ -150,13 +114,9 @@ public class DraftServiceImpl implements DraftService {
 		List<String> ap_draftId_list = dao.selectApprovalEmpId(CommonService.getEmployeeId());
 		List<String> re_draftId_list = dao.selectReferenceEmpId(CommonService.getEmployeeId());
 		
-		System.out.println("ap_draftId_list : " + ap_draftId_list);
-		System.out.println("re_draftId_list : " + re_draftId_list);
-		
 		// 결재자에 내가 있는 기안서 목록에 추가하기
 		for(int i=0; i<ap_draftId_list.size(); i++){
 			draftList.add(dao.selectDraft(ap_draftId_list.get(i)));
-			System.out.println("포문을찍어보쟝111 : " + i + ap_draftId_list.get(i));
 		}
 		
 		// 참조라인에서 결재라인에 중복되지 않는것만 기안서 목록에 추가하기
@@ -164,14 +124,12 @@ public class DraftServiceImpl implements DraftService {
 			boolean check = true;
 			for(int j=0;j<draftList.size();j++){
 				if(re_draftId_list.get(i).equals(draftList.get(j).getDraft_id())){
-					System.out.println("같을때:"+draftList.get(j).getDraft_id() +":" +re_draftId_list.get(i));
 					check = false;
 					break;
 				}
 			}
 			if(check){
 				draftList.add(dao.selectDraft(re_draftId_list.get(i)));
-				System.out.println("다를때:"+":"+re_draftId_list.get(i));
 			}
 		}
 		
@@ -181,8 +139,6 @@ public class DraftServiceImpl implements DraftService {
 		// 내가 쓴 기안서 목록 가져오기
 		List<DraftVO> myDraftList = dao.selectDraftEmpId(CommonService.getEmployeeId());
 
-		System.out.println(myDraftList.toString());
-		
 		int myDraftListSize = myDraftList.size();
 		int draftListSize = draftList.size();
 		
@@ -203,7 +159,6 @@ public class DraftServiceImpl implements DraftService {
 		}
 		
 		for(int i=0; i<draftList.size(); i++){
-			System.out.println("뽀문에 들어오나여 ??? : " + i);
 			draftViewList.add(createDraftView(draftList.get(i)));
 		}
 		
@@ -221,9 +176,6 @@ public class DraftServiceImpl implements DraftService {
 		
 		List<DraftVO> draftList = new ArrayList<DraftVO>();
 		List<DraftViewVO> draftViewList = new ArrayList<DraftViewVO>();
-		
-		System.out.println("?hoho?");
-		System.out.println(CommonService.getEmployeeId());
 		
 		// 내가 쓴 기안서 목록 가져오기
 		List<DraftVO> myDraftList = dao.selectDraftEmpId(CommonService.getEmployeeId());
@@ -253,9 +205,6 @@ public class DraftServiceImpl implements DraftService {
 		List<String> ap_draftId_list = dao.selectApprovalEmpId(CommonService.getEmployeeId());
 		List<String> re_draftId_list = dao.selectReferenceEmpId(CommonService.getEmployeeId());
 		
-		System.out.println("ap_draftId_list : " + ap_draftId_list);
-		System.out.println("re_draftId_list : " + re_draftId_list);
-		
 		// 결재자에 내가 있는 기안서 목록에 추가하기
 		for(int i=0; i<ap_draftId_list.size(); i++){
 			draftList.add(dao.selectDraft(ap_draftId_list.get(i)));
@@ -278,20 +227,14 @@ public class DraftServiceImpl implements DraftService {
 			}
 		}
 		
-		System.out.println();
-		
 		for(int i=0; i<draftList.size(); i++){
 			System.out.println("뽀문에 들어오나여 ??? : " + i);
 			draftViewList.add(createDraftView(draftList.get(i)));
 		}
 		
-		System.out.println(draftViewList.size());
-		
 		System.out.println("탭투 달려!!!");
 		return draftViewList;
 	}
-		
-	
 	
 	
 	// DraftVO로 DraftViewVO 생성하기
@@ -381,6 +324,40 @@ public class DraftServiceImpl implements DraftService {
 		}
 		
 		return draft_id;
+	}
+
+	@Override
+	public void draftOk(String draft_id) throws Exception {
+		
+		DraftVO draft = dao.selectDraft(draft_id);
+		List<ApprovalVO> approvalList = dao.approvalListDraft(draft_id);
+		
+		for(int i=0; i<approvalList.size(); i++){
+			if(approvalList.get(i).getConfirm().equals("NO")){
+				if(approvalList.get(i).getEmp_id().equals(CommonService.getEmployeeId())){
+					approvalList.get(i).setConfirm("OK");
+					dao.updateApproval(approvalList.get(i));
+				} else {
+					System.out.println("같지않아 ");
+				}
+			} else {
+				System.out.println("이미 결재했어용");
+			}
+		}
+		
+		boolean temp = true;
+		
+		for(int i=0; i<approvalList.size(); i++){
+			if(approvalList.get(i).getConfirm().equals("NO")){
+				temp = false;
+			}
+		}
+		
+		if(temp){
+			draft.setDraft_state("OK");
+		}
+		
+		dao.updateDraft(draft);
 	}
 
 }

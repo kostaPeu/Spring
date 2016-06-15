@@ -46,9 +46,9 @@ $(function() {
 
 //************계좌번호검색 ************
 $(function() {
-$('#account_numbers_search').click(function() {
-	$('#a_searchTable').empty();
-	$('#search_account_number').val('');
+$('.account_numbers_search').click(function() {
+	$('.a_searchTable').empty();
+	$('.search_account_number').val('');
 	var url = "/accounting/account/accountList";
 	$.ajax({
 		url : url,
@@ -59,21 +59,25 @@ $('#account_numbers_search').click(function() {
 
 //검색된 계좌번호 사용하기
 $('.useBtn').on('click', function() {
-	var accountName = $('#search_account_number').val();
-	$('#account_number').val(accountName);
+	var accountName = $('.search_account_number').val();
+	var accountId = $('.accountHiddenid').val()
+	$('.account_number').val(accountName);
+	$('.accountHiddenids').val(accountId);	
 })
 
 //계정 테이블 내용 클릭시 
-$('#a_searchTable').on('click', '.getValue', function() {	
+$('.a_searchTable').on('click', '.getValue', function() {	
 	var accountName = $(this).find('.getaccountName').text();
-	$('#search_account_number').val(accountName);
+	var accountId = $(this).find('.getaccountId').text();
+	$('.search_account_number').val(accountName);
+	$('.accountHiddenid').val(accountId);
 })
 
 //계좌번호 검색하기
-$('#account_numbers').click(function() {	
+$('.account_numbers').click(function() {	
 	var diagnosis_number = $('#search_account_number').val();
 	var url = "/accounting/account/account_id_search?account_id="+account_id;
-	$('#a_searchTable').empty();
+	$('.a_searchTable').empty();
 	$.ajax({
 		url : url,
 		dateType : 'json',
@@ -85,8 +89,8 @@ $('#account_numbers').click(function() {
 function handler(data) {
 	var html = '<tr><th>계좌번호 아이디</th><th>계좌번호</th><th>계좌이름</th><th>계정번호</th><th>계좌내용</th><th>사용여부</th><th>비고</th></tr>';
 	$.each(data, function(index, list) {
-		html += '<tr class="getValue"><td class="getaccountName">'+list.account_id+'</td>';
-		html += '<td>'+list.account_number+'</td>';
+		html += '<tr class="getValue"><td class = "getaccountId">'+list.account_id+'</td>';
+		html += '<td class="getaccountName">'+list.account_number+'</td>';
 		html += '<td>'+list.account_name+'</td>';
 		html += '<td>'+list.diagnosis_number+'</td>';
 		html += '<td>'+list.account_detail+'</td>';
@@ -94,7 +98,7 @@ function handler(data) {
 		html += '<td>'+list.remarks+'</td>';		
 		html += '</tr>';
 	});
-		$('#a_searchTable').append(html);
+		$('.a_searchTable').append(html);
 	}
 })
 //************계좌번호 검색 END************
@@ -106,9 +110,9 @@ function handler(data) {
 
 //************계정검색 ************
 $(function() {
-$('#diagnosis_number_search').click(function() {
-	$('#m_searchTable').empty();
-	$('#search_diagnosis_number').val('');
+$('.diagnosis_number_search').click(function() {
+	$('.m_searchTable').empty();
+	$('.search_diagnosis_number').val('');
 	var url = "/accounting/diagnosis2/Diagnosislist";
 	$.ajax({
 		url : url,
@@ -119,21 +123,21 @@ $('#diagnosis_number_search').click(function() {
 
 //검색된 계정 사용하기
 $('.useBtn').on('click', function() {
-	var diagnosisName = $('#search_diagnosis_number').val();
-	$('#diagnosis_number').val(diagnosisName);
+	var diagnosisName = $('.search_diagnosis_number').val();
+	$('.diagnosis_number').val(diagnosisName);
 })
 
 //계정 테이블 내용 클릭시 
-$('#m_searchTable').on('click', '.getValue', function() {	
+$('.m_searchTable').on('click', '.getValue', function() {	
 	var diagnosisName = $(this).find('.getDiagnosisName').text();
-	$('#search_diagnosis_number').val(diagnosisName);
+	$('.search_diagnosis_number').val(diagnosisName);
 })
 
 //계정 검색하기
-$('#diagnosis_numbers').click(function() {	
-	var diagnosis_number = $('#search_diagnosis_number').val();
+$('.diagnosis_numbers').click(function() {	
+	var diagnosis_number = $('.search_diagnosis_number').val();
 	var url = "/accounting/account/diagnosis_numbers_search?diagnosis_number="+diagnosis_number;
-	$('#m_searchTable').empty();
+	$('.m_searchTable').empty();
 	$.ajax({
 		url : url,
 		dateType : 'json',
@@ -146,23 +150,23 @@ function handler(data) {
 	var html = '<tr><th>계정번호</th><th>계정명</th><th>사용구분</th><th>비고</th></tr>';
 	$.each(data, function(index, list) {
 		html += '<tr class="getValue"><td class="getDiagnosisName">'+list.diagnosis_number+'</td>';
-		html += '<td>'+list.diagnosis_name+'</td>';
+		html += '<td>'+"["+list.diagnosis_number+"]"+list.diagnosis_name+'</td>';
 		html += '<td>'+list.use+'</td>';
 		html += '<td>'+list.remarks+'</td>';
-		html += '</tr>';
+		html += '</tr>'
 	});
-		$('#m_searchTable').append(html);
+		$('.m_searchTable').append(html);
 	}
 })
 //************계정검색 END************
 
 
 
-//************사워번호 검색************
+//************사원번호 검색************
 $(function() {
-$('#emp_ids_search').click(function() {
-	$('#e_searchTable').empty();
-	$('#search_empId_number').val('');
+$('.emp_ids_search').click(function() {
+	$('.e_searchTable').empty();
+	$('.search_empId_number').val('');
 	var url = "/accounting/card/searchEmpIdList";
 	$.ajax({
 		url : url,
@@ -173,21 +177,25 @@ $('#emp_ids_search').click(function() {
 
 //검색된 사원번호 사용하기
 $('.useBtn').on('click', function() {
-	var empIdName = $('#search_empId_number').val();
-	$('#emp_id').val(empIdName);
+	var empIdName = $('.hiddenName').val();
+	var empName = $('.search_empId_number').val();
+	$('.emp_eName').val(empName);
+	$('.hiddenIds').val(empIdName);		
 })
 
 //사원번호 테이블 내용 클릭시 
-$('#e_searchTable').on('click', '.getValue', function() {	
+$('.e_searchTable').on('click', '.getValue', function() {	
 	var empIdName = $(this).find('.getempId').text();
-	$('#search_empId_number').val(empIdName);
+	var empName = $(this).find('.getename').text();
+	$('.search_empId_number').val(empName);
+	$('.hiddenName').val(empIdName);		
 })
 
 //사원번호 검색하기
-$('#empIds').click(function() {	
-	var empIdName = $('#search_empId_number').val();
+$('.empIds').click(function() {	
+	var empIdName = $('.search_empId_number').val();
 	var url = "/accounting/card/searchEmpList?emp_id="+emp_id;
-	$('#e_searchTable').empty();
+	$('.e_searchTable').empty();
 	$.ajax({
 		url : url,
 		dateType : 'json',
@@ -200,14 +208,14 @@ function handler(data) {
 	var html = '<tr><th>사원번호</th><th>이름</th><th>부서번호</th><th>직급번호</th><th>직무번호</th><th>직책번호</th></tr>';
 	$.each(data, function(index, list) {
 		html += '<tr class="getValue"><td class="getempId">'+list.emp_id+'</td>';
-		html += '<td>'+list.e_name+'</td>';
+		html += '<td class="getename">'+list.e_name+'</td>';
 		html += '<td>'+list.dept_id+'</td>';
 		html += '<td>'+list.position_id+'</td>';
 		html += '<td>'+list.job_id+'</td>';
 		html += '<td>'+list.duty_id+'</td>';
 		html += '</tr>'
 	});
-		$('#e_searchTable').append(html);
+		$('.e_searchTable').append(html);
 	}
 })
 //************사워번호 검색END************

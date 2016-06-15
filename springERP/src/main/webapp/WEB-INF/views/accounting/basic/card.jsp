@@ -46,7 +46,7 @@
 							<td><input type="checkbox" class="upSelect check_id" name="number_box" value="${card.card_number}"></td>
 							<td>${card.card_number }</td>
 							<td>${card.card_name }</td>
-							<td>${card.account_number }</td>
+							<td>${card.account_id }</td>
 							<td>${card.type }</td>
 							<td>${card.emp_id }</td>
 							<td>${card.diagnosis_number}</td>
@@ -98,7 +98,7 @@
 						</h4>
 					</div>
 					
-		<form:form action="/accounting/card/insert" method="post">		
+			<form:form action="/accounting/card/insert" method="post">		
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">구분</label>
@@ -121,30 +121,29 @@
 						<div class="form-group">
 							<label for="message-text" class="control-label">카드명</label>
 							<input class="form-control" type="text" placeholder="카드명"	name="card_name">
-						</div>
-						
-						<div class="form-group">
-							<label for="message-text" class="control-label">계좌번호</label>
-							<button type="button" class="btn btn-default btn-sm" id="account_numbers_search" data-toggle="modal" data-target="#account_numbers_modal">
-								<span class="fa fa-search"></span>
-							</button>
-							<input class="form-control" type="text" placeholder="계좌번호" name="account_number" id="account_number">
-						</div>
-						
-						
-						<div class="form-group">
-							<label for="message-text" class="control-label">사원번호</label>
-							<button type="button" class="btn btn-default btn-sm" id="emp_ids_search" data-toggle="modal" data-target="#empidSearch_modal">
-								<span class="fa fa-search"></span>
-							</button>
-							<input class="form-control" type="text" placeholder="사원번호" name="emp_id" id="emp_id">
 						</div>						
 						<div class="form-group">
-							<label for="message-text" class="control-label">계정코드</label>
-								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm" id="diagnosis_number_search">
-									<span class="fa fa-search"></span></button>
-							<input class="form-control" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
-						</div>
+							<label for="message-text" class="control-label">계좌번호</label>
+							<button type="button" class="btn btn-default btn-sm account_numbers_search" id="account_numbers_search" data-toggle="modal" data-target="#account_numbers_modal">
+								<span class="fa fa-search"></span>
+							</button>					
+							<input class="form-control account_number" type="text" placeholder="계좌번호" name="account_number" id="account_number">
+							<input class="accountHiddenids" type="hidden" name ="account_id">
+						</div>						
+						<div class="form-group">
+							<label for="message-text" class="control-label">사원번호</label>
+							<button type="button" class="btn btn-default btn-sm emp_ids_search" id="emp_ids_search" data-toggle="modal" data-target="#empidSearch_modal">
+								<span class="fa fa-search"></span>
+							</button>				
+							<input class="form-control emp_eName" type="text" placeholder="사원명" name="emp_name" id="emp_eName">
+							<input class="hiddenIds" type="hidden" name="emp_id">
+						</div>						
+						<div class="form-group">
+								<label for="message-text" class="control-label">계정코드</label>
+								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm diagnosis_number_search" id="diagnosis_number_search">
+								<span class="fa fa-search"></span></button>
+								<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								</div>	
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">사용여부</label>
 							<div class="radio-inline">
@@ -211,29 +210,29 @@
 						<div class="form-group">
 							<label for="message-text" class="control-label">카드명</label>
 							<input class="form-control" type="text" placeholder="카드명"	name="card_name">
-						</div>
-						
+						</div>						
 						<div class="form-group">
 							<label for="message-text" class="control-label">계좌번호</label>
-							<a data-toggle="modal" href="#myModal2"><button type="button" class="btn btn-default btn-sm" id="account_numbers">
+							<button type="button" class="btn btn-default btn-sm account_numbers_search" id="account_numbers_search" data-toggle="modal" data-target="#account_numbers_modal">
 								<span class="fa fa-search"></span>
-							</button></a>
-							<input class="form-control" type="text" placeholder="계좌번호" name="account_number" id="account_number">
-						</div>
-						
-						
+							</button>					
+							<input class="form-control account_number" type="text" placeholder="계좌번호" name="account_number" id="account_number">
+							<input class="accountHiddenids" type="hidden" name ="account_id">
+						</div>						
 						<div class="form-group">
 							<label for="message-text" class="control-label">사원번호</label>
-							<button type="button" class="btn btn-default btn-sm" id="emp_ids">
+							<button type="button" class="btn btn-default btn-sm emp_ids_search" id="emp_ids_search" data-toggle="modal" data-target="#empidSearch_modal">
 								<span class="fa fa-search"></span>
-							</button>
-							<input class="form-control" type="text" placeholder="사원번호" name="emp_id">
-						</div>			
-						
+							</button>				
+							<input class="form-control emp_eName" type="text" placeholder="사원명" name="emp_name" id="emp_eName">
+							<input class="hiddenIds" type="hidden" name="emp_id">
+						</div>						
 						<div class="form-group">
-							<label for="message-text" class="control-label">계정번호</label>
-							<input class="form-control" type="text" placeholder="계정번호"	name="use_detail">
-						</div>
+								<label for="message-text" class="control-label">계정코드</label>
+								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm diagnosis_number_search" id="diagnosis_number_search">
+								<span class="fa fa-search"></span></button>
+								<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								</div>	
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">사용여부</label>
 							<div class="radio-inline">
@@ -260,47 +259,7 @@
 				</div>
 			</div>
 		</div><!-- 신용카드 수정 END-->
-	
-	
-	<!--  <div id="warehouseSearch_modal" class="modal fade" role="dialog">
-<!-- 계좌번호 검색 -->
-<!-- <div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">
- <div class="modal-dialog modal-lg">      
-    <div class="modal-content">
-		<div class="modal-header">
-			   <button type="button" class="close" data-dismiss="modal">&times;</button>
-			   <h4 class="modal-title"><strong>목록 검색</strong></h4>	
-		</div>
-			<div class="modal-body">
-				<div class="col-sm-2">
-					<select >
-						<option id="">계좌번호</option>	
-						<option id="">사원번호</option>	
-						<option id="">카드번호</option>	
-						<option id="">ㅁㄴㅇㅁ</option>	
-					</select>
-				</div>	
-				<div class="col-sm-8">
-					<input type="text" class="form-control" name="account_number" id="search_account_number">
-				</div>
-				<br><br><br>
-						
-				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="warehouseID"><span class="fa fa-search"></span></button>
-				</div>			
-				<table id="m_searchTable" class="table table-bordered table-hover">
-				
-				</table>
-				<div id="ustBtnArea">
-					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
-				</div>
-				<div class="modal-footer">
-      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-     			 </div>
-			</div>
-		</div>
-	</div>
-</div> -->
+		
 
 <!-- 계좌번호 검색 Start-->
 <div class="modal fade" id="account_numbers_modal" role="dialog">
@@ -312,14 +271,15 @@
 		</div>
 			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="account_number" id="search_account_number">
+					<input type="text" class="form-control search_account_number" name="account_number" id="search_account_number">
+					<input type="hidden" class="accountHiddenid">
 				</div>
 						
 				<div class="col-sm-2">
 						<button type="button" class="btn btn-info btn-sm" id="account_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
-				<table id="a_searchTable" class="table table-bordered table-hover">
+				<table id="a_searchTable" class="table table-bordered table-hover a_searchTable">
 				
 				</table>
 				<div id="ustBtnArea">
@@ -345,14 +305,15 @@
 		</div>
 			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="diagnosis_number" id="search_empId_number">
+					<input type="text" class="form-control search_empId_number" name="diagnosis_number" id="search_empId_number">
+					<input type="hidden" class="hiddenName">
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="empIds"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm empIds" id="empIds"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
-				<table id="e_searchTable" class="table table-bordered table-hover">
+				<table id="e_searchTable" class="table table-bordered table-hover e_searchTable">
 				
 				</table>
 				<div id="ustBtnArea">
@@ -379,14 +340,14 @@
 		</div>
 			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="diagnosis_number" id="search_diagnosis_number">
+					<input type="text" class="form-control search_diagnosis_number" name="diagnosis_number" id="search_diagnosis_number">
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm diagnosis_numbers" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
-				<table id="m_searchTable" class="table table-bordered table-hover">
+				<table id="m_searchTable" class="table table-bordered table-hover m_searchTable">
 				
 				</table>
 				<div id="ustBtnArea">

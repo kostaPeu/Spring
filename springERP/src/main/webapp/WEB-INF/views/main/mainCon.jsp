@@ -70,7 +70,7 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container" style="width: 250px; height: 230px; margin: 0 auto"></div>
+			<div id="container" style="width: 230px; height: 200px; margin: 0 auto"></div>
 			
 		<hr>
 		</div>
@@ -95,7 +95,7 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container2" style="width: 250px; height: 230px; margin: 0 auto"></div>
+			<div id="container2" style="width: 230px; height: 230px; margin: 0 auto"></div>
 		<hr>
 		</div>		
 	</div>

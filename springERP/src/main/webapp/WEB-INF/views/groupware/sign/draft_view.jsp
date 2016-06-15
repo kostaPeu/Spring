@@ -11,6 +11,7 @@
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 <script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 
+<script src="/resources/groupware/js/draft_view.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/resources/groupware/css/draft_view.css">
 </head>
 <body>
@@ -32,21 +33,21 @@
 					${draftView.reference.get(i)}<c:if test="${ i != draftView.reference.size()-1}">, </c:if>
 				</c:forEach>
 				</small>
+				<a href="/groupware/sign/draft_ok${draftView.draft_id}" class="btn btn-warning">결재확인</a>
 			</div>
 		</div>
 	</div>
 	<div id="write_content">
 		<p>${draftView.draft_content }</p>
 		<hr>
-
-		<div class="row">
-   			<a href="/groupware/sign/draft_edit${draftView.draft_id}" class="btn btn-warning">수정</a>
-   			<a href="/groupware/sign/draft_delete${draftView.draft_id}" class="btn btn-danger">삭제</a>
-   			<a href="/groupware/sign/all_draft_list" class="btn btn-primary">목록</a>
-   			<a href="/groupware/sign/all_draft_list" id="printBtn" class="btn btn-primary glyphicon glyphicon-print">프린트</a>
-		</div>
-		
 	</div>
+	<div class="row">
+  			<a href="/groupware/sign/draft_edit${draftView.draft_id}" class="btn btn-warning">수정</a>
+  			<a href="/groupware/sign/draft_delete${draftView.draft_id}" class="btn btn-danger">삭제</a>
+  			<a href="/groupware/sign/all_draft_list" class="btn btn-primary">목록</a>
+  			<button id="printBtn" class="btn btn-primary glyphicon glyphicon-print" value="${draftView.draft_id}">프린트</button>
+	</div>
+		
 	<br/>
 </body>
 </html>

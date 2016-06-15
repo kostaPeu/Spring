@@ -7,28 +7,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- MoneyPlan CRUD START -->
 	<insert id="moneyPlanInsert" parameterType="MoneyPlanTimeSet">
-		insert into funds_plan (
-		moneytype, typelist, funds_id, repeat_unit, start_date, periods, dept_id, proj_id,
-		account_number, diagnosis_number, customer_id, sums, remarks
+		insert into
+		funds_plan (
+		moneytype, typelist, funds_id, repeat_unit, start_date,
+		periods, dept_id, proj_id,
+		account_number, diagnosis_number,
+		customer_id, sums, remarks
 		) values(
-		#{moneytype}, #{typelist}, #{funds_id}, #{repeat_unit},
-		#{start_date}, #{periods}, #{dept_id}, #{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id}, #{sums}, #{remarks}
+		#{moneytype}, #{typelist},
+		#{funds_id}, #{repeat_unit},
+		#{start_date}, #{periods}, #{dept_id},
+		#{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id},
+		#{sums}, #{remarks}
 		)
 	</insert>
 
 	<select id="moneyPlanList" resultType="MoneyPlanTimeSet">
-		SELECT * FROM funds_plan where moneytype = 'Cash'
+		SELECT * FROM funds_plan
+		where moneytype = 'Cash'
 	</select>
-	
+
 	<select id="moneyPlnapromissoryList" resultType="MoneyPlanTimeSet">
-		SELECT * FROM funds_plan where moneytype = 'Promissory'
+		SELECT * FROM
+		funds_plan where moneytype = 'Promissory'
 	</select>
 
 	<update id="moneyPlanUpdate">
-		UPDATE funds_plan SET moneytype = #{moneytype}, typelist = #{typelist},
-		funds_id = #{funds_id}, repeat_unit = #{repeat_unit},
-		start_date =#{start_date}, periods = #{periods}, account_number = #{account_number}, diagnosis_number = #{diagnosis_number},
-		customer_id = #{customer_id}, sums = #{sums}, remarks = #{remarks}
+		UPDATE funds_plan SET moneytype = #{moneytype},
+		typelist = #{typelist},
+		funds_id = #{funds_id}, repeat_unit =
+		#{repeat_unit},
+		start_date =#{start_date}, periods = #{periods},
+		account_number = #{account_number}, diagnosis_number =
+		#{diagnosis_number},
+		customer_id = #{customer_id}, sums = #{sums},
+		remarks = #{remarks}
 		WHERE funds_id = #{funds_id}
 	</update>
 
@@ -37,5 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE funds_id = #{funds_id}
 	</delete>
 	<!-- MoneyPlan CRUD END -->
-	
+	<select id="moneyAllList" resultType="MoneyPlanTimeSet">
+		SELECT * FROM funds_plan
+	</select>
 </mapper>

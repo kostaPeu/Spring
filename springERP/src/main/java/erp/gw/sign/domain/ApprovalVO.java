@@ -12,4 +12,5 @@ import lombok.ToString;
 public class ApprovalVO {
 	@Getter @Setter private String draft_id;
 	@Getter @Setter private String emp_id;
+	@Getter @Setter private String confirm;
 }
