@@ -326,4 +326,45 @@ public class DraftServiceImpl implements DraftService {
 		return draft_id;
 	}
 
+	@Override
+	public void draftOk(String draft_id) throws Exception {
+		
+		DraftVO draft = dao.selectDraft(draft_id);
+		List<ApprovalVO> approvalList = dao.approvalListDraft(draft_id);
+		
+		for(int i=0; i<approvalList.size(); i++){
+			if(approvalList.get(i).getConfirm().equals("NO")){
+				if(approvalList.get(i).getEmp_id().equals(CommonService.getEmployeeId())){
+					approvalList.get(i).setConfirm("OK");
+					dao.updateApproval(approvalList.get(i));
+				} else {
+					System.out.println("같지않아 ");
+				}
+			} else {
+				System.out.println("이미 결재했어용");
+			}
+		}
+		
+		boolean temp = true;
+		
+		for(int i=0; i<approvalList.size(); i++){
+			if(approvalList.get(i).getConfirm().equals("NO")){
+				temp = false;
+			}
+		}
+		
+		if(temp){
+			draft.setDraft_state("OK");
+		}
+		
+		dao.updateDraft(draft);
+	}
+	
+	// draft_id 로 emp_id 리스트 뽑기
+	@Override
+	public List<String> selectApprovalDraft(String draft_id) throws Exception {
+		return dao.selectApprovalDraft(draft_id);
+	}
+	
+
 }

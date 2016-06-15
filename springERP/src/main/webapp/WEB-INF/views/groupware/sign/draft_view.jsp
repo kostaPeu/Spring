@@ -21,6 +21,7 @@
 	<div class="page-header">
 		<div class="panel panel-info">
 			<div class="panel-heading">
+				
 				<h4 class="panel-title">${draftView.draft_title }</h4>
 				<small> 글번호 : ${draftView.draft_id } / 작성자 : ${draftView.e_name}
 				/ 작성일 : <fmt:formatDate value="${draftView.draft_date }" pattern="yyyy-MM-dd" /> 

@@ -247,8 +247,6 @@
 	<input type="button" id="newBtn" class="btn btn-default" value="등록">
 	<input type="button" id="updateBtn" class="btn btn-default" value="수정">
 	<input type="button" id="deleteBtn" class="btn btn-default" value="선택삭제">
-	<a href="#" id="barcodeBtn" type="button" class="btn btn-default">바코드출력</a>
-	<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
 </div>
 
 <!-- location=no -->

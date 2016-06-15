@@ -18,9 +18,11 @@ public interface DraftDao {
 	public List<DraftVO> listDraft() throws Exception;
 	public List<EmployeeViewVO> enameSearchList(String e_name) throws Exception;
 	public void insertApproval(ApprovalVO approval) throws Exception;
+	public void updateApproval(ApprovalVO approval) throws Exception;
 	public void insertReference(ReferenceVO reference) throws Exception;
 	public void deleteApproval(String draft_id) throws Exception;
 	public void deleteReference(String draft_id) throws Exception;
+	public List<ApprovalVO> approvalListDraft(String draft_id) throws Exception;
 	public List<String> selectApprovalDraft(String draft_id) throws Exception;
 	public List<String> selectReferenceDraft(String draft_id) throws Exception;
 	public List<String> selectApprovalEmpId(String emp_id) throws Exception;

@@ -238,4 +238,18 @@ public class SignController {
 	public String printPop() throws Exception{
 		return "/groupware/sign/printPop";
 	}
+	
+	// 결재확인
+	@RequestMapping("/draft_ok{draft_id}")
+	public String draftOk(@PathVariable("draft_id") String draft_id) throws Exception{
+			service.draftOk(draft_id);
+		return "redirect:/groupware/sign/draft_view"+draft_id;
+	}
+	
+	// draft_id 로 emp_id 리스트 뽑기
+	@ResponseBody
+	@RequestMapping("/approval{draft_id}")
+	public List<String> approval(@PathVariable("draft_id") String draft_id) throws Exception{
+		return service.selectApprovalDraft(draft_id);
+	}
 }

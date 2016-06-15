@@ -20,10 +20,12 @@ public interface DraftService {
 	public List<DraftViewVO> myDraftViewList() throws Exception;
 	public List<PersonViewVO> enameSearchList(String e_name) throws Exception;
 	public String insertApproval(List<String> approvalList) throws Exception;
+	public List<String> selectApprovalDraft(String draft_id) throws Exception;
 	public String insertReference(List<String> referenceList) throws Exception;
 	public String getEname(String emp_id) throws Exception;
 	public List<DraftViewVO> myWriteDraftList() throws Exception;
 	public List<DraftViewVO> myApReDraftList() throws Exception;
+	public void draftOk(String draft_id) throws Exception;
 
 	// 공통양식
 	public List<DraftFormatVO> listFormat() throws Exception;
