@@ -2,9 +2,9 @@ $(function () {
 	var tlists = [];
 	var plists = [];
 	var customer_id;
-	function productAjax(customer_id){
+	function productAjax(customer_name){
 		$.ajax({
-			url : "/sale/product_chart?customer_id="+customer_id,
+			url : "/sale/product_chart?customer_name="+customer_name,
 			type : "post",
 			dataType : "JSON",
 			async : false,
@@ -20,9 +20,9 @@ $(function () {
 					var json = [];
 					var y = parseFloat((p.total_price / total * 100).toFixed(2));
 					
-					json.name = p.product_id;
+					json.name = p.product_name;
 					json.y = y;
-					json.push(p.product_id);
+					json.push(p.product_name);
 					json.push(y);
 					plists.push(json);
 				});
@@ -49,15 +49,15 @@ $(function () {
 				var pjson = {};
 				var y = parseFloat((c.total / total * 100).toFixed(2));
 
-				pjson.name = c.customer_id;
-				pjson.id = c.customer_id;
+				pjson.name = c.customer_name;
+				pjson.id = c.customer_name;
 				
-				productAjax(c.customer_id);
+				productAjax(c.customer_name);
 				pjson.data = plists;
 				
-				json.name = c.customer_id;
+				json.name = c.customer_name;
 				json.y = y;
-				json.drilldown = c.customer_id;
+				json.drilldown = c.customer_name;
 
 				lists.push(json);
 				tlists.push(pjson);

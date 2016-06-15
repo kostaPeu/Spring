@@ -8,9 +8,7 @@ $(function () {
 	})
 	function success(data){
 		list = data;
-		console.log(data);
 	}
-	console.log(list);
     $('#container').highcharts({
         chart: {
             type: 'line'
@@ -23,13 +21,13 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: '총매출액'
+                text: ''
             }
         },
         plotOptions: {
             line: {
                 dataLabels: {
-                    enabled: true
+                    enabled: false
                 },
                 enableMouseTracking: false
             }
@@ -38,6 +36,71 @@ $(function () {
     });
 });
 $(function () {
+	var tlists = [];
+	var plists = [];
+	var customer_id;
+	function productAjax(customer_name){
+		$.ajax({
+			url : "/sale/product_chart?customer_name="+customer_name,
+			type : "post",
+			dataType : "JSON",
+			async : false,
+			success : function(data) {
+				plists = [];
+
+				var total  = 0;
+				$.each(data, function(index,p){
+					total += p.total_price;
+				});
+
+				$.each(data, function(index, p){
+					var json = [];
+					var y = parseFloat((p.total_price / total * 100).toFixed(2));
+					
+					json.name = p.product_name;
+					json.y = y;
+					json.push(p.product_name);
+					json.push(y);
+					plists.push(json);
+				});
+			}
+		});
+	}
+		
+	$.ajax({
+		url : "/sale/customer_chart",
+		type : "post",
+		dataType : "JSON",
+		async : false,
+		success : function(data) {
+			console.log(data);
+			lists = [];
+			tlists = [];
+			var total = 0;
+			$.each(data, function(index, c) {
+				total += c.total;
+			});
+
+			$.each(data, function(index, c) {
+				var json = {};
+				var pjson = {};
+				var y = parseFloat((c.total / total * 100).toFixed(2));
+
+				pjson.name = c.customer_name;
+				pjson.id = c.customer_name;
+				
+				productAjax(c.customer_name);
+				pjson.data = plists;
+				
+				json.name = c.customer_name;
+				json.y = y;
+				json.drilldown = c.customer_name;
+
+				lists.push(json);
+				tlists.push(pjson);
+			});
+		}
+	});
     $('#container2').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -56,7 +119,7 @@ $(function () {
         plotOptions: {
             pie: {
                 dataLabels: {
-                    enabled: true,
+                    enabled: false,
                     distance: -50,
                     style: {
                         fontWeight: 'bold',
@@ -71,22 +134,9 @@ $(function () {
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: '통계',
             innerSize: '50%',
-            data: [
-                ['Firefox',   10.38],
-                ['IE',       56.33],
-                ['Chrome', 24.03],
-                ['Safari',    4.77],
-                ['Opera',     0.91],
-                {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2,
-                    dataLabels: {
-                        enabled: false
-                    }
-                }
-            ]
+            data: lists
         }]
     });
 });

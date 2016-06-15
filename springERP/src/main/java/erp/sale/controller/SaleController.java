@@ -24,6 +24,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import erp.basic.service.BasicCustomerService;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
+import erp.pch.persistence.PurchaseDAO;
 import erp.sale.domain.SaleCustomerChart;
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleProductChart;
@@ -39,6 +40,8 @@ public class SaleController {
 	private SaleService service;
 	@Inject
 	private BasicCustomerService basicService;
+	@Inject
+	private PurchaseDAO pdao;
 	
 	@RequestMapping(value="sale_add", method=RequestMethod.GET)
 	public String saleAddGET(Model model)throws Exception{
@@ -121,7 +124,8 @@ public class SaleController {
 	}
 	@RequestMapping("product_chart")
 	@ResponseBody
-	public List<SaleProductChart> saleProductChart(@RequestParam("customer_id") String customer_id) throws Exception{
+	public List<SaleProductChart> saleProductChart(@RequestParam("customer_name") String customer_name) throws Exception{
+		String customer_id = pdao.getCustomerId(customer_name);
 		return service.saleProductChart(customer_id);
 	}
 }
