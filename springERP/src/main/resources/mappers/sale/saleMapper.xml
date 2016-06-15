@@ -169,14 +169,16 @@
    </select> -->
    
    <select id="saleProductChart" parameterType="String" resultType="SaleProductChart">
-	SELECT product_id, SUM(total_price) as total_price FROM sell
-		WHERE customer_id = #{customer_id}
-		GROUP BY product_id
+	SELECT p.product_name, SUM(s.total_price) as total_price FROM sell s, product p
+		WHERE s.customer_id = #{value} and
+				s.product_id = p.product_id
+		GROUP BY p.product_name
    </select>
    
    <select id="saleCustomerChart" resultType="SaleCustomerChart">
-	SELECT customer_id, SUM(total_price) as total FROM sell
-		GROUP BY customer_id
+	SELECT c.customer_name, SUM(s.total_price) as total FROM sell s, customer c
+		where s.customer_id = c.customer_id
+		GROUP BY c.customer_name
    </select>
 </mapper>
 

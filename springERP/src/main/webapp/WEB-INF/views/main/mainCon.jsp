@@ -95,7 +95,7 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container2" style="width: 250px; height: 230px; margin: 0 auto"></div>
+			<div id="container2" style="width: 350px; height: 290px; margin: 0 auto"></div>
 		<hr>
 		</div>		
 	</div>

@@ -182,11 +182,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 신용카드 CRUD END -->
 
 
-	<select id="projectList" resultType="ProjectsVO">
+	<!-- <select id="projectList" resultType="ProjectsVO">
 		select *from projects
 
 	</select>
-
+ -->
 	<!-- 프로젝트 RU START -->
 	<update id="projectUpdate">
 		UPDATE projects SET sums = #{sums}, account_number = #{account_number},
