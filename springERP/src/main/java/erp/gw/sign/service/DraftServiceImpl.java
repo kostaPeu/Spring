@@ -359,5 +359,12 @@ public class DraftServiceImpl implements DraftService {
 		
 		dao.updateDraft(draft);
 	}
+	
+	// draft_id 로 emp_id 리스트 뽑기
+	@Override
+	public List<String> selectApprovalDraft(String draft_id) throws Exception {
+		return dao.selectApprovalDraft(draft_id);
+	}
+	
 
 }
