@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.NoteAllSearch;
+import erp.acc.basic.domain.NoteAllSearchDateSet;
 import erp.acc.basic.domain.Promissory;
 import erp.basic.domain.Customer;
 import erp.gw.projectboard.domain.ProjectsVO;
@@ -96,6 +98,11 @@ public class SearchDAOImpl implements SearchDAO {
 	@Override
 	public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception {
 		return session.selectList(namespace+".promissoryPaymentIdList", note_id);
+	}
+
+	@Override
+	public List<Promissory> promissoryNoteAll(NoteAllSearchDateSet nas) throws Exception {
+		return session.selectList(namespace+".promissoryNoteAllSearch", nas);
 	}
 
 }

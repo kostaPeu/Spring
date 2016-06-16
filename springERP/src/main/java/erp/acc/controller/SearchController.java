@@ -1,16 +1,19 @@
 package erp.acc.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.NoteAllSearch;
 import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.service.SearchService;
 import erp.basic.domain.Customer;
@@ -116,5 +119,11 @@ public class SearchController {
 	public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception {
 		return service.promissoryIdList(note_id);
 	}
-	
+	@RequestMapping("/promissory/noteAllSearch")
+	public String promissoryNoteAllSearch(NoteAllSearch nas, Model model)throws Exception{
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("list", service.promissoryNoteAll(nas));
+		model.addAttribute("contents", "accounting/promissory2/promissory_noteAllList.jsp");
+		return "/main";
+	}
 }
