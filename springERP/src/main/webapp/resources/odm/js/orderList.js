@@ -3,16 +3,18 @@ $(function(){
 		url : "http://localhost:8000/orderCollect",
 		// cache : false,
 		type : "post",
+		async : false,
 		dataType : 'xml',
 		data : {
-			step : 1,
+			step : 0,
 			step2 : 0
 		},
 		success : function(data) {
 			console.log(data);
 			var orderList = [];
-			var html = '';
+			
 			$(data).find('order_data').each(function() {
+				var html = '';
 				var json = {};
 
 				var ono = $(this).find('ordno').text();
