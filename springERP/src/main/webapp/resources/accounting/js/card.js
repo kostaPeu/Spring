@@ -49,7 +49,7 @@ $(function() {
 $('.account_numbers_search').click(function() {
 	$('.a_searchTable').empty();
 	$('.search_account_number').val('');
-	var url = "/accounting/account/accountList";
+	var url = "/Search/account/list";
 	$.ajax({
 		url : url,
 		dataType : 'json',
@@ -76,7 +76,7 @@ $('.a_searchTable').on('click', '.getValue', function() {
 //계좌번호 검색하기
 $('.account_numbers').click(function() {	
 	var diagnosis_number = $('#search_account_number').val();
-	var url = "/accounting/account/account_id_search?account_id="+account_id;
+	var url = "/Search/account/Idlist?account_id="+account_id;
 	$('.a_searchTable').empty();
 	$.ajax({
 		url : url,
@@ -113,7 +113,7 @@ $(function() {
 $('.diagnosis_number_search').click(function() {
 	$('.m_searchTable').empty();
 	$('.search_diagnosis_number').val('');
-	var url = "/accounting/diagnosis2/Diagnosislist";
+	var url = "/Search/diagnosis/list";
 	$.ajax({
 		url : url,
 		dataType : 'json',
@@ -136,7 +136,7 @@ $('.m_searchTable').on('click', '.getValue', function() {
 //계정 검색하기
 $('.diagnosis_numbers').click(function() {	
 	var diagnosis_number = $('.search_diagnosis_number').val();
-	var url = "/accounting/account/diagnosis_numbers_search?diagnosis_number="+diagnosis_number;
+	var url = "/Search/diagnosis/Idlist?diagnosis_number="+diagnosis_number;
 	$('.m_searchTable').empty();
 	$.ajax({
 		url : url,
@@ -167,7 +167,7 @@ $(function() {
 $('.emp_ids_search').click(function() {
 	$('.e_searchTable').empty();
 	$('.search_empId_number').val('');
-	var url = "/accounting/card/searchEmpIdList";
+	var url = "/Search/emp/list";
 	$.ajax({
 		url : url,
 		dataType : 'json',
@@ -194,7 +194,7 @@ $('.e_searchTable').on('click', '.getValue', function() {
 //사원번호 검색하기
 $('.empIds').click(function() {	
 	var empIdName = $('.search_empId_number').val();
-	var url = "/accounting/card/searchEmpList?emp_id="+emp_id;
+	var url = "/Search/emp/Idlist?emp_id="+emp_id;
 	$('.e_searchTable').empty();
 	$.ajax({
 		url : url,

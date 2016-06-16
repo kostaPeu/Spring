@@ -276,7 +276,7 @@
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="account_numbers"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm account_numbers" id="account_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
 				<table id="a_searchTable" class="table table-bordered table-hover a_searchTable">
@@ -292,7 +292,7 @@
 		</div>
 	</div>
 </div>
-<!-- 사원번호 검색 End-->
+<!-- 계좌번호 검색 End-->
 
 
 <!-- 사원번호 검색 Start-->

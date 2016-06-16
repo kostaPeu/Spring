@@ -18,7 +18,7 @@ public class Promissory implements Serializable {
 	@Getter @Setter private String dept_id;
 	@Getter @Setter private String proj_id;
 	@Getter @Setter private String Customer_id;
-	@Getter @Setter private String account_number;
+	@Getter @Setter private int account_id;
 	@Getter @Setter private String note_id;
 	@Getter @Setter private Date ex_date;
 	@Getter @Setter private Date red_date;

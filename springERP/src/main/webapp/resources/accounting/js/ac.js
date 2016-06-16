@@ -48,7 +48,7 @@ $(function() {
 $('.diagnosis_number_search').click(function() {
 	$('.m_searchTable').empty();
 	$('.search_diagnosis_number').val('');
-	var url = "/accounting/diagnosis2/Diagnosislist";
+	var url = "/Search/diagnosis/list";
 	$.ajax({
 		url : url,
 		dataType : 'json',
@@ -71,7 +71,7 @@ $('.m_searchTable').on('click', '.getValue', function() {
 //계정 검색하기
 $('.diagnosis_numbers').click(function() {	
 	var diagnosis_number = $('.search_diagnosis_number').val();
-	var url = "/accounting/account/diagnosis_numbers_search?diagnosis_number="+diagnosis_number;
+	var url = "/Search/diagnosis/Idlist?diagnosis_number="+diagnosis_number;
 	$('.m_searchTable').empty();
 	$.ajax({
 		url : url,

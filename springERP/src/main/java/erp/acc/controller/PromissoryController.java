@@ -53,12 +53,41 @@ public class PromissoryController {
 		return "/main";
 	}
 	
-	//어음결재GET
+	//어음결재POST
+		@RequestMapping(value="promissory_notePayment", method = RequestMethod.POST)
+		public String promissory_notePaymentPOST(Promissory promissory, Model model)throws Exception{
+			model.addAttribute("left", "accounting/accounting.jsp");
+			model.addAttribute("contents", "accounting/promissory2/promissory_notePayment.jsp");
+			service.promissoryUpdate(promissory);
+			return "/main";
+		}
+	
+	
+	//할인/만기GET
 		@RequestMapping(value="promissory_noteBill", method = RequestMethod.GET)
 		public String promissory_noteBillGET(Model model)throws Exception{
 			model.addAttribute("left", "accounting/accounting.jsp");
 			model.addAttribute("contents", "accounting/promissory2/promissory_noteBill.jsp");
 			return "/main";
 		}
+	
+		
+	//어음지급GET
+		@RequestMapping(value="promissory_give", method = RequestMethod.GET)
+		public String promissory_noteGiveGET(Model model)throws Exception{
+			model.addAttribute("left", "accounting/accounting.jsp");
+			model.addAttribute("contents", "accounting/promissory2/promissory_notegive.jsp");
+			return "/main";
+		}
+	//어음지급POST
+		@RequestMapping(value="promissory_give", method=RequestMethod.POST)
+		public String promissory_noteGivePOST(Promissory promissory, Model model)throws Exception{
+			model.addAttribute("left", "accounting/accounting.jsp");
+			model.addAttribute("contents", "accounting/promissory2/promissory_notegive.jsp");
+			service.promissoryUpdate(promissory);
+			return "/main";
+		}
+		
+		
 	
 }

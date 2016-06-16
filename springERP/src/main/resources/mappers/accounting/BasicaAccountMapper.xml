@@ -182,36 +182,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 신용카드 CRUD END -->
 
 
-	<!-- <select id="projectList" resultType="ProjectsVO">
+	<select id="projectList" resultType="ProjectsVO">
 		select *from projects
-
 	</select>
- -->
+ 
 	<!-- 프로젝트 RU START -->
 	<update id="projectUpdate">
 		UPDATE projects SET sums = #{sums}, account_number = #{account_number},
 		remarks = #{remarks}
 		WHERE proj_id = #{proj_id}
-	</update>
+	</update>	
 	
 	
-	<!-- 모델 검색부분 -->
-	<select id="diagnosisList" resultType="Diagnosiss">
-	select *from Diagnosis
-	</select>
-	<select id="diagnosisNumberSearch" resultType="Diagnosiss">
-	select *from Diagnosis
-		where diagnosis_number = #{diagnosis_number}
-	</select>
-	
-	<select id="searchEmp_idList" resultType="EmployeeViewVO">
-	SELECT * FROM employee
-		where emp_id = #{emp_id}
-	</select>
-	<select id="EmpList" resultType="EmployeeViewVO">
-	SELECT * FROM employee
-	</select>
-
 
 
 </mapper>
