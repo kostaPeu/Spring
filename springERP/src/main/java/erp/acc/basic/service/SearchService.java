@@ -4,6 +4,7 @@ import java.util.List;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.NoteAllSearch;
 import erp.acc.basic.domain.Promissory;
 import erp.basic.domain.Customer;
 import erp.gw.projectboard.domain.ProjectsVO;
@@ -47,5 +48,7 @@ public interface SearchService {
 		//어음결재
 		public List<Promissory> promissoryPaymentList()throws Exception;
 		public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception;
-
+		
+		//어음원장
+		public List<Promissory> promissoryNoteAll(NoteAllSearch nas)throws Exception;
 }

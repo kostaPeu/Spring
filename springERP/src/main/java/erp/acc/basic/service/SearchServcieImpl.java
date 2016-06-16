@@ -1,5 +1,6 @@
 package erp.acc.basic.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
+import erp.acc.basic.domain.NoteAllSearch;
+import erp.acc.basic.domain.NoteAllSearchDateSet;
 import erp.acc.basic.domain.Promissory;
 import erp.acc.basic.persistence.SearchDAO;
 import erp.basic.domain.Customer;
@@ -105,4 +108,16 @@ public class SearchServcieImpl implements SearchService {
 		return dao.promissoryPaymentIdList(note_id);
 	}
 
+	@Override
+	public List<Promissory> promissoryNoteAll(NoteAllSearch getNas) throws Exception {
+		NoteAllSearchDateSet nas = new NoteAllSearchDateSet();
+		if(getNas.getStart_date() != "" && getNas.getEnd_date() != ""){
+			nas.setStart_date(Date.valueOf(getNas.getStart_date()));
+			nas.setEnd_date(Date.valueOf(getNas.getEnd_date()));
+		}else{
+			nas.setStart_date(Date.valueOf("1000-01-01"));
+			nas.setEnd_date(Date.valueOf("3000-12-31"));
+		}
+		return dao.promissoryNoteAll(nas);
+	}
 }

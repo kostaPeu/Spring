@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,18 +18,25 @@
 <script type="text/javascript" src="/resources/purchase/js/purchase.js"></script>
 <!-- CSS파일 -->
 <link href="/resources/accounting/css/account.css" rel="stylesheet">
+<script type="text/javascript">
+$(function(){
+	$('#standard_date').val($.datepicker.formatDate($.datepicker.ATOM, new Date()));
+});
+
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" /></head>
 <body>
 
 	<h2 class="page_title">어음원장</h2>
-
+<form:form action="/Search/promissory/noteAllSearch" method="post">
 	<!-- 상단 메뉴이름 -->
 	<div class="mainContents">
-
+	
 		<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 			<!-- 신규등록 Table Start -->
+			
 			<table
 				class="table table-bordered table-hover table-left table-striped">
 				<colgroup>
@@ -43,33 +51,33 @@
 
 					<tr id="row-sysdate">
 						<th>기준일</th>
-						<td><input type="text" class="purchase_date" name="start_date" id="standard_date"></td>
+						<td><input type="text" name="standard_date" id="standard_date" readonly="readonly"></td>
 					</tr>
 					<tr id="row-deptNum">
 						<th>부서코드</th>
-						<td><input id="warehouse_id" type="text">
+						<td><input id="warehouse_id" type="text" name="dept_id">
 							<button id="warehouse_id_search" class="btn btn-default btn-sm">
 								<span class="fa fa-search"></span>
 							</button> <input type="text" name="" value="">
 					</tr>
 					<tr id="row-project">
 						<th>프로젝트번호</th>
-						<td><input id="project_number" type="text">
+						<td><input id="project_number" type="text" name="project_number">
 							<button id="project_number_search" class="btn btn-default btn-sm">
 								<span class="fa fa-search"></span>
 							</button> <input type="text" name="" value="">
 					</tr>
 					<tr>
 						<th>구분</th>
-						<td><select class="form-control">
-								<option>받을어음발행내역</option>
-								<option>지급어음발행내역</option>
-								<option>보유어음현황</option>
+						<td><select class="form-control" name="typelist">
+								<option value="받는어음">받을어음발행내역</option>
+								<option value="지급어음">지급어음발행내역</option>
+								<option value="보유어음">보유어음현황</option>
 						</select></td>
 					</tr>
 					<tr id="row-noteNum">
 						<th>어음번호</th>
-						<td><input id="card_number" type="text">
+						<td><input id="card_number" type="text" name="card_number">
 							<button id="card_number_search" class="btn btn-default btn-sm">
 								<span class="fa fa-search"></span>
 							</button> <input type="text" name="" value="">
@@ -105,10 +113,10 @@
 				</div>
 			</div>
 		</div>
+		
 		<!-- 메뉴 footar END -->
 	</div>
 	<!-- 신규등록 END -->
-
-
+</form:form>
 </body>
 </html>

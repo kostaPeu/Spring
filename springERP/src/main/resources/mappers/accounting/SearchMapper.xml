@@ -71,6 +71,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE typelist = '지급어음' AND state = '미지급'
 </select>
 
-
+<select id="promissoryNoteAllSearch" resultType="Promissory">
+	SELECT * FROM note_ledger	
+	<if test="start_date != '' and start_date != null">					
+		WHERE red_date BETWEEN #{start_date} AND #{end_date}
+	</if>
+	<if test="dept_id != '' and dept_id != null">
+		and dept_id = #{dept_id}
+	</if>
+	<if test="project_number != '' and project_number != null">
+		and project_number = #{project_number}
+	</if>
+	<if test="typelist != '' and typelist != null">
+		and typelist = #{typelist}
+	</if>	
+	<if test="card_number != '' and card_number != null">
+		and card_number = #{card_number}
+	</if>	
+</select>
 
 </mapper>
