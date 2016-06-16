@@ -1,19 +1,14 @@
-package erp.odm.domain;
+package erp.sale.domain;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
-import lombok.Setter;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@XmlRootElement(name = "goods_data")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Goods_data {
+
 	private String goods_category;
 	private String goodsnm;
 	private String goodscd;
@@ -60,8 +55,8 @@ public class Goods_data {
 	public String getTotstock() {
 		return totstock;
 	}
-	public void setTotstock(String totstock) {
-		this.totstock = totstock;
+	public void setTotstock(String i) {
+		this.totstock = i;
 	}
 	
 

@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.xmlbeans.XmlDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,16 +21,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import erp.basic.service.BasicCustomerService;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.pch.persistence.PurchaseDAO;
+import erp.sale.domain.Goods_data;
 import erp.sale.domain.SaleCustomerChart;
+import erp.sale.domain.SaleGoodsDataXml;
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
 import erp.sale.domain.SaleVO;
+import erp.sale.domain.XMLData;
 import erp.sale.service.SaleService;
 
 @Controller
@@ -50,8 +55,9 @@ public class SaleController {
 		return "/main";
 	}
 	@RequestMapping(value="sale_add", method=RequestMethod.POST)
-	public String saleAddPOST(SaleVO vo,Model model)throws Exception{
+	public String saleAddPOST(SaleVO vo, RedirectAttributes rtts)throws Exception{
 		service.insertSale(vo);
+		rtts.addAttribute("sell_id", vo.getSell_id());
 		return "redirect:sale_check";
 	}
 	@RequestMapping("sale_delete")
@@ -81,7 +87,15 @@ public class SaleController {
 		return "/main";
 	}
 	@RequestMapping(value="/sale_check", method=RequestMethod.GET)
-	public String saleCheckPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{		
+	public String saleCheckPage(@ModelAttribute("cri") SearchCriteria cri, Model model, @RequestParam(value="sell_id", defaultValue="null") String sell_id) throws Exception{		
+		if(!sell_id.equals("null")){
+			model.addAttribute("sell_id", sell_id);
+			System.out.println("sell_id    "+sell_id);
+		}
+		if(sell_id.equals("null")){
+			System.out.println("sell_id null!!!!!!!!!!");
+		}
+		
 		model.addAttribute("list", service.listCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
@@ -127,5 +141,27 @@ public class SaleController {
 	public List<SaleProductChart> saleProductChart(@RequestParam("customer_name") String customer_name) throws Exception{
 		String customer_id = pdao.getCustomerId(customer_name);
 		return service.saleProductChart(customer_id);
+	}
+	
+	@RequestMapping("/xmltest")
+	@ResponseBody
+	public XMLData xmltest(@RequestParam("sell_id") String sell_id) throws Exception{
+		int re = 0;
+		String totStock = "";
+		SaleGoodsDataXml goods = service.selectSaleXml(sell_id);
+		
+		Goods_data data = new Goods_data();
+		
+		data.setGoods_category(goods.getPgroup_name());
+		data.setGoods_price(goods.getPrice_out());
+		data.setUsestock("o");
+		data.setGoodsnm(goods.getProduct_name());
+		data.setGoodscd(goods.getProduct_id());
+		totStock = Integer.toString(goods.getSell_amount());
+		data.setTotstock(totStock);
+		
+		XMLData xml = new XMLData(data);
+		
+		return xml;
 	}
 }

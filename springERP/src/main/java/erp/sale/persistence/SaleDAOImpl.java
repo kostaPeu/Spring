@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.sale.domain.SaleCustomerChart;
+import erp.sale.domain.SaleGoodsDataXml;
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
@@ -74,5 +75,9 @@ public class SaleDAOImpl implements SaleDAO {
 	@Override
 	public List<SaleCustomerChart> saleCustomerChart() throws Exception {
 		return sqlSession.selectList(namespace+".saleCustomerChart");
+	}
+	@Override
+	public SaleGoodsDataXml selectSaleXml(String sell_id) throws Exception {
+		return sqlSession.selectOne(namespace+".selectSaleXml", sell_id);
 	}
 }

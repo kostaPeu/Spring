@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import erp.odm.domain.Goods_data;
+import erp.sale.domain.Goods_data;
 
 @Controller
 @RequestMapping("/odm/*")
@@ -48,16 +48,6 @@ public class OdmController {
 		model.addAttribute("contents","odm/odm_orderList.jsp");
 		
 		return "/main";
-	}
-	
-	@RequestMapping("/xmltest")
-	@ResponseBody
-	public Goods_data xmltest(){
-		Goods_data data = new Goods_data();
-		data.setGoods_category("카테고리");
-		data.setGoods_price(1000);
-		
-		return data;
 	}
 
 }

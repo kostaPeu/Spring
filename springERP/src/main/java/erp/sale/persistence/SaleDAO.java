@@ -5,6 +5,7 @@ import java.util.List;
 import erp.common.domain.Criteria;
 import erp.common.domain.SearchCriteria;
 import erp.sale.domain.SaleCustomerChart;
+import erp.sale.domain.SaleGoodsDataXml;
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
@@ -25,4 +26,5 @@ public interface SaleDAO {
 	public void insertSaleExcel(SaleVO vo)throws Exception;
 	public List<SaleProductChart> saleProductChart(String customer_id) throws Exception;
 	public List<SaleCustomerChart> saleCustomerChart() throws Exception;
+	public SaleGoodsDataXml selectSaleXml(String sell_id) throws Exception;
 }
