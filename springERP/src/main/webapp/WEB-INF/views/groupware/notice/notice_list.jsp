@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -74,10 +76,11 @@
 
 				</div>
 				
-
-	<div class="row">
-		<a id="write" href="notice_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
-	</div>
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<div class="row">
+			<a id="write" href="notice_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+		</div>
+	</sec:authorize>
 
 	<form action="noticeSearchAction.gw" method="post">
 		<div class="col-xs-2">
