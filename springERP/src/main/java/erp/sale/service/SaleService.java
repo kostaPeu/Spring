@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import erp.common.domain.Criteria;
 import erp.sale.domain.SaleCustomerChart;
+import erp.sale.domain.SaleGoodsDataXml;
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
@@ -25,4 +26,5 @@ public interface SaleService {
 	public void uploadExcel(String path)throws Exception;
 	public List<SaleProductChart> saleProductChart(String customer_id) throws Exception;
 	public List<SaleCustomerChart> saleCustomerChart() throws Exception;
+	public SaleGoodsDataXml selectSaleXml(String sell_id) throws Exception;
 }

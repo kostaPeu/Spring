@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <title>Insert title here</title>
 
 <!-- Google Fonts -->
@@ -20,6 +23,29 @@
    
  <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
  <script type="text/javascript" src="/resources/sale/js/sale.js"></script>
+<!-- <script type="text/javascript" src="/resources/sale/js/godo_register.js"></script> -->
+<script type="text/javascript">
+$(function(){
+
+	        alert("<c:out value='${sell_id}'/>");    
+		if("<c:out value='${sell_id}'/>"!=''){
+ 			$.ajax({
+				url : "http://localhost:8000/godo_register",
+				type : "post",
+				data : {
+					sell_id : "<c:out value='${sell_id}'/>"
+				},
+				success : function(data){
+					alert("ajax 성공 : "+data);
+				},
+				error : function(){
+					alert("실패");
+				}
+				
+			}); 
+		}
+	}); 
+ </script>
 </head>
 <body>
 <h2>판매 조회</h2>

@@ -16,14 +16,6 @@
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 </head>
 <body>
-<%-- <div>
-	<select id="selectCustomer">
-	<c:forEach var="c" items="${list }">
-		<option value="${c.customer_id }">${c.customer_id}</option>
-	</c:forEach>
-	</select>
-	<button id="customerBtn">검색</button>
-</div> --%>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <!-- 	<div class="item_div">
 		<div class="title">

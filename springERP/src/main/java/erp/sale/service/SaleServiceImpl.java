@@ -26,6 +26,7 @@ import erp.pch.domain.PurchaseListView;
 import erp.pch.domain.PurchaseVO;
 import erp.pch.persistence.PurchaseDAO;
 import erp.sale.domain.SaleCustomerChart;
+import erp.sale.domain.SaleGoodsDataXml;
 import erp.sale.domain.SaleListView;
 import erp.sale.domain.SaleProductChart;
 import erp.sale.domain.SaleSearch;
@@ -264,6 +265,11 @@ public class SaleServiceImpl implements SaleService {
 	@Override
 	public List<SaleCustomerChart> saleCustomerChart() throws Exception {
 		return dao.saleCustomerChart();
+	}
+
+	@Override
+	public SaleGoodsDataXml selectSaleXml(String sell_id) throws Exception {
+		return dao.selectSaleXml(sell_id);
 	}
 
 }
