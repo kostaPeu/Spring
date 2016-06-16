@@ -21,7 +21,7 @@
 					<thead id="Statement_ExpenseList">
 						<tr class="mainTable">
 							<th><input type="checkbox"></th>
-							<th>전표번호</th>
+							<th>일자 - 번호</th>
 							<th>거래처명</th>
 							<th>공급가액</th>
 							<th>부가세</th>

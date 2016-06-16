@@ -70,6 +70,13 @@ public class AccountController {
 	}
 	
 	
+	@RequestMapping(value="/test/list", method=RequestMethod.GET)
+	public String moneyCheckView(Model model)throws Exception{
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("contents", "accounting/basic/moneyCheck.jsp");
+	return "/main";
+	}
+	
 	
 	
 }

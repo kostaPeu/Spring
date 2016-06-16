@@ -98,4 +98,10 @@ public class SearchDAOImpl implements SearchDAO {
 		return session.selectList(namespace+".promissoryPaymentIdList", note_id);
 	}
 
+	@Override
+	public List<Promissory> promissoryIdCheck(String word) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

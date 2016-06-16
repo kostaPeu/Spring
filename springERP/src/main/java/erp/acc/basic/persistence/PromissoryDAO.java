@@ -15,5 +15,6 @@ public interface PromissoryDAO {
 
 	public List<Promissory> promissoryList() throws Exception;
 
-	
+	public void promissorygiveUpdate(Promissory promissory) throws Exception;
+
 }

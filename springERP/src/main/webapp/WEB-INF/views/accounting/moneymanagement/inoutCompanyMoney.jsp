@@ -6,11 +6,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!--jQuery UI CSS파일   -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!--jQuery 기본 js파일   -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--jQuery UI 라이브러리 js파일   -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<!-- JS파일 -->
+<script src="/resources/accounting/js/promissory.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
 </head>
 <body>
 
@@ -27,33 +35,15 @@
 						<col style="width: 600px;">
 					</colgroup>
 					<tbody>
-						<tr id="row-CardTYPE">
+						<tr id="row-date">
 							<th>전표일자</th>
-							<td><select id="yy" onfocus="nextfield ='mm';"
-								name="statement_id">
-									<option value="2017">2017</option>
-									<option value="2016" selected="selected">2016</option>
-									<option value="2015">2015</option>
-									<option value="2014">2014</option>
-									<option value="2013">2013</option>
-									<option value="2012">2012</option>
-							</select> <select id="mm" onfocus="nextfield ='dd';" name="statement_id">
-									<option value="01">1월</option>
-									<option value="02">2월</option>
-									<option value="03">3월</option>
-									<option value="04" selected="selected">4월</option>
-									<option value="05">5월</option>
-									<option value="06">6월</option>
-									<option value="07">7월</option>
-									<option value="08">8월</option>
-									<option value="09">9월</option>
-									<option value="10">10월</option>
-									<option value="11">11월</option>
-									<option value="12">12월</option>
-							</select> <input type="text" class="default" id="dd"
-								style="width: 20px; background-color: rgb(255, 255, 255);"
-								size="5" value="25" maxlength="3" name="statement_id"></td>
-						</tr>
+							<td><div class="col-sm-6 input-group">
+									<input type="text" name="red_date" id="datepicker"	class="form-control">
+									<div class="input-group-addon">
+										<span class="glyphicon glyphicon-th" id="icon"></span>
+									</div>
+							</div></td>
+						</tr>		
 						<tr id="row-CardTYPE">
 							<th>매입/매출 <span class="card-Info" data-html="true"
 								data-toggle="popover" data-trigger="focus hover"

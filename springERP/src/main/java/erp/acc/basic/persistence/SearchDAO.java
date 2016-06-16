@@ -47,6 +47,7 @@ public interface SearchDAO {
 	//어음결재
 	public List<Promissory> promissoryPaymentList()throws Exception;
 	public List<Promissory> promissoryPaymentIdList(String note_id) throws Exception;
-	
+	//어음아이디 중복체크
+	public List<Promissory> promissoryIdCheck(String word)throws Exception;
 	
 }

@@ -29,8 +29,7 @@
 
 	<!-- 상단 메뉴이름 -->
 	<div class="mainContents">
-		<form:form action="/accounting/promissory/promissory_note"
-			method="post">
+		<form:form action="/accounting/promissory/promissory_noteBill"	method="post">
 			<div class="contents contents-fixed" style="top: 29px; bottom: 34px">
 				<!-- 신규등록 Table Start -->
 				<table
@@ -85,8 +84,7 @@
 						</tr>
 						<tr id="row-money">
 						<th>어음금액(입금액+수수료)</th>
-						<td><input class="sums" type="text" value=""
-							name="total">
+						<td><input class="sums" type="text" name="total">
 						</td>
 						</tr>				
 						<tr id="row-money">

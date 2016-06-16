@@ -14,4 +14,6 @@ public interface PromissoryService {
 	public void promissoryDelete(String note_id) throws Exception;
 
 	public List<Promissory> promissoryList() throws Exception;
+
+	public void promissorygiveUpdate(Promissory promissory)throws Exception;
 }
