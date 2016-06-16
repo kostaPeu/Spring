@@ -72,7 +72,7 @@ $(function(){
 						<td><select class="form-control" name="typelist">
 								<option value="받는어음">받을어음발행내역</option>
 								<option value="지급어음">지급어음발행내역</option>
-								<option value="보유어음">보유어음현황</option>
+								<option value="">보유어음현황</option>
 						</select></td>
 					</tr>
 					<tr id="row-noteNum">

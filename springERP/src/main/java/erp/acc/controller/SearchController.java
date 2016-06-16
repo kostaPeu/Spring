@@ -121,6 +121,7 @@ public class SearchController {
 	}
 	@RequestMapping("/promissory/noteAllSearch")
 	public String promissoryNoteAllSearch(NoteAllSearch nas, Model model)throws Exception{
+		System.out.println(nas.getTypelist());
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("list", service.promissoryNoteAll(nas));
 		model.addAttribute("contents", "accounting/promissory2/promissory_noteAllList.jsp");

@@ -118,6 +118,10 @@ public class SearchServcieImpl implements SearchService {
 			nas.setStart_date(Date.valueOf("1000-01-01"));
 			nas.setEnd_date(Date.valueOf("3000-12-31"));
 		}
+		nas.setCard_number(getNas.getCard_number());
+		nas.setDept_id(getNas.getDept_id());
+		nas.setProject_number(getNas.getProject_number());
+		nas.setTypelist(getNas.getTypelist());
 		return dao.promissoryNoteAll(nas);
 	}
 }

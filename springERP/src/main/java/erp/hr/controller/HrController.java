@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.util.FileCopyUtils;
 
+import erp.common.service.CommonService;
 import erp.hr.domain.EmployeeVO;
 import erp.hr.domain.HrBasicVo;
 import erp.hr.domain.HrDeptVO;
@@ -45,6 +46,9 @@ public class HrController {
 	@Inject
 	private HrService service;
 
+	@Inject
+	private CommonService common;
+	
 	// left메뉴
 	@RequestMapping(value = "/hr_basic")
 	public String hr_basic(Model model) {
@@ -270,6 +274,10 @@ public class HrController {
 
 	@RequestMapping(value = "/emp/emp_insert", method = RequestMethod.POST)
 	public String emp_insert(EmployeeVO vo) throws IllegalStateException, IOException {
+		String pass = common.passwordEncoder(vo.getPassword());
+		
+		vo.setE_pwd(pass);
+		
 		if (vo.getUploadFile() != null) {
 			MultipartFile file = vo.getUploadFile();
 			logger.info("originalName: " + file.getOriginalFilename());
@@ -294,7 +302,7 @@ public class HrController {
 			vo.setE_profile_pic(savedName);
 			
 			EmployeeVO picvo = service.getEmp(vo.getEmp_id());
-			String fpath = "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\hr\\images\\"+picvo.getE_profile_pic();
+			String fpath = "C:\\Users\\pado\\git\\Spring\\springERP\\src\\main\\webapp\\resources\\hr\\images"+picvo.getE_profile_pic();
 			File delFile = new File(fpath);
 			delFile.delete();	
 		}
@@ -324,7 +332,7 @@ public class HrController {
 			try {
 				EmployeeVO vo =service.getEmp(array[i]);
 				if(vo.getE_profile_pic()!=null){
-					String fpath = "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\hr\\images\\"+vo.getE_profile_pic();
+					String fpath = "C:\\Users\\pado\\git\\Spring\\springERP\\src\\main\\webapp\\resources\\hr\\images"+vo.getE_profile_pic();
 					File delFile = new File(fpath);
 					delFile.delete();
 				}						
