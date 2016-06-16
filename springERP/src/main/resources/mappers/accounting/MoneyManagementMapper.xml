@@ -9,12 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="moneyManageMentInsert" parameterType="MoneyManagement">
 		insert into
 		cash_trade (
-		typelist, statement_id, dept_id, proj_id, account_number,
-		sums, charge, remarks, customer_id
+		typelist, cash_id, red_date, dept_id, proj_id, account_id,sums, charge, remarks, customer_id
 		) values(
-		#{typelist}, #{statement_id},
-		#{dept_id},
-		#{proj_id}, #{account_number}, #{sums}, #{charge},
+		#{typelist}, cash_seq.NEXTVAL, #{red_date}, #{dept_id}, #{proj_id}, #{account_id}, #{sums}, #{charge},
 		#{remarks}, #{customer_id}
 		)
 	</insert>

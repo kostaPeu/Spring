@@ -13,7 +13,6 @@
 
 <!-- CSS -->
 <link href="/resources/accounting/css/account.css" rel="stylesheet">
-
 <!-- JS -->
 <script src="/resources/accounting/js/project.js" type="text/javascript"></script>
 <script src="/resources/common/js/csrf.js" type="text/javascript"></script>
@@ -93,10 +92,10 @@
 								
 								<div class="form-group">
 									<label for="message-text" class="control-label">계좌번호</label>
-										<a data-toggle="modal" href="#myModal2">
-											<button type="button" class="btn btn-default btn-sm" id="diagnosis_number">
-											<span class="fa fa-search"></span></button></a>
-									<input class="form-control" type="text" placeholder="계좌번호" name="account_number">
+										<input class="accountHiddenids" type="hidden" name ="account_id">
+										<button type="button" class="btn btn-default btn-sm account_numbers_search" id="account_numbers_search" data-toggle="modal" data-target="#account_numbers_modal">
+											<span class="fa fa-search"></span></button>
+									<input class="form-control account_number" type="text" placeholder="계좌번호" name="account_number" id="account_number">
 								</div>
 								
 																
@@ -119,31 +118,25 @@
 		
 		
 <!-- 검색 -->
-<div class="modal" id="myModal2" aria-hidden="true" style="display: none; z-index: 1060;">
+<!-- 계좌번호 검색 Start-->
+<div class="modal fade" id="account_numbers_modal" role="dialog">
  <div class="modal-dialog modal-lg">      
     <div class="modal-content">
 		<div class="modal-header">
 			   <button type="button" class="close" data-dismiss="modal">&times;</button>
-			   <h4 class="modal-title"><strong>목록 검색</strong></h4>	
+			   <h4 class="modal-title"><strong>계좌번호 검색</strong></h4>	
 		</div>
-			<div class="modal-body">
-				<div class="col-sm-2">
-					<select >
-						<option id="">계좌번호</option>	
-						<option id="">사원번호</option>	
-						<option id="">카드번호</option>	
-						<option id="">ㅁㄴㅇㅁ</option>	
-					</select>
-				</div>	
+			<div class="modal-body">				
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="account_number" id="search_account_number">
+					<input type="text" class="form-control search_account_number" name="account_number" id="search_account_number">
+					<input type="hidden" class="accountHiddenid">
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm" id="warehouseID"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-info btn-sm account_numbers" id="account_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
-				<table id="m_searchTable" class="table table-bordered table-hover">
+				<table id="a_searchTable" class="table table-bordered table-hover a_searchTable">
 				
 				</table>
 				<div id="ustBtnArea">
@@ -155,6 +148,7 @@
 			</div>
 		</div>
 	</div>
-</div>		
+</div>
+<!-- 계좌번호 검색 End-->		
 </body>
 </html>

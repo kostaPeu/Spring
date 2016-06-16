@@ -4,16 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/shopERP/accounting/js/main.js" type="text/javascript"></script>
-<link href="/shopERP/accounting/css/card.css" rel="stylesheet">
+<title>Insert title here</title>
 </head>
 <body>
 
-	<h2 class="page_title">매입청구서조회</h2>
+<h2 class="page_title">매출청구서조회</h2>
 
 	<div class="mainContents">
 
-		<!-- 매입청구서리스트 -->
+		<!-- 매출청구서리스트 -->
 		<div class="container-fluid">
 			<div class="table-responsive">
 				<table class="table table-bordered table-hover table-striped"
@@ -26,21 +25,11 @@
 							<th>공급가액</th>
 							<th>부가세</th>
 							<th>합계</th>
-							<th>내역</th>
-							
+							<th>내역</th>							
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<tr class="mainTable">
-							<td><input type="checkbox"></td>
-							<td>16/04/25-7</td>
-							<td>LG전자</td>
-							<td>900,000</td>
-							<td>100,000</td>
-							<td>1,000,000</td>
-							<td><input type="button" name="select" value="보기"></td>
-						</tr>
-						<tr>
+						<tr class="mainTable">						
 							<td><input type="checkbox"></td>
 							<td></td>
 							<td></td>

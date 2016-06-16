@@ -20,7 +20,7 @@ public class MoneyManagement implements Serializable {
 	@Getter @Setter private String dept_id;
 	@Getter @Setter private String deal_name;
 	@Getter @Setter private String proj_id;
-	@Getter @Setter private String account_number;
+	@Getter @Setter private int account_id;
 	@Getter @Setter private String sums;
 	@Getter @Setter private String charge;
 	@Getter @Setter private String remarks;
