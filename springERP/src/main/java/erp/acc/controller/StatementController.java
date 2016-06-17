@@ -16,10 +16,11 @@ public class StatementController {
 	@Inject
 	private StatementService service;
 	
+	//매입청구서
 	@RequestMapping(value = "StatementPurchaseList", method=RequestMethod.GET)
 	public String StatementPurchaseListGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "accounting/Statement/Statement_purchaseList.jsp");
+		model.addAttribute("contents", "accounting/statement/Statement_purchaseList.jsp");
 		return "/main";
 	}
 	
@@ -27,14 +28,15 @@ public class StatementController {
 	public String StatementPurchaseListPOST(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
 		model.addAttribute("listModel", service.StatementAllList());
-		model.addAttribute("contents", "accounting/Statement/Statement_purchaseList.jsp");		
+		model.addAttribute("contents", "accounting/statement/Statement_purchaseList.jsp");		
 		return "/main";
 	}
 	
+	//매출 청구서
 	@RequestMapping(value = "StatementSalesList", method=RequestMethod.GET)
 	public String StatementSalesListGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "accounting/Statement/Statemnet_SalesList.jsp");
+		model.addAttribute("contents", "accounting/statement/Statemnet_SalesList.jsp");
 		
 		return "/main";		
 	}
@@ -42,9 +44,9 @@ public class StatementController {
 	@RequestMapping(value = "StatementSalesList", method=RequestMethod.POST)
 	public String StatementSalesListPOST(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("listModel", service.StatementAllList());
-		
-		model.addAttribute("contents", "accounting/Statement/Statement_purchaseList.jsp");			
+		model.addAttribute("promissorysales", service.StatementPromissorySalesList());
+		model.addAttribute("Cashsales", service.StatementCashSalesList());
+		model.addAttribute("contents", "accounting/statement/Statement_purchaseList.jsp");			
 		return "/main";
 	}
 	

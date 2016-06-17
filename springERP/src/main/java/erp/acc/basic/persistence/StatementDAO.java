@@ -2,16 +2,16 @@ package erp.acc.basic.persistence;
 
 import java.util.List;
 
-import erp.acc.basic.domain.Statement;
+import erp.acc.basic.domain.Statements;
 
 public interface StatementDAO {
 
-	List<Statement> StatementAllList() throws Exception;
+	List<Statements> StatementAllList() throws Exception;
 
-	List<Statement> StatementCashSalesList() throws Exception;
-	List<Statement> StatementPromissorySalesList() throws Exception;
+	List<Statements> StatementCashSalesList() throws Exception;
+	List<Statements> StatementPromissorySalesList() throws Exception;
 
-	List<Statement> StatementCashPurchaseList() throws Exception;
-	List<Statement> StatementPromissoryPurchaseList() throws Exception;
+	List<Statements> StatementCashPurchaseList() throws Exception;
+	List<Statements> StatementPromissoryPurchaseList() throws Exception;
 
 }
