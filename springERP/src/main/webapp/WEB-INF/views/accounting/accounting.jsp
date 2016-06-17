@@ -50,7 +50,7 @@
 			<li><a data-toggle="collapse"
 				href="./accounting/view/Statement_List.jsp #six">전표관리</a>
 				<ul id="six" class="collapse">
-					<li><a href="./accounting/view/Statement/Statement_List.jsp">전표이력조회</a>
+					<li><a href="/StateMent/StatementAllViewList">전표이력조회</a>
 					<li><a href="/StateMent/StatementSalesList">매출청구서조회</a>
 					<li><a href="/StateMent/StatementPurchaseList">매입청구서조회</a>
 				</ul></li>

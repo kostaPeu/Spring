@@ -25,16 +25,8 @@ public class StatementController {
 		model.addAttribute("contents", "accounting/statements/Statement_purchaseList.jsp");
 		
 		return "/main";
-	}
+	}	
 	
-	/*@RequestMapping(value = "StatementPurchaseList", method=RequestMethod.POST)
-	public String StatementPurchaseListPOST(Model model)throws Exception{
-		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("listModel", service.StatementAllList());
-		model.addAttribute("contents", "accounting/statements/Statement_purchaseList.jsp");		
-		return "/main";
-	}
-	*/
 	
 	//매출 청구서
 	@RequestMapping(value = "StatementSalesList", method=RequestMethod.GET)
@@ -55,5 +47,16 @@ public class StatementController {
 		return "/main";
 	}*/
 	
+	//전표조회
+	@RequestMapping(value = "StatementAllViewList", method=RequestMethod.GET)
+	public String StatementAllViewListGET(Model model)throws Exception{
+		model.addAttribute("left", "accounting/accounting.jsp");
+		model.addAttribute("promissoryPurchase", service.StatementPromissoryPurchaseList());
+		model.addAttribute("CashPurchase", service.StatementCashPurchaseList());
+		model.addAttribute("promissorysales", service.StatementPromissorySalesList());
+		model.addAttribute("Cashsales", service.StatementCashSalesList());
+		model.addAttribute("contents", "accounting/statements/Statement_AllView.jsp");
+		return "/main";
+	}
 	
 }

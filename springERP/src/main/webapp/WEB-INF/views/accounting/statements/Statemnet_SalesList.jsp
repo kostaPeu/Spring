@@ -29,7 +29,8 @@
 							<th>일자 - 번호</th>
 							<th>거래처명</th>
 							<th>공급가액</th>
-							<th>부가세</th>							
+							<th>부가세</th>			
+							<th>합계</th>				
 							<th>내역</th>							
 						</tr>
 					</thead>
@@ -41,16 +42,18 @@
 								<td>${promissorysales.customer_name }</td>
 								<td>${promissorysales.sums}</td>							
 								<td>${promissorysales.charge }</td>
+								<td>${promissorysales.total }</td>		
 								<td>${promissorysales.remarks }</td>
 							</tr>
 						</c:forEach>
 						<c:forEach var="Cashsales" items="${Cashsales}">
 							<tr class="mainTable">
-								<td><input type="checkbox" class="upSelect check_id" name="number_box" value="${Cashsales.red_date}"></td>
+								<td><input type="checkbox" class="upSelect check_id" name="number_box" value=""></td>
 								<td>${Cashsales.red_date}</td>
 								<td>${Cashsales.customer_name }</td>
 								<td>${Cashsales.sums}</td>							
-								<td>${Cashsales.charge }</td>							
+								<td>${Cashsales.charge }</td>
+								<td>${Cashsales.total }</td>							
 								<td>${Cashsales.remarks }</td>
 							</tr>
 						</c:forEach>						
