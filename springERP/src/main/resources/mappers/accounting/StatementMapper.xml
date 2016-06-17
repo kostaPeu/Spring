@@ -5,13 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="erp.acc.mapper.Statement">
 
-	<select id="StatementPromissorySalesList" resultType="Statement">
+	<select id="StatementPromissorySalesList" resultType="Statements">
 		SELECT DISTINCT n.red_date, c.customer_name, n.sums, n.charge, total,
 		n.remarks FROM note_ledger N, customer c WHERE n.customer_id =
 		c.customer_id
 		AND n.state = '지급' AND n.typelist = '지급어음' order by n.red_date asc
 	</select>
-	<select id="StatementCashSalesList" resultType="Statement">
+	<select id="StatementCashSalesList" resultType="Statements">
 
 		SELECT DISTINCT cash.red_date, c.customer_name, cash.sums, cash.charge,
 		total, cash.remarks FROM cash_trade cash, customer c WHERE
