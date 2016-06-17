@@ -16,22 +16,27 @@ public class StatementDAOImpl implements StatementDAO {
 	private SqlSession session;
 	
 	private static String namespace = "erp.acc.mapper.Statement";
+	//전표 전체 조회
 	@Override
 	public List<Statements> StatementAllList() throws Exception {
 		return session.selectList(namespace+".StatementAllList");
 	}
+	//현금매출
 	@Override
 	public List<Statements> StatementCashSalesList() throws Exception {
 		return session.selectList(namespace+".StatementCashSalesList");
 	}
+	//어음매출
 	@Override
 	public List<Statements> StatementPromissorySalesList() throws Exception {
 		return session.selectList(namespace+".StatementPromissorySalesList");
 	}
+	//현급매입
 	@Override
 	public List<Statements> StatementCashPurchaseList() throws Exception {
 		return session.selectList(namespace+".StatementCashPurchaseList");
 	}
+	//어음매입
 	@Override
 	public List<Statements> StatementPromissoryPurchaseList() throws Exception {
 		return session.selectList(namespace+".StatementPromissoryPurchaseList");
