@@ -6,8 +6,9 @@
 /*수집버튼*/
 $(function(){
 	$('#collectBtn').on('click', function(){
-//	 		$("input[name=shopList]:checked").each(function() {
-//				var checks = $(this).val();
+	 		$("input[name=shopList]:checked").each(function() {
+				var checks = $(this).val();
+				
 //				if(checks == 'godo'){
 //					$.ajax({
 //						url : "localhost:8000/orderCollect",
@@ -22,7 +23,7 @@ $(function(){
 //					})
 //				}
 //			});
-		$(location).attr('href', '/odm/orderCollect');
+		$(location).attr('href', '/odm/orderCollect?checks='+checks);
 	 		/* $('.success').css("display","block"); */
 			/* $('.failed').css("display","block"); */
 
@@ -35,9 +36,5 @@ $(function(){
 	}) */
 });
 
-$(function(){
-	$('#registerBtn').on('click',function(){
-		
-	})
-})
+});
 

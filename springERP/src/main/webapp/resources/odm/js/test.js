@@ -19,13 +19,9 @@ var key = "SSUyMSUyNiVDMyUyNyVFNzclODclMkMlRkMlQ0ElM0QlQ0YlMDclMTZJNHolOUUlODYlR
 var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 	app.get('/', function(req, res, next) {
 	  // Handle the get for this route
-//		request('http://localhost:8081/odm/test', function(error, response, body){
-//			if(!error && response.statusCode == 200){
-//				response.send({
-//					message:'데이터를 수정했습니다.'
-//				})
-//			}
-//		})
+	});
+	app.post('/', function(req, res, next) {
+		 // Handle the post for this route
 	});
 
 	app.post('/godo_register', function(req, res, next){
@@ -34,8 +30,6 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 		//var data_url = url.parse("http://kostaseo.iptime.org:8000/sale/xmltest?sell_id="+sell_id);
 		//var data_url = url.format("kostaseo.iptime.org:8081/sale/xmltest?sell_id="+sell_id);
 		//var data_url = "kostaseo.iptime.org:8000/sale/xmltest?sell_id="+sell_id;
-		console.log("서버성공! "+sell_id);
-		console.log(data_url);
 		//res.send(sell_id);
 		
 		request({
@@ -50,16 +44,26 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 //		        res.setHeader('Content-Type', 'text/xml');
 		        res.write(body);
 		        res.end();
-		    	console.log("성공");
+		    	console.log("상품등록 성공");
 		    	
 		}
 		});
 		
 	});
-	app.post('/', function(req, res, next) {
-	 // Handle the post for this route
-	});
-
+	app.get('/orderTest',function(req, res, next){
+		request({
+			url : "https://openhub.godo.co.kr/enamoo/order/Order_Status_Check.php?key="+key+"&partner_key="+partner_key+"&ordno=1466119527147"
+		}, function(error, response, body){
+			if(error) {
+		        console.log(error);
+		    } else {
+		        //console.log(body);
+//		    	res.set('Content-Type', 'text/xml');
+//		    	res.send(xml(body));
+		    	console.log(body);
+		}
+		});
+	})
 	app.post('/orderCollect', function(req, res, next) {
 		 // Handle the post for this route
 			var step = req.param('step');
@@ -83,14 +87,44 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 //			    	res.set('Content-Type', 'text/xml');
 //			    	res.send(xml(body));
 			    	res.send(body);
-			        console.log("성공");
+			        console.log("주문 수집 성공");
 			}
 			});
 		});
-
-	app.post('/get', function(req,res){
-		
-	});
+		app.post("/orderStatus", function(req, res, body){
+			var ordno = req.param("ordno");
+			var step = req.param("step");
+			var step2 = req.param("step2");
+			
+			if(step == '0' && step2 == '0'){
+				step = 1;
+				step2 = 0;
+			}else if(step == '1' && step2 == '0'){
+				step = 2;
+				step2 = 0;
+			}
+			console.log("주문번호 : "+ordno+"변경 상태 "+step+" and "+step2);
+			//res.send("상태변경 node 들어오기 성공");
+			request({
+				
+				url : "https://openhub.godo.co.kr/enamoo/order/Order_Status.php?key="+key+"&partner_key="+partner_key+"&ordno="+ordno+"&step="+step+"&step2="+step2,
+				
+			}, function(error, response, body){
+			    if(error) {
+			        console.log(error);
+			    } else {
+			        //console.log(body);
+//			    	res.set('Content-Type', 'text/xml');
+//			    	res.send(xml(body));
+			    	res.send(body);
+			    	console.log(body);
+			        console.log("상태 변경 성공");
+			    }
+			});
+/*			request({
+				url : "https://localhost:8081/odm/"
+			})*/
+		});
 
 server.listen(8000, function(){
 	console.log('listening'+server.address().port);
