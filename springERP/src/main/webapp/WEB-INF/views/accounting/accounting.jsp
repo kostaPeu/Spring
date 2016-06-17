@@ -13,7 +13,7 @@
 			<li><a data-toggle="collapse"
 				href="./accounting/view/basic/moneyCheck.jsp #one">회계기초등록</a>
 				<ul id="one" class="collapse">
-					<li><a href="./accounting/view/basic/moneyCheck.jsp">기초잔액등록</a></li>
+					<li><a href="/accounting/account/test/list">기초잔액등록</a></li>
 					<li><a href="/accounting/card/list">신용카드등록</a></li>
 					<li><a href="/accounting/account/list">통장계좌등록</a></li>
 					<li><a href="/accounting/project/list">프로젝트등록</a></li>
@@ -51,10 +51,8 @@
 				href="./accounting/view/Statement_List.jsp #six">전표관리</a>
 				<ul id="six" class="collapse">
 					<li><a href="./accounting/view/Statement/Statement_List.jsp">전표이력조회</a>
-					<li><a
-						href="./accounting/view/Statement/Statement_salesList.jsp">매출청구서조회</a>
-					<li><a
-						href="./accounting/view/Statement/Statement_expenseList.jsp">매입청구서조회</a>
+					<li><a href="/StateMent/StatementSalesList">매출청구서조회</a>
+					<li><a href="/StateMent/StatementPurchaseList">매입청구서조회</a>
 				</ul></li>
 		</ul>
 	</div>

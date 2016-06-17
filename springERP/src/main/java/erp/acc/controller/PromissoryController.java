@@ -70,6 +70,15 @@ public class PromissoryController {
 			model.addAttribute("contents", "accounting/promissory2/promissory_noteBill.jsp");
 			return "/main";
 		}
+		
+		//할인/만기POST
+		@RequestMapping(value="promissory_noteBill", method = RequestMethod.POST)
+		public String promissory_noteBillPOST(Promissory promissory,Model model)throws Exception{
+			model.addAttribute("left", "accounting/accounting.jsp");
+			model.addAttribute("contents", "accounting/promissory2/promissory_noteBill.jsp");
+			service.promissorygiveUpdate(promissory);
+			return "/main";
+				}
 	
 		
 	//어음지급GET

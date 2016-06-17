@@ -12,6 +12,8 @@ import erp.hr.domain.EmployeeViewVO;
 
 public interface BasicAccountDAO {
 
+	//MoneyCheck
+	
 	// BASIC ACCOUNT CRUD
 	public void accountInsert(Accounts accounts) throws Exception;
 

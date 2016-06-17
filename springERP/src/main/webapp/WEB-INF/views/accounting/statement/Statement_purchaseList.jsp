@@ -21,26 +21,16 @@
 					<thead id="Statement_ExpenseList">
 						<tr class="mainTable">
 							<th><input type="checkbox"></th>
-							<th>전표번호</th>
+							<th>일자 - 번호</th>
 							<th>거래처명</th>
 							<th>공급가액</th>
 							<th>부가세</th>
 							<th>합계</th>
-							<th>내역</th>
-							
+							<th>내역</th>							
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<tr class="mainTable">
-							<td><input type="checkbox"></td>
-							<td>16/04/25-7</td>
-							<td>LG전자</td>
-							<td>900,000</td>
-							<td>100,000</td>
-							<td>1,000,000</td>
-							<td><input type="button" name="select" value="보기"></td>
-						</tr>
-						<tr>
+						<tr class="mainTable">						
 							<td><input type="checkbox"></td>
 							<td></td>
 							<td></td>

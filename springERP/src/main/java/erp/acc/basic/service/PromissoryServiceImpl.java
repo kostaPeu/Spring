@@ -38,4 +38,10 @@ public class PromissoryServiceImpl implements PromissoryService {
 		return dao.promissoryList();
 	}
 
+	@Override
+	public void promissorygiveUpdate(Promissory promissory) throws Exception {
+		dao.promissorygiveUpdate(promissory);
+		
+	}
+
 }

@@ -25,4 +25,6 @@ public class Promissory implements Serializable {
 	@Getter @Setter private String sums;
 	@Getter @Setter private String remarks;
 	@Getter @Setter private String state;
+	@Getter @Setter private String charge;
+	
 }

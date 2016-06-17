@@ -40,4 +40,10 @@ public class PromissoryDAOImpl implements PromissoryDAO {
 		return session.selectList(namespace + ".promissoryList");
 	}
 
+	@Override
+	public void promissorygiveUpdate(Promissory promissory) throws Exception {
+		session.update(namespace+".promissorygiveUpdate", promissory);
+		
+	}
+
 }

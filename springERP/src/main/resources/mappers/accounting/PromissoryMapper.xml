@@ -8,13 +8,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="promissoryInsert" parameterType="Promissory">
 		insert into
 		note_ledger (
-		typelist, dept_id, proj_id, customer_id, 
-		note_id, ex_date, sums, red_date, remarks
+		typelist, dept_id, proj_id, customer_id,
+		note_id, ex_date,
+		sums, red_date, remarks
 		) values(
 		#{typelist}, #{dept_id},
 		#{proj_id},
 		#{customer_id}, #{note_id}, #{ex_date},
-		#{sums}, #{red_date}, #{remarks}
+		#{sums},
+		#{red_date}, #{remarks}
 		)
 	</insert>
 
@@ -22,9 +24,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM
 		NOTE_LEDGER
 	</select>
-	
-	<update id="promissoryUpdate" >
-		UPDATE note_ledger SET state = '지급'
+
+	<update id="promissoryUpdate">
+		UPDATE note_ledger SET state =
+		'지급', remarks =
+		#{remarks}
 		WHERE note_id = #{note_id}
 	</update>
+
+	<update id="promissorygiveUpdate">
+		UPDATE note_ledger SET state = '지급', sums = #{sums},
+		remarks = #{remarks}
+		WHERE note_id = #{note_id}
+	</update>
+
 </mapper>
