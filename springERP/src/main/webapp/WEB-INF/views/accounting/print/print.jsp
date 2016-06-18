@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -14,23 +13,17 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link href="/resources/purchase/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/purchase/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/resources/purchase/css/prettyPhoto.css" rel="stylesheet">
+  
     <link href="/resources/accounting/css/print.css" rel="stylesheet" >
     <!-- <link href="/resources/purchase/css/main.css" rel="stylesheet"> -->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resources/purchase/images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/resources/purchase/images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resources/purchase/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/resources/purchase/images/ico/apple-touch-icon-57-precomposed.png">
-
+    
 	<script src="/resources/purchase/js/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('.icon-md').click(function(){
 		var id = $(this).attr('id'); //<-- id값 받아옴
-		alert(id);
-		//$(location).attr('href',id+'.jsp');  <-- a.jsp 링크  
+		$(location).attr('href', 'incomeSearch');
+		
 	})
 });
 </script>
@@ -50,7 +43,7 @@ $(function(){
                     <div class="col-md-4 col-sm-6">
                         <div class="center">
                             <i id="b" class="icon-md icon-color2"></i>
-                            <h4>Android development</h4>
+                            <h4>손익계산서</h4>
                         </div>
                     </div><!--/.col-md-4-->
                     <div class="col-md-4 col-sm-6">
