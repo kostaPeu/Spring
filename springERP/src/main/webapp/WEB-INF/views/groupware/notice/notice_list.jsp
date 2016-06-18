@@ -78,7 +78,7 @@
 				
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<div class="row">
-			<a id="write" href="notice_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+			<a id="write" href="notice_write" class="btn btn-default col-sm-1 col-sm-push-11">글쓰기</a>
 		</div>
 	</sec:authorize>
 
