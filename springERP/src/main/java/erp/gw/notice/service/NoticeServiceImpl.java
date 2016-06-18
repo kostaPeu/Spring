@@ -56,6 +56,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void write(NoticeVO notice) throws Exception {
+		//dao
 		dao.write(notice);
 	}
 
