@@ -56,7 +56,6 @@ public class CommonController {
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
 		model.addAttribute("mcnt", getMessageCount());
-		System.out.println(getMessageCount());
 	}
 
 	@RequestMapping("/")
@@ -66,7 +65,6 @@ public class CommonController {
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
 		model.addAttribute("mcnt", getMessageCount());
-		System.out.println(getMessageCount());
 		
 		return "/main";
 	}
@@ -104,48 +102,56 @@ public class CommonController {
 	@RequestMapping("/basic")
 	public String leftBasic(Model model){
 		model.addAttribute("left","basic/basic.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/purchase")
 	public String leftPurchase(Model model){
 		model.addAttribute("left","purchase/purchase.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/sale")
 	public String leftSale(Model model){
 		model.addAttribute("left","sale/sale.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/odm")
 	public String leftOdm(Model model){
 		model.addAttribute("left","odm/odm.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/stock")
 	public String leftStock(Model model){
 		model.addAttribute("left","stock/stock.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/accounting")
 	public String leftAcc(Model model){
 		model.addAttribute("left","accounting/accounting.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/hr")
 	public String leftHr(Model model){
 		model.addAttribute("left","hr/hr.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/groupware")
 	public String leftGroupware(Model model){
 		model.addAttribute("left","groupware/groupware.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
@@ -153,6 +159,7 @@ public class CommonController {
 	public String leftMypage(Model model){
 		System.out.println("hoho");
 		model.addAttribute("left","mypage/mypage.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
@@ -234,7 +241,6 @@ public class CommonController {
 	@ResponseBody
 	@RequestMapping("/approval")
 	public String getEmp(){
-		System.out.println("commonController 들어와따");
 		return CommonService.getEmployeeId();
 	}
 }

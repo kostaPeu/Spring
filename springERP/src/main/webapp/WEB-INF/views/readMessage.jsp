@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -34,21 +34,66 @@
 		});
 	});
 </script>
+<style type="text/css">
+body {
+	margin: 20px;
+}
+.mcontents {
+	width: 420px;
+	height: 170px;
+	border: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-color: gray;
+}
+
+.idtitle {
+	width: 420px;
+	height: 25px;
+	border: 1px;
+	border-style: solid;
+	border-radius: 5px;
+	border-color: gray;
+}
+
+#button_group{
+	margin-left: 14px;
+}
+</style>
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="col-md-8 col-md-offset-2">
+		<input type="hidden" name="send_id" value="${emp_id }">
+		<div class="form-group">
 			<label for="sender_label" class="col-sm-2 control-label">보낸이</label>
-			<input id="send_id" type="text" readonly value="${message.e_name }" width="300"><br>
-			<label for="title_label" class="col-sm-2 control-label">제목</label>
-			<input type="text" readonly value="${message.title }" width="300"><br>
-			<input id="receive_id" type="hidden" value="${message.receive_id }"/>
-			<textarea id="contents" readonly rows="10" cols="40">
-				${message.contents }
-			</textarea>
+
+			<div class="col-sm-2">
+				<div class="idtitle">${message.e_name }</div>
+			</div>			
 		</div>
-		<button type="button" class="btn btn-default" id="list_btn">목록</button>
-		<button type="button" class="btn btn-default" id="re_send_btn">답장</button>
+		
+		<div class="form-group">
+			<label for="e_name_label" class="col-sm-2 control-label">제목</label>
+			<div class="col-sm-8">
+				<div class="idtitle">${message.title }</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="e_hiredate_label" class="col-sm-2 control-label">내용</label>
+			<div class="col-sm-3">
+			<div class="mcontents">
+				${message.contents }
+			</div>
+				<!-- <textarea id="contents" name="contents" rows="6" readonly>
+					
+				</textarea> -->
+			</div>
+		</div>
+		<div id="button_group">
+			<button type="button" class="btn btn-default" id="list_btn">목록</button>
+			<button type="button" class="btn btn-default" id="re_send_btn">답장</button>
+		</div>
 	</div>
 </body>
 </html>
