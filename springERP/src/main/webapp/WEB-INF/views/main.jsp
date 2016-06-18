@@ -71,10 +71,11 @@ $(function() {
 					<c:set var="cnt" value="${mcnt }"></c:set>
 					<c:choose>
 						<c:when test="${cnt > 0 }">
+							<span class="glyphicon glyphicon-exclamation-sign"></span>
 							<button type="button" name="messagBtn"
 								class="btn btn-default btn-sm"
 								onclick="javascript:popup(this.form);">
-								!!<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							</button>
 						</c:when>
 						<c:otherwise>
