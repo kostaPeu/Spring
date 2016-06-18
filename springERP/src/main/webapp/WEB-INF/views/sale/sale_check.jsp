@@ -20,14 +20,14 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 <!-- Custom CSS -->
-   
+ <link rel="stylesheet" href="/resources/purchase/css/purchase.css">
  <script type="text/javascript" src="/resources/purchase/js/jquery.js"></script>
  <script type="text/javascript" src="/resources/sale/js/sale.js"></script>
 <!-- <script type="text/javascript" src="/resources/sale/js/godo_register.js"></script> -->
 <script type="text/javascript">
 $(function(){
 
-	        alert("<c:out value='${sell_id}'/>");    
+	        /* alert("<c:out value='${sell_id}'/>");     */
 		if("<c:out value='${sell_id}'/>"!=''){
  			$.ajax({
 				url : "http://localhost:8000/godo_register",
@@ -81,13 +81,13 @@ $(function(){
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
 		<button type="button" id="updateBtn" class="btn btn-default" data-toggle="modal" data-target="#update_modal">수정</button>
 		<input type="button" id="deleteBtn" class="btn btn-default" value="삭제">
-		<input type="button" id="excelBtn" class="btn btn-default" value="Excel">
-		<form:form action="/sale/excelUp?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data">
+		<input type="button" id="excelBtn" class="btn btn-default" value="Excel다운">
+	</div>
+		<form:form action="/sale/excelUp?${_csrf.parameterName}=${_csrf.token }" method="post" enctype="multipart/form-data" id="excelForm">
 			<input type="file" id="excelFile" name="excelFile" class="btn btn-default">
-			<%-- <input type="hidden" value="${_csrf.token }" name="${_csrf.parameterName}"> --%>
 			<input type="submit" value="Excel업로드" class="btn btn-default">
 		</form:form>
-	</div>
+	
 <!-- 수정 -->
 <div id="update_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">

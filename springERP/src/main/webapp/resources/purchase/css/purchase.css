@@ -75,5 +75,16 @@ th {
 	width: 90px;
 }
 .buttongroup{
+	text-align: left;
+	float: left;
+}
+#excelForm{
+	text-align: right;
+}
+#excelFile{
+	float: right;
+}
+.box-footer{
 	text-align: center;
+	margin-left: 230px;
 }
