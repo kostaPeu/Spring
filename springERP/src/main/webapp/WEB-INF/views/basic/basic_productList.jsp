@@ -32,7 +32,7 @@
 						<input type="text" class="form-control" id="ptext" name="product_id">
 					</div>
 					<div class="col-sm-1">
-						<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="idCheck"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" id="idCheck"><span class="fa fa-search"></span></button>
 					</div>
 				</div>
 				<div class="form-group has-feedback">
@@ -220,7 +220,6 @@
 		<input type="button" id="newBtn" class="btn btn-default" value="등록">
 		<input type="button" id="updateBtn" class="btn btn-default" value="수정">
 		<input type="button" id="deleteBtn" class="btn btn-default" value="선택삭제">
-		<a href="#" id="barcodeBtn" type="button" class="btn btn-default">바코드출력</a>
 	</div>
 	
 	
@@ -240,7 +239,7 @@
 				<input type="text" class="form-control" name="product_id" id="search_product">
 			</div>
 			<div class="col-sm-2">
-				<button type="button" class="btn btn-info btn-sm" id="search_id"><span class="fa fa-search"></span></button>
+				<button type="button" class="btn btn-default btn-sm" id="search_id"><span class="fa fa-search"></span></button>
 			</div>
 			<br><br><br>
   				<table id="searchTable" class="table table-bordered">

@@ -32,7 +32,7 @@ public class BasicProductServiceImpl implements BasicProductService{
 
 	@Inject
 	private BasicProductDAO dao;
-	private static final int PAGE_SIZE = 2;
+	private static final int PAGE_SIZE = 5;
 	
 	/*품목 그룹 목록 - MJ*/
 	@Override

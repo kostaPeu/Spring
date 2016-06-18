@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import erp.basic.domain.Product;
 import erp.stock.domain.StockCalendar;
+import erp.stock.domain.StockList;
 import erp.stock.domain.StockRP;
 import erp.stock.domain.StockRPSearch;
 
@@ -54,6 +55,11 @@ public class StockRPDAOImpl implements StockRPDAO {
 	public List<StockRPSearch> stockRPSearchList(StockRPSearch search) throws Exception {
 		
 		return session.selectList(namespace+".stockRPSearchList", search);
+	}
+
+	@Override
+	public List<StockList> stockList() throws Exception {
+		return session.selectList(namespace+".stockList");
 	}
 
 	

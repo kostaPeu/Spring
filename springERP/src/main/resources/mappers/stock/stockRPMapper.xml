@@ -12,14 +12,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				inout_date,
 				product_id,
 				emp_id,
-				inout_type
+				inout_type,
+				customer_id
 			) VALUES(
 				#{inout_id}, 
 				#{inout_amount},
 				#{inout_date},
 				#{product_id},
 				#{emp_id},
-				#{inout_type}
+				#{inout_type},
+				#{customer_id}
 			)
 	</insert>
 	
@@ -59,5 +61,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				AND s.product_id = io.product_id
 				AND inout_date BETWEEN #{start_date} and #{end_date}
 				ORDER BY io.inout_date
+	</select>
+	
+	<select id="stockList" resultType="StockList">
+		SELECT p.product_id, p.product_name, s.stock_amount, w.warehouse_name, w.warehouse_loc
+			FROM product p, stock s, warehouse w
+			WHERE p.product_id = s.product_id
+			AND s.warehouse_id = w.warehouse_id
 	</select>
 </mapper>

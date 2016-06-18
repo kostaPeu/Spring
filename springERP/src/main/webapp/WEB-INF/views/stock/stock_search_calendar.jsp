@@ -35,37 +35,52 @@
 		<div id='calendar'></div>
 		
 <div id="addModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-      
+  <div class="modal-dialog">  
     <div class="modal-content">
 	<div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
-      <div class="form-inline">
   		<div class="form-group">
-    		<label for="product_id">product</label>
-    			<select class="form-control" id="product_id" name="product_id">
+    		<label for="product_id" class="col-sm-2 control-label">product</label>
+				<div class="col-sm-10">
+					<select class="form-control" id="product_id" name="product_id">
 						<c:forEach var="p" items="${list}">
-							<option value="${p.product_id }">${p.product_id}</option>
+							<option value="${p.product_id }">${p.product_name}</option>
 						</c:forEach>
-				</select>
+					</select>
+				</div>
   		</div>
  		<div class="form-group">
-   			<label for="inout_amount">amount</label>
+   			<label for="inout_amount" class="col-sm-2 control-label">amount</label>
+   			<div class="col-sm-10">
     			<input type="number" class="form-control" id="inout_amount">
+    		</div>
   		</div>
   		<div class="form-group">
-  			<label for="type">type</label>
+  			<label for="type" class="col-sm-2 control-label">type</label>
+  				<div class="col-sm-10">
   				<select class="form-control" id="type" name="type">
   					<option value="in">in</option>
   					<option value="out">out</option>
   				</select>
+  				</div>
   		</div>
-  		<button type="button" class="btn btn-default" id="addBtn">ADD</button>
-	 </div>
-
+  		<div class="form-group">
+    		<label for="customer_id" class="col-sm-2 control-label">customer</label>
+					<div class="col-sm-10">
+						<select class="form-control" id="customer_id" name="customer_id">
+						<c:forEach var="c" items="${clist}">
+							<option value="${c.customer_id }">${c.customer_name}</option>
+						</c:forEach>
+						</select>
+					</div>
+  		</div>
+  		<hr>
+  		<div class="center">
+  			<button type="button" class="btn btn-default" id="addBtn">ADD</button>
+		</div>
       </div>
     </div>
 

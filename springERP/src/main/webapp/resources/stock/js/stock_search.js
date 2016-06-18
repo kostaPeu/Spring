@@ -2,11 +2,6 @@ $(function() {
 	  $(".stockRP_date").datepicker({
 	    dateFormat: 'yy-mm-dd'
 	  });
-	});
-	$(function(){
-		$("#warehouse_search").on("click",function(){
-			
-		});
 });
 $(function() {
 	$('#product_search').on('click', function() {
