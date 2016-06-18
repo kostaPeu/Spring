@@ -5,42 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="erp.acc.mapper.Statement">
 
-<!-- 매출보고서 -->
-	<select id="StatementPromissorySalesList" resultType="Statements">
-		SELECT
-		DISTINCT n.red_date, c.customer_name, n.sums, n.charge,
-		n.remarks FROM
-		note_ledger N, customer c WHERE n.customer_id =
-		c.customer_id
-		AND
-		n.state = '지급' AND n.typelist = '지급어음' order by n.red_date asc
+	<!-- 매출보고서 -->
+	<select id="StatementAllSalesList" resultType="Statements">
+		SELECT * FROM StatementSalesAllList		
 	</select>
-	<select id="StatementCashSalesList" resultType="Statements">
-		SELECT DISTINCT
-		cash.red_date, c.customer_name, cash.sums, cash.charge,
-		cash.remarks
-		FROM cash_trade cash, customer c WHERE cash.customer_id =
-		c.customer_id AND cash.typelist = '매출' order by cash.red_date asc
-	</select>
-	
-	
-<!-- 매입보고서 -->
-	<select id="StatementCashPurchaseList" resultType="Statements">
-	SELECT DISTINCT
-		cash.red_date, c.customer_name, cash.sums, cash.charge,
-		cash.remarks
-		FROM cash_trade cash, customer c WHERE cash.customer_id =
-		c.customer_id AND cash.typelist = '매입' order by cash.red_date asc
-	
-	</select>
-	<select id="StatementPromissoryPurchaseList" resultType="Statements">
-	SELECT
-		DISTINCT n.red_date, c.customer_name, n.sums, n.charge,
-		n.remarks FROM
-		note_ledger N, customer c WHERE n.customer_id =
-		c.customer_id
-		AND
-		n.state = '지급' AND n.typelist = '받는어음' order by n.red_date asc
-		</select>
 
+
+	<!-- 매입보고서 -->
+	<select id="StatementAllPurchaseList" resultType="Statements">
+		SELECT *FROM StatementPurchaseAllList 
+	</select>
+	
+	
+	<select id="StatementAllList" resultType="Statements">
+	
+	</select>
 </mapper>

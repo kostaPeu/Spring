@@ -27,10 +27,9 @@
 
 </head>
 <body>
-	<div class="row">
-	
+	<div class="row" style="width: 1500px">
+	<!-- 프로젝트 , 부서일정 START-->
 		<div class="col-sm-6">
-			
 			<div role="tabpanel">
 				  <!-- Nav tabs -->
 				  <ul class="nav nav-tabs" role="tablist" id="myTab">
@@ -48,8 +47,7 @@
 				    </div>
 				  </div>
 			</div>
-
-		</div>
+		</div><!-- 프로젝트 , 부서일정 END-->
 		
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title">공지사항</h2>
@@ -102,7 +100,7 @@
 		
 	</div>
 	
-	<div class="row">
+	<div class="row" style="width: 1500px">
 
 		<div class="col-sm-6">
 			<h2 class="page_title">재고 현황</h2>

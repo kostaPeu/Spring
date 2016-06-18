@@ -3,8 +3,7 @@
 
 <!-- spring security -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page
 	import="org.springframework.security.core.context.SecurityContextHolder"%>
@@ -13,13 +12,17 @@
 
 <%
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
+	String left = request.getParameter("left");
 	Object principal = auth.getPrincipal();
 	String name = "";
 	String emp_id = "";
+	int margin = 0;
 	if (principal != null && principal instanceof EmployeeVO) {
 		name = ((EmployeeVO) principal).getE_name();
 		emp_id = ((EmployeeVO) principal).getEmp_id();
+	}
+	if(left != ""){
+		margin = 220;
 	}
 %>
 
@@ -33,8 +36,13 @@
 <!-- Script -->
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="">
+$(function() {
+	console.log('a');
+	$('#contents').css('margin-left',margin)
+});
 
-
+</script>
 <!-- Custom Script -->
 <!-- <script src="/resources/common/js/csrf.js"></script> -->
 <!-- <script src="/resources/common/js/common.js" type="text/javascript"></script> -->
@@ -57,12 +65,9 @@
 			<a href="/main"><span>hoho</span></a>
 		</div>
 		<div class="hello pull-right">
-			<span class="delicious-spam"> <a id="a-in-spam"
-				href="./main.jsp?left=./mypage/view/mypage.jsp"> <%=name%></a>님
+			<span class="delicious-spam"> <a id="a-in-spam"	href="./main.jsp?left=./mypage/view/mypage.jsp"><%=name%></a>님
 				환영합니다. <form:form name="form" id="messageForm">
 					<input type="hidden" name="emp_id" value="<%=emp_id%>">
-					<input type="button" name="button1" value="전 송"
-						onclick="javascript:popup(this.form);">
 					<c:set var="cnt" value="${mcnt }"></c:set>
 					<c:choose>
 						<c:when test="${cnt > 0 }">
@@ -108,12 +113,16 @@
 	</div>
 
 	<!-- topMenuBar end -->
-	<div id="Left_Menu" class="show erp-local-nav">
+	<div id="Left_Menu" class="erp-local-nav">
 		<jsp:include page="${left }"></jsp:include>
 	</div>
 
 	<div id="contents" class="container">
 		<jsp:include page="${contents }"></jsp:include>
+	</div>
+	
+	<div id="maincontents" class="container">
+		<jsp:include page="${maincontents }"></jsp:include>
 	</div>
 
 	<script>

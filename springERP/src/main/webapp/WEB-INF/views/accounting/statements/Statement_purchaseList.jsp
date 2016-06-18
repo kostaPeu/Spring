@@ -10,7 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
-
 </head>
 <body>
 
@@ -29,38 +28,28 @@
 							<th>일자 - 번호</th>
 							<th>거래처명</th>
 							<th>공급가액</th>
-							<th>부가세</th>							
+							<th>부가세</th>
+							<th>합계</th>								
 							<th>내역</th>									
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<c:forEach var="promissorysales" items="${promissoryPurchase}">
+						<c:forEach var="AllPurchase" items="${AllPurchase}">
 							<tr class="mainTable">
-								<td><input type="checkbox" class="upSelect check_id" name="number_box" value=""></td>
-								<td>${promissoryPurchase.red_date}</td>
-								<td>${promissoryPurchase.customer_name }</td>
-								<td>${promissoryPurchase.sums}</td>							
-								<td>${promissoryPurchase.charge }</td>
-								<td>${promissoryPurchase.remarks }</td>
+								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
+								<td>${AllPurchase.red_date}</td>
+								<td>${AllPurchase.customer_name }</td>
+								<td>${AllPurchase.sums}</td>							
+								<td>${AllPurchase.charge }</td>
+								<td>${AllPurchase.total }</td>		
+								<td>${AllPurchase.remarks }</td>
 							</tr>
-						</c:forEach>
-						<c:forEach var="Cashsales" items="${CashPurchase}">
-							<tr class="mainTable">
-								<td><input type="checkbox" class="upSelect check_id" name="number_box" value=""></td>
-								<td>${CashPurchase.red_date}</td>
-								<td>${CashPurchase.customer_name }</td>
-								<td>${CashPurchase.sums}</td>							
-								<td>${CashPurchase.charge }</td>							
-								<td>${CashPurchase.remarks }</td>
-							</tr>
-						</c:forEach>				
+						</c:forEach>						
 					</tbody>
 				</table>
 				<div class="buttongroup" align="right">
-					<input type="button" id="print" class="btn btn-default"
-						value="인쇄">
-					<input type="button" id="excel" class="btn btn-default"
-						value="엑셀저장">
+					<input type="button" id="print" class="btn btn-default"	value="인쇄">
+					<input type="button" id="excel" class="btn btn-default"	value="엑셀저장">
 				</div>
 			</div>
 		</div>

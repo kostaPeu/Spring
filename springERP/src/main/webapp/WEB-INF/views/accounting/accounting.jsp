@@ -9,9 +9,8 @@
 	<div class="erp-local-nav-title">회계관리</div>
 	<div class="erp-local-nav">
 		<ul class="local">
-			<li><a href="/purchase/print">회계 핵심 출력물</a></li>
-			<li><a data-toggle="collapse"
-				href="./accounting/view/basic/moneyCheck.jsp #one">회계기초등록</a>
+			<li><a href="/accountAllview/print">회계 핵심 출력물</a></li>
+			<li><a data-toggle="collapse" href="./accounting/view/basic/moneyCheck.jsp #one">회계기초등록</a>
 				<ul id="one" class="collapse">
 					<li><a href="/accounting/account/test/list">기초잔액등록</a></li>
 					<li><a href="/accounting/card/list">신용카드등록</a></li>
@@ -50,9 +49,9 @@
 			<li><a data-toggle="collapse"
 				href="./accounting/view/Statement_List.jsp #six">전표관리</a>
 				<ul id="six" class="collapse">
-					<li><a href="./accounting/view/Statement/Statement_List.jsp">전표이력조회</a>
-					<li><a href="/StateMent/StatementSalesList">매출청구서조회</a>
-					<li><a href="/StateMent/StatementPurchaseList">매입청구서조회</a>
+					<li><a href="/StateMent/StatementAllViewList">전표이력조회</a>
+					<li><a href="/StateMent/StatementAllSalesList">매출청구서조회</a>
+					<li><a href="/StateMent/StatementAllPurchaseList">매입청구서조회</a>
 				</ul></li>
 		</ul>
 	</div>

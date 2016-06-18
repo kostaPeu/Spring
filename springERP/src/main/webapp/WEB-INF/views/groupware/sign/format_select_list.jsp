@@ -58,8 +58,8 @@
 	</div>
 
 	<div class="row">
-		<a id="writeDraft" href="draft_write" class="btn btn-info col-sm-1 col-sm-push-11">새로 쓰기</a>
-		<a id="newFormat" href="format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
+		<a id="writeDraft" href="draft_write" class="btn btn-default col-sm-1 col-sm-push-10">새로 쓰기</a>
+		<a id="newFormat" href="format_write" class="btn btn-default col-sm-1 col-sm-push-10">양식 만들기</a>
 	</div>
 
 	<!-- <form action="noticeSearchAction.gw" method="post">

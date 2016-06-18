@@ -42,17 +42,17 @@
 					<td>
 						<input type="text" name="customer_id" id="customer_id" size="8">
 						<input type="hidden" name="emp_id" value="2">
-						<button type="button" id="customer_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#customerSearch_modal"><span class="fa fa-search"></span></button>
+						<button type="button" id="customer_SearchKey" class="btn btn-default btn-sm" data-toggle="modal" data-target="#customerSearch_modal"><span class="fa fa-search"></span></button>
 					</td>
 					<td>
 						<input type="text" name="product_id" id="product_id" size="8">
-						<button type="button" id="product_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
+						<button type="button" id="product_SearchKey" class="btn btn-default btn-sm" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
 					</td>
 					<td><input type="text" name="buy_price" id="buy_price" size="8"></td>
 					<td><input type="text" name="buy_amount" id="buy_amount" size="8"></td>
 					<td>
 						<input type="text" name="warehouse_id" id="warehouse_id" size="8">
-						<button type="button" id="warehouse_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#warehouseSearch_modal"><span class="fa fa-search"></span></button>
+						<button type="button" id="warehouse_SearchKey" class="btn btn-default btn-sm" data-toggle="modal" data-target="#warehouseSearch_modal"><span class="fa fa-search"></span></button>
 					</td>
 					<td>
 						<select  name="pay_type" class="form-control">
@@ -92,7 +92,7 @@
 				<input type="text" class="form-control" name="customer_id" id="search_customerID">
 			</div>
 			<div class="col-sm-2">
-				<button type="button" class="btn btn-info btn-sm" id="customerID"><span class="fa fa-search"></span></button>
+				<button type="button" class="btn btn-default btn-sm" id="customerID"><span class="fa fa-search"></span></button>
 			</div>
 			<br><br><br>
   			<table id="searchTable" class="table table-bordered table-hover">
@@ -123,7 +123,7 @@
 				<input type="text" class="form-control" name="product_id" id="search_productID">
 			</div>
 			<div class="col-sm-2">
-				<button type="button" class="btn btn-info btn-sm" id="productID"><span class="fa fa-search"></span></button>
+				<button type="button" class="btn btn-default btn-sm" id="productID"><span class="fa fa-search"></span></button>
 			</div>
 			<br><br><br>
   			<table id="p_searchTable" class="table table-bordered table-hover">
@@ -154,7 +154,7 @@
 				<input type="text" class="form-control" name="warehouse_id" id="search_warehouseID">
 			</div>
 			<div class="col-sm-2">
-				<button type="button" class="btn btn-info btn-sm" id="warehouseID"><span class="fa fa-search"></span></button>
+				<button type="button" class="btn btn-default btn-sm" id="warehouseID"><span class="fa fa-search"></span></button>
 			</div>
 			<br><br><br>
   			<table id="w_searchTable" class="table table-bordered table-hover">

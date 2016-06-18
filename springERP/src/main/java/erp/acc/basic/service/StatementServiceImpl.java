@@ -21,23 +21,23 @@ public class StatementServiceImpl implements StatementService {
 	}
 
 	@Override
-	public List<Statements> StatementCashSalesList() throws Exception {
-		return dao.StatementCashSalesList();
+	public List<Statements> StatementAllSalesList() throws Exception {
+		return dao.StatementAllSalesList();
 	}
 
-	@Override
+	/*@Override
 	public List<Statements> StatementPromissorySalesList() throws Exception {
 		return dao.StatementPromissorySalesList();
 	}
-
+*/
 	@Override
-	public List<Statements> StatementCashPurchaseList() throws Exception {
-		return dao.StatementCashPurchaseList();
+	public List<Statements> StatementAllPurchaseList() throws Exception {
+		return dao.StatementAllPurchaseList();
 	}
 
-	@Override
+	/*@Override
 	public List<Statements> StatementPromissoryPurchaseList() throws Exception {
 		return dao.StatementPromissoryPurchaseList();
-	}
+	}*/
 
 }

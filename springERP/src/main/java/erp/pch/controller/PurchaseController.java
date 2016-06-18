@@ -88,6 +88,14 @@ public class PurchaseController {
 		return service.warehouseList(warehouse_id);
 	}
 	
+	
+	@RequestMapping(value="purchase_accounts", method=RequestMethod.GET)
+	public String account(Model model)throws Exception{
+		model.addAttribute("left", "purchase/purchase.jsp");
+		model.addAttribute("contents", "purchase/purchase_accounts.jsp");
+		return "/main";
+	}
+	
 	@RequestMapping(value="purchase_search", method = RequestMethod.POST)
 	public String purchase_searchPOST(PurchaseSearch ps ,Model model)throws Exception{
 		List<PurchaseListView> list = service.purchaseSearch(ps);
@@ -123,18 +131,7 @@ public class PurchaseController {
 		service.uploadExcel(path);
 		return "redirect:purchase_check";
 	}
-	@RequestMapping("print")
-	public String print(Model model)throws Exception{
-		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("contents", "accounting/print/print.jsp");
-		return "/main";
-	}
-	@RequestMapping(value="purchase_accounts", method=RequestMethod.GET)
-	public String account(Model model)throws Exception{
-		model.addAttribute("left", "purchase/purchase.jsp");
-		model.addAttribute("contents", "purchase/purchase_accounts.jsp");
-		return "/main";
-	}
+	
 	@RequestMapping("chartData")
 	@ResponseBody
 	public List<JsonDataChart> chartData()throws Exception{

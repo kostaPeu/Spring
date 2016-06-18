@@ -62,7 +62,7 @@
 	</div>
 
 	<div class="row">
-		<a id="write" href="draft_format_write" class="btn btn-info col-sm-1 col-sm-push-11">양식 만들기</a>
+		<a id="write" href="draft_format_write" class="btn btn-default col-sm-1 col-sm-push-11">양식 만들기</a>
 	</div>
 
 	<!-- <form action="noticeSearchAction.gw" method="post">

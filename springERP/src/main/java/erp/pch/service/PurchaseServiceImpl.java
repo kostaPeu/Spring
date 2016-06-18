@@ -162,40 +162,39 @@ public class PurchaseServiceImpl implements PurchaseService{
 		        columnList.add(k);
 		    }
 		}
-		//1차로 workbook을 생성 
-		XSSFWorkbook workbook=new XSSFWorkbook();
-		//2차는 sheet생성 
-		XSSFSheet sheet=workbook.createSheet("구매 조회");
-		//엑셀의 행 
-		XSSFRow row = null;
-		//엑셀의 셀 
-		XSSFCell cell = null;
-		//임의의 DB데이터 조회 
-		if(list != null &&list.size() >0){
-		    int i = 0;
-		    for(Map<String,Object>mapobject : excelList){
-		        // 시트에 하나의 행을 생성한다(i 값이 0이면 첫번째 줄에 해당) 
-		        row = sheet.createRow((short)i);
-		        i++;
-		        if(columnList !=null &&columnList.size() >0){
-		            for(int j=0;j<columnList.size();j++){
-		                //생성된 row에 컬럼을 생성한다 
-		                cell=row.createCell(j);
-		                //map에 담긴 데이터를 가져와 cell에 add한다 
-		                cell.setCellValue(String.valueOf(mapobject.get(columnList.get(j))));
-		            }
-		        }
-		    }
-		}
+						//1차로 workbook을 생성 
+						XSSFWorkbook workbook=new XSSFWorkbook();
+						//2차는 sheet생성 
+						XSSFSheet sheet=workbook.createSheet("구매 조회");
+						//엑셀의 행 
+						XSSFRow row = null;
+						//엑셀의 셀 
+						XSSFCell cell = null;
+						//임의의 DB데이터 조회 
+						if(list != null &&list.size() >0){
+						    int i = 0;
+						    for(Map<String,Object>mapobject : excelList){
+						        // 시트에 하나의 행을 생성한다(i 값이 0이면 첫번째 줄에 해당) 
+						        row = sheet.createRow((short)i);
+						        i++;
+						        if(columnList !=null &&columnList.size() >0){
+						            for(int j=0;j<columnList.size();j++){
+						                //생성된 row에 컬럼을 생성한다 
+						                cell=row.createCell(j);
+						                //map에 담긴 데이터를 가져와 cell에 add한다 
+						                cell.setCellValue(
+						                	String.valueOf(mapobject.get(columnList.get(j))));
+						            }
+						        }
+						    }
+						}
 		
-		//OutputStream fileoutputstream = null;
 		String fileName = "구매현황.xlsx";
 		fileName = new String ( fileName.getBytes("KSC5601"), "8859_1");
 		
 		res.setContentType("application/vnd.ms-excel");
 		res.setHeader("Content-Disposition", "attachment; filename=" + fileName + ";");
-		
-		//fileoutputstream = res.getOutputStream();
+	
 		//파일을 쓴다
 		try {
 			workbook.write(out);
@@ -261,7 +260,6 @@ public class PurchaseServiceImpl implements PurchaseService{
 		                }
 		            }
 		            		            
-		          /*  품목명	지급유형	구매일자	구매금액	창고명	거래처명	수량	구매번호*/
 		            if(columnindex==0){
 		            	value = dao.getProductId(value);
 		            }else if(columnindex==4){
