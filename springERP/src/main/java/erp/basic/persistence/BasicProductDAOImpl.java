@@ -43,8 +43,8 @@ public class BasicProductDAOImpl implements BasicProductDAO{
 	public List<ProductList> productList(int startRow) throws Exception{
 
 		Map<String, Integer> page = new HashMap<String, Integer>();
-		page.put("start", startRow+1);
-		page.put("end", startRow+2);
+		page.put("start", startRow+4);
+		page.put("end", startRow+5);
 
 		return session.selectList(namespace+".productList", page);
 	}

@@ -16,11 +16,11 @@
 				</ul>
 			</li>					
 			<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_deliveryList.jsp">배송리스트</a></li>
-			<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_crList.jsp">취소/환불 관리</a></li>					
+<!-- 			<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_crList.jsp">취소/환불 관리</a></li>					
 			<li><a class="" data-target="#two" data-toggle="collapse" href="javascript:;">C/S 관리</a>
 				<ul id="two" class="collapse local" style="">
 					<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_reviews.jsp">상품평</a></li>
-					<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_qna.jsp">Q&A</a></li>
+					<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_qna.jsp">Q&A</a></li> -->
 				</ul>
 			</li>					
 			

@@ -34,28 +34,17 @@
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<c:forEach var="promissoryPurchase" items="${promissoryPurchase}">
+						<c:forEach var="AllPurchase" items="${AllPurchase}">
 							<tr class="mainTable">
 								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
-								<td>${promissoryPurchase.red_date}</td>
-								<td>${promissoryPurchase.customer_name }</td>
-								<td>${promissoryPurchase.sums}</td>							
-								<td>${promissoryPurchase.charge }</td>
-								<td>${promissoryPurchase.total }</td>		
-								<td>${promissoryPurchase.remarks }</td>
+								<td>${AllPurchase.red_date}</td>
+								<td>${AllPurchase.customer_name }</td>
+								<td>${AllPurchase.sums}</td>							
+								<td>${AllPurchase.charge }</td>
+								<td>${AllPurchase.total }</td>		
+								<td>${AllPurchase.remarks }</td>
 							</tr>
-						</c:forEach>
-						<c:forEach var="CashPurchase" items="${CashPurchase}">
-							<tr class="mainTable">
-								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
-								<td>${CashPurchase.red_date}</td>
-								<td>${CashPurchase.customer_name }</td>
-								<td>${CashPurchase.sums}</td>							
-								<td>${CashPurchase.charge }</td>
-								<td>${CashPurchase.total }</td>							
-								<td>${CashPurchase.remarks }</td>
-							</tr>
-						</c:forEach>				
+						</c:forEach>						
 					</tbody>
 				</table>
 				<div class="buttongroup" align="right">

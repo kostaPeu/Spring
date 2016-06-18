@@ -11,6 +11,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import erp.basic.domain.Product;
 import erp.common.service.CommonService;
 import erp.stock.domain.StockCalendar;
+import erp.stock.domain.StockList;
 import erp.stock.domain.StockRP;
 import erp.stock.domain.StockRPSearch;
 import erp.stock.persistence.StockRPDAO;
@@ -61,6 +62,11 @@ public class StockRPServiceImpl implements StockRPService {
 		//list.add(search);
 		list = dao.stockRPSearchList(search);
 		return list;
+	}
+
+	@Override
+	public List<StockList> stockList() throws Exception {
+		return dao.stockList();
 	}
 
 	

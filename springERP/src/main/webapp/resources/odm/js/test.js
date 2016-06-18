@@ -26,11 +26,13 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 
 	app.post('/godo_register', function(req, res, next){
 		var sell_id = req.param('sell_id');
-		var data_url = "http://kostaseo.iptime.org:8000/register/xml?sell_id="+sell_id;
+		//var data_url = "http://67.194.225.187:8080/apixml/register?sell_id="+sell_id;
+		var data_url = "http://67.194.225.187:8080/API/register?sell_id=sell_id_1";
+		//var data_url = "http://kostaseo.iptime.org:8000/register/xml?sell_id="+sell_id;
 		//var data_url = url.parse("http://kostaseo.iptime.org:8000/sale/xmltest?sell_id="+sell_id);
+		//var data_url = url.parse("http://67.194.225.187:8080/apixml/register?sell_id="+sell_id);
 		//var data_url = url.format("kostaseo.iptime.org:8081/sale/xmltest?sell_id="+sell_id);
-		//var data_url = "kostaseo.iptime.org:8000/sale/xmltest?sell_id="+sell_id;
-		//res.send(sell_id);
+		//var data_url = url.format("http://67.194.225.187:8080/apixml/register?sell_id="+sell_id);
 		
 		request({
 		    url: 'https://openhub.godo.co.kr/enamoo/goods/Goods_Insert.php?key='+key+"&partner_key="+partner_key+"&data_url="+data_url, //URL to hit
@@ -42,8 +44,8 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 //		        res.set('Content-Type', 'text/xml');
 //		    	res.send(xml(body));
 //		        res.setHeader('Content-Type', 'text/xml');
-		        res.write(body);
-		        res.end();
+		        res.send(body);
+		        //res.end();
 		    	console.log("상품등록 성공");
 		    	
 		}
@@ -65,33 +67,24 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 		});
 	})
 	app.post('/orderCollect', function(req, res, next) {
-		 // Handle the post for this route
 			var step = req.param('step');
 			var step2 = req.param('step2')
 			
 			var resBody= null;
 			request({
-			    url: 'https://openhub.godo.co.kr/enamoo/order/Order_Search.php?key='+key+"&partner_key="+partner_key+"&step="+step+"&step2="+step2, //URL to hit
-			   // qs: {from: 'blog example', time: +new Date()}, //Query string data
-			    //method: 'POST', 
-			    //Lets post the following key/values as form
-//			    json: {
-//			        field1: 'data',
-//			        field2: 'data'
-//			    }
+			    url: 'https://openhub.godo.co.kr/enamoo/order/Order_Search.php?key='+key+"&partner_key="
+			    					+partner_key+"&step="+step+"&step2="+step2, 
 			}, function(error, response, body){
 			    if(error) {
 			        console.log(error);
 			    } else {
-			        //console.log(body);
-//			    	res.set('Content-Type', 'text/xml');
-//			    	res.send(xml(body));
+			    	console.log(body);
 			    	res.send(body);
 			        console.log("주문 수집 성공");
 			}
 			});
 		});
-		app.post("/orderStatus", function(req, res, body){
+		app.get("/orderStatus", function(req, res, body){
 			var ordno = req.param("ordno");
 			var step = req.param("step");
 			var step2 = req.param("step2");
@@ -107,7 +100,8 @@ var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 			//res.send("상태변경 node 들어오기 성공");
 			request({
 				
-				url : "https://openhub.godo.co.kr/enamoo/order/Order_Status.php?key="+key+"&partner_key="+partner_key+"&ordno="+ordno+"&step="+step+"&step2="+step2,
+				//url : "https://openhub.godo.co.kr/enamoo/order/Order_Status.php?key="+key+"&partner_key="+partner_key+"&ordno="+ordno+"&step="+step+"&step2="+step2,
+				url : "https://openhub.godo.co.kr/enamoo/order/Order_Status.php?key="+key+"&partner_key="+partner_key+"&ordno=1466119527147&step=1&step2=0"
 				
 			}, function(error, response, body){
 			    if(error) {

@@ -128,6 +128,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		delete from notice where notice_id=#{notice_id}
    </delete>
    
+   <insert id="reInsert">
+   		insert into notice_reply(nreply_id, emp_id, nreply_content, nreply_date, nreply_ref, nreply_step, nreply_level, notice_id)
+		values(nreply_seq.nextval, #{emp_id}, #{nreply_content}, sysdate, 0, 0, 0, #{notice_id})
+	</insert>
+   
+   <select id="reList" resultType="NoticeReplyVO">
+   		select * from notice_reply where notice_id=#{notice_id} order by nreply_id
+   </select>
+   
+   <delete id="reDelete">
+   		delete from notice_reply where nreply_id=#{re_id}
+   </delete>
 </mapper>
 
 

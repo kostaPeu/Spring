@@ -13,7 +13,7 @@ $(function(){
 					
 					if (p.inout_type == "in") {
 						json.id = p.inout_id;
-						json.title = p.product_id + " 입고";
+						json.title = p.product_name + " 입고";
 						json.start = p.inout_date;
 						json.end = p.inout_date;
 						json.product_name = p.product_name;
@@ -25,7 +25,7 @@ $(function(){
 						lists.push(json);
 					} else if (p.inout_type == "out") {
 						json.id = p.inout_id;
-						json.title = p.product_id + " 출고";
+						json.title = p.product_name + " 출고";
 						json.start = p.inout_date;
 						json.end = p.inout_date;
 						json.product_name = p.product_name;
@@ -88,6 +88,7 @@ $(function(){
 				
 				var product_id = $('#product_id').val();
 				var inout_amount = $('#inout_amount').val();
+				var customer_id = $('#customer_id').val();
 				var type = $('#type').val();
 				var day = date.format("YYYY-MM-DD");
 				
@@ -99,7 +100,8 @@ $(function(){
 						product_id : product_id,
 						inout_amount : inout_amount,
 						inout_type : type,
-						inout_date : day
+						inout_date : day,
+						customer_id : customer_id
 					},
 					success : function(data) {
 

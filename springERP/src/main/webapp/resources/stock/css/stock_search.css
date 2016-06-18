@@ -8,4 +8,6 @@ body {
 #calendar {
 		width: 900px;
 	}
-
+.center{
+	text-align: center;
+}

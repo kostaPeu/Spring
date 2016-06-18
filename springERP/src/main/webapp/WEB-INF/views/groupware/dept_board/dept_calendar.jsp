@@ -26,9 +26,10 @@
 </head>
 <body>
 
+	<h2 class="page_title">부서 일정</h2>
+
 	<div id='calendar'></div>
 
-	<h2 class="page_title">부서 일정</h2>
 
 	<table class="table table-hover" class="boardList">
 		<thead>
@@ -97,7 +98,7 @@
 	</div>
 	
 	<div class="row">
-		<a id="write" href="dept_sch_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+		<a id="write" href="dept_sch_write" class="btn btn-default col-sm-1 col-sm-push-11">글쓰기</a>
 	</div>
 	
 	<form action="noticeSearchAction.gw" method="post">

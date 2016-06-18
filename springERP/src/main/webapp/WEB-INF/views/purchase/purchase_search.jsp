@@ -132,21 +132,21 @@
 			<td>거래처코드</td>
 			<td>
 				<input type="text" name="customer_id" id="customer_id" size="13">
-				<button type="button" id="customer_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#customerSearch_modal"><span class="fa fa-search"></span></button>
+				<button type="button" id="customer_SearchKey" class="btn btn-sm btn-default" data-toggle="modal" data-target="#customerSearch_modal"><span class="fa fa-search"></span></button>
 			</td>
 		</tr>
 		<tr>
 			<td>품목코드</td>			
 			<td>
 				<input type="text" name="product_id" id="product_id" size="13">
-				<button type="button" id="product_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
+				<button type="button" id="product_SearchKey" class="btn btn-sm btn-default" data-toggle="modal" data-target="#productSearch_modal"><span class="fa fa-search"></span></button>
 			</td>
 		</tr>
 		<tr>
 			<td>창고코드</td>
 			<td>
 				<input type="text" name="warehouse_id" id="warehouse_id" size="13">
-				<button type="button" id="warehouse_SearchKey" class="btn btn-info btn-sm" data-toggle="modal" data-target="#warehouseSearch_modal"><span class="fa fa-search"></span></button>
+				<button type="button" id="warehouse_SearchKey" class="btn btn-sm btn-default" data-toggle="modal" data-target="#warehouseSearch_modal"><span class="fa fa-search"></span></button>
 			</td>
 		</tr>
 	</table>

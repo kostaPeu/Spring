@@ -17,11 +17,11 @@ public class StatementController {
 	private StatementService service;
 	
 	//매입청구서
-	@RequestMapping(value = "StatementPurchaseList", method=RequestMethod.GET)
+	@RequestMapping(value = "StatementAllPurchaseList", method=RequestMethod.GET)
 	public String StatementPurchaseListGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("promissoryPurchase", service.StatementPromissoryPurchaseList());
-		model.addAttribute("CashPurchase", service.StatementCashPurchaseList());
+		model.addAttribute("AllPurchase", service.StatementAllPurchaseList());
+	/*	model.addAttribute("CashPurchase", service.StatementCashPurchaseList());*/
 		model.addAttribute("contents", "accounting/statements/Statement_purchaseList.jsp");
 		
 		return "/main";
@@ -29,11 +29,11 @@ public class StatementController {
 	
 	
 	//매출 청구서
-	@RequestMapping(value = "StatementSalesList", method=RequestMethod.GET)
+	@RequestMapping(value = "StatementAllSalesList", method=RequestMethod.GET)
 	public String StatementSalesListGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("promissorysales", service.StatementPromissorySalesList());
-		model.addAttribute("Cashsales", service.StatementCashSalesList());
+		model.addAttribute("Allsales", service.StatementAllSalesList());
+		/*model.addAttribute("Cashsales", service.StatementCashSalesList());*/
 		model.addAttribute("contents", "accounting/statements/Statemnet_SalesList.jsp");
 		
 		return "/main";		
@@ -51,10 +51,8 @@ public class StatementController {
 	@RequestMapping(value = "StatementAllViewList", method=RequestMethod.GET)
 	public String StatementAllViewListGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");
-		model.addAttribute("promissoryPurchase", service.StatementPromissoryPurchaseList());
-		model.addAttribute("CashPurchase", service.StatementCashPurchaseList());
-		model.addAttribute("promissorysales", service.StatementPromissorySalesList());
-		model.addAttribute("Cashsales", service.StatementCashSalesList());
+		model.addAttribute("Allsales", service.StatementAllSalesList());
+		model.addAttribute("AllPurchase", service.StatementAllPurchaseList());
 		model.addAttribute("contents", "accounting/statements/Statement_AllView.jsp");
 		return "/main";
 	}

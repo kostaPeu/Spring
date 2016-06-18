@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,20 +29,21 @@
 		<p>${notice.notice_content }</p>
 		<hr>
 
-		<form role="form" method="post">
+		<form:form role="form" method="post">
 			<input type='hidden' name='notice_id' value="${notice.notice_id}">
-		</form>
+		</form:form>
 
 		<div class="row">
-			<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-   			<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+	   			<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
+	   		</sec:authorize>
    			<button type="submit" class="btn btn-primary" id="goListBtn">목록</button>
 		</div>
 		
 	</div>
 	<br/>
 		
-	<form action="noticeReplyInsertAction.gw?notice_id=${project.notice_id }" method="post">
 		<div id="view_comment">
 			<ul class="list-unstyled">
 				<c:if test="${list.size()-1 >=0}">
@@ -51,8 +53,8 @@
 									<div class="panel-heading">
 										<span class="text-muted">${re_name.get(i) }</span>
 										<span class="redate"> ${list.get(i).getNreply_date() }</span>
-										<a type="button" href="replyDeleteAction.gw?re_id=${list.get(i).getNreply_id() }"	class="btn btn-sm pull-right">삭제</a>
-										<a type="button" href="replyDeleteAction.gw?re_id=${list.get(i).getNreply_id() }"	class="btn btn-sm pull-right">수정</a>
+										<a type="button" href="notice_reply_delete?re_id=${list.get(i).getNreply_id() }&notice_id=${notice.notice_id}"	class="btn btn-sm pull-right">삭제</a>
+										<a type="button" href="notice_reply_update?re_id=${list.get(i).getNreply_id() }" class="btn btn-sm pull-right">수정</a>
 									</div>
 									<div class="panel-body">${list.get(i).getNreply_content() }</div>
 								</div>
@@ -60,11 +62,12 @@
 					</c:forEach>
 				</c:if>
 			</ul>
-			<textarea id="co_content" class="form-control" rows="2" name="no_reply"></textarea>
-			<button type="submit" class="btn btn-default">댓글달기</button>	
-		</div>	
-	</form>
-	
+			<form:form action="notice_reply_insert" method="post">
+					<input type='hidden' name='notice_id' value="${notice.notice_id}">
+					<textarea id="co_content" class="form-control" rows="2" name="nreply_content"></textarea>
+					<button type="submit" class="btn btn-default">댓글달기</button>	
+			</form:form>
+		</div>
 	<script>
 $(document).ready(function(){
 	

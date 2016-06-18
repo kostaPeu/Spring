@@ -87,7 +87,7 @@ $(function(){
 </head>
 <body>
 
-	<h2 class="page_title">재고현황</h2>
+	<h2 class="page_title">재고수불부</h2>
 
 	<div class="item_div">
 		<div class="title">
@@ -144,16 +144,18 @@ $(function(){
 					<td>기준일자</td>
 					<td><input type="text" class="stockRP_date" name="start_date">  -  <input type="text" class="stockRP_date" name="end_date"></td>
 				</tr> 
-				<tr>
+				<!-- <tr>
 					<td>거래처</td>
 					<td><input type="text" id="warehouse_id" disabled="disabled">&nbsp;&nbsp;<button id="warehouse_search" class="btn btn-default btn-sm"><span class="fa fa-search"></span></button></td>
 				</tr>
 				<tr>
 					<td>품목코드</td>
-					<td><input type="text" id="product_id" disabled="disabled">&nbsp;&nbsp;<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"><span class="fa fa-search"></span></button></td>
-				</tr>
+					<td><input type="text" id="product_id" disabled="disabled">&nbsp;&nbsp;<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal"><span class="fa fa-search"></span></button></td>
+				</tr> -->
 			</table>
-				<button type="submit" class="btn btn-default btn-sm localcenter"><span class="fa fa-search"></span></button>
+			<div class="localcenter">
+				<button type="submit" class="btn-default btn-sm localcenter"><span class="fa fa-search"></span></button>
+			</div>
 			</div>
 </form:form>
 </div>
@@ -171,7 +173,7 @@ $(function(){
 				<input type="text" class="form-control" name="product_id" id="search_product">
 			</div>
 			<div class="col-sm-2">
-				<button type="button" class="btn btn-info btn-sm" id="search_id"><span class="fa fa-search"></span></button>
+				<button type="button" class="btn btn-default btn-sm" id="search_id"><span class="fa fa-search"></span></button>
 			</div>
 			<br><br><br>
   				<table id="searchTable" class="table table-bordered">

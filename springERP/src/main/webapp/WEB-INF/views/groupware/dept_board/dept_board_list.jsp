@@ -75,7 +75,7 @@
 				
 
 	<div class="row">
-		<a id="write" href="dept_board_write" class="btn btn-info col-sm-1 col-sm-push-11">글쓰기</a>
+		<a id="write" href="dept_board_write" class="btn btn-default col-sm-1 col-sm-push-11">글쓰기</a>
 	</div>
 
 	<form action="noticeSearchAction.gw" method="post">

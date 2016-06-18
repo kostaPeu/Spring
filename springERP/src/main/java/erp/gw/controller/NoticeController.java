@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.common.service.CommonService;
+import erp.gw.notice.domain.NoticeReplyVO;
 import erp.gw.notice.domain.NoticeVO;
+import erp.gw.notice.service.NoticeReplyService;
 import erp.gw.notice.service.NoticeService;
 import erp.gw.projectboard.service.ProjectBoardService;
 
@@ -26,6 +28,9 @@ public class NoticeController {
 	
 	@Inject
 	private NoticeService service;
+	
+	@Inject
+	private NoticeReplyService reService;
 	
 	@Inject
 	private CommonService common;
@@ -62,6 +67,22 @@ public class NoticeController {
 		NoticeVO notice = service.read(notice_id);
 		model.addAttribute("notice", notice);
 		model.addAttribute("e_name", service.enameGet(notice.getEmp_id()));
+		
+
+		List<NoticeReplyVO> reList = reService.reList(notice_id);
+		model.addAttribute("list", reList);
+		
+		NoticeReplyVO noRe = new NoticeReplyVO();
+		
+		List<String> eNameList = new ArrayList<String>();
+
+		for(int i=0; i<reList.size(); i++){
+			noRe=reList.get(i);
+			String name = service.enameGet(noRe.getEmp_id());
+			eNameList.add(name);
+		}
+		
+		model.addAttribute("re_name", eNameList);
 	}
 	
 	@RequestMapping(value="/notice_write", method = RequestMethod.GET)
@@ -112,4 +133,68 @@ public class NoticeController {
 		return "redirect:/groupware/notice/notice_list";
 	}
 	
+	@RequestMapping(value="/notice_reply_insert", method=RequestMethod.POST)
+	public String replyInsert(int notice_id, NoticeReplyVO reVO, Model model) throws Exception{
+		String emp_id=common.getEmployeeId();
+		reVO.setEmp_id(emp_id);
+		reVO.setNotice_id(notice_id);
+		reService.reInsert(reVO);
+
+		List<NoticeReplyVO> reList = reService.reList(notice_id);
+		model.addAttribute("list", reList);
+		
+		NoticeReplyVO noRe = new NoticeReplyVO();
+		
+		List<String> eNameList = new ArrayList<String>();
+
+		for(int i=0; i<reList.size(); i++){
+			noRe=reList.get(i);
+			String name = service.enameGet(noRe.getEmp_id());
+			eNameList.add(name);
+		}
+		
+		model.addAttribute("re_name", eNameList);
+
+		
+		NoticeVO notice = service.read(notice_id);
+		
+		model.addAttribute("notice", notice);
+		model.addAttribute("e_name", service.enameGet(notice.getEmp_id()));
+		
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/notice/notice_view.jsp");
+		
+		return "/main";
+	}
+	
+	@RequestMapping(value="/notice_reply_delete")
+	public String replyDelete(@RequestParam("re_id") int re_id, @RequestParam("notice_id") int notice_id, Model model) throws Exception{
+		reService.reDelete(re_id);
+
+		List<NoticeReplyVO> reList = reService.reList(notice_id);
+		model.addAttribute("list", reList);
+		
+		NoticeReplyVO noRe = new NoticeReplyVO();
+		
+		List<String> eNameList = new ArrayList<String>();
+
+		for(int i=0; i<reList.size(); i++){
+			noRe=reList.get(i);
+			String name = service.enameGet(noRe.getEmp_id());
+			eNameList.add(name);
+		}
+		
+		model.addAttribute("re_name", eNameList);
+
+		
+		NoticeVO notice = service.read(notice_id);
+		
+		model.addAttribute("notice", notice);
+		model.addAttribute("e_name", service.enameGet(notice.getEmp_id()));
+		
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/notice/notice_view.jsp");
+		
+		return "/main";
+	}
 }
