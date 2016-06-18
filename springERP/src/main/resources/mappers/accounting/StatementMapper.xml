@@ -6,22 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="erp.acc.mapper.Statement">
 
 	<!-- 매출보고서 -->
-	<select id="StatementPromissorySalesList" resultType="Statements">
-		SELECT * FROM PromissorySalesList
-		
-	</select>
-	<select id="StatementCashSalesList" resultType="Statements">
-		SELECT *FROM CashSalesList
+	<select id="StatementAllSalesList" resultType="Statements">
+		SELECT * FROM StatementSalesAllList		
 	</select>
 
 
 	<!-- 매입보고서 -->
-	<select id="StatementCashPurchaseList" resultType="Statements">
-		SELECT *FROM CashPurchaseList
+	<select id="StatementAllPurchaseList" resultType="Statements">
+		SELECT *FROM StatementPurchaseAllList 
 	</select>
-	<select id="StatementPromissoryPurchaseList" resultType="Statements">
-		SELECT *FROM PromissoryPurchaseList
-	</select>
+	
 	
 	<select id="StatementAllList" resultType="Statements">
 	

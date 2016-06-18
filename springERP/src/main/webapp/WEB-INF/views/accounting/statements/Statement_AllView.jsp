@@ -32,50 +32,26 @@
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<c:forEach var="promissorysales" items="${promissorysales}">
+						<c:forEach var="promissorysales" items="${Allsales}">
 							<tr class="mainTable">
 								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
-								<td>${promissorysales.red_date}</td>
+								<td>${Allsales.red_date}</td>
 								<td>매출전표(매출)</td>
-								<td>${promissorysales.total }</td>
-								<td>${promissorysales.customer_name }</td>		
-								<td>${promissorysales.remarks }</td>
+								<td>${Allsales.total }</td>
+								<td>${Allsales.customer_name }</td>		
+								<td>${Allsales.remarks }</td>
 							</tr>
 						</c:forEach>
-						<c:forEach var="Cashsales" items="${Cashsales}">
+						<c:forEach var="promissoryPurchase" items="${AllPurchase}">
 							<tr class="mainTable">
 								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
-								<td>${Cashsales.red_date}</td>
-								<td>매출전표(매출)</td>
-								<td>${Cashsales.total }</td>
-								<td>${Cashsales.customer_name }</td>		
-								<td>${Cashsales.remarks }</td>
-							</tr>
-						</c:forEach>	
-						<c:forEach var="promissoryPurchase" items="${promissoryPurchase}">
-							<tr class="mainTable">
-								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
-								<td>${promissoryPurchase.red_date}</td>
+								<td>${AllPurchase.red_date}</td>
 								<td>매입전표(매입)</td>
-								<td>${promissoryPurchase.total }</td>
-								<td>${promissoryPurchase.customer_name }</td>		
-								<td>${promissoryPurchase.remarks }</td>
+								<td>${AllPurchase.total }</td>
+								<td>${AllPurchase.customer_name }</td>		
+								<td>${AllPurchase.remarks }</td>
 							</tr>
 						</c:forEach>
-						<c:forEach var="CashPurchase" items="${CashPurchase}">
-							<tr class="mainTable">
-								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
-								<td>${CashPurchase.red_date}</td>
-								<td>매입전표(매입)</td>
-								<td>${CashPurchase.total }</td>
-								<td>${CashPurchase.customer_name }</td>		
-								<td>${CashPurchase.remarks }</td>
-							</tr>
-						</c:forEach>	
-						
-						
-						
-									
 					</tbody>
 				</table>
 				<div class="buttongroup" align="right">
