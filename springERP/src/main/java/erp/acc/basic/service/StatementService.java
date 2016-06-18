@@ -8,9 +8,9 @@ public interface StatementService {
 
 	List<Statements> StatementAllList() throws Exception;
 
-	List<Statements> StatementCashSalesList() throws Exception;
-	List<Statements> StatementPromissorySalesList() throws Exception;
-
-	List<Statements> StatementCashPurchaseList() throws Exception;
-	List<Statements> StatementPromissoryPurchaseList() throws Exception;
+	List<Statements> StatementAllSalesList() throws Exception;
+	/*List<Statements> StatementPromissorySalesList() throws Exception;
+*/
+	List<Statements> StatementAllPurchaseList() throws Exception;
+	/*List<Statements> StatementPromissoryPurchaseList() throws Exception;*/
 }

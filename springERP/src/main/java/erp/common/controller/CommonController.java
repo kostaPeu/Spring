@@ -50,9 +50,8 @@ public class CommonController {
 	private CommonService commonService;
 	
 	@RequestMapping("/main")
-	public void main(@ModelAttribute("cri") SearchCriteria cri, @RequestParam(value="left", defaultValue="") String left, @RequestParam(value="contents", defaultValue="") String contents, Model model) throws Exception{
-		model.addAttribute("left",left);
-		model.addAttribute("contents","main/mainCon.jsp");
+	public void main(@ModelAttribute("cri") SearchCriteria cri, @RequestParam(value="left", defaultValue="") String left, @RequestParam(value="maincontents", defaultValue="") String contents, Model model) throws Exception{
+		model.addAttribute("maincontents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
 		model.addAttribute("mcnt", getMessageCount());
@@ -60,9 +59,8 @@ public class CommonController {
 	}
 
 	@RequestMapping("/")
-	public String mainT(@ModelAttribute("cri") SearchCriteria cri, @RequestParam(value="left", defaultValue="") String left, @RequestParam(value="contents", defaultValue="") String contents, Model model) throws Exception{
-		model.addAttribute("left",left);
-		model.addAttribute("contents","main/mainCon.jsp");
+	public String mainT(@ModelAttribute("cri") SearchCriteria cri, @RequestParam(value="left", defaultValue="") String left, @RequestParam(value="maincontents", defaultValue="") String contents, Model model) throws Exception{
+		model.addAttribute("maincontents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
 		model.addAttribute("mcnt", getMessageCount());
