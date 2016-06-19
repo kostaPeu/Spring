@@ -54,19 +54,21 @@ $(function(){
 						<td><input type="text" name="standard_date" id="standard_date" readonly="readonly"></td>
 					</tr>
 					<tr id="row-deptNum">
-						<th>부서코드</th>
-						<td><input id="warehouse_id" type="text" name="dept_id">
-							<button id="warehouse_id_search" class="btn btn-default btn-sm">
-								<span class="fa fa-search"></span>
-							</button> <input type="text" name="" value="">
+					<th>부서코드</th>
+							<td><input type="text" name="dept_id" class="dept_id">
+								<button type="button" class="btn btn-default btn-sm dept_id_search" id="dept_id_search" data-toggle="modal" data-target="#departmentSearch_modal">
+									<span class="fa fa-search"></span>
+								</button><input type="text" class="dept_name" name="dept_name">
+							</td>
 					</tr>
 					<tr id="row-project">
 						<th>프로젝트번호</th>
-						<td><input id="project_number" type="text" name="project_number">
-							<button id="project_number_search" class="btn btn-default btn-sm">
-								<span class="fa fa-search"></span>
-							</button> <input type="text" name="" value="">
-					</tr>
+							<td><input type="text" name="proj_id" class="proj_id">
+								<button type="button" class="btn btn-default btn-sm proj_id_search" id="proj_id_search" data-toggle="modal" data-target="#projectsSearch_modal">
+									<span class="fa fa-search"></span>
+								</button><input type="text" class="proj_name" name="proj_name">
+							</td>
+						</tr>		
 					<tr>
 						<th>구분</th>
 						<td><select class="form-control" name="typelist">
@@ -112,11 +114,74 @@ $(function(){
 
 				</div>
 			</div>
-		</div>
-		
+		</div>		
 		<!-- 메뉴 footar END -->
 	</div>
 	<!-- 신규등록 END -->
 </form:form>
+
+<!-- 부서 검색 Start-->
+<div class="modal fade" id="departmentSearch_modal" role="dialog">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>부서검색</strong></h4>	
+		</div>
+			<div class="modal-body">				
+				<div class="col-sm-8">
+					<input type="text" class="form-control search_dept_id" name="search_proj_id" id="search_proj_id">
+					<input type="hidden" class="search_dept_name">
+				</div>					
+		
+				<br><br><br>
+				<table id="d_searchTable" class="table table-bordered table-hover d_searchTable">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 부서검색 End-->
+
+
+<!-- 프로젝트 검색 Start-->
+<div class="modal fade" id="projectsSearch_modal" role="dialog">
+ <div class="modal-dialog modal-lg">      
+    <div class="modal-content">
+		<div class="modal-header">
+			   <button type="button" class="close" data-dismiss="modal">&times;</button>
+			   <h4 class="modal-title"><strong>프로젝트 검색</strong></h4>	
+		</div>
+			<div class="modal-body">				
+				<div class="col-sm-8">
+					<input type="text" class="form-control search_proj_id" name="search_proj_id" id="search_proj_id">
+					<input type="hidden" class="search_proj_name">
+				</div>		
+						
+				<div class="col-sm-2">
+						<button type="button" class="btn btn-dault btn-sm projIds" id="projIds"><span class="fa fa-search"></span></button>
+				</div>
+				<br><br><br>
+				<table id="p_searchTable" class="table table-bordered table-hover p_searchTable">
+				
+				</table>
+				<div id="ustBtnArea">
+					<input type="button" class="btn btn-default center useBtn" value="사용" data-dismiss="modal">
+				</div>
+				<div class="modal-footer">
+      				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+     			 </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 프로젝트 검색 End-->
 </body>
 </html>
