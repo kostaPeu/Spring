@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <link href="/resources/odm/css/odm.css" rel="stylesheet"> 
 <!-- <script src="/resources/odm/js/orderList.js"></script>-->
 <script type="text/javascript">
@@ -14,6 +17,7 @@ $(function(){
 		 $.ajax({
 			url : "http://localhost:8000/orderStatus",
 			type : "post",
+			async : false,
 			data : {
 				ordno : ordno,
 				step : step,
@@ -22,6 +26,7 @@ $(function(){
 			success : function(data){
 				alert(data);
 				listsAjax(status);
+
 			},
 			error : function(){
 				alert("주문 상태변경 실패!");
@@ -45,6 +50,7 @@ $(function(){
 			success : function(data) {
 				console.log(data);
 				var orderList = [];
+				var itemList = [];
 				
 				$(data).find('order_data').each(function() {
 					var html = '';
@@ -56,12 +62,19 @@ $(function(){
 					var nameOrder = $(this).find('nameOrder').text();
 					var settleprice = $(this).find('settleprice').text();
 					var phoneOrder = $(this).find('phoneOrder').text();	
-
-					json.ordno = ordno;
-					json.orddt = orddt;
-					json.nameOrder = nameOrder;
-					json.settlepric = settleprice;
+					var nameReceiver = $(this).find('nameReceiver').text();
+					var address = $(this).find('address').text();
+					var deliverycode = $(this).find('deliverycode').text();
 					
+					json.order_id = ordno;
+					json.order_date = orddt;
+					json.client_name = nameOrder;
+					json.settlement_price = settleprice;
+					json.client_phonenumber = phoneOrder;
+					json.addressee = nameReceiver;
+					json.addressee_address = address;
+					json.invoice_number = deliverycode;
+
 					orderList.push(json);
 					
 					html += '<tr class="tablecenter">';
@@ -75,6 +88,22 @@ $(function(){
 					
 					$('#tbody').append(html);
 	
+				});
+				$(data).find('item_data').each(function() {
+					var json = {};
+					
+					var ordno = $(this).find('ordno').text();
+					var goodscd = $(this).find('goodscd').text();
+					var ea = $(this).find('ea').text();
+					var istep =  $(this).find('istep').text();
+					var price = $(this).find('price').text();
+
+					json.order_id = ordno;
+					json.product_id = goodscd;
+					json.order_amount = ea;
+					json.status = istep;
+					
+					itemList.push(json);
 				});
 				if(status == "odm1"){
 					$('#Btn').empty();
@@ -93,12 +122,50 @@ $(function(){
 					
 					$('#Btn').append(html);
 				}
+				//console.log(orderList);
+				// $.ajaxSettings.traditional = true;
+				if(step == 0 && step2 == 0){
+					 $.ajax({
+							url : '/odm/orderListAdd',
+							type : 'post',
+							async : false,
+		 					data : {
+								orderList : JSON.stringify(orderList),
+								itemList : JSON.stringify(itemList)
+							},
+							success : function(data){
+								if(data == '0'){
+									alert('orderlistAdd실패');
+								}
+								alert(data);
+
+							},
+							error : function(){
+								alert("orderListAdd실패!")
+							}
+						}); 
+				}
+
 		    }, 
 		    error : function(){
 		    	alert("실패");
 		    }
 	
 		 });
+	}
+	function deliveryInsert(ordno, status){
+		$.ajax({
+			url : "/odm/deliveryInsert",
+			type : "post",
+			aynsc : false,
+			data : {
+				order_id : ordno,
+				status : status
+			},
+			success : function(data){
+				alert(data);
+			}
+		});
 	}
 	
 	alert("<c:out value='${checks}'/>");  
@@ -133,23 +200,29 @@ $(function(){
 		$('#Btn').on('click','#readyBtn',function(){
 			$('input[name=orderRow]:checked').each(function(){
 				var ordno = $(this).val();
-	 			 statusAjax(ordno);
-			});
+				var status = "ready";
+				deliveryInsert(ordno, status);
+	 			statusAjax(ordno);
 			});
 		});
+		
 		$('#Btn').on('click','#addBtn',function(){
 			$('input[name=orderRow]:checked').each(function(){
-				$('input[name=orderRow]:checked').each(function(){
+				var ordno = $(this).val();
+				var status = "shipping";
+					deliveryInsert(ordno, status);
 					$.ajax({
 						url : "http://localhost:8000/orderStatus",
 						type : "post",
 						data : {
 							ordno : $(this).val(),
 							step : 3,
-							step2 : 0
+							step2 : 0,
+							dvcode : '753-'+$(this).val()
 						},
 						success : function(data){
 							alert(data);
+							
 							listsAjax(status);
 						},
 						error : function(){

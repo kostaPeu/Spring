@@ -27,4 +27,5 @@ public interface SaleDAO {
 	public List<SaleProductChart> saleProductChart(String customer_id) throws Exception;
 	public List<SaleCustomerChart> saleCustomerChart() throws Exception;
 	public SaleGoodsDataXml selectSaleXml(String sell_id) throws Exception;
+	public void addXmlDataSell(SaleVO vo) throws Exception;
 }

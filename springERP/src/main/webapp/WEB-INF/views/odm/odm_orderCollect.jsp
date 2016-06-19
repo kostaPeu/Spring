@@ -40,12 +40,10 @@
 				<tr>
 					<th><input type="checkbox"></th>
 					<th>쇼핑몰이름</th>
-					<th>주문수집일</th>
 				</tr>
 				<tr class="localcenter">
 					<td><input type="checkbox" value="godo" name="shopList"></td>
 					<td>godo</td>
-					<td></td>
 				</tr>
 			</table>
 			<div class="localcenter">
@@ -55,7 +53,7 @@
 		</div>
 	</div>
 </div>
-	<!-- collectModal -->
+<!-- 	<!-- collectModal
 	<div id="collectModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -86,10 +84,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
-	<!-- registerModal -->
+	<!-- registerModal 
 	<div id="registerModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -131,6 +129,6 @@
 			</div>
 
 		</div>
-	</div>
+	</div>-->
 </body>
 </html>

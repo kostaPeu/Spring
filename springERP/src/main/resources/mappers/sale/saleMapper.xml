@@ -181,13 +181,22 @@
 		GROUP BY c.customer_name
    </select>
    
-   <select id="selectSaleXml" parameterType="String" resultType="SaleGoodsDataXml">
+<!--    <select id="selectSaleXml" parameterType="String" resultType="SaleGoodsDataXml">
    	SELECT pg.pgroup_name, p.product_name, s.product_id, p.price_out, s.sell_amount 
 		FROM product_group pg, product p, sell s
 		WHERE pg.pgroup_id = p.pgroup_id 
 		AND p.product_id = s.product_id
 		AND sell_id = #{sell_id}
-   </select>
+   </select> -->
+   
+   <insert id="xmlDataInsert" parameterType="SaleVO">
+   		insert into sell@link_xmldata(
+			sell_id, customer_id, product_id, sell_date, warehouse_id, pay_type,sell_price, sell_amount
+		)		
+		values(
+			#{sell_id},#{customer_id},#{product_id},SYSDATE,#{warehouse_id},#{pay_type},#{sell_price},#{sell_amount}
+		)
+   </insert>
 </mapper>
 
 
