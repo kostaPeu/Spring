@@ -76,7 +76,7 @@ $(function(){
 					for(var i=0 ; i < arrayList.length ; i++){
 						str+=arrayList[i];
 					}
-
+					
 					$('#sch_content').text(str);
 					$('#sch_start_date').text(s.start);
 					$('#sch_end_date').text(s.end);

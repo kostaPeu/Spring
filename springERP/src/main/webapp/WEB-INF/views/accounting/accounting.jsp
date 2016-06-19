@@ -28,7 +28,7 @@
 				<ul id="three" class="collapse">
 					<li><a href="/accounting/promissory/list">어음원장</a></li>
 					<li><a href="/accounting/promissory/promissory_note">어음등록</a></li>
-					<li><a href="/accounting/promissory/promissory_give">어음지급</a></li>
+					<!-- <li><a href="/accounting/promissory/promissory_give">어음지급</a></li> -->
 					<li><a href="/accounting/promissory/promissory_notePayment">어음결제</a></li>
 					<li><a href="/accounting/promissory/promissory_noteBill">어음 할인/만기</a></li>
 				</ul></li>
@@ -44,7 +44,7 @@
 					<li><a href="/accounting/moneyPlan/MoneyPlan_Add">자금계획등록</a></li>
 					<li><a href="/accounting/moneyPlan/list">자금계획현금조회</a></li>
 					<li><a href="/accounting/moneyPlan/promissorylist">자금계획전표조회</a></li>
-					<li><a href="./accounting/moneyPlan/MoneyPlan_calendar">자금증감계획일정표</a></li>
+					<li><a href="/accounting/moneyPlan/MoneyPlan_calendar">자금증감계획일정표</a></li>
 				</ul></li>
 			<li><a data-toggle="collapse"
 				href="./accounting/view/Statement_List.jsp #six">전표관리</a>

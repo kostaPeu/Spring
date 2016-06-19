@@ -40,5 +40,4 @@
 	<context:component-scan base-package="erp.*.persistence" />
 	<context:component-scan base-package="erp.*.*.persistence" />
 	
-
 </beans>

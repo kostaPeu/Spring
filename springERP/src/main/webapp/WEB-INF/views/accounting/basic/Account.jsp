@@ -229,7 +229,7 @@
 				</div>
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm diagnosis_numbers" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-dault btn-sm diagnosis_numbers" id="diagnosis_numbers"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
 				<table id="m_searchTable" class="table table-bordered table-hover m_searchTable">

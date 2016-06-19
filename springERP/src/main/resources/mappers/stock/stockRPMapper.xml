@@ -69,4 +69,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE p.product_id = s.product_id
 			AND s.warehouse_id = w.warehouse_id
 	</select>
+	
+	<select id="mainStock" resultType="MainStockList">
+		SELECT p.product_name, s.stock_amount, s.stock_amount, i.inout_type, i.inout_amount, i.inout_date
+			FROM product p, stock s, stock_inoutlist i
+			WHERE p.product_id = s.product_id
+			AND s.product_id = i.product_id
+	</select>
+	
+	
 </mapper>

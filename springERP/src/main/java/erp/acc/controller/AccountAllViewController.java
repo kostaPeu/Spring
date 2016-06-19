@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import erp.acc.basic.domain.AccountAllView;
 import erp.acc.basic.service.AccountAllViewService;
+import erp.basic.controller.ProductJsonController;
 
 @Controller
 @RequestMapping("/accountAllview/*")
@@ -34,8 +36,17 @@ public class AccountAllViewController {
 	//손익계산서
 	@RequestMapping(value="incomeSearch", method=RequestMethod.POST)
 	public String incomeSearchPOST(Model model)throws Exception{
-		model.addAttribute("left", "accounting/accounting.jsp");		
+		model.addAttribute("left", "accounting/accounting.jsp");	
+		model.addAttribute("incomeSalesAllView", service.incomeAllsalesView());
+		model.addAttribute("EmpSal", service.incomeAllEmpSalView());
+		model.addAttribute("EmpFringe", service.incommAllEmpFringeView());
+		model.addAttribute("transportation", service.incommAllEmpTransportationView());
+		model.addAttribute("postage", service.incommAllEmpPostageView());
+		model.addAttribute("supplies", service.incommAllEmpSuppliesView());
+		model.addAttribute("premium", service.incommAllEmpPremiumView());		
+		model.addAttribute("ProductCost", service.incomeProductCostPurchaseAllView());
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
+		
 		return "/main";		
 	}
 	
@@ -52,5 +63,6 @@ public class AccountAllViewController {
 		model.addAttribute("left", "accounting/accounting.jsp");		
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
 		return "/main";
-	}*/
+	}*/	
+	
 }

@@ -29,7 +29,8 @@ import erp.common.service.MessageService;
 import erp.hr.domain.EmployeeVO;
 import erp.hr.domain.EmployeeViewVO;
 import erp.hr.domain.SearchCriteriaHR;
-
+import erp.stock.domain.MainStockList;
+import erp.stock.service.StockRPService;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.common.service.CommonService;
@@ -47,6 +48,8 @@ public class CommonController {
 	@Inject
 	private DeptBoardService deptBoardService;
 	@Inject
+	private StockRPService stockRPService;
+	@Inject
 	private CommonService commonService;
 	
 	@RequestMapping("/main")
@@ -54,8 +57,8 @@ public class CommonController {
 		model.addAttribute("maincontents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
+		mainStock(model);
 		model.addAttribute("mcnt", getMessageCount());
-		System.out.println(getMessageCount());
 	}
 
 	@RequestMapping("/")
@@ -63,8 +66,8 @@ public class CommonController {
 		model.addAttribute("maincontents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
+		mainStock(model);
 		model.addAttribute("mcnt", getMessageCount());
-		System.out.println(getMessageCount());
 		
 		return "/main";
 	}
@@ -81,6 +84,12 @@ public class CommonController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(noticeService.listSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+	public void mainStock(Model model) throws Exception{
+		List<MainStockList> mainStockList = stockRPService.mainStock();
+		System.out.println(mainStockList.toString());
+		model.addAttribute("stockList", mainStockList);
 	}
 	
 	public void mainDeptBoard(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
@@ -102,48 +111,56 @@ public class CommonController {
 	@RequestMapping("/basic")
 	public String leftBasic(Model model){
 		model.addAttribute("left","basic/basic.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/purchase")
 	public String leftPurchase(Model model){
 		model.addAttribute("left","purchase/purchase.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/sale")
 	public String leftSale(Model model){
 		model.addAttribute("left","sale/sale.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/odm")
 	public String leftOdm(Model model){
 		model.addAttribute("left","odm/odm.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/stock")
 	public String leftStock(Model model){
 		model.addAttribute("left","stock/stock.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/accounting")
 	public String leftAcc(Model model){
 		model.addAttribute("left","accounting/accounting.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/hr")
 	public String leftHr(Model model){
 		model.addAttribute("left","hr/hr.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
 	@RequestMapping("/groupware")
 	public String leftGroupware(Model model){
 		model.addAttribute("left","groupware/groupware.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
@@ -151,6 +168,7 @@ public class CommonController {
 	public String leftMypage(Model model){
 		System.out.println("hoho");
 		model.addAttribute("left","mypage/mypage.jsp");
+		model.addAttribute("mcnt", getMessageCount());
 		return "/main";
 	}
 	
@@ -232,7 +250,6 @@ public class CommonController {
 	@ResponseBody
 	@RequestMapping("/approval")
 	public String getEmp(){
-		System.out.println("commonController 들어와따");
 		return CommonService.getEmployeeId();
 	}
 }

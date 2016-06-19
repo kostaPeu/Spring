@@ -5,10 +5,51 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
+<title>POWER ERP</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
+
+<script src='/resources/groupware/js/gw_notice.js'></script>
+<script type="text/javascript">
+$(function(){
+var formObj = $("form[role='form']");
+   
+$("#modifyBtn").on("click", function(){
+	formObj.attr("method", "get");
+	formObj.attr("action", "/groupware/notice/notice_edit");
+	formObj.submit();
+});
+
+	$("#removeBtn").on("click", function(){
+		formObj.attr("method", "get");
+	formObj.attr("action", "/groupware/notice/notice_delete");
+	formObj.submit();
+});
+
+$("#goListBtn").click(function(){
+	formObj.attr("method", "get");
+	formObj.attr("action", "/groupware/notice/notice_list");
+	formObj.submit();
+});
+
+$(".reUpdate").on('click', function(e){
+	e.preventDefault();
+	var re_id=this.getAttribute('href');
+	alert(re_id);
+	$('hinput').val(re_id);
+	$('#showModal').modal('show');
+});
+});
+
+
+</script>
+
 </head>
 <body>
 
@@ -54,7 +95,7 @@
 										<span class="text-muted">${re_name.get(i) }</span>
 										<span class="redate"> ${list.get(i).getNreply_date() }</span>
 										<a type="button" href="notice_reply_delete?re_id=${list.get(i).getNreply_id() }&notice_id=${notice.notice_id}"	class="btn btn-sm pull-right">삭제</a>
-										<a type="button" href="notice_reply_update?re_id=${list.get(i).getNreply_id() }" class="btn btn-sm pull-right">수정</a>
+										<a type="button" href="${list.get(i).getNreply_id() }" class="reUpdate btn btn-sm pull-right">수정</a>
 									</div>
 									<div class="panel-body">${list.get(i).getNreply_content() }</div>
 								</div>
@@ -68,57 +109,32 @@
 					<button type="submit" class="btn btn-default">댓글달기</button>	
 			</form:form>
 		</div>
-	<script>
-$(document).ready(function(){
-	
-	var formObj = $("form[role='form']");
-	
-	console.log(formObj);
-       
-	$("#modifyBtn").on("click", function(){
-		formObj.attr("method", "get");
-		formObj.attr("action", "/groupware/notice/notice_edit");
-		formObj.submit();
-	});
-	
- 	$("#removeBtn").on("click", function(){
- 		formObj.attr("method", "get");
-		formObj.attr("action", "/groupware/notice/notice_delete");
-		formObj.submit();
-	});
+		
+		
+<div id="showModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      
+    <div class="modal-content">
+	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+		<form:form class="form-horizontal" action="notice_reply_update" method="post">
+		  <div class="form-group">
+		    <label class="col-sm-12 control-label">댓글 수정</label>
+		  </div>
+		    <div class="col-sm-12">
+				<input type='hidden' name='nreply_id' id='hinput'>
+		    	<textarea id="re_content" class="form-control" rows="2" name="nreply_content"></textarea>
+		    </div>
+			<button type="submit" class="btn btn-default">확인</button>	
+		</form:form>
+      </div>
+    </div>
 
-	/* $("#removeBtn").on("click", function(){
-		
-		var replyCnt =  $("#replycntSmall").html();
-		
-		if(replyCnt > 0 ){
-			alert("댓글이 달린 게시물을 삭제할 수 없습니다.");
-			return;
-		}	
-		
-		var arr = [];
-		$(".uploadedList li").each(function(index){
-			 arr.push($(this).attr("data-src"));
-		});
-		
-		if(arr.length > 0){
-			$.post("/deleteAllFiles",{files:arr}, function(){
-				
-			});
-		}
-		
-		formObj.attr("action", "/sboard/removePage");
-		formObj.submit();
-	});	 */
-	
-	$("#goListBtn").click(function(){
-		formObj.attr("method", "get");
-		formObj.attr("action", "/groupware/notice/notice_list");
-		formObj.submit();
-	});
-	
-});
-</script>
+  </div>
+</div>
 
 </body>
 </html>

@@ -1,6 +1,5 @@
 package erp.acc.basic.domain;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AccountAllView implements Serializable {
+public class AccountAllViewDateSet {
 
 	@Getter @Setter private String customer_id;
 	@Getter @Setter private String customer_name;
@@ -32,7 +31,4 @@ public class AccountAllView implements Serializable {
 	@Getter @Setter private int supplies;
 	@Getter @Setter private int premium;
 	@Getter @Setter private int costtotal;
-	
-	
-	
 }

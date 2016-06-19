@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-.emp_info_body td, .indol_info_body td, .emp_info_head th, .indol_info_head th{
+.emp_info_body td, .indol_info_body td, .emp_info_head th, .indol_info_head th, .indol_request_th, .indol_request_body{
 	text-align: center;
 }
 
@@ -9,6 +9,19 @@
 }
 .hr_body{
 	margin-right: 20px;
+}
+.modal_id{
+	height: 32px;
+}
+
+.title {
+    background-color: darkgray;
+    font-size: 1.1em;
+    padding: 1%;
+    text-align: center;
+}
+.basic_title{
+	font-weight: bold;
 }
 
 #search_form{
@@ -46,14 +59,4 @@ body { font-family: 'Titillium Web', sans-serif; }
 
 .indol_request_th th, .indol_request_td td{
 	text-align: center;
-}
-
-.jubis_th th, .jubis_td td{
-	text-align: center;
-}
-#jubis_table{
-	margin-top: 2%;
-}
-.CloseBtn{
-	
 }

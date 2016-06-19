@@ -238,13 +238,14 @@ $('.noteIds').click(function() {
 
 //어음결제 출력 ajax 이벤트 처리
 function handler(data) {
-	var html = '<tr><th>어음 번호</th><th>출금계좌번호</th><th>부서아이디</th><th>프로젝트</th><th>금액</th></tr>';
+	var html = '<tr><th>어음 번호</th><th>출금계좌번호</th><th>부서아이디</th><th>프로젝트</th><th>금액</th><th>비고</th></tr>';
 	$.each(data, function(index, list) {
 		html += '<tr class="getValue"><td class = "getnode_id">'+list.note_id+'</td>';
 		html += '<td class="getcustomer_name">'+list.account_number+'</td>';
 		html += '<td>'+list.dept_id+'</td>';
 		html += '<td>'+list.proj_id+'</td>';
 		html += '<td class="getsums">'+list.sums+'</td>';
+		html += '<td>'+list.remarks+'</td>';
 		html += '</tr>';
 	});
 		$('.n_searchTable').append(html);

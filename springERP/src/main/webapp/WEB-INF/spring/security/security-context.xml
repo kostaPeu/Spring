@@ -10,7 +10,7 @@
    <http pattern="/images/*" security="none" />
 
    <http auto-config="true" use-expressions="true">
-      <intercept-url pattern="/login" access="isAnonymous()" />
+       <intercept-url pattern="/login" access="isAnonymous()" />
       <intercept-url pattern="/basic/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS')" />
       <intercept-url pattern="/purchase/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS')" />
       <intercept-url pattern="/sale/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_BPS')" />
@@ -46,8 +46,8 @@
      <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <authentication-manager>
       <authentication-provider user-service-ref="customJdbcDaoImpl">   
-			 <password-encoder ref="bcryptPasswordEncoder"/>
-       </authentication-provider>
+ 			 <password-encoder ref="bcryptPasswordEncoder"/>
+        </authentication-provider>
    </authentication-manager>
     
    <beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
