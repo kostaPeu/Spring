@@ -157,7 +157,7 @@
 				</div>		
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm projIds" id="projIds"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-dault btn-sm projIds" id="projIds"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
 				<table id="p_searchTable" class="table table-bordered table-hover p_searchTable">
@@ -191,7 +191,7 @@
 				</div>		
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm customerIds" id="customerIds"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-dault btn-sm customerIds" id="customerIds"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
 				<table id="c_searchTable" class="table table-bordered table-hover c_searchTable">
@@ -227,7 +227,7 @@
 				</div>		
 						
 				<div class="col-sm-2">
-						<button type="button" class="btn btn-info btn-sm noteIds" id="noteIds"><span class="fa fa-search"></span></button>
+						<button type="button" class="btn btn-dault btn-sm noteIds" id="noteIds"><span class="fa fa-search"></span></button>
 				</div>
 				<br><br><br>
 				<table id="n_searchTable" class="table table-bordered table-hover n_searchTable">

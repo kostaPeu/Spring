@@ -34,14 +34,24 @@ public class AccountAllViewController {
 	//손익계산서
 	@RequestMapping(value="incomeSearch", method=RequestMethod.POST)
 	public String incomeSearchPOST(Model model)throws Exception{
-		model.addAttribute("left", "accounting/accounting.jsp");		
+		model.addAttribute("left", "accounting/accounting.jsp");	
+		model.addAttribute("incomeSalesAllView", service.incomeAllsalesView());
+		model.addAttribute("EmpSal", service.incomeAllEmpSalView());
+		model.addAttribute("EmpFringe", service.incommAllEmpFringeView());
+		model.addAttribute("transportation", service.incommAllEmpTransportationView());
+		model.addAttribute("postage", service.incommAllEmpPostageView());
+		model.addAttribute("supplies", service.incommAllEmpSuppliesView());
+		model.addAttribute("premium", service.incommAllEmpPremiumView());		
+		model.addAttribute("ProductCost", service.incomeProductCostPurchaseAllView());		
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
+		
 		return "/main";		
 	}
 	
 	@RequestMapping(value="income", method=RequestMethod.GET)
 	public String incomeStatementGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");		
+		
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
 		return "/main";
 	}
@@ -52,5 +62,6 @@ public class AccountAllViewController {
 		model.addAttribute("left", "accounting/accounting.jsp");		
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
 		return "/main";
-	}*/
+	}*/	
+	
 }

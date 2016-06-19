@@ -32,7 +32,7 @@
 						</tr>
 					</thead>
 					<tbody id="cardInfos">
-						<c:forEach var="promissorysales" items="${Allsales}">
+						<c:forEach var="Allsales" items="${Allsales}">
 							<tr class="mainTable">
 								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
 								<td>${Allsales.red_date}</td>
@@ -42,7 +42,7 @@
 								<td>${Allsales.remarks }</td>
 							</tr>
 						</c:forEach>
-						<c:forEach var="promissoryPurchase" items="${AllPurchase}">
+						<c:forEach var="AllPurchase" items="${AllPurchase}">
 							<tr class="mainTable">
 								<td><input type="checkbox" class="upSelect check_id" name="number_box"></td>
 								<td>${AllPurchase.red_date}</td>
