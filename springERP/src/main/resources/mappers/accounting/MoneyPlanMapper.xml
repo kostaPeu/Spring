@@ -11,13 +11,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		funds_plan (
 		moneytype, typelist, funds_id, repeat_unit, start_date,
 		periods, dept_id, proj_id,
-		account_number, diagnosis_number,
+		account_id, diagnosis_number,
 		customer_id, sums, remarks
 		) values(
 		#{moneytype}, #{typelist},
 		#{funds_id}, #{repeat_unit},
 		#{start_date}, #{periods}, #{dept_id},
-		#{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id},
+		#{proj_id}, #{account_id}, #{diagnosis_number}, #{customer_id},
 		#{sums}, #{remarks}
 		)
 	</insert>
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		funds_id = #{funds_id}, repeat_unit =
 		#{repeat_unit},
 		start_date =#{start_date}, periods = #{periods},
-		account_number = #{account_number}, diagnosis_number =
+		account_id = #{account_id}, diagnosis_number =
 		#{diagnosis_number},
 		customer_id = #{customer_id}, sums = #{sums},
 		remarks = #{remarks}

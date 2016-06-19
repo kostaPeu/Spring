@@ -44,8 +44,13 @@ public class EmployeeViewVO implements Serializable{
 	private String job_name;
 	@Getter @Setter
 	private String duty_name;
-	@Getter @Setter
+	@Setter
 	private String e_hiredate;
 	@Getter @Setter
 	private String authorities;
+	public String getE_hiredate() {
+		return e_hiredate.substring(0,10);
+	}
+	
+	
 }

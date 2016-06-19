@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.acc.basic.domain.AccountAllView;
+import erp.acc.basic.domain.AccountAllViewDateSet;
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.domain.NoteAllSearchDateSet;
@@ -106,13 +107,16 @@ public class SearchDAOImpl implements SearchDAO {
 		return session.selectList(namespace+".promissoryNoteAllSearch", nas);
 	}
 
+		
 	@Override
-	public List<Promissory> promissoryIdCheck(String word) throws Exception {
-		return null;
+	public List<AccountAllView> incomeAllview(AccountAllViewDateSet dateSet) throws Exception {
+		return session.selectList(namespace+".incomeAllview", dateSet);
+		
 	}
 
 	@Override
-	public List<AccountAllView> incomeAllview() throws Exception {
+	public List<Promissory> promissoryIdCheck(String word) throws Exception {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

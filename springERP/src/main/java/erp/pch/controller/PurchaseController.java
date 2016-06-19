@@ -123,11 +123,14 @@ public class PurchaseController {
 	@RequestMapping("excelUp")
 	public String purchase_ExcelUp(MultipartHttpServletRequest request, Model model)throws Exception{
 		
-		Map<String, MultipartFile> files = request.getFileMap();
-		CommonsMultipartFile cmf = (CommonsMultipartFile) files.get("excelFile");
-		String path ="c:/upload/"+cmf.getOriginalFilename();
-		File file = new File(path);
-		cmf.transferTo(file);
+		
+							Map<String, MultipartFile> files = request.getFileMap();
+							CommonsMultipartFile cmf = (CommonsMultipartFile) files.get("excelFile");
+							String path ="c:/upload/"+cmf.getOriginalFilename();
+							File file = new File(path);
+							cmf.transferTo(file);
+							
+							
 		service.uploadExcel(path);
 		return "redirect:purchase_check";
 	}

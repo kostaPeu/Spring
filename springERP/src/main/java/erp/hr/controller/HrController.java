@@ -25,6 +25,7 @@ import org.springframework.util.FileCopyUtils;
 
 import erp.common.service.CommonService;
 import erp.hr.domain.EmployeeVO;
+import erp.hr.domain.EmployeeViewVO;
 import erp.hr.domain.HrBasicVo;
 import erp.hr.domain.HrDeptVO;
 import erp.hr.domain.HrDutyVO;
@@ -65,6 +66,10 @@ public class HrController {
 	}*/
 	@RequestMapping(value="/emp", method=RequestMethod.GET)
 	public String empList(@ModelAttribute("cri") SearchCriteriaHR cri, Model model) throws Exception{
+		List<EmployeeViewVO> list =  service.empLIst(cri);
+		for(EmployeeViewVO vo : list){
+			System.out.println(vo.getE_hiredate());
+		}
 		model.addAttribute("left", "hr/hr.jsp");
 		model.addAttribute("contents", "hr/emp_info.jsp");
 		model.addAttribute("list", service.empLIst(cri));
@@ -78,6 +83,7 @@ public class HrController {
 	}
 	@RequestMapping(value = "/indol", method=RequestMethod.GET)
 	public String indol(@ModelAttribute("cri") SearchCriteriaHR cri, Model model) throws Exception{
+		
 		model.addAttribute("left", "hr/hr.jsp");
 		model.addAttribute("contents", "hr/indol_info.jsp");
 		model.addAttribute("list", service.indolInfoLIst(cri));
