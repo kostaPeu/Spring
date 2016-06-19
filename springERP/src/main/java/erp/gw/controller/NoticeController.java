@@ -197,4 +197,12 @@ public class NoticeController {
 		
 		return "/main";
 	}
+	
+	@RequestMapping(value="/notice_reply_update", method=RequestMethod.POST)
+	public String replyUpdate(@RequestParam("re_id") int re_id, NoticeReplyVO reVO){
+		System.out.println("ggggggggggggggggggg");
+		System.out.println("id : "+ reVO.getNreply_id() + "con : "+reVO.getNreply_content());
+		System.out.println(re_id);
+		return "/main";
+	}
 }

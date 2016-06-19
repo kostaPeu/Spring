@@ -27,7 +27,7 @@
 
 </head>
 <body>
-	<div class="row" style="width: 1500px">
+	<div class="row" style="width: 1280px">
 	<!-- 프로젝트 , 부서일정 START-->
 		<div class="col-sm-6">
 			<div role="tabpanel">
@@ -68,7 +68,7 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container" style="width: 230px; height: 200px; margin: 0 auto"></div>
+			<div id="container" style="width: 300px; height: 210px; margin: 0 auto"></div>
 			
 		<hr>
 		</div>
@@ -93,14 +93,14 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container2" style="width: 230px; height: 230px; margin: 0 auto"></div>
+			<div id="container2" style="width: 300px; height: 230px; margin: 0 auto"></div>
 		<hr>
 		</div>		
 	</div>
 		
 	</div>
 	
-	<div class="row" style="width: 1500px">
+	<div class="row" style="width: 1280px">
 
 		<div class="col-sm-6">
 			<h2 class="page_title">재고 현황</h2>
