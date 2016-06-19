@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
@@ -24,65 +24,65 @@
 				<input type='hidden' name='searchType' value="${cri.searchType}">
 				<input type='hidden' name='keyword' value="${cri.keyword}">
 				<div class="form-group">
-					<label for="e_pwd_label" class="col-sm-2 control-label">암호</label>
+					<label for="passss" class="col-sm-2 control-label">암호</label>
 					<div class="col-sm-3">
-						<input type="password" class="form-control" name="e_pwd">
+						<input type="password" class="form-control" name="e_pwd" id="passss">
 					</div>
 					<input type="hidden" name="emp_id" value="${employeeVO.emp_id }">
 				</div>
 
 				<div class="form-group">
-					<label for="e_name_label" class="col-sm-2 control-label">이름</label>
+					<label for="enaeeem" class="col-sm-2 control-label">이름</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="e_name"
-							value="${employeeVO.e_name }">
+							value="${employeeVO.e_name }" id="enaeeem">
 					</div>
-					<label for="e_age_label"
+					<label for="ageeee"
 						class="col-sm-2 col-sm-offset-1 control-label">나이</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="e_age"
-							value="${employeeVO.e_age }">
+							value="${employeeVO.e_age }" id="ageeee">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="e_hiredate_label" class="col-sm-2 control-label">입사일</label>
+					<label for="hdateee" class="col-sm-2 control-label">입사일</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="e_hiredate"
-							placeholder="YYYY-MM-DD" value="${employeeVO.e_hiredate }">
+							placeholder="YYYY-MM-DD" value="${employeeVO.e_hiredate }" id="hdateee">
 					</div>
-					<label for="e_sal_label"
+					<label for="salsal"
 						class="col-sm-2 col-sm-offset-1 control-label">연봉</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="e_sal"
-							value="${employeeVO.e_sal }">
+							value="${employeeVO.e_sal }" id="salsal">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="e_mail_label" class="col-sm-2 control-label">이메일</label>
+					<label for="mailmail" class="col-sm-2 control-label">이메일</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="e_email"
-							value="${employeeVO.e_email }">
+							value="${employeeVO.e_email }" id="mailmail">
 					</div>
-					<label for="e_phone_number_label"
+					<label for="pnumpnum"
 						class="col-sm-2 col-sm-offset-1 control-label">전화번호</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="phone_number"
-							value="${employeeVO.phone_number }">
+							value="${employeeVO.phone_number }" id="pnumpnum">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="e_address_label" class="col-sm-2 control-label">주소</label>
+					<label for="adr" class="col-sm-2 control-label">주소</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="e_address"
-							value="${employeeVO.e_address }">
+							value="${employeeVO.e_address }" id="adr">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="dept_id_label" class="col-sm-2 control-label">부서</label>
+					<label for="dept_id" class="col-sm-2 control-label">부서</label>
 					<div class="col-sm-5">
 						<input type="text" id="dept_id" class="form-control"
 							name="dept_id" value="${employeeVO.dept_id }">
@@ -94,7 +94,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="position_id_label" class="col-sm-2 control-label">직급</label>
+					<label for="position_id" class="col-sm-2 control-label">직급</label>
 					<div class="col-sm-5">
 						<input type="text" class="form-control" name="position_id"
 							id="position_id" value="${employeeVO.position_id }">
@@ -106,7 +106,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="job_id_label" class="col-sm-2 control-label">직무</label>
+					<label for="job_id" class="col-sm-2 control-label">직무</label>
 					<div class="col-sm-5">
 						<input type="text" class="form-control" name="job_id" id="job_id"
 							value="${employeeVO.job_id }">
@@ -118,7 +118,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="duty_id_label" class="col-sm-2 control-label">직책</label>
+					<label for="duty_id" class="col-sm-2 control-label">직책</label>
 					<div class="col-sm-5">
 						<input type="text" class="form-control" name="duty_id"
 							id="duty_id" value="${employeeVO.duty_id }">
@@ -130,9 +130,9 @@
 				</div>
 
 				 <div class="form-group">
-					<label for="pic_label" class="col-sm-2 control-label">프로필사진</label>
+					<label for="ppic" class="col-sm-2 control-label">프로필사진</label>
 					<div class="col-sm-8">
-						<input type="file" name="uploadFile"/>
+						<input type="file" name="uploadFile" id="ppic"/>
 					</div>
 				</div>
 				<%-- <c:if test="${employeeVO.e_profile_pic != null}">

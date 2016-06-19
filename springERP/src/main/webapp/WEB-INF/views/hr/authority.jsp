@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
@@ -80,7 +80,7 @@ $(function() {
 				action="/hr/autorityDept" method="post">
 				<div class="form-group">
 					<label for="autorityDept" class="col-sm-3 control-label headLabel">부서별 권한</label><br><br><br>
-					<label for="dept_id_label" class="col-sm-2 control-label">부서</label>
+					<label for="dept_id" class="col-sm-2 control-label">부서</label>
 					<div class="col-sm-2">
 						<input type="text" id="dept_id" class="form-control"
 							name="dept_id" value="">
@@ -89,7 +89,7 @@ $(function() {
 						<button type="button" id="dept_Search" class="btn btn-default"
 							data-toggle="modal" data-target="#deptSearch_modal">부서검색</button>
 					</div>
-					<label for="autorityDept" class="col-sm-2 control-label">권한명</label>
+					<label for="dept_authority" class="col-sm-2 control-label">권한명</label>
 					<div class="col-sm-2">
 						<input type="text" id="dept_authority" class="form-control"
 							name="authorities" value="">
@@ -130,11 +130,11 @@ $(function() {
 	<br><br><br><br>
 	<div class="container-fluid">
 		<div class="col-md-9 col-md-offset-1">
-			<form:form class="form-horizontal" id="autority_set"
+			<form:form class="form-horizontal" id="autority_set2"
 				action="/hr/autorityPerson" method="post">
 				<div class="form-group">
 					<label for="autorityPerson" class="col-sm-3 control-label headLabel">개인별 권한</label><br><br><br>
-					<label for="emp_id_label" class="col-sm-2 control-label">사번</label>
+					<label for="emp_id" class="col-sm-2 control-label">사번</label>
 					<div class="col-sm-2">
 						<input type="text" id="emp_id" class="form-control"
 							name="emp_id" value="">
@@ -143,7 +143,7 @@ $(function() {
 						<button type="button" id="emp_Search" class="btn btn-default"
 							data-toggle="modal" data-target="#empSearch_modal">개인검색</button>
 					</div>
-					<label for="autorityemp" class="col-sm-2 control-label">권한명</label>
+					<label for="emp_authority" class="col-sm-2 control-label">권한명</label>
 					<div class="col-sm-2">
 						<input type="text" id="emp_authority" class="form-control"
 							name="authorities" value="">
@@ -174,7 +174,7 @@ $(function() {
 					<table id="empTable" class="table table-bordered table-hover">
 
 					</table>
-					<div id="useBtnArea">
+					<div id="useBtnArea2">
 						<input type="text" id="empModalData" class="modal_id"> <input type="button"
 							class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="empUse">

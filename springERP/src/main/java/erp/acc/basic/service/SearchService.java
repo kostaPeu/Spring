@@ -2,6 +2,8 @@ package erp.acc.basic.service;
 
 import java.util.List;
 
+import erp.acc.basic.domain.AccountAllView;
+import erp.acc.basic.domain.AccountAllViewDateSet;
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.domain.NoteAllSearch;
@@ -51,4 +53,7 @@ public interface SearchService {
 		
 		//어음원장
 		public List<Promissory> promissoryNoteAll(NoteAllSearch nas)throws Exception;
+		
+		
+	/*	public List<AccountAllView> incomeAllview (AccountAllView dateSet)throws Exception;*/
 }

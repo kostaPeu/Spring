@@ -71,6 +71,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE typelist = '지급어음' AND state = '미지급'
 </select>
 
+
+
+
+
 <select id="promissoryNoteAllSearch" parameterType="NoteAllSearchDateSet" resultType="Promissory">
 	SELECT * FROM note_ledger	
 	<if test="start_date != '' and start_date != null">					

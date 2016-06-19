@@ -63,16 +63,13 @@ String total = request.getParameter("total");
 						<thead>
 							<tr class="print_th">
 								<th width="250px">계정명</th>
-								<th colspan="2">2016년 6월</th>
-								<th colspan="2">2016년 7월</th>
+								<th colspan="2">2016년 6월</th>								
 							</tr>
 						</thead>						
 						<tr class="topName">
 						<td>1.매출</td>	
 						<td></td>								
-						<td></td>								
-						<td></td>								
-						<td></td>								
+						<td></td>			
 						</tr>			
 						<c:forEach var="incomeSalesAllView" items="${incomeSalesAllView}">
 						<tr>
@@ -84,8 +81,6 @@ String total = request.getParameter("total");
 						</c:forEach>								
 						<tr class="topName">
 							<td>2.매출원가</td>
-							<td></td>
-							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -102,15 +97,11 @@ String total = request.getParameter("total");
 							<td>3.매출총이익</td>
 							<td><c:out value="${result }"></c:out></td>
 							<td><c:out value="${result }"></c:out></td>
-							<td></td>
-							<td></td>
 						</tr>
 						<tr class="topName">
 							<td>4.판매비와관리비</td>
 							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
+							<td></td>						
 						</tr>
 						<c:forEach var="EmpSal" items="${EmpSal }">
 						<tr>
@@ -165,15 +156,13 @@ String total = request.getParameter("total");
 							<td>${result }</td>
 							<td>${result }</td>
 							<td></td>
-							<td></td>
+	
 						</tr>						
 					<tr class="topName">
 					<c:set var="totalResult" value="${result-Sal+Empcount+Transportation+Postage+Supplies+Premium }"></c:set>
 							<td>12.당기순이익</td>
 							<td><c:out value="${totalResult }"></c:out></td>
 							<td><c:out value="${totalResult }"></c:out></td>
-							<td></td>
-							<td></td>
 						</tr>
 					</table>					
 				</div>
