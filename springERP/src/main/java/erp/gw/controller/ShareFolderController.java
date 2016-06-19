@@ -54,7 +54,7 @@ public class ShareFolderController {
 //			path += arr[i] + "/"; 
 //		}
 		
-		path += "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\groupware\\upload";
+		path += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
 		uploadPath = path;
 		
 		System.out.println(uploadPath);

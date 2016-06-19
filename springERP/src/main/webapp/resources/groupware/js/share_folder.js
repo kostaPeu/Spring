@@ -45,6 +45,7 @@ $(function(){
 			var formData = new FormData();
 			formData.append("file", file);
 			
+			alert("hohoho");
 			$.ajax({
 				url:'/groupware/dept_board/share_folder/uploadAjax',
 				data:formData,

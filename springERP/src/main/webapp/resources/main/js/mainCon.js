@@ -11,6 +11,7 @@ $(function(){
 	
 	$('.noticeTitle').on('click', function(e) {
 		e.preventDefault();
+		$('#maincontents').empty();
 		$('#contents').empty();
 		$('#contents').load('/groupware/notice/' + $(this).attr('href'));
 		$('#Left_Menu').empty();
@@ -19,6 +20,7 @@ $(function(){
 
 	$('.deptTitle').on('click', function(e) {
 		e.preventDefault();
+		$('#maincontents').empty();
 		$('#contents').empty();
 		$('#contents').load('/groupware/dept_board/' + $(this).attr('href'));
 		$('#Left_Menu').empty();

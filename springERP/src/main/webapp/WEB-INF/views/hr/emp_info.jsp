@@ -121,7 +121,7 @@ ul {
 	<div class="hr_body">
 		<div class="pull-right">
 			<div class="form-group search_group">
-				<label for="search_employee" class="search_group">이름</label> <input type="text"
+				<label for="emp_name_input" class="search_group">이름</label> <input type="text"
 					class="input-sm search_group" id="emp_name_input" name="emp_name">
 					<button type="button" class="btn btn-default search_group" id="empSearch"><span class="fa fa-search"></span></button>
 				<!-- <button id='empSearch' class="btn btn-sm">직원검색</button> -->

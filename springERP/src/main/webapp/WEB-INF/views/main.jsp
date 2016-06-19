@@ -36,13 +36,11 @@
 <!-- Script -->
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="">
+<!-- <script type="text/javascript">
 $(function() {
-	console.log('a');
 	$('#contents').css('margin-left',margin)
 });
-
-</script>
+</script> -->
 <!-- Custom Script -->
 <!-- <script src="/resources/common/js/csrf.js"></script> -->
 <!-- <script src="/resources/common/js/common.js" type="text/javascript"></script> -->
