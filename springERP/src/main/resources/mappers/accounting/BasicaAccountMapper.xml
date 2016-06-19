@@ -183,13 +183,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="projectList" resultType="ProjectsVO">
-		select *from projects
+		select  proj_id, proj_name, p.sums, a.account_number as account_number, p.remarks from projects p , accounts a where a.account_id = p.account_id
 	</select>
  
 	<!-- 프로젝트 RU START -->
 	<update id="projectUpdate">
-		UPDATE projects SET sums = #{sums}, account_number = #{account_number},
-		remarks = #{remarks}
+		UPDATE projects SET sums = #{sums}, account_id = #{account_id}, remarks = #{remarks}
 		WHERE proj_id = #{proj_id}
 	</update>	
 	

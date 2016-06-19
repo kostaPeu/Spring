@@ -96,7 +96,7 @@ $(function(){
 							<div class="item_text">
 								<span class="item_title" value="${list.get(i).getFile_name() }">${list.get(i).getFile_name() }</span>
 								<span class="item_size">${list.get(i).getFile_size() }</span>
-								<span class="item_writer">${list.get(i).getEmp_id() }</span>
+								<span class="item_writer">${e_name}</span>
 							</div>
 					  </label>
 					</div>

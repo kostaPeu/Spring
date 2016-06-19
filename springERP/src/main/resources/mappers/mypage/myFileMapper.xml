@@ -29,4 +29,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM my_folder WHERE file_id = #{file_id }
 	</delete>
 	
+	<!-- emp_id 로 이름얻기 -->
+	<select id="getEname" resultType="String" parameterType="String">
+		SELECT e_name FROM employee WHERE emp_id = #{emp_id }
+	</select>
+	
 </mapper>

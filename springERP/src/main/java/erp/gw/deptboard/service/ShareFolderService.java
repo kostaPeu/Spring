@@ -9,4 +9,5 @@ public interface ShareFolderService {
 	public List<FolderFileVO> listFile() throws Exception;
 	public FolderFileVO selectFile(int file_id) throws Exception;
 	public void deleteFile(int file_id) throws Exception;
+	public String getEname(String emp_id) throws Exception;
 }

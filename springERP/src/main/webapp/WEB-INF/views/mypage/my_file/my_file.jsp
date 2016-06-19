@@ -12,6 +12,8 @@
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
 
 <link href="/resources/mypage/css/my_file.css" rel="stylesheet">
+<script src="/resources/common/js/csrf.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="/resources/mypage/js/my_file.js"></script>
 <script type="text/javascript">
 
@@ -96,7 +98,7 @@ $(function(){
 							<div class="item_text">
 								<span class="item_title" value="${list.get(i).getFile_name() }">${list.get(i).getFile_name() }</span>
 								<span class="item_size">${list.get(i).getFile_size() }</span>
-								<span class="item_writer">${list.get(i).getEmp_id() }</span>
+								<span class="item_writer">${e_name }</span>
 							</div>
 					  </label>
 					</div>
