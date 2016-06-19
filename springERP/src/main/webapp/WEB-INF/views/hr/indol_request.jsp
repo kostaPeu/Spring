@@ -58,8 +58,8 @@ $(function(){
 		<div class="pull-right">
 			<div class="form-group">
 				<label for="search_employee">이름</label> <input type="text"
-					class="form-control input-sm" id="emp_name_input" name="emp_name">
-				<button id='empSearch' class="btn btn-sm">직원검색</button>
+					class="input-sm" id="emp_name_input" name="emp_name">
+				<button type="button" class="btn btn-default search_group" id="empSearch"><span class="fa fa-search"></span></button>
 			</div>
 		</div>
 		<table class="table table-condensed table table-bordered">

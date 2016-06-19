@@ -79,6 +79,15 @@
 		});
 	});
 </script>
+<style type="text/css">
+body {
+	margin: 20px;
+}
+#emp_Search {
+	float: right;
+	margin-right: 15px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -89,13 +98,13 @@
 				<input type="hidden" name="send_id" value="${emp_id }">
 				<div class="form-group">
 					<label for="emp_id_label" class="col-sm-2 control-label">TO</label>
-					<div class="col-sm-3">
+					<button type="button" id="emp_Search" class="btn btn-default btn-xs"
+							data-toggle="modal" data-target="#empSearch_modal">직원검색</button>
+					<div class="col-sm-2">
 						<input type="text" class="form-control" name="receive_id"
 							id='receive_id' value="${receive_id }">
-					</div>
-					<div class="col-sm-5">
-						<button type="button" id="emp_Search" class="btn btn-default"
-							data-toggle="modal" data-target="#empSearch_modal">직원검색</button>
+				<!-- 			<button type="button" id="emp_Search" class="btn btn-default"
+							data-toggle="modal" data-target="#empSearch_modal">직원검색</button> -->
 					</div>
 				</div>
 				<div class="form-group">
@@ -108,7 +117,7 @@
 				<div class="form-group">
 					<label for="e_hiredate_label" class="col-sm-2 control-label">내용</label>
 					<div class="col-sm-3">
-						<textarea class="form-control" name="contents" rows="8"></textarea>
+						<textarea class="form-control" name="contents" rows="6"></textarea>
 					</div>
 				</div>
 
