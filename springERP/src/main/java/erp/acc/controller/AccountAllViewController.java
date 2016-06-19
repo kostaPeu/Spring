@@ -53,7 +53,6 @@ public class AccountAllViewController {
 	@RequestMapping(value="income", method=RequestMethod.GET)
 	public String incomeStatementGET(Model model)throws Exception{
 		model.addAttribute("left", "accounting/accounting.jsp");		
-		
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
 		return "/main";
 	}

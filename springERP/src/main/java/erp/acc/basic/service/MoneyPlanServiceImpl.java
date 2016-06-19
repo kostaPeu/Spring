@@ -27,7 +27,7 @@ public class MoneyPlanServiceImpl implements MoneyPlanService {
 		set.setPeriods(plan.getPeriods());
 		set.setDept_id(plan.getDept_id());
 		set.setProj_id(plan.getProj_id());
-		set.setAccount_number(plan.getAccount_number());
+		set.setAccount_id(plan.getAccount_id());
 		set.setDiagnosis_number(plan.getDiagnosis_number());
 		set.setCustomer_id(plan.getCustomer_id());
 		set.setSums(plan.getSums());

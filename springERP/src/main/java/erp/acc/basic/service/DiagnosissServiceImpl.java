@@ -19,8 +19,7 @@ public class DiagnosissServiceImpl implements DiagnosissService {
 	
 	@Override
 	public void diagnosisInsert(Diagnosiss diagnosiss) throws Exception {
-		dao.diagnosisInsert(diagnosiss);
-		
+		dao.diagnosisInsert(diagnosiss);		
 	}
 
 	@Override

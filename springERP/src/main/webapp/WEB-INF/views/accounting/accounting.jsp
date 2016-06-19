@@ -44,7 +44,7 @@
 					<li><a href="/accounting/moneyPlan/MoneyPlan_Add">자금계획등록</a></li>
 					<li><a href="/accounting/moneyPlan/list">자금계획현금조회</a></li>
 					<li><a href="/accounting/moneyPlan/promissorylist">자금계획전표조회</a></li>
-					<li><a href="./accounting/moneyPlan/MoneyPlan_calendar">자금증감계획일정표</a></li>
+					<li><a href="/accounting/moneyPlan/MoneyPlan_calendar">자금증감계획일정표</a></li>
 				</ul></li>
 			<li><a data-toggle="collapse"
 				href="./accounting/view/Statement_List.jsp #six">전표관리</a>

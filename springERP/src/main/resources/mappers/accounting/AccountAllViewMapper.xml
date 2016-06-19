@@ -5,31 +5,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="erp.acc.mapper.AccountAllViewMapper">
 
-	<!-- 손익계산 날짜 지정 -->
-	<select id="incomeAllSearch">
-	
-	
-	</select>
-
 	<!-- 손익계산서 상품매출 -->
 	<select id="incomeAllsalesView" resultType="AccountAllView">
-		SELECT
-		SUM(alls.total)AS total FROM
+		SELECT SUM(alls.total)AS total FROM
 		(select sums as total, c.customer_name,
 		cash.remarks
 		FROM cash_trade cash, customer c
-		where cash.customer_id =
+		WHERE cash.customer_id =
 		c.customer_id
-		AND typelist ='매출' union all
-		select sums as total,
+		AND typelist ='매출'
+		union all
+		SELECT sums AS total,
 		c.customer_name, note.remarks
-		from note_ledger note, customer c
-		where
+		FROM note_ledger note, customer c
+		WHERE
 		note.customer_id = c.customer_id
 		AND state = '지급'
-		AND typelist
-		='받는어음')alls
+		AND typelist ='받는어음')alls
 	</select>
+
 
 	<!-- 직원급여 -->
 	<select id="incomeAllEmpSalView" resultType="AccountAllView">
@@ -39,6 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(SELECT RPAD(TRUNC(E_SAL/12),7, '0')AS sal
 		FROM EMPLOYEE)maxsal
 	</select>
+	
+	
 	
 	<!-- 직원 복리후생 총 비용 -->
 	<select id="incommAllEmpFringeView" resultType="AccountAllView">
