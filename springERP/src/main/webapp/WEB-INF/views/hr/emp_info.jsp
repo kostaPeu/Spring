@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -148,6 +149,8 @@ ul {
 				</thead>
 				<tbody>
 					<c:forEach items="${list }" var="empViewVO">
+				<%-- 	<fmt:parseDate value="${empViewVO.e_hiredate}" var="hiredate" pattern="YYYY-MM-dd HH:MM:ss"/> --%>
+					
 						<tr class="emp_info_body">
 							<td><input type="checkbox" class="upSelect check_id"
 								name="id_box" value="${empViewVO.emp_id }"></td>

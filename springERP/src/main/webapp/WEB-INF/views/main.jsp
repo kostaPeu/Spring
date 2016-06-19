@@ -62,7 +62,7 @@ $(function() {
 	<!-- logo start -->
 	<div class="erp-global-nav-qm">
 		<div class="qm-company-logo col-sm-2">
-			<a href="/main" ><span></span></a>
+			<a href="/main" ><img src="/resources/common/images/SMERP.png" alt=""></a>
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam"> <a id="a-in-spam"	href="./main.jsp?left=./mypage/view/mypage.jsp"><%=name%></a>님
