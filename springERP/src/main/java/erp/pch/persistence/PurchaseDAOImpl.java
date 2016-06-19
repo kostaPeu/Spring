@@ -107,8 +107,20 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	public List<Slip> getTotalSales() throws Exception {
 		return session.selectList(namespace+".getTotalSales");
 	}
-	@Override
-	public List<Slip> getMonth(String value) throws Exception {
-		return session.selectList(namespace+".getMonth", value);
-	}
+	
+	
+	
+	
+									@Override
+									public List<Slip> getMonth(String value) throws Exception {
+										return session.selectList(namespace+".getMonth", value);
+									}
+									
+									
+									
+									
+									
+									
+									
+									
 }

@@ -117,14 +117,14 @@
 		
 				<tbody>
 					<c:if test="${stockList.size()-1 >=0}">
-						<c:forEach var="i" begin="0" end="2" step="1">
+						<c:forEach var="i" begin="0" end="0" step="1">
 							<tr class="row">
-								<td class="col-sm-32">${stockList.get(i).getProduct_name()}</td>
+								<td class="col-sm-2">${stockList.get(i).getProduct_name()}</td>
 								<td class="col-sm-2">${stockList.get(i).getStock_amount()}</td>
-								<td class="col-sm-2">${stockList.get(i).getInout_type}</td>
-								<td class="col-sm-3">${stockList.get(i).getInout_amount}</td>
+								<td class="col-sm-2">${stockList.get(i).getInout_type()}</td>
+								<td class="col-sm-3">${stockList.get(i).getInout_amount()}</td>
 								<td class="col-sm-3">
-									<fmt:formatDate value="${stockList.get(i).getInout_date }" pattern="yyyy-MM-dd" />
+									<fmt:formatDate value="${stockList.get(i).getInout_date() }" pattern="yyyy-MM-dd" />
 								</td>
 							</tr>
 						</c:forEach>

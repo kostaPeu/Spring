@@ -57,6 +57,7 @@ public class CommonController {
 		model.addAttribute("maincontents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
+		mainStock(model);
 		model.addAttribute("mcnt", getMessageCount());
 	}
 
@@ -65,6 +66,7 @@ public class CommonController {
 		model.addAttribute("maincontents","main/mainCon.jsp");
 		mainNotice(cri, model);
 		mainDeptBoard(cri, model);
+		mainStock(model);
 		model.addAttribute("mcnt", getMessageCount());
 		
 		return "/main";
@@ -86,6 +88,7 @@ public class CommonController {
 	
 	public void mainStock(Model model) throws Exception{
 		List<MainStockList> mainStockList = stockRPService.mainStock();
+		System.out.println(mainStockList.toString());
 		model.addAttribute("stockList", mainStockList);
 	}
 	
