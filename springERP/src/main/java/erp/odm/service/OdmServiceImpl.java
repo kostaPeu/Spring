@@ -51,7 +51,7 @@ public class OdmServiceImpl implements OdmService {
 //	}
 
 	@Transactional
-	@Override
+	@Override 
 	public void deliveryInsert(String order_id, String delivery_state) throws Exception{
 
 		System.out.println(order_id);
@@ -67,7 +67,7 @@ public class OdmServiceImpl implements OdmService {
 		dv.setAddressee(dv.getClient_name());
 		dv.setAddressee_address(dv.getClient_address());
 
-		try {
+		try { 
 			dao.deliveryInsert(dv);
 			OrderList order = dao.selectOrder(order_id);
 			System.out.println(order.getOrder_amount());

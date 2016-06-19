@@ -12,7 +12,7 @@
 			<li><a class="" data-target="#one" data-toggle="collapse" href="javascript:;">주문관리</a>
 				<ul id="one" class="collapse local" style="">
 					<li><a href="/odm/odm_collectForm">주문수집</a></li>
-					<li><a href="orderList.odm">주문리스트</a></li>
+					<li><a href="/odm/orderCollect">주문리스트</a></li>
 				</ul>
 			</li>					
 			<li><a href="/odm/odm_deliveryList">배송리스트</a></li>

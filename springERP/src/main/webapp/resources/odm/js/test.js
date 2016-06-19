@@ -10,11 +10,16 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
+
+
+
 app.use(function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, x-csrf-token, Accept");
+	res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, x-csrf-token, Accept");
 	next();
 });
+
+
 var key = "SSUyMSUyNiVDMyUyNyVFNzclODclMkMlRkMlQ0ElM0QlQ0YlMDclMTZJNHolOUUlODYlRjQlQURKJUEyJTJCJTFCNCUwOVQlRTclMDclRUQlQjclOUUlRDg2";
 var partner_key = "aCUwMmslRjAlODclOUJWdA==";
 	app.get('/', function(req, res, next) {

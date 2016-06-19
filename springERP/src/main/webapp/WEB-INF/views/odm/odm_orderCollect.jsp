@@ -53,7 +53,7 @@
 		</div>
 	</div>
 </div>
-<!-- 	<!-- collectModal -->
+<!-- 	<!-- collectModal
 	<div id="collectModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -87,7 +87,7 @@
 	</div> -->
 
 
-	<!-- registerModal -->
+	<!-- registerModal 
 	<div id="registerModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 
@@ -129,6 +129,6 @@
 			</div>
 
 		</div>
-	</div>
+	</div>-->
 </body>
 </html>

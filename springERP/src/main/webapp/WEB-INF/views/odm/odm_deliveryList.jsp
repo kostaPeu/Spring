@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/shopERP/stock/css/stock.css" rel="stylesheet">
+<link href="/resources/stock/css/stock.css" rel="stylesheet">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 			</tr>
 		</thead>
 		<c:forEach var="c" items="${list}">
-			<tr class="tablecenter">
+			<tr class="localcenter">
 				<!-- <td><input type="checkbox"></td> -->
 				<td>${c.delivery_id}</td>
 				<td>${c.order_id}</td>

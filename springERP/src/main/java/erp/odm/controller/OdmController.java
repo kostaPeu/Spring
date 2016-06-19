@@ -62,7 +62,7 @@ public class OdmController {
 	}
 
 	@RequestMapping("/orderCollect")
-	public String orderCollect(@RequestParam(value = "checks", defaultValue = "") String checks, Model model)
+	public String orderCollect(@RequestParam(value = "checks", defaultValue = "godo") String checks, Model model)
 			throws Exception {
 
 		model.addAttribute("checks", checks);
