@@ -317,27 +317,32 @@ public class PurchaseServiceImpl implements PurchaseService{
 		return json;
 	}
 
-	@Override
-	public List<TotalDataChart> getTotalSales() throws Exception {		
-		List<TotalDataChart> list = new ArrayList<TotalDataChart>();
-		List<Slip> slipList = null;
-		long[] temps = new long[12];
-		for(int i=1;i<13;i++){
-			long val = 0;
-			if(i<10){
-				slipList = dao.getMonth("16/0"+i+"%");
-			}else{
-				slipList = dao.getMonth("16/"+i+"%");
-			}
-			for(int j=0;j<slipList.size();j++){
-				val += slipList.get(j).getSlip_amount();
-			}
-			temps[i-1] = val;
-		}
-		TotalDataChart tdc = new TotalDataChart();
-		tdc.setName("shop");
-		tdc.setData(temps);
-		list.add(tdc);
-		return list;
-	}
+	
+	
+	
+								@Override
+								public List<TotalDataChart> getTotalSales() throws Exception {		
+									List<TotalDataChart> list = new ArrayList<TotalDataChart>();
+									List<Slip> slipList = null;
+									long[] temps = new long[12];
+									for(int i=1;i<13;i++){
+										long val = 0;
+										if(i<10){
+											slipList = dao.getMonth("16/0"+i+"%");
+										}else{
+											slipList = dao.getMonth("16/"+i+"%");
+										}
+										for(int j=0;j<slipList.size();j++){
+											val += slipList.get(j).getSlip_amount();
+										}
+										temps[i-1] = val;
+									}
+									TotalDataChart tdc = new TotalDataChart();
+									tdc.setName("shop");
+									tdc.setData(temps);
+									list.add(tdc);
+									return list;
+								}
+								
+								
 }
