@@ -27,7 +27,7 @@
 
 </head>
 <body>
-	<div class="row" style="width: 1500px">
+	<div class="row" style="width: 1280px">
 	<!-- 프로젝트 , 부서일정 START-->
 		<div class="col-sm-6">
 			<div role="tabpanel">
@@ -100,7 +100,7 @@
 		
 	</div>
 	
-	<div class="row" style="width: 1500px">
+	<div class="row" style="width: 1280px">
 
 		<div class="col-sm-6">
 			<h2 class="page_title">재고 현황</h2>
