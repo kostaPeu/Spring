@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import erp.acc.basic.domain.AccountAllView;
 import erp.acc.basic.service.AccountAllViewService;
+import erp.basic.controller.ProductJsonController;
 
 @Controller
 @RequestMapping("/accountAllview/*")
@@ -42,7 +44,7 @@ public class AccountAllViewController {
 		model.addAttribute("postage", service.incommAllEmpPostageView());
 		model.addAttribute("supplies", service.incommAllEmpSuppliesView());
 		model.addAttribute("premium", service.incommAllEmpPremiumView());		
-		model.addAttribute("ProductCost", service.incomeProductCostPurchaseAllView());		
+		model.addAttribute("ProductCost", service.incomeProductCostPurchaseAllView());
 		model.addAttribute("contents", "accounting/print/income_statement.jsp");
 		
 		return "/main";		

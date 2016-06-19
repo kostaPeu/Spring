@@ -31,7 +31,8 @@ public class AccountAllView implements Serializable {
 	@Getter @Setter private int postage;
 	@Getter @Setter private int supplies;
 	@Getter @Setter private int premium;
-	@Getter @Setter private int Costtotal;
+	@Getter @Setter private int costtotal;
+	
 	
 	
 }
