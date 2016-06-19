@@ -17,21 +17,23 @@
 				<!-- <th><input type="checkbox"></th> -->
 				<th>배송번호</th>
 				<th>주문번호</th>
-				<th>송장번호</th>
+				<!-- <th>송장번호</th> -->
 				<th>수취인</th>
 				<th>수취인주소</th>
 				<th>배송상태</th>
 			</tr>
 		</thead>
+		<c:forEach var="c" items="${list}">
 			<tr class="tablecenter">
 				<!-- <td><input type="checkbox"></td> -->
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>${c.delivery_id}</td>
+				<td>${c.order_id}</td>
+				<%-- <td>${ }</td> --%>
+				<td>${c.addressee}</td>
+				<td>${c.addressee_address}</td>
+				<td>${c.delivery_state}</td>
 			</tr>
+		</c:forEach>
 	</table>
 
 </body>

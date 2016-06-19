@@ -80,4 +80,9 @@ public class SaleDAOImpl implements SaleDAO {
 	public SaleGoodsDataXml selectSaleXml(String sell_id) throws Exception {
 		return sqlSession.selectOne(namespace+".selectSaleXml", sell_id);
 	}
+	@Override
+	public void addXmlDataSell(SaleVO vo) throws Exception {
+		sqlSession.insert(namespace+".xmlDataInsert", vo);
+		
+	}
 }
