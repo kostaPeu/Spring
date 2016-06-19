@@ -49,27 +49,9 @@ $(function(){
                     <div class="col-md-4 col-sm-6">
                         <div class="center">
                             <i id="c" class="icon-md icon-color3"></i>
-                            <h4>Windows Phone development</h4>
+                            <h4>현금흐름표</h4>
                         </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="center">
-                            <i id="d" class="icon-md icon-color4"></i>
-                            <h4>Ruby on Rails development</h4>
-                        </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="center">
-                            <i id="e" class="icon-md icon-color5"></i>
-                            <h4>Javascript development</h4>
-                        </div>
-                    </div><!--/.col-md-4-->
-                    <div class="col-md-4 col-sm-6">
-                        <div class="center">
-                            <i id="f" class="icon-md icon-color6"></i>
-                            <h4>Responsive web design</h4>
-                        </div>
-                    </div><!--/.col-md-4-->
+                    </div><!--/.col-md-4-->                  
                 </div><!--/.row-->
             </div><!--/.box-->
         </div><!--/.container-->

@@ -1,7 +1,5 @@
 package erp.stock.domain;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,20 +7,17 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class StockRP {
+public class StockList {
 
-	@Getter @Setter
-	private String customer_id;
-	@Getter @Setter
-	private String inout_id;
-	@Getter @Setter
-	private int inout_amount;
 	@Getter @Setter
 	private String product_id;
 	@Getter @Setter
-	private String emp_id;
+	private String product_name;
 	@Getter @Setter
-	private String inout_type;
+	private String stock_amount;
 	@Getter @Setter
-	private Date inout_date;
+	private String warehouse_name;
+	@Getter @Setter
+	private String warehouse_loc;
+	
 }

@@ -62,7 +62,7 @@ $(function() {
 	<!-- logo start -->
 	<div class="erp-global-nav-qm">
 		<div class="qm-company-logo col-sm-2">
-			<a href="/main"><span>hoho</span></a>
+			<a href="/main" ><span></span></a>
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam"> <a id="a-in-spam"	href="./main.jsp?left=./mypage/view/mypage.jsp"><%=name%></a>님
@@ -71,10 +71,11 @@ $(function() {
 					<c:set var="cnt" value="${mcnt }"></c:set>
 					<c:choose>
 						<c:when test="${cnt > 0 }">
+							<span class="glyphicon glyphicon-exclamation-sign"></span>
 							<button type="button" name="messagBtn"
 								class="btn btn-default btn-sm"
 								onclick="javascript:popup(this.form);">
-								!!<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
 							</button>
 						</c:when>
 						<c:otherwise>

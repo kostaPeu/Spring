@@ -153,7 +153,7 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="deptModalData"> <input
+						<input type="text" id="deptModalData" class="modal_id"> <input
 							type="button" class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="deptUse">
 					</div>
@@ -180,7 +180,7 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="positionModalData"> <input
+						<input type="text" id="positionModalData" class="modal_id"> <input
 							type="button" class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="positionUse">
 					</div>
@@ -207,7 +207,7 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="jobModalData"> <input type="button"
+						<input type="text" id="jobModalData" class="modal_id"> <input type="button"
 							class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="jobUse">
 					</div>
@@ -234,7 +234,7 @@
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="dutyModalData"> <input
+						<input type="text" id="dutyModalData" class="modal_id"> <input
 							type="button" class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="dutyUse">
 					</div>

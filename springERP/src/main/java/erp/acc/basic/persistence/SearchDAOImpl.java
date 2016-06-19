@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import erp.acc.basic.domain.AccountAllView;
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.domain.NoteAllSearchDateSet;
@@ -99,15 +100,20 @@ public class SearchDAOImpl implements SearchDAO {
 		return session.selectList(namespace+".promissoryPaymentIdList", note_id);
 	}
 
-	@Override
-	public List<Promissory> promissoryIdCheck(String word) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Promissory> promissoryNoteAll(NoteAllSearchDateSet nas) throws Exception {
 		return session.selectList(namespace+".promissoryNoteAllSearch", nas);
+	}
+
+	@Override
+	public List<Promissory> promissoryIdCheck(String word) throws Exception {
+		return null;
+	}
+
+	@Override
+	public List<AccountAllView> incomeAllview() throws Exception {
+		return null;
 	}
 
 }

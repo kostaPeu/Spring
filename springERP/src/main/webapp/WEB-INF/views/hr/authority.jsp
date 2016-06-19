@@ -115,7 +115,7 @@ $(function() {
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="deptModalData"> <input
+						<input type="text" id="deptModalData" class="modal_id"> <input
 							type="button" class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="deptUse">
 					</div>
@@ -167,15 +167,15 @@ $(function() {
 					<br>
 					<div class="form-group">
 						<label for="search_contents">직원이름</label> <input type="text"
-							class="form-control input-sm" id="keyword_input" name="e_name">
-						<button id='findEMP' class="btn btn-sm">검색</button>
+							class="input-sm" id="keyword_input" name="e_name">
+						<button type="button" class="btn btn-default search_group" id="findEMP"><span class="fa fa-search"></span></button>
 					</div>
 
 					<table id="empTable" class="table table-bordered table-hover">
 
 					</table>
 					<div id="useBtnArea">
-						<input type="text" id="empModalData"> <input type="button"
+						<input type="text" id="empModalData" class="modal_id"> <input type="button"
 							class="btn btn-default center useBtn" value="사용"
 							data-dismiss="modal" id="empUse">
 					</div>

@@ -17,7 +17,15 @@
 
 <!-- Custom Style -->
 <link rel="stylesheet" href="/resources/common/css/common.css">
-
+<link rel="stylesheet" href="/resources/hr/css/emp.css">
+<style type="text/css">
+.message_head th, .message_body td{
+	text-align: center;
+}
+body{
+	margin: 20px;
+}
+</style>
 <script type="text/javascript">
 	function fn_send_message(){
 		location.href="/message/sendForm?emp_id="+$('#log_id').val()+"&receive_id=";
@@ -63,6 +71,7 @@
 	});
 </script>
 <script src="/resources/common/js/csrf.js" type="text/javascript"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -72,8 +81,8 @@
 		<div class="pull-right">
 			<div class="form-group">
 				<label for="search_contents">찾을내용</label> <input type="text"
-					class="form-control input-sm" id="keyword_input" name="keyword">
-				<button id='messageSearch' class="btn btn-sm">메세지검색</button>
+					class="input-sm" id="keyword_input" name="keyword">
+				<button type="button" class="btn btn-default search_group" id="messageSearch"><span class="fa fa-search"></span></button>
 			</div>
 		</div>
 		<div class="container-fluid">
@@ -87,7 +96,7 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${list }" var="messageViewVO">
-						<tr class="emp_info_body">
+						<tr class="message_body">
 							<td><input type="checkbox" class="upSelect check_id"
 								name="id_box" value="${messageViewVO.message_id }"></td>
 							<c:choose>

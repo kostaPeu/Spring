@@ -15,7 +15,7 @@
 						<li><a href="/stock/rp/stockRP_search">재고수불부</a></li>
 					</ul>
 				</li>
-				<li><a href="/stock/rp/insert_form">재고현황</a></li>
+				<li><a href="/stock/rp/stock_list">재고현황</a></li>
 			</ul>
 	</div>
 </body>

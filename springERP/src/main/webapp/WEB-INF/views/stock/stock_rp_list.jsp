@@ -8,8 +8,6 @@
 <link href="/resources/stock/css/stock_rp_list.css" rel="stylesheet">
 </head>
 <body>
-
-	<h2 class="page_title">재고수불부</h2>
 <c:forEach var="s" items="${list }" varStatus="status">
 	<div class="rp_div">
 		<h3>재고수불부 [${status.index+1}]</h3>
@@ -44,7 +42,7 @@
 				</c:choose>
 				<td>${s.stock_amount }</td>
 			</tr>
-			<tr>
+<!-- 			<tr>
 				<td colspan="2" style="text-align: center;"><strong>[ 2016년 3월 월계 ]</strong></td>
 				<td></td>
 				<td></td>
@@ -68,7 +66,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-			</tr>
+			</tr> -->
 		</table>
 	</div>
 	</c:forEach>

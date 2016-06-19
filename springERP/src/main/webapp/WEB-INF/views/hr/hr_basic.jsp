@@ -24,6 +24,7 @@
 				<span>&times;</span>
 			</button>
 		</div>
+		<br>
 		<div class="container-fluid">
 			<div class="col-md-12">
 				<table class="table table-condensed table table-bordered">
