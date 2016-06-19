@@ -27,7 +27,7 @@
 
 </head>
 <body>
-	<div class="row" style="width: 1500px">
+	<div class="row" style="width: 1280px">
 	<!-- 프로젝트 , 부서일정 START-->
 		<div class="col-sm-6">
 			<div role="tabpanel">
@@ -68,7 +68,7 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container" style="width: 230px; height: 200px; margin: 0 auto"></div>
+			<div id="container" style="width: 300px; height: 210px; margin: 0 auto"></div>
 			
 		<hr>
 		</div>
@@ -93,14 +93,14 @@
 		</div>
 		<div class="col-sm-3 pull-right">
 			<h2 class="page_title"></h2>
-			<div id="container2" style="width: 230px; height: 230px; margin: 0 auto"></div>
+			<div id="container2" style="width: 300px; height: 230px; margin: 0 auto"></div>
 		<hr>
 		</div>		
 	</div>
 		
 	</div>
 	
-	<div class="row" style="width: 1500px">
+	<div class="row" style="width: 1280px">
 
 		<div class="col-sm-6">
 			<h2 class="page_title">재고 현황</h2>
@@ -116,15 +116,15 @@
 				</thead>
 		
 				<tbody>
-					<c:if test="${list.size()-1 >=0}">
+					<c:if test="${stockList.size()-1 >=0}">
 						<c:forEach var="i" begin="0" end="2" step="1">
 							<tr class="row">
-								<td class="col-sm-32">${list.get(i).getDept_board_id()}</td>
-								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
-								<td class="col-sm-2">${list.get(i).getDept_board_id()}</td>
-								<td class="col-sm-3">${list.get(i).getDept_board_id()}</td>
+								<td class="col-sm-32">${stockList.get(i).getProduct_name()}</td>
+								<td class="col-sm-2">${stockList.get(i).getStock_amount()}</td>
+								<td class="col-sm-2">${stockList.get(i).getInout_type}</td>
+								<td class="col-sm-3">${stockList.get(i).getInout_amount}</td>
 								<td class="col-sm-3">
-									<fmt:formatDate value="${list.get(i).getDept_board_date() }" pattern="yyyy-MM-dd" />
+									<fmt:formatDate value="${stockList.get(i).getInout_date }" pattern="yyyy-MM-dd" />
 								</td>
 							</tr>
 						</c:forEach>

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import erp.basic.domain.Product;
+import erp.stock.domain.MainStockList;
 import erp.stock.domain.StockCalendar;
 import erp.stock.domain.StockList;
 import erp.stock.domain.StockRP;
@@ -60,6 +61,11 @@ public class StockRPDAOImpl implements StockRPDAO {
 	@Override
 	public List<StockList> stockList() throws Exception {
 		return session.selectList(namespace+".stockList");
+	}
+
+	@Override
+	public List<MainStockList> mainStock() throws Exception {
+		return session.selectList(namespace+".mainStock");
 	}
 
 	

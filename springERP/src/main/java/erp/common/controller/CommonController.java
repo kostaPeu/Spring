@@ -29,7 +29,8 @@ import erp.common.service.MessageService;
 import erp.hr.domain.EmployeeVO;
 import erp.hr.domain.EmployeeViewVO;
 import erp.hr.domain.SearchCriteriaHR;
-
+import erp.stock.domain.MainStockList;
+import erp.stock.service.StockRPService;
 import erp.common.domain.PageMaker;
 import erp.common.domain.SearchCriteria;
 import erp.common.service.CommonService;
@@ -46,6 +47,8 @@ public class CommonController {
 	private NoticeService noticeService;
 	@Inject
 	private DeptBoardService deptBoardService;
+	@Inject
+	private StockRPService stockRPService;
 	@Inject
 	private CommonService commonService;
 	
@@ -79,6 +82,11 @@ public class CommonController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(noticeService.listSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+	public void mainStock(Model model) throws Exception{
+		List<MainStockList> mainStockList = stockRPService.mainStock();
+		model.addAttribute("stockList", mainStockList);
 	}
 	
 	public void mainDeptBoard(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{

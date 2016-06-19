@@ -47,7 +47,6 @@ $(function() {
 		$('#ex_date30').on("click", function() {
 			if (reddate != null) {
 				reddate.setDate(reddate.getDate() + 30);
-				alert(reddate);
 				var year = reddate.getFullYear();
 				var month = reddate.getMonth() + 1;
 				var day = reddate.getDate();
@@ -332,8 +331,7 @@ $(function() {
 			html += '<td>' + list.dept_id + '</td>';
 			html += '<td>' + list.proj_id + '</td>';
 			html += '<td class="getsums">' + list.sums + '</td>';
-			html += '<td>' + list.remarks + '</td>';
-			
+			html += '<td>' + list.remarks + '</td>';			
 			html += '</tr>';
 		});
 		$('.n_searchTable').append(html);
