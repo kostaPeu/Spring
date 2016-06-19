@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
@@ -22,38 +22,38 @@
 				<input type='hidden' name='searchType' value="${cri.searchType}">
 				<input type='hidden' name='keyword' value="${cri.keyword}">
 				<div class="form-group">
-					<label for="lateness_label" class="col-sm-2 control-label">지각</label>
+					<label for="lateee" class="col-sm-2 control-label">지각</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name="lateness" value="${indolInfoVO.lateness }">
+						<input type="text" id="lateee" class="form-control" name="lateness" value="${indolInfoVO.lateness }">
 					</div>
 					<input type="hidden" name="emp_id" value="${indolInfoVO.emp_id }">
 				</div>
 
 				<div class="form-group">
-					<label for="absence_label" class="col-sm-2 control-label">결근</label>
+					<label for="absenceeee" class="col-sm-2 control-label">결근</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="absence"
-							value="${indolInfoVO.absence }">
+							value="${indolInfoVO.absence }" id="absenceeee">
 					</div>
-					<label for="vacation_label"
+					<label for="vaca"
 						class="col-sm-2 col-sm-offset-1 control-label">휴가</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="vacation"
-							value="${indolInfoVO.vacation }">
+							value="${indolInfoVO.vacation }" id="vaca">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="half_annual_label" class="col-sm-2 control-label">반차</label>
+					<label for="hanu" class="col-sm-2 control-label">반차</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="half_annual"
-							value="${indolInfoVO.half_annual }">
+							value="${indolInfoVO.half_annual }" id="hanu">
 					</div>
-					<label for="annual_label"
+					<label for="anu"
 						class="col-sm-2 col-sm-offset-1 control-label">연차</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" name="annual"
-							value="${indolInfoVO.annual }">
+							value="${indolInfoVO.annual }" id="anu">
 					</div>
 				</div>
 				<div class="form-group">

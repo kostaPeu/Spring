@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
@@ -46,7 +46,7 @@ $(function(){
 	<div class="hr_body">
 		<div class="pull-right">
 			<div class="form-group">
-				<label for="search_employee">이름</label> 
+				<label for="emp_name_input">이름</label> 
 				<input type="text" class="input-sm" id="emp_name_input" name="emp_name">
 				<button type="button" class="btn btn-default search_group" id="empSearch"><span class="fa fa-search"></span></button>
 			</div>
