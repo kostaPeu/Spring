@@ -46,8 +46,8 @@
      <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
     <authentication-manager>
       <authentication-provider user-service-ref="customJdbcDaoImpl">   
-			 <password-encoder ref="bcryptPasswordEncoder"/>
-       </authentication-provider>
+ 			 <password-encoder ref="bcryptPasswordEncoder"/>
+        </authentication-provider>
    </authentication-manager>
     
    <beans:bean id="customJdbcDaoImpl" class="erp.login.CustomJdbcDaoImpl">
