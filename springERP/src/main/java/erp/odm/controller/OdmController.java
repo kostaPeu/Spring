@@ -119,6 +119,7 @@ public class OdmController {
 			System.out.println("delivery_id : ");
 			System.out.println(list.get(i).getDelivery_id());
 		}
+		
 		model.addAttribute("list", list);
 		model.addAttribute("left", "odm/odm.jsp");
 		model.addAttribute("contents", "odm/odm_deliveryList.jsp");
