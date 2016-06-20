@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
@@ -114,13 +114,13 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="message-text" class="control-label">카드번호</label>
-							<input class="form-control" type="text" placeholder="카드번호" name="card_number">
+							<label for="aa" class="control-label">카드번호</label>
+							<input class="form-control" type="text" placeholder="카드번호" name="card_number" id="aa">
 						</div>
 
 						<div class="form-group">
-							<label for="message-text" class="control-label">카드명</label>
-							<input class="form-control" type="text" placeholder="카드명"	name="card_name">
+							<label for="bb" class="control-label">카드명</label>
+							<input class="form-control" type="text" placeholder="카드명"	name="card_name" id="bb">
 						</div>						
 						<div class="form-group">
 							<label for="message-text" class="control-label">계좌번호</label>
@@ -139,10 +139,10 @@
 							<input class="hiddenIds" type="hidden" name="emp_id">
 						</div>						
 						<div class="form-group">
-								<label for="message-text" class="control-label">계정코드</label>
+								<label for="cc" class="control-label">계정코드</label>
 								<button data-toggle="modal" data-target="#diagnosisSearch_modal" type="button" class="btn btn-default btn-sm diagnosis_number_search" id="diagnosis_number_search">
 								<span class="fa fa-search"></span></button>
-								<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
+								<input class="form-control diagnosis_number" id="cc" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
 								</div>	
 						<div class="form-group">
 							<label for="recipient-name" class="control-label">사용여부</label>
@@ -156,9 +156,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="message-text" class="control-label">비고</label><input
+							<label for="dd" class="control-label">비고</label><input
 								class="form-control" type="text" placeholder="비고"
-								name="remarks">
+								name="remarks" id="dd">
 						</div>
 						<div class="modal-footer">
 							<input type="submit" class="btn btn-default" value="저장">
@@ -203,13 +203,13 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="message-text" class="control-label">카드번호</label>
+							<label for="card_number_update" class="control-label">카드번호</label>
 							<input class="form-control" type="text" placeholder="카드번호" name="card_number" id="card_number_update">
 						</div>
 
 						<div class="form-group">
-							<label for="message-text" class="control-label">카드명</label>
-							<input class="form-control" type="text" placeholder="카드명"	name="card_name">
+							<label for="ee" class="control-label">카드명</label>
+							<input class="form-control" type="text" placeholder="카드명"	name="card_name" id="ee">
 						</div>						
 						<div class="form-group">
 							<label for="message-text" class="control-label">계좌번호</label>
@@ -245,9 +245,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="message-text" class="control-label">비고</label><input
+							<label for="ff" class="control-label">비고</label><input
 								class="form-control" type="text" placeholder="비고"
-								name="remarks">
+								name="remarks" id="ff">
 						</div>
 						<div class="modal-footer">
 							<input type="submit" class="btn btn-default" value="저장">

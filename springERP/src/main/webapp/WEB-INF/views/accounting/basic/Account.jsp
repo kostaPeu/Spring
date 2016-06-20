@@ -98,12 +98,12 @@
 						<div class="modal-body">
 							<div class="form-group">
 								<div class="form-group">
-									<label for="message-text" class="control-label">계좌번호</label>
-									<input class="form-control" type="text" placeholder="계좌번호"	name="account_number">
+									<label for="aa" class="control-label">계좌번호</label>
+									<input class="form-control" type="text" placeholder="계좌번호"	name="account_number" id="aa">
 								</div>
 								<div class="form-group">
-									<label for="message-text" class="control-label">계좌명</label>
-									<input class="form-control" type="text" placeholder="계좌명"	name="account_name">
+									<label for="" class="bb">계좌명</label>
+									<input class="form-control" type="text" placeholder="계좌명"	name="account_name" id="bb">
 								</div>								
 								<div class="form-group">
 									<label for="message-text" class="control-label">계정코드</label>
@@ -112,8 +112,8 @@
 									<input class="form-control diagnosis_number" type="text" placeholder="계정코드" name="diagnosis_number" id="diagnosis_number">
 								</div>								
 								<div class="form-group">
-									<label for="message-text" class="control-label">검색창내용</label>
-									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail">
+									<label for="cc" class="control-label">검색창내용</label>
+									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail" id="cc">
 								</div>
 								
 								<div class="form-group">
@@ -129,8 +129,8 @@
 								</div>
 								
 								<div class="form-group">
-									<label for="message-text" class="control-label">비고</label>
-									<input class="form-control" type="text" placeholder="비고"name="remarks">
+									<label for="dd" class="control-label">비고</label>
+									<input class="form-control" type="text" placeholder="비고"name="remarks" id="dd">
 								</div>
 								
 								<div class="modal-footer">
@@ -163,12 +163,12 @@
 						<div class="modal-body">
 							<div class="form-group">
 								<div class="form-group">
-									<label for="message-text" class="control-label">계좌번호</label>
+									<label for="account_number_update" class="control-label">계좌번호</label>
 									<input class="form-control" id="account_number_update" type="text" placeholder="계좌번호"	name="account_number">
 								</div>
 								<div class="form-group">
-									<label for="message-text" class="control-label">계좌명</label>
-									<input class="form-control" type="text" placeholder="계좌명"	name="account_name">
+									<label for="ee" class="control-label">계좌명</label>
+									<input class="form-control" type="text" placeholder="계좌명"	name="account_name" id="ee">
 								</div>	
 														
 								<div class="form-group">
@@ -179,8 +179,8 @@
 								</div>			
 														
 								<div class="form-group">
-									<label for="message-text" class="control-label">검색창내용</label>
-									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail">
+									<label for="ff" class="control-label">검색창내용</label>
+									<input class="form-control" type="text" placeholder="검색창내용" name="account_detail" id="ff">
 								</div>
 								
 								<div class="form-group">
@@ -196,8 +196,8 @@
 								</div>
 								
 								<div class="form-group">
-									<label for="message-text" class="control-label">비고</label>
-									<input class="form-control" type="text" placeholder="비고"name="remarks">
+									<label for="gg" class="control-label">비고</label>
+									<input class="form-control" type="text" placeholder="비고"name="remarks" id="gg">
 								</div>
 								
 								<div class="modal-footer">

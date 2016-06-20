@@ -5,7 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
@@ -75,7 +75,7 @@
                   <div class="modal-body">
                      <div class="form-group">
                         <div class="form-group">
-                           <label for="message-text" class="control-label">프로젝트 번호</label>
+                           <label for="updateProj_id" class="control-label">프로젝트 번호</label>
                            <input type="hidden" id="updateProj_id" name="proj_id">
                            <input class="form-control" type="text" id="updateProj_id" name="proj_id">
                         </div>
