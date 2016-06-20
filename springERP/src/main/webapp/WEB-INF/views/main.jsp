@@ -36,13 +36,11 @@
 <!-- Script -->
 <script src="/webjars/jquery/2.0.0/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="">
+<!-- <script type="text/javascript">
 $(function() {
-	console.log('a');
 	$('#contents').css('margin-left',margin)
 });
-
-</script>
+</script> -->
 <!-- Custom Script -->
 <!-- <script src="/resources/common/js/csrf.js"></script> -->
 <!-- <script src="/resources/common/js/common.js" type="text/javascript"></script> -->
@@ -62,7 +60,7 @@ $(function() {
 	<!-- logo start -->
 	<div class="erp-global-nav-qm">
 		<div class="qm-company-logo col-sm-2">
-			<a href="/main" ><span></span></a>
+			<a href="/main" ><img src="/resources/common/images/SMERP.png" alt=""></a>
 		</div>
 		<div class="hello pull-right">
 			<span class="delicious-spam"> <a id="a-in-spam"	href="./main.jsp?left=./mypage/view/mypage.jsp"><%=name%></a>님

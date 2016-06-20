@@ -3,6 +3,7 @@ package erp.acc.basic.persistence;
 import java.util.List;
 
 import erp.acc.basic.domain.AccountAllView;
+import erp.acc.basic.domain.AccountAllViewDateSet;
 import erp.acc.basic.domain.Accounts;
 import erp.acc.basic.domain.Diagnosiss;
 import erp.acc.basic.domain.NoteAllSearchDateSet;
@@ -56,5 +57,5 @@ public interface SearchDAO {
 
 	//어음원장
 	public List<Promissory> promissoryNoteAll(NoteAllSearchDateSet nas) throws Exception;
-	public List<AccountAllView> incomeAllview ()throws Exception;
+	public List<AccountAllView> incomeAllview (AccountAllViewDateSet dateSet)throws Exception;
 }

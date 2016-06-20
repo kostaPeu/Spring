@@ -2,8 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
+<title>POWER ERP</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="/resources/common/ckeditor/ckeditor.js"></script>
 
@@ -16,17 +17,17 @@
 		<input type="hidden" name="notice_id" value="${notice.notice_id }">
 
 		<div class="write_header">
-			<label class="control-label col-sm-1" for="title">제목</label>
+			<label class="control-label col-sm-1" for="noticeEditTitle">제목</label>
 			<div class="col-sm-11">
-				<input type="text" class="form-control" name="notice_title"
+				<input id="noticeEditTitle" type="text" class="form-control" name="notice_title"
 					placeholder="제목 입력" value="${notice.notice_title }">
 			</div>
 		</div>
 
 		<div id="write_content">
-			<label class="control-label col-sm-1" for="content">내용</label>
+			<label class="control-label col-sm-1" for="noticeEditContent">내용</label>
 			<div class="col-sm-11">
-				<textarea class="ckeditor" cols="1" name="notice_content" rows="15">
+				<textarea id="noticeEditContent" class="ckeditor" cols="1" name="notice_content" rows="15">
 					${notice.notice_content }
 				</textarea>
 			</div>

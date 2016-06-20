@@ -41,4 +41,9 @@ public class ShareFolderDaoImpl implements ShareFolderDao{
 		session.delete(namespace + ".deleteFile", file_id);
 	}
 
+	@Override
+	public String getEname(String emp_id) throws Exception {
+		return session.selectOne(namespace + ".getEname", emp_id);
+	}
+
 }

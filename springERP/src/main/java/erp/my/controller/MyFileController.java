@@ -42,14 +42,24 @@ public class MyFileController {
 	@RequestMapping("")
 	public String myfileMain(HttpServletRequest request, Model model) throws Exception{
 		
-		String[] arr = request.getSession().getServletContext().getRealPath("/").split("/");
-		String path ="";
-		for (int i=0; i<3; i++){
-			path += arr[i] + "/"; 
-		}
+		String[] arr = request.getSession().getServletContext().getRealPath("/").split("\\\\");
 		
-		path += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+		for(int i=0; i<arr.length; i++){
+			System.out.println("간다!!!"+arr[i]);
+			
+		}
+			
+		String path ="";
+//		for (int i=0; i<3; i++){
+//			path += arr[i] + "/"; 
+//		}
+		
+//		path += "git/Spring/springERP/src/main/webapp/resources/groupware/upload";
+		path += "C:/Users/pado/git/Spring/springERP/src/main/webapp/resources/mypage/upload";
 		uploadPath = path;
+		
+//		path += "git/Spring/springERP/src/main/webapp/resources/mypage/upload";
+//		uploadPath = path;
 		
 		System.out.println(uploadPath);
 		System.out.println();
@@ -254,7 +264,7 @@ public class MyFileController {
 	
 //	@ResponseBody
 	@RequestMapping(value="/deleteFile", method=RequestMethod.POST)
-	public String deleteFile(MultipartHttpServletRequest request) throws Exception{
+	public String deleteFile(MultipartHttpServletRequest request, Model model) throws Exception{
 		
 		String[] strarr = request.getParameterValues("fileCheck");
 		
@@ -284,7 +294,11 @@ public class MyFileController {
 			new File(uploadPath + folderFile.getUpload_file()).delete();
 			service.deleteFile(file_id);
 		}
-		return "/mypage/my_file";
+		
+		model.addAttribute("left", "mypage/mypage.jsp");
+		model.addAttribute("contents", "mypage/my_file/my_file.jsp");
+		
+		return "redirect:/mypage/my_file";
 	}
 	
 }

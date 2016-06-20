@@ -9,4 +9,5 @@ public interface ShareFolderDao {
 	public List<FolderFileVO> listFile() throws Exception;
 	public FolderFileVO selectFile(int share_folder_id) throws Exception;
 	public void deleteFile(int share_folder_id) throws Exception;
+	public String getEname(String emp_id) throws Exception;
 }

@@ -54,7 +54,8 @@ public class ShareFolderController {
 //			path += arr[i] + "/"; 
 //		}
 		
-		path += "C:\\Users\\Han\\git\\Spring3\\springERP\\src\\main\\webapp\\resources\\groupware\\upload";
+//		path += "git/Spring/springERP/src/main/webapp/resources/groupware/upload";
+		path += "C:/Users/pado/git/Spring/springERP/src/main/webapp/resources/groupware/upload";
 		uploadPath = path;
 		
 		System.out.println(uploadPath);
@@ -62,6 +63,7 @@ public class ShareFolderController {
 		
 		List<FolderFileVO> list = service.listFile();
 		
+		model.addAttribute("e_name", service.getEname(CommonService.getEmployeeId()));
 		model.addAttribute("list",list);
 		model.addAttribute("left", "groupware/groupware.jsp");
 		model.addAttribute("contents", "groupware/dept_board/share_folder.jsp");
@@ -137,7 +139,7 @@ public class ShareFolderController {
 	
 	@ResponseBody
 	@RequestMapping("/displayFile")
-	public ResponseEntity<byte[]>  displayFile(String fileName) throws Exception{
+	public ResponseEntity<byte[]>  displayFile(String fileName, Model model) throws Exception{
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
 		
@@ -260,7 +262,7 @@ public class ShareFolderController {
 	
 //	@ResponseBody
 	@RequestMapping(value="/deleteFile", method=RequestMethod.POST)
-	public String deleteFile(MultipartHttpServletRequest request) throws Exception{
+	public String deleteFile(MultipartHttpServletRequest request, Model model) throws Exception{
 		
 		String[] strarr = request.getParameterValues("fileCheck");
 		
@@ -290,7 +292,11 @@ public class ShareFolderController {
 			new File(uploadPath + folderFile.getUpload_file()).delete();
 			service.deleteFile(file_id);
 		}
-		return "/groupware/dept_board/share_folder";
+		
+		model.addAttribute("left", "groupware/groupware.jsp");
+		model.addAttribute("contents", "groupware/dept_board/share_folder.jsp");
+		
+		return "redirect:/groupware/share_folder";
 	}
 	
 }

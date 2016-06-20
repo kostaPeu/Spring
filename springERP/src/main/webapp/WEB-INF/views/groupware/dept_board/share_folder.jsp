@@ -5,8 +5,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="ko">
 <head>
+<title>POWER ERP</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="_csrf" content="${_csrf.token}"/>
 <meta name="_csrf_header" content="${_csrf.headerName}"/>
@@ -96,7 +97,7 @@ $(function(){
 							<div class="item_text">
 								<span class="item_title" value="${list.get(i).getFile_name() }">${list.get(i).getFile_name() }</span>
 								<span class="item_size">${list.get(i).getFile_size() }</span>
-								<span class="item_writer">${list.get(i).getEmp_id() }</span>
+								<span class="item_writer">${e_name}</span>
 							</div>
 					  </label>
 					</div>

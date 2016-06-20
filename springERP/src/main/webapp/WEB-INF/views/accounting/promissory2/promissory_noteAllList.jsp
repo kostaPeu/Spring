@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>구매 현황 목록</h2>
+<h2>어음 목록</h2>
 	<table class="table table-bordered table-hover new">
 		<thead>
 			<tr>

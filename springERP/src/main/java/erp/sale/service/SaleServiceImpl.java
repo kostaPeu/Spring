@@ -17,6 +17,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import erp.basic.domain.Product;
 import erp.basic.persistence.BasicProductDAO;
@@ -44,11 +46,21 @@ public class SaleServiceImpl implements SaleService {
 	@Inject
 	private BasicProductDAO bdao;
 	
+	@Transactional
 	@Override
 	public void insertSale(SaleVO vo) throws Exception {
 		Product p = bdao.getProduct(vo.getProduct_id());
 		vo.setSell_price(p.getPrice_out());
-		dao.addSale(vo);
+		try {
+			dao.addSale(vo);
+			dao.addXmlDataSell(vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+		}
+		
+		
+		
 	}
 
 	@Override

@@ -34,4 +34,9 @@ public class ShareFolderServiceImpl implements ShareFolderService {
 	public void deleteFile(int file_id) throws Exception {
 		dao.deleteFile(file_id);
 	}
+
+	@Override
+	public String getEname(String emp_id) throws Exception {
+		return dao.getEname(emp_id);
+	}
 }

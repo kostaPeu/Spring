@@ -3,8 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<html>
+<html lang="ko">
 <head>
+<title>POWER ERP</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="/resources/common/ckeditor/ckeditor.js"></script>
 <link rel="stylesheet" href="/resources/common/css/common.css">
@@ -17,17 +18,17 @@
 	<form:form id="writeForm" role="form" method="post">
 	
 		<div class="write_header content-group">
-			<label class="control-label col-sm-1" for="title">제목</label>
+			<label class="control-label col-sm-1" for="deptbWriteTitle">제목</label>
 			<div class="col-sm-11">
-				<input type="text" class="form-control" name="dept_board_title"
+				<input id="deptbWriteTitle" type="text" class="form-control" name="dept_board_title"
 					placeholder="제목 입력">
 			</div>
 		</div>
 
 		<div id="write_content content-group">
-			<label class="control-label col-sm-1" for="content">내용</label>
+			<label class="control-label col-sm-1" for="deptbWriteContent">내용</label>
 			<div class="col-sm-11">
-				<textarea class="ckeditor" cols="133" name="dept_board_content" rows="15"></textarea>
+				<textarea id="deptbWriteContent" class="ckeditor" cols="133" name="dept_board_content" rows="15"></textarea>
 			</div>
 		</div>
 			

@@ -11,20 +11,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		funds_plan (
 		moneytype, typelist, funds_id, repeat_unit, start_date,
 		periods, dept_id, proj_id,
-		account_number, diagnosis_number,
+		account_id, diagnosis_number,
 		customer_id, sums, remarks
 		) values(
 		#{moneytype}, #{typelist},
 		#{funds_id}, #{repeat_unit},
 		#{start_date}, #{periods}, #{dept_id},
-		#{proj_id}, #{account_number}, #{diagnosis_number}, #{customer_id},
+		#{proj_id}, #{account_id}, #{diagnosis_number}, #{customer_id},
 		#{sums}, #{remarks}
 		)
 	</insert>
 
 	<select id="moneyPlanList" resultType="MoneyPlanTimeSet">
-		SELECT * FROM funds_plan
-		where moneytype = 'Cash'
+	SELECT TYPELIST, START_DATE ,PERIODS, SUMS, A.ACCOUNT_NUMBER ,C.CUSTOMER_NAME, F.REMARKS  FROM funds_plan F, CUSTOMER C, ACCOUNTS A
+		where moneytype = 'Cash' AND F.ACCOUNT_ID = A.ACCOUNT_ID
 	</select>
 
 	<select id="moneyPlnapromissoryList" resultType="MoneyPlanTimeSet">
@@ -38,7 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		funds_id = #{funds_id}, repeat_unit =
 		#{repeat_unit},
 		start_date =#{start_date}, periods = #{periods},
-		account_number = #{account_number}, diagnosis_number =
+		account_id = #{account_id}, diagnosis_number =
 		#{diagnosis_number},
 		customer_id = #{customer_id}, sums = #{sums},
 		remarks = #{remarks}

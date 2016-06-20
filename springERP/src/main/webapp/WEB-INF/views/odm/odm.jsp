@@ -12,10 +12,10 @@
 			<li><a class="" data-target="#one" data-toggle="collapse" href="javascript:;">주문관리</a>
 				<ul id="one" class="collapse local" style="">
 					<li><a href="/odm/odm_collectForm">주문수집</a></li>
-					<li><a href="orderList.odm">주문리스트</a></li>
+					<li><a href="/odm/orderCollect">주문리스트</a></li>
 				</ul>
 			</li>					
-			<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_deliveryList.jsp">배송리스트</a></li>
+			<li><a href="/odm/odm_deliveryList">배송리스트</a></li>
 <!-- 			<li><a href="./main.jsp?left=./odm/view/odm.jsp&contents=./odm/view/odm_crList.jsp">취소/환불 관리</a></li>					
 			<li><a class="" data-target="#two" data-toggle="collapse" href="javascript:;">C/S 관리</a>
 				<ul id="two" class="collapse local" style="">
